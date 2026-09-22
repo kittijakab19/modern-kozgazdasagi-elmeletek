@@ -196,6 +196,7 @@
   .tf-seg button[data-v="0"]:hover:not(:disabled){color:var(--bad)}
   .tf-why{font-size:13px;color:var(--ink-2);margin-top:9px;padding-top:9px;border-top:1px dashed var(--line-strong)}
   .tf-why b{color:var(--ink);font-weight:700}
+  .tf-why .solution{display:inline-block;font-family:var(--mono);font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--bad);border:1px solid var(--bad);border-radius:99px;padding:1px 8px;margin-right:6px}
 
   .fb{margin-top:20px;border-top:1px solid var(--line);padding-top:16px;display:grid;gap:12px}
   .verdict{display:flex;align-items:center;gap:9px;font-weight:700;font-size:15px}
@@ -1934,13 +1935,14 @@ function checkTF(){
     var row = rows[ix], hit = state.tf[ix] === it.a;
     if(hit) good++;
     row.classList.add(hit ? "right" : "wrong");
+    // a saját jelölésed marad kiemelve — a sor háttere mutatja, hogy jó volt-e
     Array.prototype.forEach.call(row.querySelectorAll(".tf-seg button"), function(b){
       b.disabled = true;
-      b.setAttribute("aria-pressed", String((b.dataset.v === "1") === it.a));
     });
     var w = document.createElement("div");
     w.className = "tf-why";
-    w.innerHTML = "<b>" + (it.a ? "Igaz." : "Hamis.") + "</b> " + esc(it.w);
+    w.innerHTML = (hit ? "" : '<span class="solution">Helyesen: ' + (it.a ? "igaz" : "hamis") + '</span> ') +
+                  "<b>" + (it.a ? "Igaz." : "Hamis.") + "</b> " + esc(it.w);
     row.appendChild(w);
   });
   var val = good / 4;
