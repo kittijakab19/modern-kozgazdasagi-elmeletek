@@ -61,6 +61,9 @@
   [data-topic="tarsadalmi"]{--hue:var(--t-tarsadalmi)}
   [data-topic="vallas"]{--hue:var(--t-vallas)}
   [data-topic="alternativ"]{--hue:var(--t-alternativ)}
+  [data-lect="1"]{--hue:var(--t-alap)}
+  [data-lect="2"]{--hue:var(--t-vilag)}
+  [data-lect="3"]{--hue:var(--t-kieg,var(--t-tarsadalmi))}
 
   *{box-sizing:border-box}
   body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--ui);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
@@ -239,6 +242,8 @@
   .brow .meter i.low{opacity:.4} .brow .meter i.mid{opacity:.72}
   .brow .pc{font-family:var(--mono);font-size:11.5px;text-align:right;color:var(--muted);font-variant-numeric:tabular-nums}
   .statsnote{margin-top:16px;font-size:13.5px;color:var(--muted)}
+  .sechead{font-family:var(--display);font-size:15.5px;font-weight:700;letter-spacing:-.015em;margin:24px 0 10px}
+  #segFilter{margin-bottom:12px}
 
   /* tételvázlat */
   details.note{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--hue);border-radius:var(--r);margin-top:10px;box-shadow:var(--shadow-s);overflow:hidden}
@@ -324,7 +329,11 @@
     </nav>
 
     <div class="panel" id="topicsPanel">
-      <span class="lbl">Témakörök</span>
+      <span class="lbl">Miből kérdezzen</span>
+      <div class="seg" id="segFilter">
+        <button type="button" data-v="topic" aria-pressed="true">Témakör</button>
+        <button type="button" data-v="lecture" aria-pressed="false">Előadás</button>
+      </div>
       <div class="topics" id="topics"></div>
       <div class="topics-foot">
         <button class="linkbtn" type="button" id="topics-all">Mind</button>
@@ -1557,10 +1566,30 @@ const Q = [
 "use strict";
 
 var LS = "mke-trener-v1";
+var LECTURES = [
+  {id:"1", name:"01. Bevezetés",           full:"01. előadás — Bevezetés: érték, klasszikusok, merkantilizmus, Marx"},
+  {id:"2", name:"02. Világgazdaság",       full:"02. előadás — A világgazdaság együttműködési rendszerei"},
+  {id:"3", name:"03. Alternatív elméletek", full:"03. előadás — Alternatív közgazdasági elméletek"}
+];
+function lecturesOf(q){
+  if(!q._lec){
+    var out = [], re = /0(\d)\. előadás/g, m;
+    while((m = re.exec(q.s))) if(out.indexOf(m[1]) < 0) out.push(m[1]);
+    q._lec = out.length ? out : ["1"];
+  }
+  return q._lec;
+}
+function inLecture(q){
+  var ls = lecturesOf(q);
+  for(var i = 0; i < ls.length; i++) if(st.lectures.indexOf(ls[i]) >= 0) return true;
+  return false;
+}
 var EXAM_ORDER = ["v1","m1","p1","a2","e1","y11","k7","e2","e3"];
 
 var store = {first:{}, seen:{}, sched:{}, round:0, answered:0, correct:0, streak:0, best:0,
-             settings:{topics:TOPICS.map(function(t){return t.id;}), len:0}};
+             settings:{topics:TOPICS.map(function(t){return t.id;}),
+                       lectures:LECTURES.map(function(l){return l.id;}),
+                       filter:"topic", len:0}};
 try{
   var raw = localStorage.getItem(LS);
   if(raw){
@@ -1569,6 +1598,8 @@ try{
       ["first","seen","sched","round","answered","correct","streak","best"].forEach(function(k){ if(p[k] !== undefined) store[k] = p[k]; });
       if(p.settings){
         if(p.settings.topics) store.settings.topics = p.settings.topics;
+        if(p.settings.lectures) store.settings.lectures = p.settings.lectures;
+        if(p.settings.filter === "topic" || p.settings.filter === "lecture") store.settings.filter = p.settings.filter;
         // a korábbi verzió „Kérdéskör” beállítása megszűnt: ilyenkor minden kérdés jön
         if(p.settings.mode === undefined && typeof p.settings.len === "number") store.settings.len = p.settings.len;
       }
@@ -1623,6 +1654,7 @@ function dueCount(){
 }
 
 function quizPool(){
+  if(st.filter === "lecture") return Q.filter(inLecture);
   return Q.filter(function(q){ return st.topics.indexOf(q.t) >= 0; });
 }
 function examDeck(){
@@ -1633,19 +1665,38 @@ function examDeck(){
 
 /* ---------------- bal sáv ---------------- */
 function renderRail(){
-  var box = el("topics"), html = "";
-  TOPICS.forEach(function(t){
-    var n = Q.filter(function(q){ return q.t === t.id; }).length;
-    html += '<label data-topic="'+t.id+'"><input type="checkbox" data-t="'+t.id+'"'+(st.topics.indexOf(t.id)>=0?" checked":"")+
-      '><i class="dot"></i><span class="tx" title="'+esc(t.name)+'">'+esc(t.name)+'</span><span class="n">'+n+'</span></label>';
+  var box = el("topics"), html = "", byLecture = st.filter === "lecture";
+
+  Array.prototype.forEach.call(el("segFilter").querySelectorAll("button"), function(b){
+    b.setAttribute("aria-pressed", String(st.filter === b.dataset.v));
+    b.onclick = function(){
+      if(st.filter === b.dataset.v) return;
+      st.filter = b.dataset.v; save(); state.view = "quiz"; newRound();
+    };
   });
+
+  if(byLecture){
+    LECTURES.forEach(function(L){
+      var n = Q.filter(function(q){ return lecturesOf(q).indexOf(L.id) >= 0; }).length;
+      html += '<label data-lect="'+L.id+'" title="'+esc(L.full)+'"><input type="checkbox" data-l="'+L.id+'"'+(st.lectures.indexOf(L.id)>=0?" checked":"")+
+        '><i class="dot"></i><span class="tx">'+esc(L.name)+'</span><span class="n">'+n+'</span></label>';
+    });
+  } else {
+    TOPICS.forEach(function(t){
+      var n = Q.filter(function(q){ return q.t === t.id; }).length;
+      html += '<label data-topic="'+t.id+'"><input type="checkbox" data-t="'+t.id+'"'+(st.topics.indexOf(t.id)>=0?" checked":"")+
+        '><i class="dot"></i><span class="tx" title="'+esc(t.name)+'">'+esc(t.name)+'</span><span class="n">'+n+'</span></label>';
+    });
+  }
   box.innerHTML = html;
+
   Array.prototype.forEach.call(box.querySelectorAll("input"), function(inp){
     inp.addEventListener("change", function(){
-      var id = inp.dataset.t, ix = st.topics.indexOf(id);
-      if(inp.checked && ix < 0) st.topics.push(id);
-      if(!inp.checked && ix >= 0) st.topics.splice(ix, 1);
-      if(!st.topics.length){ st.topics.push(id); inp.checked = true; }
+      var list = byLecture ? st.lectures : st.topics;
+      var id = byLecture ? inp.dataset.l : inp.dataset.t, ix = list.indexOf(id);
+      if(inp.checked && ix < 0) list.push(id);
+      if(!inp.checked && ix >= 0) list.splice(ix, 1);
+      if(!list.length){ list.push(id); inp.checked = true; }
       save();
       state.view = "quiz";
       newRound();
@@ -1713,12 +1764,23 @@ function newRound(){
   state.ok = 0; state.bad = 0; state.score = 0; state.max = 0; state.done = false; state.misses = [];
   render();
 }
+function filterLine(){
+  if(st.filter === "lecture"){
+    var names = LECTURES.filter(function(l){ return st.lectures.indexOf(l.id) >= 0; })
+                        .map(function(l){ return l.name; });
+    return "Előadás szerint: " + (names.length === LECTURES.length ? "mind a három" : names.join(" · "));
+  }
+  var n = st.topics.length;
+  return "Témakör szerint: " + (n === TOPICS.length ? "mind a " + n : n + " kiválasztva");
+}
 function mixLine(){
   var m = state.mix || {}, parts = [];
   if(m.fresh) parts.push("<b>" + m.fresh + "</b> új");
   if(m.repeat) parts.push("<b>" + m.repeat + "</b> ismétlés");
   if(m.review) parts.push("<b>" + m.review + "</b> felfrissítés");
-  return parts.length ? '<p class="mixline">Ebben a körben: ' + parts.join(" · ") + "</p>" : "";
+  return parts.length
+    ? '<p class="mixline">' + esc(filterLine()) + ' — ebben a körben: ' + parts.join(" · ") + "</p>"
+    : "";
 }
 
 /* ---------------- nézetek ---------------- */
@@ -1971,6 +2033,17 @@ function renderStats(){
       '<div class="meter"><i class="'+(pct < 50 ? "low" : (pct < 80 ? "mid" : ""))+'" style="width:'+(seen.length ? pct : 0)+'%"></i></div>'+
       '<div class="pc">'+(seen.length ? pct + "% · " + seen.length + "/" + qs.length : "0/" + qs.length)+'</div></div>';
   });
+  html += '</div><h3 class="sechead">Előadásonként</h3><div class="brows">';
+  LECTURES.forEach(function(L){
+    var qs = Q.filter(function(q){ return lecturesOf(q).indexOf(L.id) >= 0; });
+    var seen = qs.filter(function(q){ return store.first[q.id]; });
+    var val = seen.reduce(function(a, q){ return a + (store.first[q.id] === "ok" ? 1 : (store.first[q.id] === "partial" ? .5 : 0)); }, 0);
+    var pc = seen.length ? Math.round(val / seen.length * 100) : 0;
+    html += '<div class="brow" data-lect="'+L.id+'">'+
+      '<div class="nm"><i></i><span title="'+esc(L.full)+'">'+esc(L.name)+'</span></div>'+
+      '<div class="meter"><i class="'+(pc < 50 ? "low" : (pc < 80 ? "mid" : ""))+'" style="width:'+(seen.length ? pc : 0)+'%"></i></div>'+
+      '<div class="pc">'+(seen.length ? pc + "% · " + seen.length + "/" + qs.length : "0/" + qs.length)+'</div></div>';
+  });
   html += '</div><p class="statsnote">Az ismétlési ütemező a hibázott kérdéseket a következő körbe teszi vissza, a biztosan tudottakat pedig 2 · 3 · 5 · 8 · 13 kör múlva hozza elő újra. A haladás ebben a böngészőben marad meg; a bal oldali „Haladás törlése” gombbal nullázható.</p>';
   el("main").innerHTML = html;
 }
@@ -1985,8 +2058,16 @@ el("nav").addEventListener("click", function(ev){
   if(v === "quiz" || v === "exam") newRound(); else render();
   window.scrollTo({top:0, behavior:"smooth"});
 });
-el("topics-all").onclick = function(){ st.topics = TOPICS.map(function(t){ return t.id; }); save(); state.view = "quiz"; newRound(); };
-el("topics-none").onclick = function(){ st.topics = [TOPICS[0].id]; save(); state.view = "quiz"; newRound(); };
+el("topics-all").onclick = function(){
+  if(st.filter === "lecture") st.lectures = LECTURES.map(function(l){ return l.id; });
+  else st.topics = TOPICS.map(function(t){ return t.id; });
+  save(); state.view = "quiz"; newRound();
+};
+el("topics-none").onclick = function(){
+  if(st.filter === "lecture") st.lectures = [LECTURES[0].id];
+  else st.topics = [TOPICS[0].id];
+  save(); state.view = "quiz"; newRound();
+};
 el("theme-btn").onclick = function(){
   var root = document.documentElement, cur = root.getAttribute("data-theme");
   var dark = cur ? cur === "dark" : window.matchMedia("(prefers-color-scheme: dark)").matches;
