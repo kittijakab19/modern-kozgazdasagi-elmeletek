@@ -1,0 +1,2037 @@
+<!doctype html>
+<html lang="hu">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+<meta name="googlebot" content="noindex, nofollow">
+<style>
+  :root{color-scheme:light dark;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+  body{margin:0;font:14px system-ui,-apple-system,sans-serif;background:#F1F0F7}
+  img{max-width:100%}
+  [hidden]{display:none!important}
+</style>
+<title>Modern Közgazdasági Elméletek</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Figtree:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  :root{
+    --bg:#F1F0F7; --surface:#FFFFFF; --surface-2:#F7F6FC; --surface-3:#ECEAF6;
+    --ink:#16133A; --ink-2:#514B76; --muted:#7A7399;
+    --line:#E3E0F1; --line-strong:#C9C3E4;
+    --accent:#4B31D6; --accent-ink:#3A24B0; --accent-soft:#EAE5FF; --onaccent:#FFFFFF;
+    --hot:#E8542A;
+    --good:#0E8A5F; --good-soft:#DDF2E9;
+    --bad:#CF3B3B; --bad-soft:#FBE4E2;
+    --warn:#A96F0C; --warn-soft:#FBEFD8;
+    --t-alap:#4B31D6; --t-klassz:#0C8B8B; --t-merk:#BB6710; --t-marx:#BE3459;
+    --t-vilag:#2A6FE0; --t-keynes:#5A8A12; --t-tarsadalmi:#8A3CC9; --t-vallas:#A63A8A; --t-alternativ:#12806A;
+    --hue:var(--accent);
+    --r:12px;
+    --shadow-s:0 1px 2px rgba(22,19,58,.06);
+    --shadow-m:0 2px 4px rgba(22,19,58,.05), 0 14px 32px -22px rgba(22,19,58,.55);
+    --display:"Archivo","Helvetica Neue",Arial,sans-serif;
+    --ui:"Figtree","Helvetica Neue",Arial,sans-serif;
+    --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#0C0A18; --surface:#15122C; --surface-2:#1B1737; --surface-3:#231E45;
+      --ink:#EDEBF8; --ink-2:#BEB7DC; --muted:#9C95C2;
+      --line:#272148; --line-strong:#3E3670;
+      --accent:#A392FF; --accent-ink:#C5BAFF; --accent-soft:#251D50; --onaccent:#0C0A18;
+      --hot:#FF8259;
+      --good:#4ECB95; --good-soft:#123326;
+      --bad:#F07A6F; --bad-soft:#351D1F;
+      --warn:#E3A94A; --warn-soft:#33260F;
+      --t-alap:#9C8CFF; --t-klassz:#39C8C0; --t-merk:#E9A44E; --t-marx:#F0708F;
+      --t-vilag:#6BA6FF; --t-keynes:#A8CF56; --t-tarsadalmi:#C78BF5; --t-vallas:#EE93D2; --t-alternativ:#4FC9A8;
+      --shadow-s:0 1px 2px rgba(0,0,0,.45);
+      --shadow-m:0 2px 4px rgba(0,0,0,.4), 0 16px 34px -24px #000;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#0C0A18; --surface:#15122C; --surface-2:#1B1737; --surface-3:#231E45;
+    --ink:#EDEBF8; --ink-2:#BEB7DC; --muted:#9C95C2;
+    --line:#272148; --line-strong:#3E3670;
+    --accent:#A392FF; --accent-ink:#C5BAFF; --accent-soft:#251D50; --onaccent:#0C0A18;
+    --hot:#FF8259;
+    --good:#4ECB95; --good-soft:#123326;
+    --bad:#F07A6F; --bad-soft:#351D1F;
+    --warn:#E3A94A; --warn-soft:#33260F;
+    --t-alap:#9C8CFF; --t-klassz:#39C8C0; --t-merk:#E9A44E; --t-marx:#F0708F;
+    --t-vilag:#6BA6FF; --t-keynes:#A8CF56; --t-tarsadalmi:#C78BF5; --t-vallas:#EE93D2; --t-alternativ:#4FC9A8;
+    --shadow-s:0 1px 2px rgba(0,0,0,.45);
+    --shadow-m:0 2px 4px rgba(0,0,0,.4), 0 16px 34px -24px #000;
+  }
+  [data-topic="alap"]{--hue:var(--t-alap)}
+  [data-topic="klassz"]{--hue:var(--t-klassz)}
+  [data-topic="merk"]{--hue:var(--t-merk)}
+  [data-topic="marx"]{--hue:var(--t-marx)}
+  [data-topic="vilag"]{--hue:var(--t-vilag)}
+  [data-topic="keynes"]{--hue:var(--t-keynes)}
+  [data-topic="tarsadalmi"]{--hue:var(--t-tarsadalmi)}
+  [data-topic="vallas"]{--hue:var(--t-vallas)}
+  [data-topic="alternativ"]{--hue:var(--t-alternativ)}
+
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--ui);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+  button,input,select{font:inherit;color:inherit}
+  h1,h2,h3{margin:0;text-wrap:balance}
+  :focus-visible{outline:2px solid var(--hue);outline-offset:2px;border-radius:5px}
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+  .topband{position:fixed;inset:0 0 auto 0;height:3px;z-index:60;
+    background:linear-gradient(90deg,var(--t-alap),var(--t-klassz) 17%,var(--t-merk) 34%,var(--t-marx) 50%,var(--t-vilag) 66%,var(--t-keynes) 75%,var(--t-vallas) 87%,var(--t-alternativ))}
+
+  .wrap{max-width:none;margin:0;padding:26px 26px 72px;display:grid;grid-template-columns:272px minmax(0,1fr);gap:30px;align-items:start}
+  @media (min-width:1600px){.wrap{grid-template-columns:304px minmax(0,1fr);gap:38px;padding:28px 40px 72px}}
+  @media (max-width:940px){
+    .wrap{display:flex;flex-direction:column;gap:16px;padding:16px 16px 52px}
+    .rail{position:static;display:contents}
+    .brand{order:1} .nav{order:2} main{order:3} #topicsPanel{order:4} #setupPanel{order:5} .railfoot{order:6}
+    .nav{flex-direction:row;gap:6px;overflow-x:auto;padding-bottom:2px}
+  }
+
+  /* ---------- bal sáv ---------- */
+  .rail{position:sticky;top:22px;display:flex;flex-direction:column;gap:20px}
+  .brand{display:grid;grid-template-columns:auto 1fr;gap:0 12px;align-items:center}
+  .brand .mark{
+    grid-row:span 2;width:40px;height:40px;border-radius:12px;display:grid;place-items:center;
+    font-family:var(--display);font-weight:800;font-size:19px;letter-spacing:-.02em;color:var(--onaccent);
+    background:linear-gradient(145deg,var(--accent),var(--t-vallas));box-shadow:0 6px 16px -8px var(--accent);
+  }
+  .brand h1{font-family:var(--display);font-weight:800;font-size:19.5px;letter-spacing:-.03em;line-height:1.12}
+  .brand p{margin:5px 0 0;font-size:11.5px;color:var(--muted);font-family:var(--mono);line-height:1.5}
+  .nav{display:flex;flex-direction:column;gap:2px}
+  .nav button{
+    display:flex;align-items:center;justify-content:space-between;gap:10px;background:none;border:0;
+    padding:9px 11px;border-radius:10px;cursor:pointer;text-align:left;color:var(--ink-2);font-weight:600;
+    white-space:nowrap;transition:background .12s,color .12s;
+  }
+  .nav button:hover{background:var(--surface-2);color:var(--ink)}
+  .nav button[aria-current="true"]{background:var(--accent-soft);color:var(--accent-ink);box-shadow:inset 3px 0 0 var(--accent)}
+  .nav .n{font-family:var(--mono);font-size:11px;color:var(--muted);font-weight:400}
+  .nav button[aria-current="true"] .n{color:var(--accent-ink)}
+
+  .panel{border:1px solid var(--line);background:var(--surface-2);border-radius:var(--r);padding:14px}
+  .lbl{font-family:var(--mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);margin-bottom:9px;display:block}
+  .topics{display:flex;flex-direction:column;gap:1px}
+  .topics label{display:flex;align-items:center;gap:9px;padding:6px;border-radius:8px;cursor:pointer;font-size:13.5px;color:var(--ink-2)}
+  .topics label:hover{background:var(--surface)}
+  .topics input{accent-color:var(--hue);margin:0;width:14px;height:14px;flex:none}
+  .topics .dot{width:9px;height:9px;border-radius:3px;background:var(--hue);flex:none}
+  .topics .tx{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .topics .n{font-family:var(--mono);font-size:11px;color:var(--muted)}
+  .topics-foot{display:flex;gap:8px;margin-top:8px;padding-top:9px;border-top:1px dashed var(--line-strong)}
+  .linkbtn{background:none;border:0;padding:0;color:var(--muted);font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;cursor:pointer}
+  .linkbtn:hover{color:var(--accent-ink)}
+
+  .seg{display:flex;border:1px solid var(--line-strong);border-radius:9px;overflow:hidden;background:var(--surface-3)}
+  .seg button{flex:1;background:none;border:0;padding:7px 4px;font-size:12.5px;cursor:pointer;color:var(--ink-2);border-right:1px solid var(--line)}
+  .seg button:last-child{border-right:0}
+  .seg button[aria-pressed="true"]{background:var(--surface);color:var(--ink);font-weight:700;box-shadow:inset 0 -2px 0 var(--accent)}
+  .field + .field{margin-top:13px}
+  .hint{font-size:12px;color:var(--muted);margin:9px 0 0}
+  .railfoot{display:flex;gap:8px;flex-wrap:wrap}
+
+  .btn{border:1px solid var(--line-strong);background:var(--surface);padding:10px 16px;border-radius:9px;cursor:pointer;font-weight:700;font-size:14px;transition:border-color .12s,background .12s,transform .12s}
+  .btn:hover{border-color:var(--muted)}
+  .btn.primary{background:var(--accent);border-color:var(--accent);color:var(--onaccent)}
+  .btn.primary:hover{background:var(--accent-ink);border-color:var(--accent-ink)}
+  .btn.ghost{background:none;border-color:transparent;color:var(--muted);padding:8px 10px;font-weight:600;font-size:12.5px}
+  .btn.ghost:hover{background:var(--surface-2);color:var(--ink)}
+  .btn:disabled{opacity:.45;cursor:not-allowed}
+
+  /* ---------- jobb oldal ---------- */
+  main{min-width:0;display:block}
+  .viewhead{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:6px}
+  .viewhead h2{font-family:var(--display);font-size:clamp(20px,2.6vw,26px);font-weight:800;letter-spacing:-.03em}
+  .viewhead .vnum{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--hot)}
+  .viewlede{color:var(--muted);font-size:14px;margin:0 0 18px;max-width:70ch}
+
+  .bar{display:flex;align-items:center;gap:14px;margin-bottom:16px;flex-wrap:wrap}
+  .track{flex:1;min-width:120px;height:6px;background:var(--surface-3);border:1px solid var(--line);border-radius:99px;overflow:hidden}
+  .track i{display:block;height:100%;background:var(--hue);width:0;transition:width .3s cubic-bezier(.4,0,.2,1)}
+  .count{font-family:var(--mono);font-size:12.5px;color:var(--ink-2);font-variant-numeric:tabular-nums;white-space:nowrap}
+  .tally{font-family:var(--mono);font-size:12.5px;font-variant-numeric:tabular-nums;white-space:nowrap}
+  .tally .g{color:var(--good)} .tally .r{color:var(--bad)}
+
+  @keyframes rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+  .card{
+    background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--hue);
+    border-radius:var(--r);box-shadow:var(--shadow-m);overflow:hidden;animation:rise .26s ease both;
+  }
+  .card-top{display:flex;flex-wrap:wrap;gap:9px;align-items:center;justify-content:space-between;padding:12px 22px;background:var(--surface-2);border-bottom:1px solid var(--line)}
+  .tagrow{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+  .tag{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:3px 9px;border-radius:99px;border:1px solid var(--line-strong);color:var(--muted)}
+  .tag.topic{color:var(--hue);border-color:var(--hue)}
+  .tag.exam{color:var(--warn);border-color:var(--warn);background:var(--warn-soft)}
+  .tag.pts{color:var(--hot);border-color:var(--hot)}
+  .tag.new{color:var(--good);border-color:var(--good);background:var(--good-soft)}
+  .tag.repeat{color:var(--bad);border-color:var(--bad);background:var(--bad-soft)}
+  .mixline{font-family:var(--mono);font-size:11.5px;color:var(--muted);margin:8px 0 0}
+  .mixline b{color:var(--ink);font-weight:500}
+  .card-body{padding:22px 24px 24px}
+  @media (max-width:640px){.card-body{padding:18px 16px 20px}.card-top{padding:11px 16px}}
+  .qlead{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:0 0 10px}
+  .q{font-family:var(--display);font-size:clamp(19px,2.3vw,24px);font-weight:700;line-height:1.26;letter-spacing:-.022em;margin:0;max-width:56ch}
+  .qsub{font-size:13px;color:var(--muted);margin:10px 0 0;max-width:62ch}
+
+  .opts{display:flex;flex-direction:column;gap:9px;margin-top:20px}
+  .opt{display:flex;gap:12px;align-items:flex-start;text-align:left;width:100%;font-size:15px;line-height:1.45;color:var(--ink);
+    background:var(--surface);border:1px solid var(--line-strong);border-radius:10px;padding:12px 14px;cursor:pointer;
+    box-shadow:var(--shadow-s);transition:border-color .12s,background .12s,transform .12s}
+  .opt:hover:not(:disabled){border-color:var(--hue);background:var(--surface-2);transform:translateX(3px)}
+  .opt:disabled{cursor:default}
+  .opt .k{flex:none;font-family:var(--mono);font-size:12px;width:24px;height:24px;border-radius:7px;display:grid;place-items:center;border:1px solid var(--line-strong);color:var(--muted);margin-top:1px}
+  .opt.right{border-color:var(--good);background:var(--good-soft)}
+  .opt.right .k{border-color:var(--good);background:var(--good);color:var(--surface)}
+  .opt.wrong{border-color:var(--bad);background:var(--bad-soft)}
+  .opt.wrong .k{border-color:var(--bad);background:var(--bad);color:var(--surface)}
+
+  .tf-list{display:flex;flex-direction:column;gap:10px;margin-top:20px}
+  .tf-item{border:1px solid var(--line-strong);border-radius:10px;padding:12px 14px;background:var(--surface);box-shadow:var(--shadow-s)}
+  .tf-item.right{border-color:var(--good);background:var(--good-soft)}
+  .tf-item.wrong{border-color:var(--bad);background:var(--bad-soft)}
+  .tf-row{display:flex;gap:14px;align-items:flex-start;justify-content:space-between;flex-wrap:wrap}
+  .tf-text{font-size:14.5px;line-height:1.45;flex:1 1 220px}
+  .tf-seg{display:flex;flex:none;border:1px solid var(--line-strong);border-radius:8px;overflow:hidden;background:var(--surface)}
+  .tf-seg button{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;background:none;color:var(--muted);border:0;padding:7px 12px;cursor:pointer}
+  .tf-seg button + button{border-left:1px solid var(--line-strong)}
+  .tf-seg button[data-v="1"][aria-pressed="true"]{background:var(--good);border-color:var(--good);color:var(--onaccent)}
+  .tf-seg button[data-v="0"][aria-pressed="true"]{background:var(--bad);border-color:var(--bad);color:var(--onaccent)}
+  .tf-seg button[data-v="1"]:hover:not(:disabled){color:var(--good)}
+  .tf-seg button[data-v="0"]:hover:not(:disabled){color:var(--bad)}
+  .tf-why{font-size:13px;color:var(--ink-2);margin-top:9px;padding-top:9px;border-top:1px dashed var(--line-strong)}
+  .tf-why b{color:var(--ink);font-weight:700}
+
+  .fb{margin-top:20px;border-top:1px solid var(--line);padding-top:16px;display:grid;gap:12px}
+  .verdict{display:flex;align-items:center;gap:9px;font-weight:700;font-size:15px}
+  .verdict.ok{color:var(--good)} .verdict.no{color:var(--bad)}
+  .verdict .mark{width:21px;height:21px;border-radius:50%;display:grid;place-items:center;background:currentColor;flex:none}
+  .verdict .mark span{color:var(--surface);line-height:1;font-size:12px}
+  .why{background:var(--surface-2);border:1px solid var(--line);border-left:3px solid var(--hue);border-radius:0 10px 10px 0;padding:14px 16px}
+  .why p{margin:0;font-size:14.5px;line-height:1.55;max-width:74ch}
+  .why .src{display:block;font-family:var(--mono);font-size:11px;color:var(--muted);margin-top:10px}
+  .fbrow{display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:space-between}
+  .kbd{font-family:var(--mono);font-size:11px;color:var(--muted)}
+  .kbd b{border:1px solid var(--line-strong);border-bottom-width:2px;border-radius:5px;padding:1px 5px;font-weight:400}
+
+  /* eredmény */
+  .resultcard{background:var(--surface);border:1px solid var(--line);border-top:4px solid var(--accent);border-radius:var(--r);box-shadow:var(--shadow-m);padding:26px 24px}
+  .score{display:flex;align-items:baseline;gap:12px;font-family:var(--display)}
+  .score .big{font-size:54px;font-weight:800;letter-spacing:-.04em;line-height:1;color:var(--accent);font-variant-numeric:tabular-nums}
+  .score .of{font-size:17px;color:var(--muted);font-weight:600}
+  .resultcard p{color:var(--ink-2);margin:12px 0 18px;max-width:58ch;font-size:14.5px}
+  .misses{display:grid;gap:1px;margin:4px 0 18px}
+  .miss{display:flex;justify-content:space-between;gap:14px;padding:9px 0;border-bottom:1px solid var(--line);font-size:14px}
+  .miss:last-child{border-bottom:0}
+  .miss b{font-weight:600;color:var(--ink)}
+  .miss span{color:var(--muted);font-family:var(--mono);font-size:11.5px;white-space:nowrap}
+
+  /* haladás */
+  .tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-bottom:22px}
+  .tile{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:15px 17px;box-shadow:var(--shadow-s)}
+  .tile:nth-child(1){border-top:3px solid var(--t-alap)}
+  .tile:nth-child(2){border-top:3px solid var(--t-klassz)}
+  .tile:nth-child(3){border-top:3px solid var(--t-merk)}
+  .tile:nth-child(4){border-top:3px solid var(--t-marx)}
+  .tile .v{font-family:var(--display);font-size:29px;font-weight:800;letter-spacing:-.03em;line-height:1.1;font-variant-numeric:tabular-nums}
+  .tile .k{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:3px}
+  .brows{display:grid;gap:12px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:18px;box-shadow:var(--shadow-s)}
+  .brow{display:grid;grid-template-columns:1fr 92px;gap:8px 14px;align-items:center}
+  @media (min-width:620px){.brow{grid-template-columns:230px 1fr 92px}}
+  .brow .nm{font-size:13.5px;font-weight:600;display:flex;align-items:center;gap:9px;min-width:0}
+  .brow .nm i{width:9px;height:9px;border-radius:3px;background:var(--hue);flex:none}
+  .brow .nm span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .brow .meter{grid-column:1/-1;height:8px;border-radius:99px;background:var(--surface-3);border:1px solid var(--line);overflow:hidden}
+  @media (min-width:620px){.brow .meter{grid-column:auto}}
+  .brow .meter i{display:block;height:100%;background:var(--hue);border-radius:99px;transition:width .4s ease}
+  .brow .meter i.low{opacity:.4} .brow .meter i.mid{opacity:.72}
+  .brow .pc{font-family:var(--mono);font-size:11.5px;text-align:right;color:var(--muted);font-variant-numeric:tabular-nums}
+  .statsnote{margin-top:16px;font-size:13.5px;color:var(--muted)}
+
+  /* tételvázlat */
+  details.note{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--hue);border-radius:var(--r);margin-top:10px;box-shadow:var(--shadow-s);overflow:hidden}
+  details.note > summary{cursor:pointer;padding:14px 17px;font-family:var(--display);font-size:16px;font-weight:700;letter-spacing:-.02em;display:flex;gap:11px;align-items:center;list-style:none}
+  details.note > summary::-webkit-details-marker{display:none}
+  details.note > summary::before{content:"";flex:none;width:17px;height:17px;border-radius:5px;border:1.5px solid var(--hue);
+    background:linear-gradient(var(--hue),var(--hue)) center/8px 1.5px no-repeat,linear-gradient(var(--hue),var(--hue)) center/1.5px 8px no-repeat}
+  details.note[open] > summary::before{background:linear-gradient(var(--hue),var(--hue)) center/8px 1.5px no-repeat}
+  details.note > summary:hover{color:var(--hue)}
+  details.note > summary .lec{font-family:var(--mono);font-size:10px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);margin-left:auto;flex:none;text-align:right}
+  .note-body{padding:14px 20px 18px;border-top:1px solid var(--line)}
+  .note-body h3{font-family:var(--mono);font-size:10.5px;font-weight:500;letter-spacing:.13em;text-transform:uppercase;margin:18px 0 8px;color:var(--hue)}
+  .note-body h3:first-child{margin-top:0}
+  .note-body ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px}
+  .note-body li{font-size:14.5px;line-height:1.55;max-width:88ch}
+  .note-body li::marker{color:var(--hue)}
+  .note-body .slide{font-family:var(--mono);font-size:10.5px;color:var(--muted)}
+
+  /* 0,5 pont */
+  .audit{background:var(--surface);border:1px solid var(--line);border-top:4px solid var(--warn);border-radius:0 0 var(--r) var(--r);padding:22px;box-shadow:var(--shadow-s)}
+  .audit h3{font-family:var(--display);font-size:16.5px;margin:24px 0 8px;font-weight:700;letter-spacing:-.02em}
+  .audit h3:first-of-type{margin-top:0}
+  .audit p{font-size:14.5px;margin:0 0 11px;line-height:1.58;max-width:82ch}
+  .audit ol,.audit ul{padding-left:19px;margin:0 0 11px;display:flex;flex-direction:column;gap:7px}
+  .audit li{font-size:14.5px;line-height:1.5;max-width:82ch}
+  .audit li::marker{color:var(--warn)}
+  .verdict-line{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--warn);margin:0 0 10px}
+  .audit table{width:100%;border-collapse:collapse;font-size:13.5px;margin:6px 0 14px;min-width:520px}
+  .audit th,.audit td{text-align:left;padding:9px 11px;border-bottom:1px solid var(--line);vertical-align:top}
+  .audit th{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:400;background:var(--surface-2)}
+  .audit td.ok{color:var(--good);font-family:var(--mono);font-size:11.5px}
+  .audit td.risk{color:var(--warn);font-family:var(--mono);font-size:11.5px}
+  .tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:10px}
+  .note-body .slide,.audit .slide{font-family:var(--mono);font-size:10.5px;color:var(--muted)}
+
+  .headrow{display:flex;gap:18px;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;margin-bottom:18px}
+  .headtext{min-width:0;flex:1 1 300px}
+  .headrow .viewhead{margin-bottom:6px}
+  .headrow .viewlede{margin-bottom:0}
+  .topctl{flex:none;display:flex;flex-direction:column;gap:7px;align-items:flex-end}
+  .topctl .lbl{margin:0}
+  .topctl-row{display:flex;gap:8px;align-items:center}
+  .topctl .seg{background:var(--surface)}
+  .topctl .seg button{flex:none;padding:8px 14px;font-size:13px}
+  .topctl .btn{padding:8px 14px;font-size:13.5px}
+  @media (max-width:700px){
+    .topctl{align-items:flex-start;width:100%}
+    .topctl-row{width:100%}
+    .topctl .seg{flex:1}
+    .topctl .seg button{flex:1}
+  }
+  .foot{margin-top:30px;font-size:12px;color:var(--muted);font-family:var(--mono);line-height:1.7;max-width:80ch}
+  .empty{color:var(--muted);padding:34px 0;text-align:center;font-size:15px}
+
+  /* keskeny kepernyo: a kerdes kerul elore, a beallitasok ala */
+  @media (max-width:940px){
+    .rail{position:static;display:contents}
+    .brand{order:1}
+    .nav{order:2;flex-direction:row;gap:6px;overflow-x:auto;padding-bottom:4px}
+    .nav button{border-radius:99px;border:1px solid var(--line);background:var(--surface);padding:8px 14px}
+    .nav button[aria-current="true"]{box-shadow:none;border-color:var(--accent)}
+    main{order:3}
+    #topicsPanel{order:4}
+    #setupPanel{order:5}
+    .railfoot{order:6}
+  }
+</style>
+
+<div class="topband" aria-hidden="true"></div>
+<div class="wrap">
+  <aside class="rail">
+    <div class="brand">
+      <span class="mark" aria-hidden="true">MK</span>
+      <h1>Modern Közgazdasági Elméletek</h1>
+      <p>01–03. előadás · <span id="brandN">0</span> kérdés</p>
+    </div>
+
+    <nav class="nav" id="nav">
+      <button type="button" data-view="quiz" aria-current="true">Gyakorlás <span class="n" id="nav-quiz"></span></button>
+      <button type="button" data-view="exam">Pluszpontos kérdések <span class="n">8,5 pont</span></button>
+      <button type="button" data-view="notes">Tételvázlat <span class="n">12 blokk</span></button>
+      <button type="button" data-view="stats">Haladás <span class="n" id="nav-stats"></span></button>
+    </nav>
+
+    <div class="panel" id="topicsPanel">
+      <span class="lbl">Témakörök</span>
+      <div class="topics" id="topics"></div>
+      <div class="topics-foot">
+        <button class="linkbtn" type="button" id="topics-all">Mind</button>
+        <button class="linkbtn" type="button" id="topics-none">Egyik sem</button>
+      </div>
+    </div>
+
+    <div class="railfoot">
+      <button class="btn ghost" type="button" id="theme-btn">Téma váltása</button>
+      <button class="btn ghost" type="button" id="reset-btn">Haladás törlése</button>
+    </div>
+  </aside>
+
+  <main id="main"></main>
+</div>
+
+<div id="tpl-notes" hidden>
+<details class="note" data-topic="alap" open>
+      <summary>Mi a közgazdaságtan? Érték, elosztás, erőforrások <span class="lec">01. ea · 13–21. dia</span></summary>
+      <div class="note-body">
+        <h3>13. dia — Mi a (KÖZ)GAZDASÁGTAN??</h3>
+        <ul>
+          <li>A közgazdaságtan azt vizsgálja, hogy a társadalmak hogyan használják fel a szűkös erőforrásokat értékes áruk előállítására és azok különböző emberek közötti elosztására. (Samuelson, P.)</li>
+        </ul>
+        <h3>14. dia — Mi az „érték”?</h3>
+        <ul>
+          <li>Szükséglet vagy vágy</li>
+          <li>Fizetési hajlandóság</li>
+          <li>Objektív VS Szubjektív</li>
+        </ul>
+        <h3>16. dia — Érték paradoxon</h3>
+        <ul>
+          <li>Érték fogalma VS. Csereérték</li>
+          <li>Adam Smith: <i>„Ezek a szabályok határozzák meg azt, amit a javak relatív vagy cserélhető értékének nevezhetünk. Meg kell jegyezni, hogy az »érték« szónak két különböző jelentése van, és néha kifejezi a) egy adott tárgy hasznosságát, (öröm, elégedettség) néha pedig b) más javak megvásárlásának képességét, amelyet az adott tárgy birtoklása hordoz magában”.</i> (csereérték)</li>
+          <li>Határhaszon: Bizonyos javak szubjektív értéke. (csökkenő hozadék)</li>
+        </ul>
+        <h3>18. dia — Elosztás</h3>
+        <ul>
+          <li>Állami kérdés</li>
+          <li>Személyes kérdés</li>
+          <li>Vagyoni különbségek</li>
+          <li>Társadalmi (szociális) különbségek</li>
+        </ul>
+        <h3>19. dia — Praktikus (gyakorlati) kérdések</h3>
+        <ul>
+          <li>A valóságban a preferenciák és a viselkedési normák folyamatosan változnak.</li>
+          <li>A legtöbb döntés hiányos információkkal születik.</li>
+          <li>Nem zárhatjuk ki a fogyasztás társadalmi, ökológiai és pszichológiai dimenzióit.</li>
+          <li>A profit vagy érték maximalizálása egy több lépésből álló folyamat: a fogyasztó elosztja jövedelmét a főbb termékcsoportok között; ezután kiválaszt egy adott terméket az egyes termékcsoportokon belüli jellemzői alapján.</li>
+          <li>A termék (szolgáltatás) jellemzői lehetnek objektívek és szubjektívek.</li>
+          <li>A kockázatkerülő fogyasztók azt a lehetőséget választják, amelynek nagyobb a valószínűsége (kockázati prémium).</li>
+          <li>Az intelligencia nem elválaszthatatlan a fogyasztói döntésekben! Mind az információhiány, mind az információdömping „káros” lehet, így a fogyasztók eltérő döntési képességgel rendelkeznek.</li>
+        </ul>
+        <h3>20. dia — Mikró VS. Makró-GAZDASÁGTAN</h3>
+        <ul>
+          <li>Egyedi entitások vs. a gazdaság teljesítménye összességében</li>
+          <li>Adam Smith (1723–1790) · John Maynard Keynes (1883–1946) · Friedrich Hayek (1899–1992)</li>
+        </ul>
+        <h3>21. dia — Erőforrások</h3>
+        <ul>
+          <li>Nyersanyagok (természeti tényezők) – Elsődleges</li>
+          <li>Munka (emberi erőforrások, idő) – Elsődleges</li>
+          <li>Tőke/eszközök (pénz, befektetés, alapok) – Másodlagos/származékos</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="note" data-topic="klassz">
+      <summary>Láthatatlan kéz — laissez faire <span class="lec">01. ea · 22–23. dia</span></summary>
+      <div class="note-body">
+        <h3>22. dia — Láthatatlan erők, amelyek az EGYENSÚLYBA mozdítják a gazdaságot</h3>
+        <ul>
+          <li>A piac önszabályozó mechanizmusa – Laissez Faire</li>
+          <li>Láthatatlan kéz</li>
+          <li>Adam Smith (Nemzetek gazdagsága): <i>Minden egyén arra törekszik, hogy tőkéjét úgy használja fel, hogy annak terméke a lehető legnagyobb értéket képviselje. Általában nem szándékozik a közérdeket előmozdítani, és nem is tudja, hogy ezt mennyire is teszi a valóságban. … Saját érdekének követésével gyakran hatékonyabban előmozdítja a társadalom érdekeit, mint amikor valójában szándékában áll előmozdítani azt.</i></li>
+          <li>A verseny, a termelés, a fogyasztók és a vállalatok alakítják a piacot, megváltoztatva a rendelkezésre álló termék árát és mennyiségét, bármilyen szervezet (állam) bevonása nélkül.</li>
+        </ul>
+        <h3>23. dia</h3>
+        <ul>
+          <li>John Stuart Mill 1836 <b>VS.</b> Kahneman and Tversky 1974</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="note" data-topic="merk">
+      <summary>Merkantilizmus és fiziokratizmus <span class="lec">01. ea · 24–25. dia</span></summary>
+      <div class="note-body">
+        <h3>24. dia — Merkantilizmus</h3>
+        <ul>
+          <li><b>Korai merkantilizmus.</b> Az állam szerepe: háborúk, ezért hadseregre van szükség, ezért jelentős az arany szerepe → nemesfémek exportjának tilalma, jelentős importkorlátozások (vámok).</li>
+          <li>Végeredmény: nem minden országnak lehet pozitív külkereskedelmi mérlege más országokból történő import nélkül.</li>
+          <li><b>Késői merkantilizmus.</b> Ipari nyersanyagok importja → az ipari termelés növelése érdekében.</li>
+          <li>A népességnövekedés támogatása → a nemzetgazdaság növekedésének alapfeltétele.</li>
+          <li>Spanyol ↔ angol (ipari kapitalizmus!) és francia merkantilisták.</li>
+        </ul>
+        <h3>25. dia — Physiocratism</h3>
+        <ul>
+          <li>A merkantilista gazdaságpolitika tönkreteszi a gazdaságot.</li>
+          <li>Recesszió a mezőgazdaságra nehezedő magas adóterhek, az infláció és az államadósság miatt.</li>
+          <li>„A természet uralma”, a közgazdászok első csoportja Franciaországban – François Quesnay.</li>
+          <li>Termelés és természetes folyamatai, az áruk használati értéke, hasznosság; a gazdaság belső egyensúlyának feltételei.</li>
+          <li>A gazdasági rendszer képes fenntartani magát állami beavatkozás nélkül → „laissez faire” gazdaságpolitika.</li>
+          <li>Ez egy önérdekkövető egyént feltételez: egy rendezett társadalomban mindenki másokért dolgozik abban a hitben, hogy magáért teszi; a magántulajdon tiszteletben tartása.</li>
+          <li>Tulajdonszabadság → jólét növekedése → egyenlőtlenség növekedése – de ez az egyéni képességek és a szerencse különbségeinek köszönhető, tehát természetes!!</li>
+          <li>Az általános jólét nem a magánérdek követéséből fejlődik ki: a „láthatatlan kéz” csak egy adott társadalmi környezetben működik megfelelően, egy rosszul szervezett társadalomban az önérdekkövető gazdasági tevékenység a társadalom szövetének lerombolásához vezet → jogi zsarnokságra van szükség (erős állam).</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="note" data-topic="marx">
+      <summary>A „tőke” termelési folyamata <span class="lec">01. ea · 27. dia</span></summary>
+      <div class="note-body">
+        <h3>27. dia — A „tőke” termelési folyamata</h3>
+        <ul>
+          <li>Marx feltárta a kapitalista termelési mód törvényeit.</li>
+          <li>Hogyan következik az osztályellentétek kialakulása a termelési módokból?</li>
+          <li>Áru (jószág), érték, csereérték és pénz (önkényes).</li>
+          <li>A pénz tőkévé alakulásának folyamata – kapitalista és munkás közötti ellentét.</li>
+          <li>A cél a többletérték (profit) létrehozása, ez a munkásnak köszönhető.</li>
+          <li>Abszolút többletérték: a munkanap meghosszabbítása.</li>
+          <li>Relatív többletérték: a munkások termelékenységének növekedése.</li>
+          <li>Viszont! … Bérek – önkényesen megállapítottak.</li>
+          <li>A munkát nem a termelési értékén fizetik = a megtermelt többletérték a kapitalistánál marad, amely felhalmozódik… így „osztály”különbségeket hoz létre.</li>
+          <li>A profitráta csökkenése → a válságok fő oka.</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="note" data-topic="vilag">
+      <summary>Korai gyarmatosítás – kolonizáció → imperializmus <span class="lec">02. ea · 4. dia</span></summary>
+      <div class="note-body">
+        <h3>4. dia — Korai gyarmatosítás – kolonizáció → imperializmus</h3>
+        <ul>
+          <li>15. század, inkább 16. század</li>
+          <li>Területszerzés; lakók alávetése – munkaerő kizsákmányolása; természeti erőforrások „kiaknázása”.</li>
+          <li>Amerika európai felfedezése (1492)</li>
+          <li>Afrika körülhajózása (1488)</li>
+          <li>Tengeri kereskedelmi útvonal megnyitása Európa és Ázsia között</li>
+          <li>Portugália, Spanyolország, Hollandia, Franciaország és Anglia…</li>
+          <li>Merkantilizmus; anyaországgal való kereskedelem</li>
+          <li>Telepes vs. kizsákmányoló; Politikai vs. kereskedelmi</li>
+          <li><b>Imperializmus – birodalmak kialakítása:</b> politikai alávetés; gazdasági kizsákmányolás; saját hatalmi rendszerbe való bekényszerítés; főként a 19–20. század fejlett tőkés országainak gyarmatosításai.</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="note" data-topic="klassz">
+      <summary>Klasszikus és neoklasszikus elméletek <span class="lec">02. ea · 5–6. dia</span></summary>
+      <div class="note-body">
+        <h3>5. dia — Klasszikus elméletek – előfutárok</h3>
+        <ul>
+          <li>D. Hume, A. Smith, D. Ricardo</li>
+          <li>A termelő, értékalkotó munka a gazdagodás forrása (munkaérték-elmélet).</li>
+          <li>A nemzetgazdaság és nemzetközi gazdaság – külkereskedelem között nincs rivalizálás.</li>
+          <li>Termelés bővítése – munka hatékonyság, termelékenység növelése, munkamegosztás bővítése.</li>
+          <li>Ez utóbbit segíti a „laissez faire” – önérdekkövetés (természetes emberi tulajdonság) + spontán piaci mechanizmusok (láthatatlan? kéz) + állami beavatkozás felszámolása.</li>
+          <li>Közjó gyarapodása a fentiek eredményeként.</li>
+          <li>A klasszikus nemzetközi gazdasági koncepció: Hume nemzetközi gazdasági egyensúly-mechanizmus felfogása; Komparatív előnyök és költségek tana – a nemzetközi munkamegosztás szabályozása.</li>
+        </ul>
+        <h3>6. dia — Neo-klasszikus</h3>
+        <ul>
+          <li>Korrigálta a klasszikus egyensúly-elméletet.</li>
+          <li>A kereslet-kínálat alaposabb megértése: preferenciák, termelési költségarányok stb.</li>
+          <li>A komparatív költségek újragondolása.</li>
+          <li>Az országok tényezőellátottságának hangsúlyozása…</li>
+          <li>Kéttényezős termelési függvény létrehozása: K – tőke (kapital) és L – munka (labour).</li>
+          <li>További közgazdasági iskolák megalapozója lett.</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="note" data-topic="keynes">
+      <summary>Keynes, Bretton Woods, Hayek, neoliberalizmus <span class="lec">02. ea · 8–11. dia</span></summary>
+      <div class="note-body">
+        <h3>8. dia — A keynesi elmélet és a nemzetközi gazdaságtan</h3>
+        <ul>
+          <li>A két világháború közötti ciklikusság: munkanélküliség; kapacitás kihasználatlanság; 1929. Nagy Világgazdasági Válság.</li>
+          <li>A keynesi forradalom (1936): „A foglalkoztatás, a kamat és a pénz általános elmélete” (Általános elmélet).</li>
+          <li>A piaci rendszer nem önszabályozó, egyensúlyi rendszer, hanem instabil.</li>
+          <li>Az állam a monetáris és a fiskális politika segítségével képes korrigálni a piac hibáit, és finomhangolással a társadalmi optimum közelében tartani a gazdasági egyensúlyt (vegyes gazdaság).</li>
+          <li>Az aggregált kereslet határozza meg a gazdasági fejlődést hosszú távon, erre makro szinten tud hatni az állam – monetáris és fiskális politika.</li>
+        </ul>
+        <h3>9. dia — Poszt-keynesiánus, reform irányzat</h3>
+        <ul>
+          <li>Bretton Woods (1944–1971).</li>
+          <li>USA – a világ árutermelésének majdnem felét, miközben kezében tartotta a Föld aranykészletének mintegy 80%-át → az arany értékén stabilizált amerikai dollár volt az új gazdasági rendszer szívcsakrája + szabad áramlás!!</li>
+          <li>Nixon lebegő valutává tette a dollárt.</li>
+          <li>Megteremtette a modern neoliberális gazdaságpolitika szellemi és szervezeti alapjait. WTO 1995!</li>
+          <li>A reformirányzat az országok gazdasági egyenlőtlenségeiből indult ki.</li>
+          <li>Dominancia, alárendeltség és egyirányú függő kapcsolatok (Magyarország); tehát nem létezik automatikus egyensúly a nemzetközi gazdaságban.</li>
+          <li>A külkereskedelem egyes országok számára kedvezőtlen, negatívan hat gazdasági fejlődésükre. Pl. egyoldalú specializáltság, prekapitalista intézményrendszer, a technológiatranszfer iránya a fejlett országok felé mutat, FDI Magyarországon??</li>
+          <li>A tőke „perverz” áramlása – nem oda megy feltétlenül, ahol nagy szükség volna rá.</li>
+        </ul>
+        <h3>10. dia — Friedrich August von Hayek (1899–1992)</h3>
+        <ul>
+          <li>KEYNES-HAYEK VITA / A TITÁNOK HARCA (1931/32 Hayek, Keynes és Piero Sraffa) alig több néhány homályos és személyeskedő hangvételű könyvrecenziónál az Economica és az Economic Journal-ban.</li>
+          <li>AZ ÁLLAMI BEAVATKOZÁS ÉS A SZABADPIAC ERÉNYEI: az aggregált kereslet kormányzati költekezés révén történő növelésének hatása; a beruházások és megtakarítások természetéről.</li>
+          <li>Keynes: az aggregált kereslet határozza meg a gazdasági fejlődést hosszú távon, erre makro szinten tud hatni az állam – monetáris és fiskális politika.</li>
+          <li>A vita pontjai: 1. Az állam szerepe · 2. Gazdasági ciklusok (business cycle) · 3. A monetáris politika hatásai · 4. Az egyén szerepe.</li>
+        </ul>
+        <h3>11. dia — Neoliberalizmus</h3>
+        <ul>
+          <li>Gazdaságpolitikai gyakorlat inkább – a klasszikus és neoklasszikus közgazdaságtan talaján az állam kivonulásának szükségét hirdeti… ?</li>
+          <li>„Laissez faire” – gazdasági liberalizáció – szabadpiaci spontaneitás.</li>
+          <li>Protekcionizmus ellenes, árszabályozó kartellek leleplezése, monopolisztikus erők nyakon csípése (sikerült???).</li>
+          <li>Monetarista felfogás – pénzfolyamatok szabadon hagyása (a deregularizált bankrendszerek negatív következményeit 2008-ban megismerhettük) + a pénzmennyiség befolyásolása.</li>
+          <li>A „jóléti állam” koncepciója súlyos károkat okoz a gazdaságnak.</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="note" data-topic="marx">
+      <summary>Szovjet oktatás, szocializmus, marxizmus, leninizmus, titoizmus <span class="lec">02. ea · 15–21. dia</span></summary>
+      <div class="note-body">
+        <h3>15. dia — Tudomány és oktatás</h3>
+        <ul>
+          <li>A rezsim azonnali érdeke a szakemberek képzése gyors gazdasági, politikai és katonai terjeszkedési programjának végrehajtásához, valamint hosszú távú érdeke az „új szovjet ember” megformálása.</li>
+          <li>Az embereknek különböző, de párhuzamos érdekei vannak: az új szovjet értelmiség gazdasági és társadalmi kiváltságai elérése és saját valódi tudásszomjuk kielégítése.</li>
+          <li>1914-ben Oroszország lakosságának 67 százaléka volt írástudatlan. 1939-ben kevesebb mint 20 százaléka volt írástudatlan.</li>
+          <li>1914-ben Oroszországban körülbelül 90 felsőoktatási intézmény működött, körülbelül 110 000 hallgatóval. 1952-ben mintegy 900 felsőoktatási intézmény működött, mintegy 974 000 nappali tagozatos hallgatóval.</li>
+          <li>Technológia, gépészet, hadipar, űrprogram kiszolgálása (vö. vallásellenesség).</li>
+        </ul>
+        <h3>17. dia — Szocializmus</h3>
+        <ul>
+          <li>A szocializmus, a társadalmi és gazdasági doktrína, amely a tulajdon és a természeti erőforrások állami, nem pedig magántulajdonát vagy ellenőrzését követeli meg.</li>
+          <li>A szocialista felfogás szerint az egyének nem elszigetelten élnek vagy dolgoznak, hanem egymással együttműködve élnek.</li>
+          <li>Továbbá minden, amit az emberek termelnek, bizonyos értelemben társadalmi termék, és mindenki, aki hozzájárul egy jószág előállításához, jogosult arra, hogy részesedjen belőle. Ezért a társadalom egészének birtokolnia kell a tulajdont valamennyi tagja javára.</li>
+          <li>Ez a meggyőződés a szocializmust állítja szembe a kapitalizmussal, amely a termelési eszközök magántulajdonán alapul, és lehetővé teszi az egyéni választásokat a szabad piacon annak meghatározására, hogyan oszlanak el az áruk és a szolgáltatások.</li>
+          <li>A szocialisták fő kapitalizmus kritikája, hogy a kapitalizmus szükségszerűen a vagyon és a hatalom igazságtalan és kizsákmányoló koncentrációjához vezet azon viszonylag kevesek kezében, akik győztesen kerülnek ki a szabadpiaci versenyből – olyan emberek kezében, akik vagyonukat és hatalmukat arra használják, hogy megerősítsék dominanciájukat a társadalomban.</li>
+        </ul>
+        <h3>18. dia — „Marxizmus”</h3>
+        <ul>
+          <li>Marx a piacgazdasági rendszert elemezte a „Das Kapital”-ban (A Tőke). Ebben a munkájában a klasszikus angol közgazdászok, Smith és Ricardo kategóriáinak többségét kölcsönzi, de adaptálja azokat, és új fogalmakat vezet be, például az értéktöbblet fogalmát.</li>
+          <li>A Das Kapital egyik megkülönböztető jegye, hogy Marx a gazdaság egészét vizsgálja, nem pedig annak egyik vagy másik aspektusát. Elemzése azon az elgondoláson alapul, hogy az emberek produktív lények, és minden gazdasági érték az emberi munkából származik.</li>
+          <li>De a tőkés kezében az egy nap leforgása alatt alkalmazott munkaerő többet termel, mint amennyit a munkás és családja megélhet. A két érték közötti különbséget a kapitalista kisajátítja, és ez pontosan megfelel a tőkések által a piacon realizált értéktöbbletnek. (a munkásosztály kizsákmányolása) – vö. a termelő eszközök feletti uralom.</li>
+          <li>Marx az utópisztikus szocializmustól örökölte az osztály- és osztályharc eszméit. A kapitalista rendszerben két alaposztály áll szemben egymással: a termelési eszközök birtokosai, vagyis a burzsoázia és a munkások, vagyis a proletariátus. „A burzsoázia maga termeli meg a sírásóit. A burzsoázia bukása és a proletariátus győzelme egyformán elkerülhetetlen.” (A Kommunista Kiáltvány)</li>
+          <li>Proletariátus: a legalacsonyabb vagy az egyik legalacsonyabb gazdasági és társadalmi osztály a társadalomban.</li>
+        </ul>
+        <h3>19. dia — „Leninizmus”</h3>
+        <ul>
+          <li>A Kommunista Kiáltványban (1848) Karl Marx és Friedrich Engels úgy határozta meg a kommunistákat, mint „minden ország munkáspártjainak legfejlettebb és legelszántabb része, amely az összes többit előrenyomja”.</li>
+          <li>Lenin a Kommunista Pártot rendkívül elkötelezett szellemi elitnek tekintette, aki (1) tudományosan érti a történelmet és a társadalmat a marxista elvek tükrében, (2) elkötelezte magát a kapitalizmus megszüntetése és a szocializmus beiktatása mellett, (3) a politikai hatalom megszerzése után ezen átmeneten keresztül kényszerültek, és (4) elkötelezték magukat amellett, hogy ezt a hatalmat minden lehetséges eszközzel elérjék, beleértve az erőszakot és a forradalmat is, ha szükséges.</li>
+          <li>Lenin hangsúlyozása egy kis, mélyen elkötelezett csoport fellépésére mind a forradalmi mozgalom hatékonyságának és diszkréciójának igényéből, mind pedig az egész politikai gondolkodásában jelen lévő tekintélyelvű beállítottságból fakadt.</li>
+          <li>A leninizmus tekintélyelvű aspektusa abban is megmutatkozott, hogy a hatalomátvételt követő „proletárdiktatúra” szükségességére van szükség, egy olyan diktatúrára, amelyet a gyakorlatban nem a munkások, hanem a kommunista párt vezetői gyakoroltak.</li>
+        </ul>
+        <h3>21. dia — „Titoizmus”</h3>
+        <ul>
+          <li>A kommunizmus egyik változata, amelyet Josip Broz Tito (1892–1980) gyakorolt, aki nagyhatalmaktól független partizán hadsereget vezetett a jugoszláviai német megszállók feletti katonai győzelemre.</li>
+          <li>Ez a győzelem más kelet-európai kormányzó kommunista pártoktól eltérően, 1945 után olyan függetlenséget biztosított pártjának (Jugoszláv Kommunista Szövetség), amely lehetővé tette számára, hogy a Moszkvával való 1948–1949-es szakítást követően a szocializmus jellegzetes védjegyét – a titoizmust – bevezesse.</li>
+          <li>Munkás önrendelkezés: Edvard Kardelj. A munkások egy gyárban saját maguk rendelkeznek a termelő eszközök felett, saját maguk választják meg a vezetőket. Közösségi tulajdon rendszere.</li>
+          <li>A titóista szocializmus felszámolta a központi tervezést (vö. proletárdiktatúra), és létrehozta a piacgazdaság egy formáját (vö. szovjet államgazdaság), amely a munkások önigazgatásán alapult az iparban és magánvállalkozásokon (vö. magánvállalkozás tilalma) a mezőgazdaságban.</li>
+          <li>Jugoszláviát valódi szövetségi állammá alakította; és feladta a Kommunista Párt (a Kommunisták Ligájára átkeresztelt) „vezető szerepét”.</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="note" data-topic="vilag">
+      <summary>Újbaloldal és neomarxizmus — világrendszer-elmélet <span class="lec">02. ea · 22. dia</span></summary>
+      <div class="note-body">
+        <h3>22. dia — Újbaloldal és neomarxizmus – a 60-as évektől</h3>
+        <ul>
+          <li>Egyenlőtlenségek – Első VS Harmadik Világ.</li>
+          <li>Arghiri Emmanuel – egyenlőtlen nemzetközi csere.</li>
+          <li>Immanuel Wallerstein – Világrendszer-elmélete.</li>
+          <li>Világrendszer – a világ különböző részeinek gazdaságai a XVI. századtól kezdődően egy nemzetközi munkamegosztásba kapcsolódnak (tőkefelhalmozás logikája); a XIX. századra alakult ki a világrendszer (heterogén).</li>
+          <li>Gyarmatosítás nyertesei meg tudták újítani a politikai-gazdasági rendszereiket.</li>
+          <li>A nemzetközi munkamegosztásban elfoglalt helyek: Periféria VS félperiféria VS centrum.</li>
+          <li>Magyarország vajh mi?</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="note" data-topic="tarsadalmi">
+      <summary>Társadalmi közgazdaságtan, beágyazottság, intézmények <span class="lec">03. ea · 3–6. dia</span></summary>
+      <div class="note-body">
+        <h3>3. dia — „Társadalmi” közgazdaságtan</h3>
+        <ul>
+          <li>A társadalmi gazdaságtan (más néven szociális gazdaságtan vagy szocioökonómia) a közgazdaságtan és a szociológia határterülete.</li>
+          <li>Nemcsak azt vizsgálja, hogyan működnek a gazdasági folyamatok (termelés, elosztás, fogyasztás), hanem azt is, hogy ezek hogyan ágyazódnak be a társadalmi, kulturális és intézményi környezetbe.</li>
+          <li>Hogyan hatnak a társadalmi normák, értékek, kapcsolatok a gazdasági döntésekre?</li>
+          <li>Hogyan alakítják a gazdasági struktúrák a társadalmi viszonyokat, például az egyenlőtlenséget, mobilitást vagy hatalmi erőviszonyokat?</li>
+          <li>Mennyiben tekinthetjük a gazdaságot nem önálló rendszernek, hanem társadalmi beágyazottságban működő jelenségnek?</li>
+        </ul>
+        <h3>4. dia — „Beágyazottság” elmélete</h3>
+        <ul>
+          <li>Mark Granovetter beágyazottság-elmélete azt állítja, hogy a gazdasági cselekvések nem elszigeteltek, hanem mélyen összefonódnak a társadalmi struktúrákkal, hálózatokkal és kapcsolatokkal.</li>
+          <li>Ahelyett, hogy kizárólag az önérdeket követnék (ahogyan azt az utilitarista nézet sugallja), a szereplők viselkedését, bizalmát és eredményeit a piacokon jelentősen alakítják ezek a tágabb társadalmi kontextusok, beleértve a normákat, az intézményeket és a személyes kapcsolatokat.</li>
+          <li>Ez a koncepció megkérdőjelezi a tisztán racionális gazdasági szereplők gondolatát azáltal, hogy hangsúlyozza, hogy a társadalmi kötelékek hogyan segítik elő az együttműködést és a visszaélések megelőzését.</li>
+        </ul>
+        <h3>5. dia — Régi VS Új</h3>
+        <ul>
+          <li>Az intézményi közgazdaságtan a közgazdaságtan azon területe, amely azt vizsgálja, hogy az intézmények hogyan alakítják a gazdasági szereplők képességeit és viselkedését, befolyásolva ezzel a gazdasági termelékenységet és az innovációt. (vö. Acemoglu &amp; Robinson: Miért buknak el nemzetek?)</li>
+          <li>A régi intézményi közgazdaságtan (Old Institutional Economics) evolúciós és holisztikus megközelítést alkalmaz annak megértésére, hogy a szokások hogyan alakítják a gazdasági viselkedést és teljesítményt adott történelmi kontextusokban, hangsúlyozva az intézmények, a technológia és a társadalom összekapcsolódását.</li>
+          <li>Az új intézményi közgazdaságtan (New Institutional Economics) ezzel szemben analitikusabb és a mainstream-orientáltabb, deduktív érvelést, játékelméletet és olyan fogalmakat, mint a tranzakciós költségek, alkalmaz annak elemzésére, hogy az intézmények, például a jogi és társadalmi normák, hogyan befolyásolják a gazdasági hatékonyságot, gyakran módszertani individualista perspektívát alkalmazva, és a játék mögöttes szabályaira összpontosítva.</li>
+        </ul>
+        <h3>6. dia — Új-intézményi közgazdaságtan</h3>
+        <ul>
+          <li>Douglass North az új intézményi közgazdaságtan egyik alapvető alakja volt, aki amellett érvelt, hogy az intézmények – az emberi interakciókat strukturáló formális szabályok és informális normák – kulcsfontosságúak a gazdasági teljesítmény, az ösztönzők alakítása, a tranzakciós költségek csökkentése és a gazdasági változások növekedés, stagnálás vagy hanyatlás felé irányítása szempontjából.</li>
+          <li>Gazdaságtörténeti gyökerű munkássága hangsúlyozta, hogy a tulajdonjogok és a hatékony jogrendszerek hogyan ösztönzik a beruházásokat és a gazdasági növekedést.</li>
+          <li>North azt is vizsgálta, hogy a társadalmak hogyan ragadhatnak le a diszfunkcionális intézményekben, és a komplexitáselmélet és a kognitív tudomány ötleteit beépítette az intézmények változó természetének, valamint a hiedelmektől és ideológiáktól való függőségének magyarázatához.</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="note" data-topic="vallas">
+      <summary>Keresztény, zsidó, iszlám és buddhista gazdaságtan <span class="lec">03. ea · 8–21. dia</span></summary>
+      <div class="note-body">
+        <h3>8. dia — Keresztény Gazdaságtan</h3>
+        <ul>
+          <li>A keresztény közgazdaságtan (Christian economics) nem egy egységes iskola, hanem inkább egy olyan irányzat, amely a gazdasági folyamatokat keresztény etikai és teológiai szempontokból vizsgálja.</li>
+          <li>Célja, hogy a közgazdasági elemzést és döntéshozatalt keresztény értékekkel (pl. igazságosság, méltányosság, közjó, szolidaritás, teremtésvédelem) egészítse ki.</li>
+          <li>Főbb témái: Etikai alapú gazdaság – a haszonmaximalizálás helyett a közjóra és az emberi méltóságra épülő döntések.</li>
+          <li>Társadalmi igazságosság – a szegénység, egyenlőtlenség és kizsákmányolás kérdései.</li>
+          <li>Teremtésvédelem – a gazdasági tevékenység ökológiai következményei.</li>
+          <li>Munka és hivatás – a munka nem csupán árutermelés, hanem hivatás és szolgálat.</li>
+        </ul>
+        <h3>9. dia — Rerum Novarum és a protestáns etika</h3>
+        <ul>
+          <li>XIII. Leó pápa 1891-es Rerum Novarum: kapitalizmus kérdése, elutasítva mind a szélsőséges szocializmust, mind a szabályozatlan laissez-faire kapitalizmust, megerősítette a magántulajdonhoz való jogot. Kiegyensúlyozott megközelítést szorgalmazott, amely előmozdítja a munkavállalók jogait, beleértve a tisztességes béreket, a biztonságos munkakörülményeket és a szakszervezetek alapításának lehetőségét.</li>
+          <li>Max Weber 1904 „protestáns etika” koncepciója egy vallásos gondolkodásmódot ír le, amely a kapitalizmus fejlődését a kemény munka, a világi aszkézis és a profit újra befektetésének ösztönzésével mozdította elő.</li>
+          <li>A protestáns etika és a kapitalizmus szelleme című művében Weber azt állította, hogy a kálvinista hiedelmek, különösen az eleve elrendelés gondolata és a világi siker szükségessége a „kiválasztás” jeleként, pszichológiai kényszert táplálnak a szorgalmas munkára, a takarékos életre és a vagyon felhalmozására nem személyes élvezet céljából, hanem Isten dicsőítésére és a spirituális státusz bizonyítékaként.</li>
+        </ul>
+        <h3>11. dia — Laborem Exercens és Laudato Si</h3>
+        <ul>
+          <li>II. János Pál a „Laborem Exercens” 1981 kiemeli az emberi személy és a munka közötti szükségszerű kapcsolatot. Amikor etikailag helyes munkaügyi politika kialakításáról van szó: egy politika akkor helyes, ha a munkavállaló objektív jogait teljes mértékben tiszteletben tartják. (Munka méltósága, közjó, emberközpontú gazdaság)</li>
+          <li>Ferenc pápa „Laudato Si” 2015, sürgős cselekvésre szólít fel a környezeti és társadalmi válságok kezelése érdekében, hangsúlyozva az integrált ökológia koncepcióját – a környezeti, társadalmi és gazdasági kérdések összekapcsolódását. A dokumentum bírálja a fogyasztást és a felelőtlen gazdasági fejlődést, a környezetkárosodást a társadalmi igazságtalansághoz köti, és globális kulturális és spirituális „megtérésre” szólít fel egy fenntarthatóbb és méltóságteljesebb kapcsolat felé.</li>
+        </ul>
+        <h3>13. dia — Zsidó Gazdaságtan</h3>
+        <ul>
+          <li>A zsidó vallási és kulturális hagyományból kiinduló gazdasági gondolkodás, amely a Tóra, a Talmud, valamint a rabbinikus irodalom tanításait alkalmazza a gazdasági életben.</li>
+          <li>Középpontban: erkölcs, közösségi felelősség és igazságosság – vagyis hogyan lehet a gazdasági életet a zsidó etika szerint szervezni…</li>
+          <li>A judaizmusban a ribbit a bibliai törvényeken alapuló tilalom, amely tiltja a zsidók közötti kölcsönök kamatának felszámítását vagy fizetését. A „ribbit” kifejezés, amely „növekedést” vagy „uzsorát” jelent, magában foglalja a rabbinikus kiterjesztéseket is, amelyek tiltják a pénz „várakozásáért”, a kölcsönért cserébe adott juttatásért bármilyen kompenzációt, például ajándékot. Ez a tilalom olyan jelentős, hogy többszörös tilalmat foglal magában mind a hitelező, mind a hitelfelvevő számára, és tiltja azokat a tranzakciókat, amelyek kamatként adott pénzt vagy árukat érintenek. (vö. Ószövetség – Tóra)</li>
+        </ul>
+        <h3>14. dia — Cedaka, Tikkun Olam és Kóser</h3>
+        <ul>
+          <li>A cedaka (vagy cedáka/tzedakah), jelentése „törvényszerűség” vagy „igazságosság”, és a judaizmusban alapvető etikai kötelezettség, nem pedig a nagylelkűség spontán cselekedete.</li>
+          <li>A társadalmi igazságosság rendszerét képviseli, és magában foglalja a pénz, az idő, az erőfeszítés és más erőforrások felajánlását, hogy segítsék az embereket eltartani magukat és fejleszteni tehetségeiket.</li>
+          <li>A tikkun olam azt jelenti, hogy „megjavítani a világot”, és a zsidók azon felelősségére utal, hogy a világot igazságosabbá és jobbá tegyék. Manapság a társadalmi igazságosságért való cselekvést és olyan tevékenységeket jelent, amelyek javítják a társadalmat és minden ember jólétét.</li>
+          <li>Kósersági rendszer, együttműködés és bizalom, egyház „közösség” és gazdasági szereplők között.</li>
+        </ul>
+        <h3>15. dia — Sabbat és Smita</h3>
+        <ul>
+          <li>A sabbat (Sabbath) a judaizmusban a heti pihenő- és istentiszteleti nap, amelyet péntek estétől szombat estéig tartanak, míg a smita (Sabbatév) egy bibliai mezőgazdasági és társadalmi törvény, amelyet minden hetedik évben tartanak meg.</li>
+          <li>Időt tölteni a családdal, pihentető tevékenységekben részt venni, és a lelki dolgokra összpontosítani. (vö. lelki gyakorlat)</li>
+          <li>A művelés megszüntetése: A gazdáknak tilos a föld művelése.</li>
+          <li>Adósság-elengedés: A tulajdonosoknak el kell engedniük mások adósságait.</li>
+          <li>A tulajdonjogról való lemondás: földeken természetesen termő terményt gazdátlannak tekintik.</li>
+          <li>Cél: Isten, az emberiség és a föld közötti egyensúly helyreállítása, a föld termékenységének növelése és Isten tisztelete.</li>
+        </ul>
+        <h3>17–18. dia — Iszlám gazdaságtan</h3>
+        <ul>
+          <li>Az iszlám közgazdaságtan egy olyan gazdasági rendszer és tudásrendszer, amely az iszlám alapelveken és a saría jogon alapul, és amelynek célja a társadalmi igazságosság és az emberi jólét elérése azáltal, hogy az etikát és az erkölcsöt minden gazdasági tevékenységbe integrálja.</li>
+          <li>Abban különbözik a hagyományos gazdasági rendszerektől, hogy hangsúlyozza az együttműködést, a közösségvezérelt fejlődést, valamint a kamat (riba) és más káros gyakorlatok tilalmát, kiegyensúlyozott megközelítést keresve az egyéni és kollektív jólét érdekében.</li>
+          <li>Kamatszedés (uzsora) tilalma, mivel igazságtalan haszonhoz vezet (Riba VS Ribbit).</li>
+          <li>Zakát – kötelező adakozás, a vagyon egy részének szegények számára történő átadása (szociális újraelosztás).</li>
+          <li>Gharar tilalma – túlzott bizonytalanság, spekuláció és szerencsejáték tiltása.</li>
+          <li>Halal / haram gazdaság – csak megengedett tevékenységekből származó jövedelem lehet legitim (pl. alkohol, szerencsejáték, fegyverek tilalma).</li>
+          <li>Közösségi igazságosság – a vagyon igazságos elosztására, a szegények és rászorulók védelmére törekszik.</li>
+          <li>Tulajdonjog elismerése, de a vagyon „Istentől kapott letétként” való értelmezése, így felelősség a társadalom előtt.</li>
+        </ul>
+        <h3>19. dia — Iszlám Bankrendszer</h3>
+        <ul>
+          <li>Hitelezés kamat helyett nyereség- és veszteségmegosztással (pl. mudaraba, musharaka).</li>
+          <li>Iszlám kötvények (sukuk) – kamatmentes, eszközökhöz kötött befektetési formák. Hagyományos kötvény: fix kamatfizetés, a befektető csak hitelező. Sukuk: a befektető részben tulajdonos, a hozam a mögöttes eszköz teljesítményétől függ (profit).</li>
+          <li>Eszközalapú finanszírozás (murabaha, ijara) – tényleges áruk és szolgáltatások cseréje, viszont csak halal (megengedett) tevékenységeket lehet finanszírozni.</li>
+          <li>Iszlám bankokban: a bank és az ügyfél megosztják a kockázatot és a nyereséget. Nyugati bankokban: a pénz önálló áruként is forgalmazható (kamat, kötvény, derivatívák).</li>
+          <li>Iszlám bankokban: a pénz nem önmagában árucikk, hanem csak közvetítő eszköz. Hitel csak valós gazdasági ügylethez kapcsolódhat (pl. áruvásárlás, ingatlan).</li>
+          <li>Iszlám bankokban: a túlzott bizonytalanságot (gharar) tiltják, nem engedélyezett olyan pénzügyi tranzakció, ahol a kimenet teljesen spekulatív vagy tisztán szerencsejáték jellegű.</li>
+          <li>Hangsúlyos a szociális igazságosság és közjó. Például a zakát (kötelező adomány) intézményes formában is összekapcsolódhat a banki működéssel.</li>
+        </ul>
+        <h3>21. dia — Buddhizmus és gazdaság</h3>
+        <ul>
+          <li>A buddhista gazdaságtan egy olyan megközelítés, amely a gazdasági életet a buddhista etika és filozófia alapján értelmezi. A célja nem a haszon maximalizálása, hanem a szenvedés csökkentése, a boldogság és a belső harmónia növelése.</li>
+          <li>Fő szempontjai: Az emberi szükségletek mértékletes kielégítése (nem a fogyasztás végtelen növelése).</li>
+          <li>Az erőszakmentesség és környezeti felelősség.</li>
+          <li>A munka mint önmegvalósítás és közösségi szolgálat.</li>
+          <li>A gazdasági tevékenység spirituális és etikai dimenziója.</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="note" data-topic="alternativ">
+      <summary>Small is beautiful, degrowth, közösségi és szövetkezeti gazdaság <span class="lec">03. ea · 22–32. dia</span></summary>
+      <div class="note-body">
+        <h3>22. dia — „Small is beautiful”</h3>
+        <ul>
+          <li>A „Kicsi az szép” című könyv (E. F. Schumacher, 1973) az emberi jólétre, a fenntarthatóságra és a decentralizált, közösségi alapú megoldásokra összpontosító gazdasági rendszer mellett érvel, bírálva az iparosodás túlzott támaszkodását a természeti erőforrások kimerítésére.</li>
+          <li>A főbb kijelentések közé tartozik, hogy „a kicsi a szép”, a helyi használatra alkalmas köztes technológia mellett érvel, és hogy a gazdagságot nem szabad az emberi és környezeti egészséggel szemben előtérbe helyezni.</li>
+          <li>Hangsúlyozza a „buddhista közgazdaságtan” fontosságát is, ahol a munka méltóságteljes és értelmes, és a korlátlan növekedéssel szemben az „elégséges” fogalmát hangsúlyozza.</li>
+        </ul>
+        <h3>23. dia — „Modern/klasszikus” kapitalizmus kritikája</h3>
+        <ul>
+          <li>Fenntarthatatlan erőforrás-felhasználás: A modern gazdasági rendszer a megújuló erőforrásokat elkölthető jövedelemként, nem pedig tőkeként kezeli, ami fenntarthatatlan.</li>
+          <li>Materializmus vs. jólét: A modern gazdasági értékek gyakran az árukat és szolgáltatásokat helyezik előtérbe az emberi jóléttel és a környezet egészségével szemben, ami az anyagi gazdagság megszállottságához vezet.</li>
+          <li>A haladás illúziója: A növekvő iparosodás, a nagyméretű szervezetek és a fejlett technológia nem feltétlenül jelent haladást, hanem a bölcsesség tagadását jelentheti, ami környezeti károkhoz és a kielégítő munkától való elidegenedéshez vezethet.</li>
+        </ul>
+        <h3>24. dia — Buddhista gondolkodás kiterjesztése</h3>
+        <ul>
+          <li>Értelmes munka: A munkának kiteljesítőnek kell lennie, és lehetővé kell tennie az emberek számára, hogy használják és fejlesszék képességeiket, egy közös cél érdekében egyesítve őket, ahelyett, hogy lélekölő folyamat lenne.</li>
+          <li>Megfelelő lépték: „A kicsi szép”, ami azt jelenti, hogy a decentralizáció, a közösségi alapú szervezetek és a kisméretű iparágak általában jobbak, mint a nagy, központosított rendszerek.</li>
+          <li>Közepes (intermediate) technológia: A technológiáknak egyszerűnek, helyben javíthatónak és speciális készségekkel nem rendelkező emberek számára is hozzáférhetőnek kell lenniük, hidat képezve a primitív és az összetett technológiák között.</li>
+        </ul>
+        <h3>25. dia — Alternatívák és vízió</h3>
+        <ul>
+          <li>Egyensúly: A könyv az etikai és spirituális megfontolások gazdasági vitákba való integrálását szorgalmazza, egyensúlyt keresve a profit és az értékalapú döntések között.</li>
+          <li>„Elégség”: Schumacher az „elégség” gondolatát népszerűsíti, amely az emberi szükségletek és korlátok elismerésének, valamint az erőforrások bölcs és takarékos felhasználásának filozófiája. (vö. kommunizmus)</li>
+          <li>A helyi igényekre összpontosítva: A fejlesztési segélyeket a vidéki területekre és a helyi önellátásra kell összpontosítani, lehetővé téve az emberek számára, hogy olyan megoldásokat dolgozzanak ki, amelyeket maguk alkotnak meg, és amelyek fenntarthatóak. (vö. antiglobalizmus, degrowth)</li>
+        </ul>
+        <h3>30. dia — „Degrowth” Nem-növekedés</h3>
+        <ul>
+          <li>A nemnövekedés a gazdasági növekedés mint társadalmi célkitűzés eltörlését szorgalmazza, és egy olyan kívánt irányt jelez, amelyben a társadalmak kevesebb természeti erőforrást használnak fel, és alapvetően másképp szerveződnek az életre, mint ma.</li>
+          <li>A nemnövekedés a gazdag országokban a gazdasági termelés és fogyasztás csökkentését szorgalmazza a fenntarthatóság, az egyenlőség és a jólét érdekében. Olyan társadalmak létrehozására törekszik, amelyek az ökológiai egészséget, az erőforrások igazságos elosztását és az életminőséget helyezik előtérbe a GDP növekedésével szemben.</li>
+        </ul>
+        <h3>31. dia — Közösségi gazdaság</h3>
+        <ul>
+          <li>A közösségi gazdaság (community economy vagy social economy, solidarity economy) egy alternatív gazdasági megközelítés, amely a kollektív jólétet, a helyi szükségleteket és a demokratikus kontrollt helyezi előtérbe a profitorientált modellekkel szemben.</li>
+          <li>Hangsúlyozza az együttműködést, a közös tulajdont, valamint az emberek és a környezet iránti gondoskodást, elősegítve a gazdasági ellenálló képességet és a közös megélhetést olyan gyakorlatokon keresztül, mint a helyi pénznemek, a szövetkezeti vállalkozások és a közösség által támogatott mezőgazdaság.</li>
+          <li>Közösség által támogatott mezőgazdaság (CSA): A lakosok közvetlenül a helyi gazdaságokhoz járulnak hozzá, biztosítva ezzel a stabil élelmiszerforrást és támogatva a helyi mezőgazdaságot. (vö. nemzetközi logisztika)</li>
+          <li>Helyi pénznemek: Céljuk, hogy a pénz egy adott közösségen belül forogjon, erősítve a helyi gazdaságot.</li>
+          <li>Lakásszövetkezetek: Megfizethető és stabil lakhatást biztosítanak a lakosoknak a megosztott tulajdonlás és irányítás révén.</li>
+        </ul>
+        <h3>32. dia — Kooperatív „szövetkezeti” gazdaság</h3>
+        <ul>
+          <li>A kooperatív gazdaság (más néven szövetkezeti gazdaság) egy olyan gazdasági forma, amelyben a vállalkozásokat nem egyéni tőketulajdonosok, hanem tagok közössége birtokolja és irányítja.</li>
+          <li>A hangsúly a közös tulajdonon, demokratikus döntéshozatalon és a közösségi érdekek érvényesítésén van.</li>
+          <li>A szövetkezet tagjai egyszerre tulajdonosok és használók (pl. vásárlók, munkavállalók, termelők). A döntéseket demokratikusan hozzák meg. A nyereséget nem profitmaximalizálásra, hanem a tagok javára és közösségi célokra fordítják.</li>
+          <li>Pl. fogyasztási, termelő és munkásszövetkezet.</li>
+          <li>Vö. Sharing economy (megosztáson alapuló gazdaság): meglévő erőforrások jobb kihasználása. Tulajdon: egyéni tulajdon, amit ideiglenesen megosztanak vagy bérbe adnak.</li>
+          <li>Vö. „platformkapitalizmus” mint az UBER, AirBNB, ahol digitális felületet biztosít (gatekeeper – kapuőr).</li>
+        </ul>
+      </div>
+    </details>
+
+</div>
+
+<script>
+const TOPICS = [
+  {id:"alap",       name:"Alapfogalmak, érték"},
+  {id:"klassz",     name:"Klasszikusok, láthatatlan kéz"},
+  {id:"merk",       name:"Merkantilizmus, fiziokraták"},
+  {id:"marx",       name:"Marx, szocializmus, titoizmus"},
+  {id:"vilag",      name:"Gyarmatosítás, világrendszer"},
+  {id:"keynes",     name:"Keynes, Bretton Woods, neoliberalizmus"},
+  {id:"tarsadalmi", name:"Társadalmi és intézményi közgazdaságtan"},
+  {id:"vallas",     name:"Vallási gazdaságtanok"},
+  {id:"alternativ", name:"Alternatív irányzatok, degrowth"}
+];
+
+const Q = [
+/* ---- ALAPFOGALMAK ---- */
+{id:"a1",t:"alap",type:"mc",q:"Samuelson meghatározása szerint mit vizsgál a közgazdaságtan?",
+ o:["Hogyan használják fel a társadalmak a szűkös erőforrásokat értékes áruk előállítására és azok elosztására.",
+    "Hogyan tartja egyensúlyban az állam a költségvetését hosszú távon.",
+    "Hogyan alakul a pénzmennyiség és az infláció kapcsolata a gazdaságban.",
+    "Hogyan szervezik a vállalatok a belső munkamegosztásukat."],
+ a:0,w:"A diákon idézett Samuelson-definíció három elemet köt össze: szűkös erőforrások, értékes áruk előállítása, és az elosztás az emberek között.",s:"01. előadás · 13. dia"},
+
+{id:"a2",t:"alap",type:"mc",exam:true,pts:"0,5 pont",q:"Mit fejez ki az előadásban bemutatott „értékparadoxon”?",
+ o:["A használati érték a piaci kereslet és kínálat egyensúlyát mutatja.",
+    "A használati (utility) érték és a csereérték eltérhet egymástól.",
+    "A csereérték azt fejezi ki, hogy a termék mekkora elégedettséget vagy hasznosságot nyújt.",
+    "A csereértéket a termék előállítására fordított munka határozza meg."],
+ a:1,w:"Adam Smith szerint az „érték” szónak két jelentése van: a) egy tárgy hasznossága (öröm, elégedettség), b) más javak megvásárlásának képessége — ez a csereérték. A paradoxon éppen az, hogy a kettő elválhat egymástól. A d) válasz a munkaérték-elmélet, nem a paradoxon.",s:"01. előadás · 16. dia"},
+
+{id:"a3",t:"alap",type:"mc",q:"Mit nevez Adam Smith csereértéknek?",
+ o:["Azt az örömöt és elégedettséget, amit a jószág nyújt.",
+    "Más javak megvásárlásának képességét, amelyet az adott tárgy birtoklása hordoz.",
+    "A jószág előállításának pénzben kifejezett költségét.",
+    "Az utolsó elfogyasztott egység szubjektív értékét."],
+ a:1,w:"A hasznosság (öröm, elégedettség) a használati érték; a csereérték a vásárlóerő, amit a jószág birtoklása ad. Az utolsó egység szubjektív értéke a határhaszon.",s:"01. előadás · 16. dia"},
+
+{id:"a4",t:"alap",type:"mc",q:"Mit jelöl a határhaszon fogalma a diák szerint?",
+ o:["A termelés határköltségét egy további egység előállításakor.",
+    "Bizonyos javak szubjektív értékét, csökkenő hozadékkal.",
+    "A fogyasztó teljes jövedelmének felső korlátját.",
+    "Az állam által maximált árszintet."],
+ a:1,w:"A dia a határhasznot a javak szubjektív értékeként vezeti be, a csökkenő hozadék elvével együtt — ez oldja fel az értékparadoxont.",s:"01. előadás · 16. dia"},
+
+{id:"a5",t:"alap",type:"mc",q:"Melyiket mutatja be az előadás másodlagos (származékos) erőforrásként?",
+ o:["A nyersanyagokat és a természeti tényezőket.",
+    "A munkát és az emberi erőforrást.",
+    "A tőkét, az eszközöket, a pénzt és a befektetést.",
+    "Az időt mint korlátos erőforrást."],
+ a:2,w:"Elsődleges: nyersanyag (természeti tényezők) és munka (emberi erőforrás, idő). A tőke/eszközök (pénz, befektetés, alapok) másodlagos, származékos erőforrás.",s:"01. előadás · 21. dia"},
+
+{id:"a6",t:"alap",type:"mc",q:"Mi különbözteti meg a mikro- és a makroökonómiát az előadás szerint?",
+ o:["A mikroökonómia egyedi entitások döntéseit vizsgálja, a makroökonómia a gazdaság összteljesítményét.",
+    "A mikroökonómia rövid, a makroökonómia kizárólag hosszú távú folyamatokkal foglalkozik.",
+    "A mikroökonómia matematikai, a makroökonómia kizárólag leíró tudomány.",
+    "A mikroökonómia az állam, a makroökonómia a vállalatok döntéseit elemzi."],
+ a:0,w:"„Egyedi entitások vs. a gazdaság teljesítménye összességében” — a dia Smitht, Keynest és Hayeket társítja ehhez a kettősséghez.",s:"01. előadás · 20. dia"},
+
+{id:"a7",t:"alap",type:"mc",q:"Hogyan dönt az előadás szerint a kockázatkerülő fogyasztó?",
+ o:["Mindig a legolcsóbb lehetőséget választja.",
+    "Azt a lehetőséget választja, amelynek nagyobb a valószínűsége — ez a kockázati prémium.",
+    "A legnagyobb várható nyereséget ígérő lehetőséget választja.",
+    "Elhalasztja a döntést, amíg teljes információhoz nem jut."],
+ a:1,w:"A dia szerint a kockázatkerülő fogyasztó a nagyobb valószínűségű lehetőséget választja, és ehhez kapcsolódik a kockázati prémium fogalma.",s:"01. előadás · 19. dia"},
+
+{id:"a8",t:"alap",type:"mc",q:"Melyik állítás igaz a valós fogyasztói döntésekre az előadás „gyakorlati kérdések” diája szerint?",
+ o:["A döntések többsége teljes információval születik, ezért kiszámítható.",
+    "A preferenciák stabilak, a viselkedési normák nem változnak.",
+    "A döntések többsége hiányos információval születik, és a fogyasztók eltérő döntési képességgel rendelkeznek.",
+    "A fogyasztás társadalmi és ökológiai dimenziói kizárhatók az elemzésből."],
+ a:2,w:"A dia hangsúlyozza: a preferenciák és normák folyamatosan változnak, a döntések hiányos információval születnek, és a társadalmi–ökológiai–pszichológiai dimenziók nem hagyhatók ki.",s:"01. előadás · 19. dia"},
+
+{id:"a9",t:"alap",type:"mc",q:"Milyen lépésekben írja le az előadás a fogyasztói érték-maximalizálást?",
+ o:["A fogyasztó először terméket választ, majd ehhez igazítja a jövedelmét.",
+    "A fogyasztó előbb elosztja jövedelmét a főbb termékcsoportok között, majd a csoporton belül választ a jellemzők alapján.",
+    "A fogyasztó egyetlen lépésben, az árak összehasonlításával dönt.",
+    "A fogyasztó a reklámok sorrendjében halad végig a termékeken."],
+ a:1,w:"Kétlépcsős folyamat: jövedelemelosztás a termékcsoportok között, majd terméken belüli választás objektív és szubjektív jellemzők alapján.",s:"01. előadás · 19. dia"},
+
+{id:"a10",t:"alap",type:"mc",q:"Mit mond az előadás az információ szerepéről a fogyasztói döntésben?",
+ o:["Minél több az információ, annál jobb a döntés.",
+    "Az információhiány és az információdömping egyaránt káros lehet.",
+    "Az intelligencia teljesen meghatározza a döntés minőségét.",
+    "Az információ mennyisége nem befolyásolja a döntést."],
+ a:1,w:"A dia szerint „mind az információhiány, mind az információdömping »káros« lehet”, és az intelligencia nem elválaszthatatlan a fogyasztói döntésektől.",s:"01. előadás · 19. dia"},
+
+{id:"a11",t:"alap",type:"mc",q:"Az elosztás kérdését milyen síkokon tárgyalja az előadás?",
+ o:["Kizárólag állami kérdésként, adópolitikai eszközökkel.",
+    "Állami és személyes kérdésként, vagyoni és társadalmi különbségekkel együtt.",
+    "Kizárólag vállalati kérdésként, a bérszínvonalon keresztül.",
+    "Nemzetközi kérdésként, a külkereskedelmi mérlegen keresztül."],
+ a:1,w:"A dia négy pontja: állami kérdés, személyes kérdés, vagyoni különbségek, társadalmi (szociális) különbségek.",s:"01. előadás · 18. dia"},
+
+{id:"a12",t:"alap",type:"tf",q:"Jelöld, melyik állítás igaz és melyik hamis.",
+ 
+ items:[
+  {s:"A tőkét származékos (másodlagos) erőforrásként mutatjuk be a gazdaságban.",a:true,w:"Elsődleges a nyersanyag és a munka; a tőke származékos. (01/21)"},
+  {s:"A mikroökonómia az egyedi gazdasági szereplők döntéseit is vizsgálja.",a:true,w:"Épp ez választja el a makroökonómiától, amely a gazdaság összteljesítményét nézi. (01/20)"},
+  {s:"Az érték megítélése az előadás szerint lehet objektív és szubjektív is.",a:true,w:"A dia az értéket szükségletként/vágyként, fizetési hajlandóságként, objektív vs. szubjektív megközelítésben tárgyalja. (01/14)"},
+  {s:"A közgazdaságtan Samuelson szerint korlátlan erőforrások elosztásával foglalkozik.",a:false,w:"Éppen a szűkös erőforrásokkal — ez a definíció magja. (01/13)"}
+ ],s:"01. előadás · 13–21. dia"},
+
+/* ---- KLASSZIKUSOK ---- */
+{id:"k1",t:"klassz",type:"mc",q:"Mit állít Adam Smith a „láthatatlan kézről” a Nemzetek gazdagságában?",
+ o:["Az egyén tudatosan a közérdeket szolgálja, amikor befektet.",
+    "Az egyén saját érdekét követve gyakran hatékonyabban mozdítja elő a társadalom érdekeit, mint amikor szándékában áll.",
+    "A közérdek csak állami koordinációval valósulhat meg.",
+    "A piac csak akkor jut egyensúlyba, ha az állam szabályozza az árakat."],
+ a:1,w:"Az idézet lényege: az egyén nem szándékozik a közérdeket előmozdítani, mégis gyakran hatékonyabban teszi, mint a szándékos jótevő.",s:"01. előadás · 22. dia"},
+
+{id:"k2",t:"klassz",type:"mc",q:"Mit jelöl a „laissez faire” az előadásban?",
+ o:["Az állam aktív kereslet-élénkítő politikáját.",
+    "A piac önszabályozó mechanizmusát, állami beavatkozás nélkül.",
+    "A nemesfémek felhalmozását célzó politikát.",
+    "A munkások önigazgatását a vállalatokban."],
+ a:1,w:"A láthatatlan kéz és a laissez faire ugyanannak az önszabályozó mechanizmusnak a két oldala: a verseny, a termelés, a fogyasztók és a vállalatok alakítják az árat és a mennyiséget, szervezet (állam) bevonása nélkül.",s:"01. előadás · 22. dia"},
+
+{id:"k3",t:"klassz",type:"mc",q:"Kiket nevez meg a 02. előadás a klasszikus külkereskedelmi elméletek előfutáraiként?",
+ o:["Quesnay, Turgot és Mirabeau.",
+    "Hume, Smith és Ricardo.",
+    "Keynes, Hayek és Sraffa.",
+    "Wallerstein, Emmanuel és Granovetter."],
+ a:1,w:"D. Hume, A. Smith és D. Ricardo — a munkaérték-elmélet, az egyensúly-mechanizmus és a komparatív előnyök hármasa.",s:"02. előadás · 5. dia"},
+
+{id:"k4",t:"klassz",type:"mc",q:"Mi a gazdagodás forrása a klasszikus elméletekben?",
+ o:["A nemesfémek felhalmozása.",
+    "A termelő, értékalkotó munka (munkaérték-elmélet).",
+    "A mezőgazdasági termelés kizárólagos szerepe.",
+    "A pénzmennyiség szabályozása."],
+ a:1,w:"A klasszikusok a munkaérték-elméletből indulnak ki: a termelő, értékalkotó munka a gazdagodás forrása.",s:"02. előadás · 5. dia"},
+
+{id:"k5",t:"klassz",type:"mc",q:"Kihez köti az előadás a nemzetközi gazdasági egyensúly-mechanizmus felfogását?",
+ o:["David Hume-hoz.",
+    "David Ricardóhoz.",
+    "John Stuart Millhez.",
+    "François Quesnay-hoz."],
+ a:0,w:"A klasszikus nemzetközi gazdasági koncepció két pillére: Hume egyensúly-mechanizmusa és Ricardo komparatív előny-tana.",s:"02. előadás · 5. dia"},
+
+{id:"k6",t:"klassz",type:"mc",q:"Mit szabályoz a komparatív előnyök és költségek tana?",
+ o:["Az államháztartási hiány mértékét.",
+    "A nemzetközi munkamegosztást.",
+    "A bérek és a profit arányát a vállalaton belül.",
+    "A nemesfémek kivitelének tilalmát."],
+ a:1,w:"A dia szerint a komparatív előnyök tana a nemzetközi munkamegosztás szabályozója — ezzel együtt a nemzetgazdaság és a nemzetközi gazdaság között nincs rivalizálás.",s:"02. előadás · 5. dia"},
+
+{id:"k7",t:"klassz",type:"mc",exam:true,q:"Mivel egészítette ki a neoklasszikus megközelítés a klasszikus külkereskedelmi elméleteket?",
+ o:["Az országok tényezőellátottságának vizsgálatával.",
+    "A munkások önigazgatásának gazdasági modelljével.",
+    "A gyarmati függőség politikai rendszerének vizsgálatával.",
+    "A centrum és a periféria kapcsolatának elemzésével."],
+ a:0,w:"A neoklasszikus irányzat újragondolta a komparatív költségeket és a tényezőellátottságot hangsúlyozta. A munkás-önigazgatás a titoizmus, a centrum–periféria pedig Wallerstein világrendszer-elmélete.",s:"02. előadás · 6. dia"},
+
+{id:"k8",t:"klassz",type:"mc",q:"Milyen termelési függvényt hozott létre a neoklasszikus irányzat?",
+ o:["Egytényezős függvényt, kizárólag a munka alapján.",
+    "Kéttényezős függvényt: K (tőke) és L (munka).",
+    "Háromtényezős függvényt: föld, munka, vállalkozás.",
+    "Dinamikus függvényt az aggregált kereslet alapján."],
+ a:1,w:"A K (kapital) és L (labour) kéttényezős termelési függvény lett a további közgazdasági iskolák alapja.",s:"02. előadás · 6. dia"},
+
+{id:"k9",t:"klassz",type:"mc",q:"Milyen két felfogást állít szembe egymással a dia J. S. Mill (1836), illetve Kahneman és Tversky (1974) nevével?",
+ o:["A racionálisan, önérdekkövetően döntő „gazdasági ember” képét és a heurisztikák, torzítások mentén döntő valós embert.",
+    "A merkantilista és a fiziokrata gazdaságpolitikát.",
+    "A mikro- és a makroökonómia módszertanát.",
+    "A klasszikus és a keynesi egyensúlyfelfogást."],
+ a:0,w:"Mill a homo oeconomicus klasszikus leírását adja; Kahneman és Tversky 1974-es munkája a heurisztikákat és torzításokat mutatja ki — a dia ezt a „VS.” viszonyt jeleníti meg.",s:"01. előadás · 23. dia"},
+
+{id:"k10",t:"klassz",type:"tf",q:"Jelöld, melyik állítás igaz és melyik hamis.",
+ items:[
+  {s:"A klasszikus felfogás szerint a nemzetgazdaság és a nemzetközi gazdaság (külkereskedelem) között nincs rivalizálás.",a:true,w:"Ez a klasszikus szabadkereskedelmi álláspont kiindulópontja. (02/5)"},
+  {s:"A termelés bővítését a klasszikusok szerint a munkamegosztás bővítése is segíti.",a:true,w:"Munkahatékonyság, termelékenység és munkamegosztás — mindhárom szerepel a dián. (02/5)"},
+  {s:"A neoklasszikus irányzat elvetette a komparatív költségek gondolatát.",a:false,w:"Nem elvetette, hanem újragondolta, és a tényezőellátottsággal egészítette ki. (02/6)"},
+  {s:"A láthatatlan kéz működéséhez a klasszikus felfogás szerint az állami beavatkozás felszámolása szükséges.",a:true,w:"A laissez faire, az önérdekkövetés és a spontán piaci mechanizmusok mellett ez a harmadik feltétel a dián. (02/5)"}
+ ],s:"02. előadás · 5–6. dia"},
+
+/* ---- MERKANTILIZMUS / FIZIOKRATÁK ---- */
+{id:"m1",t:"merk",type:"mc",exam:true,q:"Mi volt a merkantilizmus elsődleges gazdasági célja?",
+ o:["A fogyasztói választási lehetőségek bővítése.",
+    "Teljes szabadkereskedelem biztosítása.",
+    "Kormányzati beavatkozás teljes mellőzése.",
+    "Külkereskedelmi többlet és nemesfém-felhalmozás növelése."],
+ a:3,w:"A merkantilizmus az állam erejét a nemesfémkészlethez kötötte: nemesfém-export tilalma, importkorlátozás, aktív külkereskedelmi mérleg. A szabadkereskedelem és a be nem avatkozás a klasszikusoké.",s:"01. előadás · 24. dia"},
+
+{id:"m2",t:"merk",type:"mc",q:"Mi jellemezte a korai merkantilizmust?",
+ o:["Ipari nyersanyagok importjának ösztönzése.",
+    "A nemesfémek exportjának tilalma és jelentős importkorlátozások.",
+    "A mezőgazdaság adóterheinek csökkentése.",
+    "A népességnövekedés támogatása mint alapfeltétel."],
+ a:1,w:"A korai szakasz logikája: háborúk → hadsereg → arany szerepe → nemesfém-export tilalma és vámok. Az ipari nyersanyagimport és a népességnövekedés támogatása már a késői merkantilizmus.",s:"01. előadás · 24. dia"},
+
+{id:"m3",t:"merk",type:"mc",q:"Mi jellemezte a késői merkantilizmust?",
+ o:["Ipari nyersanyagok importja az ipari termelés növelése érdekében, és a népességnövekedés támogatása.",
+    "A nemesfémek kivitelének teljes szabadsága.",
+    "Az állami beavatkozás felszámolása.",
+    "A mezőgazdasági termelés kizárólagos támogatása."],
+ a:0,w:"A késői merkantilizmus már az ipari termelésre koncentrál: nyersanyagimport és népességnövekedés, mint a nemzetgazdaság növekedésének alapfeltétele.",s:"01. előadás · 24. dia"},
+
+{id:"m4",t:"merk",type:"mc",q:"Milyen belső ellentmondásra mutat rá az előadás a merkantilizmus kapcsán?",
+ o:["A vámok csökkentik az állam bevételeit.",
+    "Nem lehet minden országnak pozitív külkereskedelmi mérlege más országokból történő import nélkül.",
+    "A nemesfém felhalmozása inflációhoz vezet.",
+    "Az ipari termelés csökkenti a foglalkoztatást."],
+ a:1,w:"A dia végeredményként rögzíti: aktív mérleg csak úgy lehetséges, ha máshol passzív — mindenki nem lehet egyszerre nyertes.",s:"01. előadás · 24. dia"},
+
+{id:"m5",t:"merk",type:"mc",q:"Ki a fiziokraták legismertebb alakja, és hol működött a csoport?",
+ o:["Adam Smith, Skóciában.",
+    "François Quesnay, Franciaországban.",
+    "David Ricardo, Angliában.",
+    "Jean Baptiste Colbert, Franciaországban."],
+ a:1,w:"„A természet uralma” — a közgazdászok első csoportja Franciaországban, François Quesnay vezetésével.",s:"01. előadás · 25. dia"},
+
+{id:"m6",t:"merk",type:"mc",q:"Mivel indokolták a fiziokraták a recessziót a merkantilista gazdaságpolitika alatt?",
+ o:["A mezőgazdaságra nehezedő magas adóterhekkel, az inflációval és az államadóssággal.",
+    "A munkanélküliséggel és a kapacitás-kihasználatlansággal.",
+    "A gyarmatok elvesztésével.",
+    "A pénzmennyiség szűkülésével."],
+ a:0,w:"A dia három okot nevez meg: magas mezőgazdasági adóterhek, infláció, államadósság. A munkanélküliség és kapacitás-kihasználatlanság már a keynesi diagnózis a két világháború között.",s:"01. előadás · 25. dia"},
+
+{id:"m7",t:"merk",type:"mc",q:"Milyen feltételt szabnak a fiziokraták a „láthatatlan kéz” működéséhez?",
+ o:["Teljes állami tulajdont a termelőeszközök felett.",
+    "Megfelelően rendezett társadalmi környezetet — rosszul szervezett társadalomban „jogi zsarnokságra” (erős államra) van szükség.",
+    "A magántulajdon eltörlését.",
+    "A nemesfémkészlet folyamatos növelését."],
+ a:1,w:"A dia kettős állítása: a rendszer képes fenntartani magát, de az általános jólét nem fejlődik ki magától — a láthatatlan kéz csak adott társadalmi környezetben működik jól.",s:"01. előadás · 25. dia"},
+
+{id:"m8",t:"merk",type:"mc",q:"Hogyan értékelik a fiziokraták a tulajdonszabadságból fakadó egyenlőtlenséget?",
+ o:["Igazságtalannak, ezért újraelosztást javasolnak.",
+    "Természetesnek, mert az egyéni képességek és a szerencse különbségeiből fakad.",
+    "A gyarmati rendszer következményének.",
+    "A pénzügyi rendszer hibájának."],
+ a:1,w:"Tulajdonszabadság → jólét növekedése → egyenlőtlenség növekedése — de ez a dia szerint természetes, mert a képességek és a szerencse különbségeiből ered.",s:"01. előadás · 25. dia"},
+
+{id:"m9",t:"merk",type:"tf",q:"Jelöld, melyik állítás igaz és melyik hamis.",
+ 
+ items:[
+  {s:"A merkantilista gazdaságpolitikában fontos szerepet kaptak az importkorlátozások és a vámok.",a:true,w:"A korai merkantilizmus kulcseszközei, a nemesfém-export tilalma mellett. (01/24)"},
+  {s:"A fiziokraták szerint a gazdasági rendszer állami beavatkozás nélkül is képes fenntartani magát.",a:true,w:"Ebből következik a laissez faire gazdaságpolitika ajánlása. (01/25)"},
+  {s:"A késői merkantilizmus a népességnövekedés visszafogását tartotta célszerűnek.",a:false,w:"Fordítva: a népességnövekedés támogatása a nemzetgazdaság növekedésének alapfeltétele. (01/24)"},
+  {s:"A fiziokraták a merkantilista gazdaságpolitikát a gazdaság szempontjából károsnak tartották.",a:true,w:"A dia első mondata szerint az „tönkreteszi a gazdaságot”. (01/25)"}
+ ],s:"01. előadás · 24–25. dia"},
+
+/* ---- MARX ---- */
+{id:"x1",t:"marx",type:"mc",q:"Miből származik Marx szerint az abszolút többletérték?",
+ o:["A munkanap meghosszabbításából.",
+    "A munkások termelékenységének növekedéséből.",
+    "A gépesítés miatti költségcsökkenésből.",
+    "A nemzetközi kereskedelem árkülönbségeiből."],
+ a:0,w:"Abszolút többletérték = a munkanap meghosszabbítása. A termelékenység növekedéséből a relatív többletérték származik — ez a két fogalom a leggyakoribb csapda.",s:"01. előadás · 27. dia"},
+
+{id:"x2",t:"marx",type:"mc",q:"Mi a válságok fő oka Marx elemzésében?",
+ o:["Az aggregált kereslet visszaesése.",
+    "A profitráta csökkenése.",
+    "A pénzmennyiség túlzott bővülése.",
+    "A nemzetközi munkamegosztás egyenlőtlensége."],
+ a:1,w:"A dia záró pontja: „A profitráta csökkenése → a válságok fő oka.” Az aggregált kereslet Keynesnél központi fogalom.",s:"01. előadás · 27. dia"},
+
+{id:"x3",t:"marx",type:"mc",q:"Mit állít Marx a bérekről és a munka értékéről?",
+ o:["A bérek a munka termelési értékét pontosan tükrözik.",
+    "A bérek önkényesen megállapítottak, és a munkát nem a termelési értékén fizetik.",
+    "A béreket a munkaerő kereslete és kínálata egyensúlyba hozza.",
+    "A bérek a profitrátával együtt emelkednek."],
+ a:1,w:"Ebből következik, hogy a megtermelt többletérték a kapitalistánál marad, felhalmozódik, és osztálykülönbségeket hoz létre.",s:"01. előadás · 27. dia"},
+
+{id:"x4",t:"marx",type:"mc",q:"Mi a Das Kapital megkülönböztető jegye a 02. előadás szerint?",
+ o:["Kizárólag a pénzügyi rendszert elemzi.",
+    "A gazdaság egészét vizsgálja, nem csupán egy-egy aspektusát.",
+    "A gyarmati rendszer politikai elemzését adja.",
+    "Matematikai modellekkel dolgozik."],
+ a:1,w:"Marx Smith és Ricardo kategóriáit kölcsönzi és adaptálja, új fogalmat vezet be (értéktöbblet), és a gazdaság egészét elemzi abból kiindulva, hogy minden gazdasági érték az emberi munkából származik.",s:"02. előadás · 18. dia"},
+
+{id:"x5",t:"marx",type:"mc",q:"Melyik két alaposztály áll szemben egymással Marx szerint a kapitalista rendszerben?",
+ o:["A földbirtokosok és a bérlők.",
+    "A termelési eszközök birtokosai (burzsoázia) és a munkások (proletariátus).",
+    "Az állami hivatalnokok és a vállalkozók.",
+    "A centrum és a periféria országainak elitjei."],
+ a:1,w:"„A burzsoázia maga termeli meg a sírásóit” — a Kommunista Kiáltvány idézete a dián.",s:"02. előadás · 18. dia"},
+
+{id:"x6",t:"marx",type:"mc",q:"Mit követel a szocializmus doktrínája a 02. előadás definíciója szerint?",
+ o:["A tulajdon és a természeti erőforrások állami — nem magán — tulajdonát vagy ellenőrzését.",
+    "A piaci verseny teljes szabadságát.",
+    "A külkereskedelem korlátozását és a nemesfém-felhalmozást.",
+    "A jóléti állam leépítését."],
+ a:0,w:"A definíció szerint minden termék bizonyos értelemben társadalmi termék, és aki hozzájárul az előállításhoz, jogosult részesedni belőle.",s:"02. előadás · 17. dia"},
+
+{id:"x7",t:"marx",type:"mc",q:"Mi a szocialisták fő kritikája a kapitalizmussal szemben?",
+ o:["Hogy túl lassan növeli a termelékenységet.",
+    "Hogy szükségszerűen a vagyon és a hatalom igazságtalan, kizsákmányoló koncentrációjához vezet.",
+    "Hogy túlzottan korlátozza a külkereskedelmet.",
+    "Hogy nem képes technológiai fejlődést produkálni."],
+ a:1,w:"A dia szerint a szabadpiaci verseny kevés győztese vagyonát és hatalmát a dominanciája megerősítésére használja.",s:"02. előadás · 17. dia"},
+
+{id:"x8",t:"marx",type:"mc",q:"Hogyan tekintett Lenin a Kommunista Pártra?",
+ o:["A munkásság spontán szerveződésének laza hálózataként.",
+    "Rendkívül elkötelezett szellemi elitként, amely minden eszközzel — akár erőszakkal — megszerzi a hatalmat.",
+    "Parlamenti pártként, amely választásokon keresztül jut hatalomra.",
+    "Szakszervezeti tömörülésként, amely a bérekért küzd."],
+ a:1,w:"A leninizmus tekintélyelvű vonása a proletárdiktatúrában is megmutatkozik: azt a gyakorlatban nem a munkások, hanem a pártvezetők gyakorolták.",s:"02. előadás · 19. dia"},
+
+{id:"x9",t:"marx",type:"mc",q:"Mi a titoizmus legjellegzetesebb gazdasági intézménye?",
+ o:["A központi tervezés kiterjesztése minden ágazatra.",
+    "A munkások önigazgatása (Edvard Kardelj) — a gyár dolgozói rendelkeznek a termelőeszközök felett.",
+    "A magánvállalkozás teljes tilalma.",
+    "Az állami külkereskedelmi monopólium."],
+ a:1,w:"A titoista szocializmus felszámolta a központi tervezést, és piacgazdaság-formát hozott létre: önigazgatás az iparban, magánvállalkozás a mezőgazdaságban.",s:"02. előadás · 21. dia"},
+
+{id:"x10",t:"marx",type:"mc",q:"Melyik esemény után vezette be Tito a jugoszláv „külön utat”?",
+ o:["Az 1945-ös háborús győzelem után azonnal.",
+    "Az 1948–1949-es moszkvai szakítás után.",
+    "Tito 1980-as halála után.",
+    "Az 1968-as prágai tavasz után."],
+ a:1,w:"A nagyhatalmaktól független partizángyőzelem adta a mozgásteret, a védjegyszerű titoizmus bevezetése azonban a Moszkvával való 1948–49-es szakítás után következett.",s:"02. előadás · 21. dia"},
+
+{id:"x11",t:"marx",type:"mc",q:"Milyen adatokkal szemlélteti az előadás a szovjet oktatáspolitika eredményeit?",
+ o:["Az írástudatlanság 1914-ben 67%, 1939-ben kevesebb mint 20% volt.",
+    "Az írástudatlanság 1914-ben 20%, 1939-ben 5% volt.",
+    "A felsőoktatási hallgatók száma 1952-re 110 000-re nőtt.",
+    "A felsőoktatási intézmények száma 1952-re 90-re nőtt."],
+ a:0,w:"A felsőoktatásban kb. 90 intézmény / 110 000 hallgató (1914) → kb. 900 intézmény / 974 000 nappalis hallgató (1952). A számpárok felcserélése tipikus csapda.",s:"02. előadás · 15. dia"},
+
+{id:"x12",t:"marx",type:"tf",q:"Jelöld, melyik állítás igaz és melyik hamis.",
+ 
+ items:[
+  {s:"Marx értelmezésében az abszolút többletérték a munkások termelékenységének növeléséből származik.",a:false,w:"Az abszolút többletérték a munkanap meghosszabbításából ered; a termelékenység növekedése a relatív többletérték. (01/27)"},
+  {s:"Marx szerint a pénz tőkévé alakulása a kapitalista és a munkás közötti ellentét alapja.",a:true,w:"A dia a pénz tőkévé alakulásának folyamatát köti az osztályellentéthez. (01/27)"},
+  {s:"A titoista rendszer fenntartotta a szovjet típusú központi tervezést.",a:false,w:"Felszámolta, és a munkások önigazgatásán alapuló piacgazdaság-formát hozott létre. (02/21)"},
+  {s:"Lenin szerint a proletárdiktatúrát a gyakorlatban a kommunista párt vezetői gyakorolták.",a:true,w:"Ezt a dia a leninizmus tekintélyelvű vonásaként említi. (02/19)"}
+ ],s:"01. előadás · 27. dia · 02. előadás · 19–21. dia"},
+
+/* ---- VILÁGGAZDASÁG ---- */
+{id:"v1",t:"vilag",type:"mc",exam:true,q:"Mit jelöl a világrendszer-elméletben a „félperiféria” fogalma?",
+ o:["A világgazdaság centrumában elhelyezkedő, de főként mezőgazdasági termelést folytató térségeket.",
+    "A centrum és a periféria között elhelyezkedő, mindkét pozíció bizonyos jellemzőit hordozó térségeket.",
+    "A nemzetközi munkamegosztásba újonnan belépő, fejlett technológiát exportáló országokat.",
+    "A periférián belül kialakuló, helyi önellátásra és közösségi termelésre épülő gazdaságokat."],
+ a:1,w:"Wallersteinnél a nemzetközi munkamegosztás három pozíciója: periféria – félperiféria – centrum. A félperiféria átmeneti, kettős karakterű helyzet (a dia kérdése: „Magyarország vajh mi?”).",s:"02. előadás · 22. dia"},
+
+{id:"v2",t:"vilag",type:"mc",q:"Mikortól számítja Wallerstein a világrendszer kialakulását?",
+ o:["A gazdaságok a XVI. századtól kapcsolódnak nemzetközi munkamegosztásba, a világrendszer a XIX. századra alakult ki.",
+    "A világrendszer az ipari forradalommal, a XVIII. században jött létre egy lépésben.",
+    "A világrendszer a Bretton Woods-i rendszerrel, 1944-ben született meg.",
+    "A világrendszer a gyarmatbirodalmak felbomlásával, a XX. század közepén alakult ki."],
+ a:0,w:"A tőkefelhalmozás logikája szerint szerveződő, heterogén világrendszer a XVI. századi kapcsolódásból nő ki, és a XIX. századra áll össze.",s:"02. előadás · 22. dia"},
+
+{id:"v3",t:"vilag",type:"mc",q:"Kinek a nevéhez köti az előadás az egyenlőtlen nemzetközi csere elméletét?",
+ o:["Immanuel Wallerstein.",
+    "Arghiri Emmanuel.",
+    "Douglass North.",
+    "Mark Granovetter."],
+ a:1,w:"Az újbaloldal és a neomarxizmus diáján Arghiri Emmanuel az egyenlőtlen nemzetközi csere, Wallerstein a világrendszer-elmélet szerzője.",s:"02. előadás · 22. dia"},
+
+{id:"v4",t:"vilag",type:"mc",q:"Melyik évszámpár szerepel a korai gyarmatosítás diáján?",
+ o:["Amerika európai felfedezése 1492, Afrika körülhajózása 1488.",
+    "Amerika felfedezése 1488, Afrika körülhajózása 1492.",
+    "Amerika felfedezése 1500, Afrika körülhajózása 1510.",
+    "Amerika felfedezése 1492, Afrika körülhajózása 1520."],
+ a:0,w:"1488: Afrika körülhajózása; 1492: Amerika európai felfedezése — ezek nyitják meg a tengeri kereskedelmi útvonalat Európa és Ázsia között.",s:"02. előadás · 4. dia"},
+
+{id:"v5",t:"vilag",type:"mc",q:"Milyen gyarmattípusokat különböztet meg a dia?",
+ o:["Telepes vs. kizsákmányoló, illetve politikai vs. kereskedelmi gyarmatot.",
+    "Centrum vs. periféria gyarmatot.",
+    "Ipari vs. mezőgazdasági gyarmatot.",
+    "Állami vs. magánkézben lévő gyarmatot."],
+ a:0,w:"A korai gyarmatosítás jellemzői mellett a dia ezt a két szempontpárt adja meg a gyarmatok tipizálására.",s:"02. előadás · 4. dia"},
+
+{id:"v6",t:"vilag",type:"mc",q:"Mi jellemzi az imperializmust a dia meghatározása szerint?",
+ o:["Kizárólag kereskedelmi kapcsolatok építését, politikai beavatkozás nélkül.",
+    "Birodalmak kialakítását: politikai alávetést, gazdasági kizsákmányolást, a saját hatalmi rendszerbe kényszerítést — főként a 19–20. században.",
+    "A gyarmatok önkormányzatának fokozatos kiépítését.",
+    "A nemzetközi munkamegosztás önkéntes elmélyítését."],
+ a:1,w:"Az imperializmus a fejlett tőkés országok 19–20. századi gyarmatosításaihoz kötődik, és a politikai alávetést is magában foglalja.",s:"02. előadás · 4. dia"},
+
+{id:"v7",t:"vilag",type:"tf",q:"Jelöld, melyik állítás igaz és melyik hamis.",
+ items:[
+  {s:"A korai gyarmatosítás szorosan összekapcsolódott a merkantilizmussal és az anyaországgal való kereskedelemmel.",a:true,w:"A dia mindkettőt a kolonizáció jellemzői között sorolja fel. (02/4)"},
+  {s:"Wallerstein szerint a világrendszer homogén, azonos fejlettségű gazdaságokból áll.",a:false,w:"A dia kifejezetten heterogénnek nevezi a világrendszert. (02/22)"},
+  {s:"Az újbaloldal és a neomarxizmus a 60-as évektől az Első és a Harmadik Világ egyenlőtlenségeit állította középpontba.",a:true,w:"Ez a dia nyitó gondolata. (02/22)"},
+  {s:"A gyarmatosítás nyertesei a dia szerint nem tudták megújítani politikai-gazdasági rendszereiket.",a:false,w:"Éppen ellenkezőleg: meg tudták újítani azokat. (02/22)"}
+ ],s:"02. előadás · 4. és 22. dia"},
+
+/* ---- KEYNES ---- */
+{id:"y1",t:"keynes",type:"mc",q:"Melyik művel indul a „keynesi forradalom”, és mikor?",
+ o:["A Nemzetek gazdagsága, 1776.",
+    "A foglalkoztatás, a kamat és a pénz általános elmélete, 1936.",
+    "A Tőke, 1867.",
+    "Az Út a szolgasághoz, 1944."],
+ a:1,w:"Az „Általános elmélet” (1936) a két világháború közötti ciklikusságra — munkanélküliség, kapacitás-kihasználatlanság, 1929 — adott válasz.",s:"02. előadás · 8. dia"},
+
+{id:"y2",t:"keynes",type:"mc",q:"Mit állít Keynes a piaci rendszerről?",
+ o:["Önszabályozó, egyensúlyi rendszer, amely magától helyreáll.",
+    "Instabil; az állam monetáris és fiskális politikával korrigálja a hibáit — vegyes gazdaság.",
+    "Csak nemzetközi kereskedelem révén lehet egyensúlyban.",
+    "Kizárólag a pénzmennyiség szabályozásával stabilizálható."],
+ a:1,w:"A finomhangolás célja a társadalmi optimum közelében tartani a gazdasági egyensúlyt. Az önszabályozó piac a klasszikus-neoliberális állítás.",s:"02. előadás · 8. dia"},
+
+{id:"y3",t:"keynes",type:"mc",q:"Mi határozza meg Keynes szerint hosszú távon a gazdasági fejlődést?",
+ o:["Az aggregált kereslet, amelyre az állam makroszinten tud hatni.",
+    "A megtakarítási ráta nagysága.",
+    "A nemesfémkészlet mértéke.",
+    "A komparatív előnyök szerkezete."],
+ a:0,w:"Az aggregált kereslet központi szerepe a keynesi elmélet magja — a Hayekkel folytatott vita egyik fő tárgya is ez volt.",s:"02. előadás · 8. és 10. dia"},
+
+{id:"y4",t:"keynes",type:"mc",q:"Mi volt a Bretton Woods-i rendszer alapja (1944–1971)?",
+ o:["A font sterling szabad lebegtetése.",
+    "Az arany értékén stabilizált amerikai dollár, szabad áramlás mellett.",
+    "A nemzeti valuták kölcsönös leértékelése.",
+    "A WTO által felügyelt vámunió."],
+ a:1,w:"Az USA a világ árutermelésének majdnem felét adta, és a Föld aranykészletének kb. 80%-át tartotta kézben — ezért lehetett a dollár a rendszer központja.",s:"02. előadás · 9. dia"},
+
+{id:"y5",t:"keynes",type:"mc",q:"Mi vetett véget a Bretton Woods-i rendszernek, és mi következett belőle?",
+ o:["Nixon lebegő valutává tette a dollárt — ez teremtette meg a modern neoliberális gazdaságpolitika alapjait.",
+    "A WTO 1995-ös megalapítása.",
+    "Az 1929-es világválság.",
+    "A 2008-as pénzügyi válság."],
+ a:0,w:"A dollár aranyhoz kötésének felfüggesztése után a rendszer szellemi és szervezeti öröksége a neoliberális fordulat lett; a WTO 1995-ben jött létre.",s:"02. előadás · 9. dia"},
+
+{id:"y6",t:"keynes",type:"mc",q:"Miből indul ki a poszt-keynesiánus reformirányzat?",
+ o:["Az országok gazdasági egyenlőtlenségeiből: dominancia, alárendeltség és egyirányú függő kapcsolatok.",
+    "Abból, hogy a nemzetközi gazdaságban automatikus egyensúly érvényesül.",
+    "A komparatív előnyök kölcsönös hasznából.",
+    "A nemesfémkészletek egyenlőtlen eloszlásából."],
+ a:0,w:"Ezért állítja a reformirányzat, hogy nincs automatikus egyensúly, és a külkereskedelem egyes országok fejlődésére kedvezőtlenül hat.",s:"02. előadás · 9. dia"},
+
+{id:"y7",t:"keynes",type:"mc",q:"Mit jelent a tőke „perverz” áramlása a reformirányzat érvelésében?",
+ o:["Hogy a tőke kizárólag a leggyorsabban növekvő ágazatokba áramlik.",
+    "Hogy a tőke nem feltétlenül oda megy, ahol nagy szükség volna rá.",
+    "Hogy a tőke minden esetben a periférián halmozódik fel.",
+    "Hogy a tőkekivitelt az állam tiltja."],
+ a:1,w:"Ezzel együtt említi a dia az egyoldalú specializáltságot, a prekapitalista intézményrendszert és azt, hogy a technológiatranszfer iránya a fejlett országok felé mutat.",s:"02. előadás · 9. dia"},
+
+{id:"y8",t:"keynes",type:"mc",q:"Mely kérdések álltak a Keynes–Hayek vita középpontjában?",
+ o:["Az állam szerepe, a gazdasági ciklusok, a monetáris politika hatásai és az egyén szerepe.",
+    "A gyarmati rendszer és a nemzetközi munkamegosztás.",
+    "Az értékparadoxon és a határhaszon.",
+    "A tulajdonjogok és a tranzakciós költségek."],
+ a:0,w:"A vita (1931/32, Hayek, Keynes és Piero Sraffa) formailag alig több volt néhány személyeskedő könyvrecenziónál az Economica és az Economic Journal hasábjain.",s:"02. előadás · 10. dia"},
+
+{id:"y9",t:"keynes",type:"mc",q:"Melyik állítás igaz a neoliberalizmusra az előadás szerint?",
+ o:["Elsősorban gazdaságpolitikai gyakorlat, amely az állam kivonulását hirdeti a klasszikus és neoklasszikus alapokon.",
+    "Az aggregált kereslet állami élénkítését javasolja.",
+    "A jóléti állam kiterjesztését tartja a növekedés feltételének.",
+    "A protekcionizmust és az árszabályozó kartelleket támogatja."],
+ a:0,w:"Jellemzői: liberalizáció, szabadpiaci spontaneitás, protekcionizmus-ellenesség, monetarista felfogás, és az, hogy a „jóléti állam” koncepcióját károsnak tartja.",s:"02. előadás · 11. dia"},
+
+{id:"y10",t:"keynes",type:"mc",q:"Mire hivatkozik az előadás a monetarista deregulációs logika kritikájaként?",
+ o:["Az 1929-es válságra.",
+    "A 2008-as válságra, a deregulált bankrendszerek következményeként.",
+    "Az 1971-es aranystandard-megszüntetésre.",
+    "Az 1948-as jugoszláv szakításra."],
+ a:1,w:"A dia zárójeles megjegyzése: „a deregularizált bankrendszerek negatív következményeit 2008-ban megismerhettük”.",s:"02. előadás · 11. dia"},
+
+{id:"y11",t:"keynes",type:"tf",q:"Jelöld, melyik állítás igaz és melyik hamis.",
+ exam:true,
+ items:[
+  {s:"A Bretton Woods-i rendszerben az amerikai dollár értéke az aranyhoz kapcsolódott.",a:true,w:"Az arany értékén stabilizált dollár volt az új rendszer központja. (02/9)"},
+  {s:"A reformirányzat szerint a külkereskedelem eltérő hatással lehet az egyes országok gazdasági fejlődésére.",a:true,w:"Sőt egyes országok számára kifejezetten kedvezőtlen lehet. (02/9)"},
+  {s:"Keynes szerint az aggregált kereslet a gazdasági fejlődés meghatározó tényezője.",a:true,w:"Erre makroszinten az állam monetáris és fiskális politikával tud hatni. (02/8)"},
+  {s:"A keynesi megközelítés a gazdasági egyensúly fenntartását a spontán piaci mechanizmusokra bízza.",a:false,w:"Épp fordítva: a piac instabil, ezért az állam korrigál — vegyes gazdaság. (02/8)"}
+ ],s:"02. előadás · 8–9. dia"},
+
+{id:"y12",t:"keynes",type:"tf",q:"Jelöld, melyik állítás igaz és melyik hamis.",
+ items:[
+  {s:"A WTO 1995-ben jött létre.",a:true,w:"A dia a Bretton Woods utáni intézményi fejlemények között említi. (02/9)"},
+  {s:"A Bretton Woods-i rendszer 1944-től 1971-ig működött.",a:true,w:"A végét Nixon döntése jelentette, aki lebegő valutává tette a dollárt. (02/9)"},
+  {s:"A neoliberális felfogás szerint a jóléti állam koncepciója súlyos károkat okoz a gazdaságnak.",a:true,w:"Ez a neoliberalizmus egyik sarokpontja a dián. (02/11)"},
+  {s:"A keynesi diagnózis szerint a két világháború közötti időszak fő problémája a nemesfémhiány volt.",a:false,w:"A problémák: ciklikusság, munkanélküliség, kapacitás-kihasználatlanság, az 1929-es válság. (02/8)"}
+ ],s:"02. előadás · 8–11. dia"},
+
+/* ---- KIEGÉSZÍTŐ ---- */
+{id:"e1",t:"alternativ",type:"mc",exam:true,q:"Melyik állítás fejezi ki legjobban a nemnövekedés („degrowth”) megközelítését?",
+ o:["A technológiai fejlődés felgyorsításával kívánja összeegyeztetni a fogyasztás bővülését és a környezet védelmét.",
+    "A termelés és fogyasztás mérséklését támogatja a gazdag országokban, miközben az életminőséget és az ökológiai fenntarthatóságot helyezi előtérbe.",
+    "A gazdasági visszaesést átmeneti eszköznek tekinti a nemzetközi versenyképesség helyreállításához.",
+    "A gazdasági növekedést a helyi termelés, a közösségi tulajdon és a fejlesztési segélyek bővítésével kívánja fenntartani."],
+ a:1,w:"A degrowth tudatos, tervezett mérséklés a gazdag országokban — nem recesszió és nem „zöld növekedés”. Az a) a technooptimista ökomodernizmus, a c) konjunktúrapolitika, a d) pedig továbbra is növekedéspárti.",s:"03. előadás · 30. dia"},
+
+{id:"e2",t:"vallas",type:"tf",q:"Jelöld, melyik állítás igaz és melyik hamis.",
+ exam:true,
+ items:[
+  {s:"A buddhista gazdaságtan a mértékletes szükségletkielégítést, az értelmes munkát és a környezeti felelősséget is fontosnak tartja.",a:true,w:"Schumacher „A kicsi szép” című munkájának alapgondolata: a munka célja nem csak a termelés, hanem a személyiség kibontakoztatása is."},
+  {s:"A keresztény gazdasági gondolkodásban hangsúlyos az emberi méltóság, a közjó, a tisztességes munkafeltételek és a teremtésvédelem.",a:true,w:"A katolikus társadalmi tanítás pillérei: emberi méltóság, közjó, szolidaritás, szubszidiaritás, teremtésvédelem."},
+  {s:"Az iszlám gazdaságtan a kamatozó hitelezést tekinti a kockázatok igazságos megosztásának legfontosabb eszközének.",a:false,w:"A riba (kamat) tilos; a kockázatot nyereség–veszteség megosztásos konstrukciókkal (musaraka, mudaraba) osztják meg."},
+  {s:"A zsidó gazdasági gondolkodásban a cedaka és a tikkun olam elsősorban az egyéni vagyongyarapodás és a piaci verseny ösztönzéséhez kapcsolódik.",a:false,w:"A cedaka igazságosságból fakadó kötelesség, a tikkun olam a világ javítása — mindkettő közösségi felelősség, nem vagyongyarapítás. (03/14)"}
+ ],s:"03. előadás · 8–22. dia"},
+
+{id:"e3",t:"tarsadalmi",type:"tf",q:"Jelöld, melyik állítás igaz és melyik hamis.",
+ exam:true,
+ items:[
+  {s:"Douglass North szerint az intézmények, a tulajdonjogok és a jogrendszer minősége összefügg a beruházási ösztönzőkkel.",a:true,w:"North központi tétele: az intézmények szabják meg a gazdasági szereplők ösztönzőit, és ezen keresztül a fejlődés pályáját."},
+  {s:"A régi intézményi közgazdaságtan deduktív modellek és tranzakciós költségek segítségével elemzi az intézményeket.",a:false,w:"A régi irányzat (Veblen, Commons, Mitchell) induktív és történeti-leíró; a deduktív modell és a tranzakciós költség az új intézményi közgazdaságtané."},
+  {s:"Az új intézményi közgazdaságtan deduktív modellek és tranzakciós költségek segítségével elemzi az intézményeket.",a:true,w:"Coase, North és Williamson irányzata — a tranzakciós költség a kulcsfogalom."},
+  {s:"Granovetter szerint a társadalmi kapcsolatok és normák alakítják a gazdasági szereplők magatartását.",a:true,w:"Ez a beágyazottság (embeddedness) tétele: a gazdasági cselekvés társadalmi kapcsolathálókba ágyazott. (03/4)"}
+ ],s:"03. előadás · 4–6. dia"},
+
+{id:"e4",t:"tarsadalmi",type:"mc",q:"Mi különbözteti meg a régi és az új intézményi közgazdaságtant?",
+ o:["A régi induktív, történeti-leíró; az új deduktív modellekkel és tranzakciós költségekkel dolgozik.",
+    "A régi deduktív modellekkel dolgozik; az új kizárólag esettanulmányokat használ.",
+    "A régi a nemzetközi kereskedelmet, az új a monetáris politikát vizsgálja.",
+    "Csak a vizsgált országok körében különböznek."],
+ a:0,w:"Régi: Veblen, Commons, Mitchell — szokások, hatalmi viszonyok, történeti leírás. Új: Coase, North, Williamson — tranzakciós költségek, tulajdonjogok, formális modellek.",s:"03. előadás"},
+
+{id:"e5",t:"tarsadalmi",type:"mc",q:"Mit jelent a beágyazottság (embeddedness) Granovetter értelmezésében?",
+ o:["A gazdasági szereplők kizárólag árjelzések alapján döntenek.",
+    "A gazdasági cselekvést társadalmi kapcsolatok és normák alakítják.",
+    "A vállalatokat jogilag be kell ágyazni a nemzeti szabályozásba.",
+    "A tőke területi koncentrációját jelenti."],
+ a:1,w:"Granovetter a tisztán atomizált, racionális szereplő képét bírálja: a gazdasági döntések társadalmi kapcsolathálókba ágyazódnak.",s:"03. előadás"},
+
+{id:"e6",t:"vallas",type:"mc",q:"Milyen elven osztja meg a kockázatot az iszlám gazdaságtan?",
+ o:["Rögzített kamat felszámításával.",
+    "Nyereség- és veszteségmegosztáson alapuló konstrukciókkal (pl. musaraka, mudaraba).",
+    "Állami garanciavállalással minden hitelre.",
+    "A spekulatív ügyletek ösztönzésével."],
+ a:1,w:"A riba (kamat) tilalma mellett a kockázatot a felek közösen viselik; a garar (túlzott bizonytalanság, spekuláció) szintén tiltott.",s:"03. előadás"},
+
+{id:"e7",t:"vallas",type:"mc",q:"Mit jelent a tikkun olam a zsidó gazdasági gondolkodásban?",
+ o:["Az egyéni vagyon felhalmozásának parancsát.",
+    "A világ javítását, közösségi felelősségvállalást.",
+    "A kamatszedés engedélyezését a közösségen belül.",
+    "A piaci verseny korlátlan szabadságát."],
+ a:1,w:"A cedaka (igazságosságból fakadó adakozási kötelesség) és a tikkun olam (a világ javítása) egyaránt a közösségi felelősség fogalmai.",s:"03. előadás"},
+
+/* ---- TÁRSADALMI ÉS INTÉZMÉNYI (03. előadás) ---- */
+{id:"s1",t:"tarsadalmi",type:"mc",q:"Milyen tudományterületek határán helyezkedik el a társadalmi gazdaságtan (szocioökonómia)?",
+ o:["A közgazdaságtan és a szociológia határán.",
+    "A közgazdaságtan és a jogtudomány határán.",
+    "A pszichológia és a statisztika határán.",
+    "A politikatudomány és a történelem határán."],
+ a:0,w:"Nemcsak a termelést, elosztást és fogyasztást vizsgálja, hanem azt is, hogyan ágyazódnak be ezek a társadalmi, kulturális és intézményi környezetbe.",s:"03. előadás · 3. dia"},
+
+{id:"s2",t:"tarsadalmi",type:"mc",q:"Milyen kérdést tesz fel a társadalmi gazdaságtan a gazdaság önállóságáról?",
+ o:["Hogy a gazdaság teljesen önálló, a társadalomtól független rendszer-e.",
+    "Mennyiben tekinthető a gazdaság nem önálló rendszernek, hanem társadalmi beágyazottságban működő jelenségnek.",
+    "Hogy a gazdaságot kizárólag matematikai modellekkel lehet-e leírni.",
+    "Hogy az állam mekkora hányadot vonjon el a GDP-ből."],
+ a:1,w:"A dia három kérdése: hogyan hatnak a normák és kapcsolatok a döntésekre, hogyan alakítják a gazdasági struktúrák a társadalmi viszonyokat, és mennyiben beágyazott a gazdaság.",s:"03. előadás · 3. dia"},
+
+{id:"s3",t:"tarsadalmi",type:"mc",q:"Mit kérdőjelez meg Granovetter beágyazottság-elmélete?",
+ o:["A tisztán racionális, kizárólag önérdeket követő gazdasági szereplő képét.",
+    "A tulajdonjogok gazdasági jelentőségét.",
+    "A tranzakciós költségek létezését.",
+    "A piaci árak információtartalmát."],
+ a:0,w:"A szereplők viselkedését, bizalmát és eredményeit a tágabb társadalmi kontextus — normák, intézmények, személyes kapcsolatok — alakítja, nem pusztán az utilitarista önérdek.",s:"03. előadás · 4. dia"},
+
+{id:"s4",t:"tarsadalmi",type:"mc",q:"Granovetter szerint mit segítenek elő a társadalmi kötelékek a piacokon?",
+ o:["A monopóliumok kialakulását.",
+    "Az együttműködést és a visszaélések megelőzését.",
+    "Az árak spekulatív ingadozását.",
+    "Az állami szabályozás feleslegessé válását."],
+ a:1,w:"A beágyazottság éppen a bizalom és az együttműködés forrása — a gazdasági cselekvések társadalmi hálózatokkal fonódnak össze.",s:"03. előadás · 4. dia"},
+
+{id:"s5",t:"tarsadalmi",type:"mc",q:"Mi jellemzi a régi intézményi közgazdaságtant (Old Institutional Economics)?",
+ o:["Deduktív érvelés és játékelmélet alkalmazása.",
+    "Evolúciós és holisztikus megközelítés: a szokások alakította gazdasági viselkedés adott történelmi kontextusban.",
+    "Kizárólag a tranzakciós költségek mérése.",
+    "Módszertani individualizmus és formális modellezés."],
+ a:1,w:"A régi irányzat az intézmények, a technológia és a társadalom összekapcsolódását hangsúlyozza; a deduktív modellek és a tranzakciós költségek az új intézményi közgazdaságtan eszközei.",s:"03. előadás · 5. dia"},
+
+{id:"s6",t:"tarsadalmi",type:"mc",q:"Mi jellemzi az új intézményi közgazdaságtant (New Institutional Economics)?",
+ o:["Evolúciós, holisztikus és történeti leírás.",
+    "Deduktív érvelés, játékelmélet és tranzakciós költségek, gyakran módszertani individualista nézőpontból.",
+    "A gazdasági szereplők társadalmi beágyazottságának elutasítása minden formában.",
+    "A magántulajdon megszüntetésének programja."],
+ a:1,w:"Analitikusabb és mainstream-orientáltabb: azt elemzi, hogyan befolyásolják az intézmények — jogi és társadalmi normák — a gazdasági hatékonyságot, a „játék mögöttes szabályaira” fókuszálva.",s:"03. előadás · 5. dia"},
+
+{id:"s7",t:"tarsadalmi",type:"mc",q:"Melyik műre utal az előadás az intézményi közgazdaságtan kapcsán?",
+ o:["Acemoglu és Robinson: Miért buknak el nemzetek?",
+    "Schumacher: A kicsi szép.",
+    "Weber: A protestáns etika és a kapitalizmus szelleme.",
+    "Keynes: Általános elmélet."],
+ a:0,w:"Az intézményi közgazdaságtan azt vizsgálja, hogyan alakítják az intézmények a szereplők képességeit és viselkedését, ezzel a termelékenységet és az innovációt — erre hoz példát a dia.",s:"03. előadás · 5. dia"},
+
+{id:"s8",t:"tarsadalmi",type:"mc",q:"Hogyan határozza meg Douglass North az intézményeket?",
+ o:["Kizárólag az állami szervezetekként.",
+    "Az emberi interakciókat strukturáló formális szabályokként és informális normákként.",
+    "A piaci árak összességeként.",
+    "A vállalatok belső hierarchiájaként."],
+ a:1,w:"Ezek alakítják az ösztönzőket, csökkentik a tranzakciós költségeket, és a gazdasági változást növekedés, stagnálás vagy hanyatlás felé terelik.",s:"03. előadás · 6. dia"},
+
+{id:"s9",t:"tarsadalmi",type:"mc",q:"Mit vizsgált North a diszfunkcionális intézményekkel kapcsolatban?",
+ o:["Hogy a társadalmak leragadhatnak bennük — magyarázatához a komplexitáselmélet és a kognitív tudomány ötleteit is felhasználta.",
+    "Hogy a piac automatikusan felszámolja őket.",
+    "Hogy kizárólag külső beavatkozással változtathatók meg.",
+    "Hogy a tulajdonjogok minősége független tőlük."],
+ a:0,w:"North szerint az intézmények változása a hiedelmektől és ideológiáktól is függ — ezért maradhat fenn tartósan egy rossz intézményi pálya.",s:"03. előadás · 6. dia"},
+
+{id:"s10",t:"tarsadalmi",type:"tf",q:"Jelöld, melyik állítás igaz és melyik hamis.",
+ items:[
+  {s:"A társadalmi gazdaságtan a gazdaságot társadalmi beágyazottságban működő jelenségként is vizsgálja.",a:true,w:"Ez a szocioökonómia egyik alapkérdése. (03/3)"},
+  {s:"Granovetter szerint a gazdasági szereplők kizárólag az önérdeküket követik.",a:false,w:"Éppen ezt az utilitarista képet kérdőjelezi meg: a normák, intézmények és személyes kapcsolatok is alakítják a viselkedést. (03/4)"},
+  {s:"North szerint az intézmények közé a formális szabályok és az informális normák is beletartoznak.",a:true,w:"Mindkettő strukturálja az emberi interakciókat. (03/6)"},
+  {s:"Az új intézményi közgazdaságtan gyakran módszertani individualista perspektívát alkalmaz.",a:true,w:"A deduktív érvelés és a játékelmélet mellett ez is jellemzi. (03/5)"}
+ ],s:"03. előadás · 3–6. dia"},
+
+/* ---- VALLÁSI GAZDASÁGTANOK (03. előadás) ---- */
+{id:"r1",t:"vallas",type:"mc",q:"Milyen álláspontot képvisel XIII. Leó pápa Rerum Novarum (1891) enciklikája?",
+ o:["Elfogadja a szabályozatlan laissez-faire kapitalizmust.",
+    "Elutasítja mind a szélsőséges szocializmust, mind a szabályozatlan laissez-faire kapitalizmust, és megerősíti a magántulajdonhoz való jogot.",
+    "A magántulajdon eltörlését javasolja.",
+    "A szakszervezetek betiltását szorgalmazza."],
+ a:1,w:"Kiegyensúlyozott megközelítést sürget: tisztességes bérek, biztonságos munkakörülmények és a szakszervezet-alapítás lehetősége.",s:"03. előadás · 9. dia"},
+
+{id:"r2",t:"vallas",type:"mc",q:"Mit állít Max Weber „protestáns etika” koncepciója (1904)?",
+ o:["A kálvinista hiedelmek — az eleve elrendelés és a világi siker mint a kiválasztottság jele — szorgalmas munkára, takarékosságra és a profit újrabefektetésére ösztönöztek.",
+    "A vallásos gondolkodás akadályozta a kapitalizmus fejlődését.",
+    "A vagyon célja a személyes élvezet maximalizálása volt.",
+    "A protestáns etika a kamatszedés tilalmán alapult."],
+ a:0,w:"A felhalmozás célja nem a személyes élvezet, hanem Isten dicsőítése és a spirituális státusz bizonyítása — ez a pszichológiai kényszer hajtotta a tőkefelhalmozást.",s:"03. előadás · 9. dia"},
+
+{id:"r3",t:"vallas",type:"mc",q:"Mi a Laborem Exercens (1981, II. János Pál) központi gondolata?",
+ o:["A pénzügyi piacok szabályozásának technikai kérdései.",
+    "Az emberi személy és a munka szükségszerű kapcsolata: a munkaügyi politika akkor helyes, ha a munkavállaló objektív jogait tiszteletben tartják.",
+    "A gyarmati rendszer gazdasági öröksége.",
+    "Az egyházi vagyon kezelésének szabályai."],
+ a:1,w:"Kulcsszavai: a munka méltósága, a közjó és az emberközpontú gazdaság.",s:"03. előadás · 11. dia"},
+
+{id:"r4",t:"vallas",type:"mc",q:"Mi a Laudato Si (2015, Ferenc pápa) kulcsfogalma?",
+ o:["Az integrált ökológia: a környezeti, társadalmi és gazdasági kérdések összekapcsolódása.",
+    "A szabad verseny elsőbbsége.",
+    "A protestáns etika öröksége.",
+    "A tranzakciós költségek csökkentése."],
+ a:0,w:"A dokumentum bírálja a fogyasztást és a felelőtlen gazdasági fejlődést, a környezetkárosodást a társadalmi igazságtalansághoz köti, és globális kulturális-spirituális „megtérésre” szólít fel.",s:"03. előadás · 11. dia"},
+
+{id:"r5",t:"vallas",type:"mc",q:"Mit jelent a ribbit a judaizmusban?",
+ o:["A jótékonysági adakozás kötelezettségét.",
+    "A zsidók közötti kölcsönök kamatának tilalmát — a szó „növekedést”, „uzsorát” jelent.",
+    "A hetedik évben esedékes földpihentetést.",
+    "A kóser étkezési előírások rendszerét."],
+ a:1,w:"A tilalom a rabbinikus kiterjesztésekkel együtt még az ajándék formájú kompenzációt is tiltja, és a hitelezőre és a hitelfelvevőre is vonatkozik.",s:"03. előadás · 13. dia"},
+
+{id:"r6",t:"vallas",type:"mc",q:"Mit jelent a cedaka (cedáka/tzedakah)?",
+ o:["Spontán nagylelkűséget, amely nem kötelező.",
+    "„Törvényszerűséget”, „igazságosságot”: alapvető etikai kötelezettséget és a társadalmi igazságosság rendszerét.",
+    "A kamatszedés tilalmát.",
+    "A szombati pihenőnap megtartását."],
+ a:1,w:"Nem csak pénz: idő, erőfeszítés és más erőforrások felajánlása is, hogy az emberek el tudják tartani magukat és fejleszthessék tehetségüket.",s:"03. előadás · 14. dia"},
+
+{id:"r7",t:"vallas",type:"mc",q:"Mit ír elő a smita (sabbatév)?",
+ o:["Heti pihenőnapot péntek estétől szombat estéig.",
+    "Minden hetedik évben a föld művelésének megszüntetését, az adósságok elengedését és a termés tulajdonjogáról való lemondást.",
+    "A vagyon egy részének kötelező átadását a szegényeknek.",
+    "A kóser előírások betartását a kereskedelemben."],
+ a:1,w:"Célja Isten, az emberiség és a föld közötti egyensúly helyreállítása, valamint a föld termékenységének növelése. A heti pihenőnap a sabbat.",s:"03. előadás · 15. dia"},
+
+{id:"r8",t:"vallas",type:"mc",q:"Mi az iszlám gazdaságtan alapja és célja?",
+ o:["Az iszlám alapelvek és a saría jog; célja a társadalmi igazságosság és az emberi jólét, az etika integrálásával.",
+    "A profit maximalizálása a pénzügyi piacokon.",
+    "Az állami tulajdon kizárólagossága.",
+    "A nemesfém-felhalmozás növelése."],
+ a:0,w:"Hangsúlyozza az együttműködést, a közösségvezérelt fejlődést, valamint a kamat (riba) és más káros gyakorlatok tilalmát.",s:"03. előadás · 17. dia"},
+
+{id:"r9",t:"vallas",type:"mc",q:"Mit tilt a gharar az iszlám gazdaságtanban?",
+ o:["A kamatszedést.",
+    "A túlzott bizonytalanságot, a spekulációt és a szerencsejátékot.",
+    "A magántulajdont.",
+    "A kötelező adakozást."],
+ a:1,w:"A kamat tilalma a riba; a gharar a túlzott bizonytalanságra vonatkozik — ezért nem engedélyezett a tisztán spekulatív pénzügyi tranzakció.",s:"03. előadás · 18–19. dia"},
+
+{id:"r10",t:"vallas",type:"mc",q:"Mi a zakát?",
+ o:["Önkéntes adomány, amelyet a hívő szabadon ajánl fel.",
+    "Kötelező adakozás: a vagyon egy részének átadása a szegényeknek, szociális újraelosztásként.",
+    "A kamatmentes kötvények elnevezése.",
+    "A halal tevékenységek jegyzéke."],
+ a:1,w:"A zakát intézményes formában a banki működéssel is összekapcsolódhat.",s:"03. előadás · 18–19. dia"},
+
+{id:"r11",t:"vallas",type:"mc",q:"Hogyan értelmezi az iszlám gazdaságtan a tulajdont?",
+ o:["Elutasítja a magántulajdont.",
+    "Elismeri a tulajdonjogot, de a vagyont „Istentől kapott letétnek” tekinti, felelősséggel a társadalom felé.",
+    "Kizárólag az állam tulajdonosi jogait ismeri el.",
+    "A tulajdont a kamatjövedelem alapján osztja el."],
+ a:1,w:"Ebből fakad a közösségi igazságosság hangsúlya: a vagyon igazságos elosztása, a szegények és rászorulók védelme.",s:"03. előadás · 18. dia"},
+
+{id:"r12",t:"vallas",type:"mc",q:"Miben különbözik a sukuk a hagyományos kötvénytől?",
+ o:["A sukuk fix kamatot fizet, a hagyományos kötvény nem.",
+    "A sukuknál a befektető részben tulajdonos, és a hozam a mögöttes eszköz teljesítményétől függ; a hagyományos kötvénynél fix kamat jár, a befektető csak hitelező.",
+    "A sukuk kizárólag állami kibocsátású lehet.",
+    "A sukuk nem köthető valós eszközhöz."],
+ a:1,w:"Az iszlám bankrendszer eszközalapú finanszírozást használ (murabaha, ijara), és csak halal tevékenységet finanszíroz.",s:"03. előadás · 19. dia"},
+
+{id:"r13",t:"vallas",type:"mc",q:"Mi a pénz szerepe az iszlám bankrendszerben?",
+ o:["Önálló árucikk, amellyel kamat és derivatívák formájában kereskedni lehet.",
+    "Nem önmagában árucikk, hanem közvetítő eszköz: a hitel csak valós gazdasági ügylethez kapcsolódhat.",
+    "Kizárólag az állam által kibocsátott fizetőeszköz, amely nem hitelezhető.",
+    "A nemesfémkészlet mértékegysége."],
+ a:1,w:"A nyugati bankokban a pénz önálló áruként is forgalmazható — ez a lényegi különbség; az iszlám bankban a bank és az ügyfél megosztja a kockázatot és a nyereséget (mudaraba, musharaka).",s:"03. előadás · 19. dia"},
+
+{id:"r14",t:"vallas",type:"mc",q:"Mi a buddhista gazdaságtan célja?",
+ o:["A haszon maximalizálása.",
+    "A szenvedés csökkentése, a boldogság és a belső harmónia növelése.",
+    "A termelés korlátlan bővítése.",
+    "A nemzeti vagyon felhalmozása."],
+ a:1,w:"Fő szempontjai: a szükségletek mértékletes kielégítése, az erőszakmentesség és a környezeti felelősség, a munka mint önmegvalósítás és közösségi szolgálat.",s:"03. előadás · 21. dia"},
+
+{id:"r15",t:"vallas",type:"tf",q:"Jelöld, melyik állítás igaz és melyik hamis.",
+ items:[
+  {s:"A Rerum Novarum megerősítette a magántulajdonhoz való jogot, miközben elutasította a szabályozatlan laissez-faire kapitalizmust.",a:true,w:"XIII. Leó pápa 1891-es enciklikája a munkavállalói jogokat — tisztességes bér, biztonságos munkakörülmények, szakszervezet — is szorgalmazta. (03/9)"},
+  {s:"Weber szerint a kálvinista etika a vagyon személyes élvezetére ösztönzött.",a:false,w:"Éppen ellenkezőleg: a felhalmozás célja Isten dicsőítése és a kiválasztottság bizonyítása volt, világi aszkézis mellett. (03/9)"},
+  {s:"A smita évében a tulajdonosoknak el kell engedniük mások adósságait.",a:true,w:"A földművelés szüneteltetése és a termés tulajdonjogáról való lemondás mellett ez a sabbatév harmadik előírása. (03/15)"},
+  {s:"A zakát önkéntes adomány az iszlám gazdaságtanban.",a:false,w:"A zakát kötelező adakozás — a vagyon egy részének átadása a szegényeknek. (03/18)"}
+ ],s:"03. előadás · 9–19. dia"},
+
+/* ---- ALTERNATÍV IRÁNYZATOK (03. előadás) ---- */
+{id:"n1",t:"alternativ",type:"mc",q:"Ki írta a „Kicsi a szép” című könyvet, és mikor?",
+ o:["E. F. Schumacher, 1973.",
+    "Max Weber, 1904.",
+    "Douglass North, 1990.",
+    "Immanuel Wallerstein, 1974."],
+ a:0,w:"A könyv az emberi jólétre, a fenntarthatóságra és a decentralizált, közösségi alapú megoldásokra épülő gazdaság mellett érvel, és a „buddhista közgazdaságtan” fontosságát hangsúlyozza.",s:"03. előadás · 22. dia"},
+
+{id:"n2",t:"alternativ",type:"mc",q:"Mit jelent a köztes (intermediate) technológia Schumachernél?",
+ o:["A legfejlettebb, tőkeigényes ipari technológiát.",
+    "Egyszerű, helyben javítható technológiát, amely speciális készségek nélkül is hozzáférhető — híd a primitív és az összetett technológiák között.",
+    "A teljesen automatizált termelést.",
+    "A pénzügyi közvetítés technológiáját."],
+ a:1,w:"A megfelelő lépték elve mellé társul: a decentralizáció, a közösségi alapú szervezetek és a kisméretű iparágak általában jobbak a nagy, központosított rendszereknél.",s:"03. előadás · 24. dia"},
+
+{id:"n3",t:"alternativ",type:"mc",q:"Mit jelent az „elégség” Schumacher gondolatrendszerében?",
+ o:["Az emberi szükségletek és korlátok elismerését, valamint az erőforrások bölcs, takarékos felhasználását.",
+    "A jövedelmek teljes kiegyenlítését.",
+    "A termelés növekedési ütemének maximalizálását.",
+    "Az önellátás teljes felszámolását."],
+ a:0,w:"Ehhez kapcsolódik a fejlesztési segélyek átirányítása a vidéki területekre és a helyi önellátásra — az előadás ezt az antiglobalizmussal és a degrowth-tal is összeveti.",s:"03. előadás · 25. dia"},
+
+{id:"n4",t:"alternativ",type:"mc",q:"Hogyan bírálja Schumacher a modern gazdasági rendszer erőforrás-használatát?",
+ o:["Azért, mert a megújuló erőforrásokat elkölthető jövedelemként kezeli, nem pedig tőkeként.",
+    "Azért, mert túl sokat fektet a megújuló energiába.",
+    "Azért, mert a nyersanyagárakat az állam szabályozza.",
+    "Azért, mert a technológiai fejlődés túl lassú."],
+ a:0,w:"Ezt egészíti ki a materializmus kritikája (áruk és szolgáltatások előtérbe helyezése az emberi jóléttel szemben) és a „haladás illúziója”.",s:"03. előadás · 23. dia"},
+
+{id:"n5",t:"alternativ",type:"mc",q:"Mit jelent a „haladás illúziója” a kapitalizmus-kritikában?",
+ o:["Hogy a gazdasági növekedés mindig együtt jár a jólét növekedésével.",
+    "Hogy a növekvő iparosodás, a nagy szervezetek és a fejlett technológia nem feltétlenül jelent haladást — a bölcsesség tagadása is lehet.",
+    "Hogy a technológiai fejlődés üteme csökken.",
+    "Hogy a statisztikák rendszeresen alulmérik a GDP-t."],
+ a:1,w:"Következményei: környezeti károk és elidegenedés a kielégítő munkától.",s:"03. előadás · 23. dia"},
+
+{id:"n6",t:"alternativ",type:"mc",q:"Milyen a munka Schumacher „értelmes munka” fogalma szerint?",
+ o:["Lélekölő, de jól fizetett tevékenység.",
+    "Kiteljesítő tevékenység, amely lehetővé teszi a képességek használatát és fejlesztését egy közös cél érdekében.",
+    "Kizárólag a megélhetést szolgáló kényszer.",
+    "Teljesen automatizálható folyamat."],
+ a:1,w:"A buddhista gazdaságtanban a munka méltóságteljes és értelmes — önmegvalósítás és közösségi szolgálat egyszerre.",s:"03. előadás · 24. dia"},
+
+{id:"n7",t:"alternativ",type:"mc",q:"Mit szorgalmaz a nemnövekedés (degrowth) a gazdasági növekedés mint cél kapcsán?",
+ o:["A növekedés ütemének gyorsítását technológiai eszközökkel.",
+    "A gazdasági növekedés mint társadalmi célkitűzés eltörlését, és a természeti erőforrások kisebb felhasználását.",
+    "A növekedés átmeneti visszafogását a versenyképesség helyreállításáig.",
+    "A növekedés mérésének pontosítását."],
+ a:1,w:"A gazdag országokban a termelés és a fogyasztás csökkentését javasolja, előtérbe helyezve az ökológiai egészséget, az erőforrások igazságos elosztását és az életminőséget a GDP-növekedéssel szemben.",s:"03. előadás · 30. dia"},
+
+{id:"n8",t:"alternativ",type:"mc",q:"Mi jellemzi a közösségi gazdaságot (social/solidarity economy)?",
+ o:["A profitorientált modellekkel szemben a kollektív jólétet, a helyi szükségleteket és a demokratikus kontrollt helyezi előtérbe.",
+    "A nemzetközi tőkeáramlás szabadságát hirdeti.",
+    "Az állami tulajdon kizárólagosságát követeli.",
+    "A pénzügyi innovációkra épít."],
+ a:0,w:"Gyakorlatai: helyi pénznemek, szövetkezeti vállalkozások és a közösség által támogatott mezőgazdaság (CSA).",s:"03. előadás · 31. dia"},
+
+{id:"n9",t:"alternativ",type:"mc",q:"Mi a helyi pénznemek célja a közösségi gazdaságban?",
+ o:["Az infláció letörése.",
+    "Hogy a pénz egy adott közösségen belül forogjon, erősítve a helyi gazdaságot.",
+    "A nemzetközi kereskedelem olcsóbbá tétele.",
+    "A jegybanki tartalékok növelése."],
+ a:1,w:"A CSA a stabil élelmiszerforrást és a helyi mezőgazdaságot támogatja, a lakásszövetkezetek pedig megfizethető lakhatást a megosztott tulajdonlás révén.",s:"03. előadás · 31. dia"},
+
+{id:"n10",t:"alternativ",type:"mc",q:"Ki birtokolja és irányítja a vállalkozást a kooperatív (szövetkezeti) gazdaságban?",
+ o:["Az egyéni tőketulajdonosok.",
+    "A tagok közössége — akik egyszerre tulajdonosok és használók, és demokratikusan döntenek.",
+    "Az állam.",
+    "A platformot üzemeltető cég."],
+ a:1,w:"A nyereséget nem profitmaximalizálásra, hanem a tagok javára és közösségi célokra fordítják. Formái: fogyasztási, termelő és munkásszövetkezet.",s:"03. előadás · 32. dia"},
+
+{id:"n11",t:"alternativ",type:"mc",q:"Mi különbözteti meg a sharing economyt a szövetkezeti gazdaságtól az előadás szerint?",
+ o:["A sharing economyban a tulajdon egyéni marad, csak ideiglenesen osztják meg vagy adják bérbe.",
+    "A sharing economyban minden vagyon közös tulajdonba kerül.",
+    "A sharing economy kizárja a digitális platformokat.",
+    "A sharing economy csak állami szereplőkre vonatkozik."],
+ a:0,w:"A meglévő erőforrások jobb kihasználásáról szól; a „platformkapitalizmus” (Uber, AirBnB) esetében a platform digitális felületet biztosít és kapuőrként (gatekeeper) működik.",s:"03. előadás · 32. dia"},
+
+{id:"n12",t:"alternativ",type:"tf",q:"Jelöld, melyik állítás igaz és melyik hamis.",
+ items:[
+  {s:"A nemnövekedés a gazdasági növekedés mint társadalmi célkitűzés eltörlését szorgalmazza.",a:true,w:"Emellett a társadalom alapvetően más szervezését és kevesebb természeti erőforrás felhasználását javasolja. (03/30)"},
+  {s:"A közösségi gazdaság a demokratikus kontrollt és a kollektív jólétet helyezi a profitorientált modellek elé.",a:true,w:"Eszközei a helyi pénznemek, a szövetkezetek és a közösség által támogatott mezőgazdaság. (03/31)"},
+  {s:"A szövetkezetben a nyereség elsődleges célja a profitmaximalizálás.",a:false,w:"A nyereséget a tagok javára és közösségi célokra fordítják. (03/32)"},
+  {s:"A platformkapitalizmusban a digitális felület üzemeltetője kapuőr (gatekeeper) szerepet tölt be.",a:true,w:"Az Uber és az AirBnB példája a dián. (03/32)"}
+ ],s:"03. előadás · 30–32. dia"},
+
+{id:"p1",t:"marx",type:"tf",exam:true,q:"Kérem jelölje mely állítások igazak és hamisak.",
+ items:[
+  {s:"Marx értelmezésében az abszolút többletérték a munkások termelékenységének növeléséből származik.",a:false,w:"Az abszolút többletérték a munkanap meghosszabbításából ered; a termelékenység növekedése a relatív többletérték. (01/27)"},
+  {s:"Az tőkét származékos (másodlagos) erőforrásként mutatjuk be a gazdaságban.",a:true,w:"Elsődleges a nyersanyag és a munka; a tőke, az eszközök és a pénz származékos. (01/21)"},
+  {s:"A mikroökonómia az egyedi gazdasági szereplők döntéseit is vizsgálja.",a:true,w:"Egyedi entitások vs. a gazdaság teljesítménye összességében. (01/20)"},
+  {s:"A merkantilista gazdaságpolitikában fontos szerepet kaptak az importkorlátozások és a vámok.",a:true,w:"A korai merkantilizmus eszközei a nemesfém-export tilalma mellett. (01/24)"}
+ ],s:"01. előadás · 20–27. dia"}
+];
+
+(function(){
+"use strict";
+
+var LS = "mke-trener-v1";
+var EXAM_ORDER = ["v1","m1","p1","a2","e1","y11","k7","e2","e3"];
+
+var store = {first:{}, seen:{}, sched:{}, round:0, answered:0, correct:0, streak:0, best:0,
+             settings:{topics:TOPICS.map(function(t){return t.id;}), len:0}};
+try{
+  var raw = localStorage.getItem(LS);
+  if(raw){
+    var p = JSON.parse(raw);
+    if(p && typeof p === "object"){
+      ["first","seen","sched","round","answered","correct","streak","best"].forEach(function(k){ if(p[k] !== undefined) store[k] = p[k]; });
+      if(p.settings){
+        if(p.settings.topics) store.settings.topics = p.settings.topics;
+        // a korábbi verzió „Kérdéskör” beállítása megszűnt: ilyenkor minden kérdés jön
+        if(p.settings.mode === undefined && typeof p.settings.len === "number") store.settings.len = p.settings.len;
+      }
+    }
+  }
+}catch(e){}
+function save(){ try{ localStorage.setItem(LS, JSON.stringify(store)); }catch(e){} }
+
+// témakör-lista rendezése: ismeretlen id-k kiszűrése
+(function(){
+  var valid = TOPICS.map(function(t){ return t.id; });
+  var kept = (store.settings.topics || []).filter(function(id){ return valid.indexOf(id) >= 0; });
+  if(kept.length !== (store.settings.topics || []).length || !kept.length) kept = valid.slice();
+  store.settings.topics = kept;
+})();
+
+var st = store.settings;
+var state = {view:"quiz", deck:[], i:0, locked:false, tf:{}, ok:0, bad:0, score:0, max:0, done:false, misses:[], kind:{}, mix:{}};
+
+function esc(s){ return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
+function el(id){ return document.getElementById(id); }
+function shuffle(a){ for(var i=a.length-1;i>0;i--){ var j=Math.floor(Math.random()*(i+1)); var t=a[i]; a[i]=a[j]; a[j]=t; } return a; }
+function byId(id){ for(var i=0;i<Q.length;i++) if(Q[i].id === id) return Q[i]; return null; }
+function topicName(id){ for(var i=0;i<TOPICS.length;i++) if(TOPICS[i].id===id) return TOPICS[i].name; return id; }
+function fmt(n){ return String(Math.round(n*100)/100).replace(".", ","); }
+function weight(q){ return q.pts === "0,5 pont" ? 0.5 : 1; }
+
+/* Leitner-dobozok: hány kör múlva jöjjön vissza a kérdés */
+var GAP = [1, 2, 3, 5, 8, 13];
+
+function schedOf(q){
+  var sc = store.sched[q.id];
+  if(sc) return sc;
+  var f = store.first[q.id];
+  if(!f) return null;                      // még sosem láttad
+  sc = {box: f === "ok" ? 2 : (f === "partial" ? 1 : 0), due: store.round};
+  store.sched[q.id] = sc;
+  return sc;
+}
+function schedule(q, val){
+  var sc = store.sched[q.id] || {box:0, due:store.round};
+  if(val === 1) sc.box = Math.min(sc.box + 1, GAP.length - 1);
+  else if(val < 0.75) sc.box = Math.max(0, sc.box - 2);
+  sc.due = store.round + (val >= 0.75 ? GAP[sc.box] : 1);
+  store.sched[q.id] = sc;
+}
+function dueCount(){
+  return quizPool().filter(function(q){
+    var sc = schedOf(q);
+    return sc && sc.due <= store.round;
+  }).length;
+}
+
+function quizPool(){
+  return Q.filter(function(q){ return st.topics.indexOf(q.t) >= 0; });
+}
+function examDeck(){
+  var out = [];
+  EXAM_ORDER.forEach(function(id){ var q = byId(id); if(q) out.push(q); });
+  return out;
+}
+
+/* ---------------- bal sáv ---------------- */
+function renderRail(){
+  var box = el("topics"), html = "";
+  TOPICS.forEach(function(t){
+    var n = Q.filter(function(q){ return q.t === t.id; }).length;
+    html += '<label data-topic="'+t.id+'"><input type="checkbox" data-t="'+t.id+'"'+(st.topics.indexOf(t.id)>=0?" checked":"")+
+      '><i class="dot"></i><span class="tx" title="'+esc(t.name)+'">'+esc(t.name)+'</span><span class="n">'+n+'</span></label>';
+  });
+  box.innerHTML = html;
+  Array.prototype.forEach.call(box.querySelectorAll("input"), function(inp){
+    inp.addEventListener("change", function(){
+      var id = inp.dataset.t, ix = st.topics.indexOf(id);
+      if(inp.checked && ix < 0) st.topics.push(id);
+      if(!inp.checked && ix >= 0) st.topics.splice(ix, 1);
+      if(!st.topics.length){ st.topics.push(id); inp.checked = true; }
+      save();
+      state.view = "quiz";
+      newRound();
+    });
+  });
+  var p = quizPool().length;
+  el("brandN").textContent = Q.length;
+  el("nav-quiz").textContent = state.view === "quiz" && state.deck.length
+    ? (Math.min(state.i + 1, state.deck.length) + "/" + state.deck.length)
+    : p + " kérdés";
+  var practiced = Object.keys(store.first).length;
+  el("nav-stats").textContent = practiced ? practiced + "/" + Q.length : "még üres";
+  Array.prototype.forEach.call(el("nav").querySelectorAll("button"), function(b){
+    b.setAttribute("aria-current", String(b.dataset.view === state.view));
+  });
+  el("topicsPanel").hidden = state.view === "exam";
+}
+
+/* ---------------- kör ---------------- */
+function newRound(){
+  var deck, kind = {}, mix = {fresh:0, repeat:0, review:0};
+
+  if(state.view === "exam"){
+    deck = examDeck();
+  } else {
+    store.round += 1;
+    var pool = quizPool(), fresh = [], repeat = [], review = [], later = [];
+    pool.forEach(function(q){
+      var sc = schedOf(q);
+      if(!sc){ fresh.push(q); return; }
+      if(sc.due > store.round){ later.push(q); return; }
+      (sc.box === 0 ? repeat : review).push(q);
+    });
+    shuffle(fresh); shuffle(repeat); shuffle(review);
+    later.sort(function(a, b){ return schedOf(a).due - schedOf(b).due; });
+
+    var n = st.len ? Math.min(st.len, pool.length) : pool.length;
+    deck = [];
+    function take(list, limit, tag){
+      for(var i = 0; i < list.length && deck.length < n && limit > 0; i++, limit--){
+        deck.push(list[i]); kind[list[i].id] = tag; list.splice(i--, 1);
+      }
+    }
+    // 1. amit elrontottál — a kör legfeljebb harmada
+    take(repeat, Math.max(1, Math.round(n * 0.3)), "repeat");
+    // 2. ami épp esedékes felfrissítésre — legfeljebb ötöde
+    take(review, Math.max(1, Math.round(n * 0.2)), "review");
+    // 3. a többi hely új kérdéseké
+    take(fresh, n, "new");
+    // 4. ha még maradt hely: a maradék esedékes, majd a később esedékes kérdések
+    take(repeat, n, "repeat");
+    take(review, n, "review");
+    take(later, n, "review");
+    shuffle(deck);
+    deck.forEach(function(q){
+      if(kind[q.id] === "new") mix.fresh++;
+      else if(kind[q.id] === "repeat") mix.repeat++;
+      else mix.review++;
+    });
+    save();
+  }
+
+  state.kind = kind; state.mix = mix;
+  state.deck = deck; state.i = 0; state.locked = false; state.tf = {};
+  state.ok = 0; state.bad = 0; state.score = 0; state.max = 0; state.done = false; state.misses = [];
+  render();
+}
+function mixLine(){
+  var m = state.mix || {}, parts = [];
+  if(m.fresh) parts.push("<b>" + m.fresh + "</b> új");
+  if(m.repeat) parts.push("<b>" + m.repeat + "</b> ismétlés");
+  if(m.review) parts.push("<b>" + m.review + "</b> felfrissítés");
+  return parts.length ? '<p class="mixline">Ebben a körben: ' + parts.join(" · ") + "</p>" : "";
+}
+
+/* ---------------- nézetek ---------------- */
+function render(){
+  renderRail();
+  if(state.view === "quiz" || state.view === "exam") return renderQuiz();
+  if(state.view === "notes") return renderNotes();
+  if(state.view === "stats") return renderStats();
+}
+function head(num, title, lede, right){
+  return '<div class="headrow"><div class="headtext">'+
+    '<div class="viewhead"><span class="vnum">'+num+'</span><h2>'+esc(title)+'</h2></div>'+
+    '<p class="viewlede">'+esc(lede)+'</p></div>'+
+    (right || "") + '</div>';
+}
+function lenControl(){
+  var opts = [[10,"10"],[20,"20"],[40,"40"],[0,"Mind"]];
+  var h = '<div class="topctl"><span class="lbl">Kérdések száma</span><div class="topctl-row"><div class="seg" id="segLen">';
+  opts.forEach(function(o){
+    h += '<button type="button" data-v="'+o[0]+'" aria-pressed="'+(st.len === o[0])+'">'+o[1]+'</button>';
+  });
+  return h + '</div><button class="btn" type="button" id="restart">Új kör</button></div></div>';
+}
+function bindTopCtl(){
+  var seg = el("segLen");
+  if(seg) Array.prototype.forEach.call(seg.querySelectorAll("button"), function(b){
+    b.onclick = function(){ st.len = Number(b.dataset.v); save(); state.view = "quiz"; newRound(); };
+  });
+  var rb = el("restart");
+  if(rb) rb.onclick = function(){ state.view = "quiz"; newRound(); };
+}
+function renderNotes(){
+  el("main").innerHTML = head("03", "Tételvázlat",
+    "A három diasor szövege diánként, szó szerint. A színek a témaköröket jelölik, ugyanazokat, mint a bal oldali listában.") +
+    el("tpl-notes").innerHTML;
+}
+
+function renderQuiz(){
+  var main = el("main"), exam = state.view === "exam";
+  var title = exam ? "Pluszpontos kérdések" : "Gyakorlás";
+  var lede = exam
+    ? "A pluszpontos teszt kilenc feladata eredeti sorrendben, összesen 8,5 pont. Minden feladat után látod a megoldást és a diahivatkozást."
+    : "Minden kör főként új kérdéseket hoz; amit elrontottál, hamarabb és többször tér vissza, amit tudtál, jóval később.";
+  var htmlHead = head(exam ? "02" : "01", title, lede, exam ? "" : lenControl()) + (exam ? "" : mixLine());
+
+  if(!state.deck.length){
+    main.innerHTML = htmlHead + '<div class="card"><div class="card-body"><p class="empty">Ehhez a szűréshez nincs kérdés.</p></div></div>';
+    bindTopCtl();
+    return;
+  }
+  if(state.done) return renderResult();
+
+  var q = state.deck[state.i];
+  var pct = Math.round(state.i / state.deck.length * 100);
+  var html = htmlHead +
+    '<div class="bar" data-topic="'+q.t+'">'+
+    '<span class="count">'+(state.i+1)+' / '+state.deck.length+'</span>'+
+    '<span class="track"><i style="width:'+pct+'%"></i></span>'+
+    '<span class="tally"><span class="g">'+state.ok+' ✓</span>&nbsp;&nbsp;<span class="r">'+state.bad+' ✗</span></span>'+
+    '</div>';
+
+  html += '<div class="card" data-topic="'+q.t+'">'+
+    '<div class="card-top"><div class="tagrow">'+
+      '<span class="tag topic">'+esc(topicName(q.t))+'</span>'+
+      (q.exam && !exam ? '<span class="tag exam">Pluszpontos teszt</span>' : "")+
+      (!exam && state.kind[q.id] === "new" ? '<span class="tag new">Új kérdés</span>' : "")+
+      (!exam && state.kind[q.id] === "repeat" ? '<span class="tag repeat">Ismétlés — korábban hibáztál</span>' : "")+
+      (!exam && state.kind[q.id] === "review" ? '<span class="tag">Felfrissítés</span>' : "")+
+      '<span class="tag">'+(q.type === "tf" ? "Igaz–hamis · 4 × 0,25 pont" : "Feleletválasztós · " + fmt(weight(q)) + " pont")+'</span>'+
+    '</div></div>'+
+    '<div class="card-body">'+
+      '<p class="qlead">'+(q.type === "tf" ? "Jelöld meg minden állításról, hogy igaz vagy hamis" : "Válaszd ki a helyes megoldást")+'</p>'+
+      '<h3 class="q">'+esc(q.q)+'</h3>'+
+      (q.type === "tf" ? '<p class="qsub">A vizsgán a helyeseket pipával, a helyteleneket piros x-szel kell jelölni; állításonként 0,25 pont.</p>' : "");
+
+  if(q.type === "mc"){
+    html += '<div class="opts" id="opts">';
+    q.o.forEach(function(o, ix){
+      html += '<button class="opt" type="button" data-ix="'+ix+'"><span class="k">'+"ABCD".charAt(ix)+'</span><span>'+esc(o)+'</span></button>';
+    });
+    html += '</div>';
+  } else {
+    html += '<div class="tf-list" id="tflist">';
+    q.items.forEach(function(it, ix){
+      html += '<div class="tf-item" data-ix="'+ix+'"><div class="tf-row"><div class="tf-text">'+esc(it.s)+'</div>'+
+        '<div class="tf-seg"><button type="button" data-v="1" aria-pressed="false">Igaz</button>'+
+        '<button type="button" data-v="0" aria-pressed="false">Hamis</button></div></div></div>';
+    });
+    html += '</div>';
+  }
+
+  html += '<div id="fb"></div>'+
+    '<div class="fbrow" style="margin-top:20px">'+
+      '<span class="kbd" id="kbdhint">'+(q.type === "mc" ? 'Billentyűvel: <b>1</b>–<b>4</b>, majd <b>Enter</b>' : "Mind a négy állításhoz válassz, majd ellenőrizz.")+'</span>'+
+      '<span style="display:flex;gap:10px">'+
+        (q.type === "tf" ? '<button class="btn primary" type="button" id="checkBtn" disabled>Ellenőrzés</button>' : "")+
+        '<button class="btn primary" type="button" id="nextBtn" hidden>'+(state.i === state.deck.length-1 ? "Eredmény" : "Következő")+'</button>'+
+      '</span>'+
+    '</div>'+
+    '</div></div>';
+
+  main.innerHTML = html;
+  bindTopCtl();
+
+  if(q.type === "mc"){
+    Array.prototype.forEach.call(el("opts").querySelectorAll(".opt"), function(b){
+      b.onclick = function(){ answerMC(Number(b.dataset.ix)); };
+    });
+  } else {
+    state.tf = {};
+    Array.prototype.forEach.call(el("tflist").querySelectorAll(".tf-item"), function(row){
+      var ix = Number(row.dataset.ix);
+      Array.prototype.forEach.call(row.querySelectorAll(".tf-seg button"), function(b){
+        b.onclick = function(){
+          if(state.locked) return;
+          state.tf[ix] = b.dataset.v === "1";
+          Array.prototype.forEach.call(row.querySelectorAll(".tf-seg button"), function(o){
+            o.setAttribute("aria-pressed", String(o === b));
+          });
+          el("checkBtn").disabled = Object.keys(state.tf).length < q.items.length;
+        };
+      });
+    });
+    el("checkBtn").onclick = function(){ checkTF(); };
+  }
+  el("nextBtn").onclick = next;
+}
+
+function answerMC(ix){
+  if(state.locked) return;
+  state.locked = true;
+  var q = state.deck[state.i];
+  var btns = el("opts").querySelectorAll(".opt");
+  Array.prototype.forEach.call(btns, function(b, i){
+    b.disabled = true;
+    if(i === q.a) b.classList.add("right");
+    else if(i === ix) b.classList.add("wrong");
+  });
+  var good = ix === q.a;
+  finish(q, good ? 1 : 0,
+    '<div class="verdict '+(good ? "ok" : "no")+'"><span class="mark"><span>'+(good ? "✓" : "✕")+'</span></span>'+
+    (good ? "Helyes" : "Nem ez a jó válasz — a helyes: " + "ABCD".charAt(q.a)+")")+'</div>');
+}
+
+function checkTF(){
+  if(state.locked) return;
+  state.locked = true;
+  var q = state.deck[state.i], good = 0;
+  var rows = el("tflist").querySelectorAll(".tf-item");
+  q.items.forEach(function(it, ix){
+    var row = rows[ix], hit = state.tf[ix] === it.a;
+    if(hit) good++;
+    row.classList.add(hit ? "right" : "wrong");
+    Array.prototype.forEach.call(row.querySelectorAll(".tf-seg button"), function(b){
+      b.disabled = true;
+      b.setAttribute("aria-pressed", String((b.dataset.v === "1") === it.a));
+    });
+    var w = document.createElement("div");
+    w.className = "tf-why";
+    w.innerHTML = "<b>" + (it.a ? "Igaz." : "Hamis.") + "</b> " + esc(it.w);
+    row.appendChild(w);
+  });
+  var val = good / 4;
+  finish(q, val,
+    '<div class="verdict '+(good === 4 ? "ok" : "no")+'"><span class="mark"><span>'+(good === 4 ? "✓" : "✕")+'</span></span>'+
+    good+'/4 állítás jó — '+fmt(val)+' pont</div>');
+}
+
+function finish(q, val, verdictHTML){
+  var wgt = weight(q);
+  state.score += val * wgt; state.max += wgt;
+  if(val === 1) state.ok++; else state.bad++;
+  if(val < 1) state.misses.push({q:q, val:val});
+  record(q, val);
+
+  el("fb").innerHTML = '<div class="fb">' + verdictHTML +
+    '<div class="why"><p>'+esc(q.w || "A vizsgán ez a blokk 1 pontot ér, állításonként 0,25 pontot — az állítások alatt látod, melyik miért igaz vagy hamis.")+'</p>'+
+    '<span class="src">Forrás: '+esc(q.s)+'</span></div></div>';
+  var n = el("nextBtn"); n.hidden = false; n.focus();
+  var k = el("kbdhint"); if(k) k.innerHTML = 'Tovább: <b>Enter</b>';
+  var c = el("checkBtn"); if(c) c.hidden = true;
+  renderRail();
+}
+
+function next(){
+  if(state.i === state.deck.length - 1) state.done = true;
+  else state.i++;
+  state.locked = false; state.tf = {};
+  renderQuiz();
+  renderRail();
+}
+
+function record(q, val){
+  if(!store.seen[q.id]){
+    store.seen[q.id] = true;
+    store.first[q.id] = val === 1 ? "ok" : (val === 0 ? "wrong" : "partial");
+  }
+  schedule(q, val);
+  store.answered += 1;
+  store.correct += val;
+  if(val === 1){ store.streak += 1; store.best = Math.max(store.best, store.streak); }
+  else store.streak = 0;
+  save();
+}
+
+function renderResult(){
+  var exam = state.view === "exam";
+  var pct = state.max ? Math.round(state.score / state.max * 100) : 0;
+  var html = head(exam ? "02" : "01", exam ? "Pluszpontos teszt — eredmény" : "Kör vége",
+    exam ? "Így állsz a kilenc feladattal." : "Ennyi jött össze ebben a körben.", exam ? "" : lenControl());
+  html += '<div class="resultcard"><div class="score"><span class="big">'+fmt(state.score)+'</span><span class="of">/ '+fmt(state.max)+' pont · '+pct+'%</span></div>'+
+    '<p>'+(pct >= 90 ? "Ez ZH-képes tudás. Fuss át még egyszer a hibázott kérdéseket, és kész."
+      : pct >= 70 ? "Jó alap. A gyenge témaköröket nézd át a tételvázlatban, aztán jöhet egy újabb kör."
+      : "Érdemes visszamenni a tételvázlathoz, és témakörönként újrakezdeni.")+'</p>';
+  if(state.misses.length){
+    html += '<span class="lbl">Amit érdemes átnézni</span><div class="misses">';
+    state.misses.forEach(function(m){
+      html += '<div class="miss"><b>'+esc(m.q.q.length > 96 ? m.q.q.slice(0,96)+"…" : m.q.q)+'</b><span>'+esc(m.q.s)+'</span></div>';
+    });
+    html += '</div>';
+  }
+  html += '<div class="fbrow"><span></span><span style="display:flex;gap:10px">'+
+    (exam ? '<button class="btn" type="button" id="toQuiz">Gyakorlás</button>' : "")+
+    '<button class="btn primary" type="button" id="againBtn">Új kör</button></span></div></div>';
+  el("main").innerHTML = html;
+  bindTopCtl();
+  el("againBtn").onclick = function(){ newRound(); };
+  var tq = el("toQuiz");
+  if(tq) tq.onclick = function(){ state.view = "quiz"; newRound(); };
+}
+
+function renderStats(){
+  var seenAll = Object.keys(store.first).length;
+  var acc = store.answered ? Math.round(store.correct / store.answered * 100) : 0;
+  var html = head("04", "Haladás", "Az első próbálkozásod számít bele — az ismétlés már nem rontja el a képet. A halvány sávok mutatják, hova érdemes visszamenni a diákhoz.");
+  html += '<div class="tiles">'+
+    '<div class="tile"><div class="v">'+store.answered+'</div><div class="k">megválaszolt</div></div>'+
+    '<div class="tile"><div class="v">'+(store.answered ? acc + "%" : "–")+'</div><div class="k">találati arány</div></div>'+
+    '<div class="tile"><div class="v">'+store.best+'</div><div class="k">leghosszabb sorozat</div></div>'+
+    '<div class="tile"><div class="v">'+seenAll+'/'+Q.length+'</div><div class="k">érintett kérdés</div></div>'+
+    '<div class="tile"><div class="v">'+dueCount()+'</div><div class="k">ismétlésre vár</div></div>'+
+    '</div><div class="brows">';
+  TOPICS.forEach(function(t){
+    var qs = Q.filter(function(q){ return q.t === t.id; });
+    var seen = qs.filter(function(q){ return store.first[q.id]; });
+    var val = seen.reduce(function(s, q){ return s + (store.first[q.id] === "ok" ? 1 : (store.first[q.id] === "partial" ? .5 : 0)); }, 0);
+    var pct = seen.length ? Math.round(val / seen.length * 100) : 0;
+    html += '<div class="brow" data-topic="'+t.id+'">'+
+      '<div class="nm"><i></i><span>'+esc(t.name)+'</span></div>'+
+      '<div class="meter"><i class="'+(pct < 50 ? "low" : (pct < 80 ? "mid" : ""))+'" style="width:'+(seen.length ? pct : 0)+'%"></i></div>'+
+      '<div class="pc">'+(seen.length ? pct + "% · " + seen.length + "/" + qs.length : "0/" + qs.length)+'</div></div>';
+  });
+  html += '</div><p class="statsnote">Az ismétlési ütemező a hibázott kérdéseket a következő körbe teszi vissza, a biztosan tudottakat pedig 2 · 3 · 5 · 8 · 13 kör múlva hozza elő újra. A haladás ebben a böngészőben marad meg; a bal oldali „Haladás törlése” gombbal nullázható.</p>';
+  el("main").innerHTML = html;
+}
+
+/* ---------------- események ---------------- */
+el("nav").addEventListener("click", function(ev){
+  var b = ev.target.closest ? ev.target.closest("button[data-view]") : null;
+  if(!b) return;
+  var v = b.dataset.view;
+  if(v === state.view && (v === "quiz" || v === "exam")) return;
+  state.view = v;
+  if(v === "quiz" || v === "exam") newRound(); else render();
+  window.scrollTo({top:0, behavior:"smooth"});
+});
+el("topics-all").onclick = function(){ st.topics = TOPICS.map(function(t){ return t.id; }); save(); state.view = "quiz"; newRound(); };
+el("topics-none").onclick = function(){ st.topics = [TOPICS[0].id]; save(); state.view = "quiz"; newRound(); };
+el("theme-btn").onclick = function(){
+  var root = document.documentElement, cur = root.getAttribute("data-theme");
+  var dark = cur ? cur === "dark" : window.matchMedia("(prefers-color-scheme: dark)").matches;
+  root.setAttribute("data-theme", dark ? "light" : "dark");
+  try{ localStorage.setItem(LS + "-theme", root.getAttribute("data-theme")); }catch(e){}
+};
+el("reset-btn").onclick = function(){
+  store.first = {}; store.seen = {}; store.sched = {}; store.round = 0;
+  store.answered = 0; store.correct = 0; store.streak = 0; store.best = 0;
+  save(); newRound();
+};
+document.addEventListener("keydown", function(ev){
+  if((state.view !== "quiz" && state.view !== "exam") || state.done) return;
+  var tag = ev.target.tagName;
+  if(tag === "INPUT" || tag === "TEXTAREA") return;
+  var q = state.deck[state.i]; if(!q) return;
+  if(!state.locked && q.type === "mc" && ["1","2","3","4"].indexOf(ev.key) >= 0){
+    var ix = Number(ev.key) - 1;
+    if(ix < q.o.length){ ev.preventDefault(); answerMC(ix); }
+  } else if(state.locked && (ev.key === "Enter" || ev.key === " ")){
+    var n = el("nextBtn");
+    if(n && !n.hidden){ ev.preventDefault(); next(); }
+  }
+});
+try{
+  var th = localStorage.getItem(LS + "-theme");
+  if(th === "dark" || th === "light") document.documentElement.setAttribute("data-theme", th);
+}catch(e){}
+
+newRound();
+})();
+</script>
+
+</body>
+</html>
