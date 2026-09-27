@@ -137,7 +137,8 @@
   .seg button[aria-pressed="true"]{background:var(--surface);color:var(--ink);font-weight:700;box-shadow:inset 0 -2px 0 var(--accent)}
   .field + .field{margin-top:13px}
   .hint{font-size:12px;color:var(--muted);margin:9px 0 0}
-  .railfoot{display:flex;gap:8px;flex-wrap:wrap}
+  .railfoot{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+  .stamp{font-family:var(--mono);font-size:10px;letter-spacing:.08em;color:var(--muted);width:100%}
 
   .btn{border:1px solid var(--line-strong);background:var(--surface);padding:10px 16px;border-radius:9px;cursor:pointer;font-weight:700;font-size:14px;transition:border-color .12s,background .12s,transform .12s}
   .btn:hover{border-color:var(--muted)}
@@ -344,7 +345,6 @@
 
     <nav class="nav" id="nav">
       <button type="button" data-view="quiz" aria-current="true">Gyakorlás <span class="n" id="nav-quiz"></span></button>
-      <button type="button" data-view="exam">Pluszpontos kérdések <span class="n">8,5 pont</span></button>
       <button type="button" data-view="notes">Előadások <span class="n">3 diasor</span></button>
       <button type="button" data-view="stats">Haladás <span class="n" id="nav-stats"></span></button>
     </nav>
@@ -365,6 +365,7 @@
     <div class="railfoot">
       <button class="btn ghost" type="button" id="theme-btn">Téma váltása</button>
       <button class="btn ghost" type="button" id="reset-btn">Haladás törlése</button>
+      <span class="stamp" id="stamp"></span>
     </div>
   </aside>
 
@@ -1605,7 +1606,6 @@ function inLecture(q){
   for(var i = 0; i < ls.length; i++) if(st.lectures.indexOf(ls[i]) >= 0) return true;
   return false;
 }
-var EXAM_ORDER = ["v1","m1","p1","a2","e1","y11","k7","e2","e3"];
 
 var store = {first:{}, seen:{}, sched:{}, round:0, answered:0, correct:0, streak:0, best:0,
              settings:{topics:TOPICS.map(function(t){return t.id;}),
@@ -1650,7 +1650,7 @@ function shuffle(a){ for(var i=a.length-1;i>0;i--){ var j=Math.floor(Math.random
 function byId(id){ for(var i=0;i<Q.length;i++) if(Q[i].id === id) return Q[i]; return null; }
 function topicName(id){ for(var i=0;i<TOPICS.length;i++) if(TOPICS[i].id===id) return TOPICS[i].name; return id; }
 function fmt(n){ return String(Math.round(n*100)/100).replace(".", ","); }
-function weight(q){ return q.pts === "0,5 pont" ? 0.5 : 1; }
+function weight(q){ return 1; }
 
 /* Leitner-dobozok: hány kör múlva jöjjön vissza a kérdés */
 var GAP = [1, 2, 3, 5, 8, 13];
@@ -1682,12 +1682,6 @@ function quizPool(){
   if(st.filter === "lecture") return Q.filter(inLecture);
   return Q.filter(function(q){ return st.topics.indexOf(q.t) >= 0; });
 }
-function examDeck(){
-  var out = [];
-  EXAM_ORDER.forEach(function(id){ var q = byId(id); if(q) out.push(q); });
-  return out;
-}
-
 /* ---------------- bal sáv ---------------- */
 function renderRail(){
   var box = el("topics"), html = "", byLecture = st.filter === "lecture";
@@ -1737,16 +1731,13 @@ function renderRail(){
   Array.prototype.forEach.call(el("nav").querySelectorAll("button"), function(b){
     b.setAttribute("aria-current", String(b.dataset.view === state.view));
   });
-  el("topicsPanel").hidden = state.view === "exam";
 }
 
 /* ---------------- kör ---------------- */
 function newRound(){
   var deck, kind = {}, mix = {fresh:0, repeat:0, review:0};
 
-  if(state.view === "exam"){
-    deck = examDeck();
-  } else {
+  {
     store.round += 1;
     var pool = quizPool(), fresh = [], repeat = [], review = [], later = [];
     pool.forEach(function(q){
@@ -1811,7 +1802,7 @@ function mixLine(){
 /* ---------------- nézetek ---------------- */
 function render(){
   renderRail();
-  if(state.view === "quiz" || state.view === "exam") return renderQuiz();
+  if(state.view === "quiz") return renderQuiz();
   if(state.view === "notes") return renderNotes();
   if(state.view === "stats") return renderStats();
 }
@@ -1851,7 +1842,7 @@ function renderNotes(){
     return d.getAttribute("data-lecture") === lec;
   }).map(function(d){ return d.outerHTML; }).join("");
 
-  el("main").innerHTML = head("03", "Előadások", L.full + " — a diák szövege diánként, szó szerint.") +
+  el("main").innerHTML = head("02", "Előadások", L.full + " — a diák szövege diánként, szó szerint.") +
     '<div class="ttabs">' + tabs + '</div>' + blocks;
 
   var first = el("main").querySelector("details.note");
@@ -1867,12 +1858,9 @@ function renderNotes(){
 }
 
 function renderQuiz(){
-  var main = el("main"), exam = state.view === "exam";
-  var title = exam ? "Pluszpontos kérdések" : "Gyakorlás";
-  var lede = exam
-    ? "A pluszpontos teszt kilenc feladata eredeti sorrendben, összesen 8,5 pont. Minden feladat után látod a megoldást és a diahivatkozást."
-    : "Minden kör főként új kérdéseket hoz; amit elrontottál, hamarabb és többször tér vissza, amit tudtál, jóval később.";
-  var htmlHead = head(exam ? "02" : "01", title, lede, exam ? "" : lenControl()) + (exam ? "" : mixLine());
+  var main = el("main");
+  var lede = "Minden kör főként új kérdéseket hoz; amit elrontottál, hamarabb és többször tér vissza, amit tudtál, jóval később.";
+  var htmlHead = head("01", "Gyakorlás", lede, lenControl()) + mixLine();
 
   if(!state.deck.length){
     main.innerHTML = htmlHead + '<div class="card"><div class="card-body"><p class="empty">Ehhez a szűréshez nincs kérdés.</p></div></div>';
@@ -1893,11 +1881,11 @@ function renderQuiz(){
   html += '<div class="card" data-topic="'+q.t+'">'+
     '<div class="card-top"><div class="tagrow">'+
       '<span class="tag topic">'+esc(topicName(q.t))+'</span>'+
-      (q.exam && !exam ? '<span class="tag exam">Pluszpontos teszt</span>' : "")+
-      (!exam && state.kind[q.id] === "new" ? '<span class="tag new">Új kérdés</span>' : "")+
-      (!exam && state.kind[q.id] === "repeat" ? '<span class="tag repeat">Ismétlés — korábban hibáztál</span>' : "")+
-      (!exam && state.kind[q.id] === "review" ? '<span class="tag">Felfrissítés</span>' : "")+
-      '<span class="tag">'+(q.type === "tf" ? "Igaz–hamis · 4 × 0,25 pont" : "Feleletválasztós · " + fmt(weight(q)) + " pont")+'</span>'+
+      (q.exam ? '<span class="tag exam">Pluszpontos teszt</span>' : "")+
+      (state.kind[q.id] === "new" ? '<span class="tag new">Új kérdés</span>' : "")+
+      (state.kind[q.id] === "repeat" ? '<span class="tag repeat">Ismétlés — korábban hibáztál</span>' : "")+
+      (state.kind[q.id] === "review" ? '<span class="tag">Felfrissítés</span>' : "")+
+      '<span class="tag">'+(q.type === "tf" ? "Igaz–hamis · 4 × 0,25 pont" : "Feleletválasztós · 1 pont")+'</span>'+
     '</div></div>'+
     '<div class="card-body">'+
       '<p class="qlead">'+(q.type === "tf" ? "Jelöld meg minden állításról, hogy igaz vagy hamis" : "Válaszd ki a helyes megoldást")+'</p>'+
@@ -1905,7 +1893,7 @@ function renderQuiz(){
       (q.type === "tf" ? '<p class="qsub">A vizsgán a helyeseket pipával, a helyteleneket piros x-szel kell jelölni; állításonként 0,25 pont.</p>' : "");
 
   if(q.type === "mc"){
-    var order = optOrder(q, exam);
+    var order = optOrder(q);
     html += '<div class="opts" id="opts">';
     order.forEach(function(oi, pos){
       html += '<button class="opt" type="button" data-ix="'+oi+'"><span class="k">'+"ABCD".charAt(pos)+'</span><span>'+esc(q.o[oi])+'</span></button>';
@@ -1958,13 +1946,8 @@ function renderQuiz(){
   el("nextBtn").onclick = next;
 }
 
-function optOrder(q, exam){
-  // a pluszpontos teszten az eredeti sorrend marad, gyakorláskor keverünk
-  if(!state.order[q.id]){
-    var ord = q.o.map(function(_, i){ return i; });
-    if(!exam) shuffle(ord);
-    state.order[q.id] = ord;
-  }
+function optOrder(q){
+  if(!state.order[q.id]) state.order[q.id] = shuffle(q.o.map(function(_, i){ return i; }));
   return state.order[q.id];
 }
 function answerMC(ix){
@@ -2047,10 +2030,8 @@ function record(q, val){
 }
 
 function renderResult(){
-  var exam = state.view === "exam";
   var pct = state.max ? Math.round(state.score / state.max * 100) : 0;
-  var html = head(exam ? "02" : "01", exam ? "Pluszpontos teszt — eredmény" : "Kör vége",
-    exam ? "Így állsz a kilenc feladattal." : "Ennyi jött össze ebben a körben.", exam ? "" : lenControl());
+  var html = head("01", "Kör vége", "Ennyi jött össze ebben a körben.", lenControl());
   html += '<div class="resultcard"><div class="score"><span class="big">'+fmt(state.score)+'</span><span class="of">/ '+fmt(state.max)+' pont · '+pct+'%</span></div>'+
     '<p>'+(pct >= 90 ? "Ez ZH-képes tudás. Fuss át még egyszer a hibázott kérdéseket, és kész."
       : pct >= 70 ? "Jó alap. A gyenge témaköröket nézd át az előadásoknál, aztán jöhet egy újabb kör."
@@ -2063,19 +2044,16 @@ function renderResult(){
     html += '</div>';
   }
   html += '<div class="fbrow"><span></span><span style="display:flex;gap:10px">'+
-    (exam ? '<button class="btn" type="button" id="toQuiz">Gyakorlás</button>' : "")+
     '<button class="btn primary" type="button" id="againBtn">Új kör</button></span></div></div>';
   el("main").innerHTML = html;
   bindTopCtl();
   el("againBtn").onclick = function(){ newRound(); };
-  var tq = el("toQuiz");
-  if(tq) tq.onclick = function(){ state.view = "quiz"; newRound(); };
 }
 
 function renderStats(){
   var seenAll = Object.keys(store.first).length;
   var acc = store.answered ? Math.round(store.correct / store.answered * 100) : 0;
-  var html = head("04", "Haladás", "Az első próbálkozásod számít bele — az ismétlés már nem rontja el a képet. A halvány sávok mutatják, hova érdemes visszamenni a diákhoz.");
+  var html = head("03", "Haladás", "Az első próbálkozásod számít bele — az ismétlés már nem rontja el a képet. A halvány sávok mutatják, hova érdemes visszamenni a diákhoz.");
   html += '<div class="tiles">'+
     '<div class="tile"><div class="v">'+store.answered+'</div><div class="k">megválaszolt</div></div>'+
     '<div class="tile"><div class="v">'+(store.answered ? acc + "%" : "–")+'</div><div class="k">találati arány</div></div>'+
@@ -2113,9 +2091,9 @@ el("nav").addEventListener("click", function(ev){
   var b = ev.target.closest ? ev.target.closest("button[data-view]") : null;
   if(!b) return;
   var v = b.dataset.view;
-  if(v === state.view && (v === "quiz" || v === "exam")) return;
+  if(v === state.view && v === "quiz") return;
   state.view = v;
-  if(v === "quiz" || v === "exam") newRound(); else render();
+  if(v === "quiz") newRound(); else render();
   window.scrollTo({top:0, behavior:"smooth"});
 });
 el("topics-all").onclick = function(){
@@ -2140,7 +2118,7 @@ el("reset-btn").onclick = function(){
   save(); newRound();
 };
 document.addEventListener("keydown", function(ev){
-  if((state.view !== "quiz" && state.view !== "exam") || state.done) return;
+  if(state.view !== "quiz" || state.done) return;
   var tag = ev.target.tagName;
   if(tag === "INPUT" || tag === "TEXTAREA") return;
   var q = state.deck[state.i]; if(!q) return;
@@ -2155,6 +2133,13 @@ document.addEventListener("keydown", function(ev){
 try{
   var th = localStorage.getItem(LS + "-theme");
   if(th === "dark" || th === "light") document.documentElement.setAttribute("data-theme", th);
+}catch(e){}
+
+try{
+  var lm = new Date(document.lastModified);
+  if(!isNaN(lm)) el("stamp").textContent = "frissítve: " +
+    lm.getFullYear() + ". " + ("0"+(lm.getMonth()+1)).slice(-2) + ". " + ("0"+lm.getDate()).slice(-2) + ". " +
+    ("0"+lm.getHours()).slice(-2) + ":" + ("0"+lm.getMinutes()).slice(-2);
 }catch(e){}
 
 newRound();
