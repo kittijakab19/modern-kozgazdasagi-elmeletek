@@ -302,6 +302,17 @@
   .ih .pop p{margin:0 0 8px}
   .ih .pop p:last-child{margin:0}
   @media (max-width:640px){.ih .pop{left:auto;right:-8px;width:min(340px,86vw)}}
+  .cmp{overflow-x:auto;border:1px solid var(--line);border-radius:var(--r);background:var(--surface);box-shadow:var(--shadow-s);margin:0 0 10px}
+  .cmp table{border-collapse:collapse;width:100%;min-width:760px;font-size:13.5px}
+  .cmp th,.cmp td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--line);vertical-align:top;line-height:1.5}
+  .cmp thead th{background:var(--surface-2);font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;border-bottom:2px solid var(--line-strong);white-space:nowrap}
+  .cmp tbody th{background:var(--surface-2);font-weight:700;font-size:12.5px;width:158px;min-width:150px;border-right:1px solid var(--line);color:var(--ink-2)}
+  .cmp tbody tr:last-child th,.cmp tbody tr:last-child td{border-bottom:0}
+  .cmp tr.trap th{color:var(--warn)}
+  .cmp tr.trap td{background:var(--warn-soft)}
+  .cmp td b{font-weight:700}
+  .sheet-lede{font-size:14px;color:var(--ink-2);margin:0 0 14px;max-width:86ch}
+  .sheet-note{font-family:var(--mono);font-size:11px;color:var(--muted);margin:0 0 26px}
   .ttabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
   .ttab{display:flex;align-items:center;gap:9px;background:var(--surface);border:1px solid var(--line);
     border-radius:99px;padding:9px 16px;cursor:pointer;font-size:13.5px;font-weight:600;color:var(--muted);
@@ -391,6 +402,7 @@
     <nav class="nav" id="nav">
       <button type="button" data-view="quiz" aria-current="true">Gyakorlás <span class="n" id="nav-quiz"></span></button>
       <button type="button" data-view="notes">Előadások <span class="n">3 diasor</span></button>
+      <button type="button" data-view="sheet">Jegyzet <span class="n">2 táblázat</span></button>
       <button type="button" data-view="stats">Haladás <span class="n" id="nav-stats"></span></button>
     </nav>
 
@@ -415,6 +427,120 @@
   </aside>
 
   <main id="main"></main>
+</div>
+
+<div id="tpl-sheet" hidden>
+<p class="sheet-lede">A két legtöbbet kevert blokk egymás mellé téve, kizárólag a három előadás anyagából. A sárga sor mindig azt mutatja, mit szoktak felcserélni — ezek a tipikus vizsgacsapdák.</p>
+
+<h3 class="sechead">1. Marxizmus · leninizmus · titoizmus</h3>
+<p class="sheet-lede">Közös keret: a <b>szocializmus</b> doktrínája a tulajdon és a természeti erőforrások állami (közösségi) tulajdonát vagy ellenőrzését követeli meg; minden termék bizonyos értelemben társadalmi termék. A három irányzat ezt tölti ki eltérő tartalommal.</p>
+<div class="cmp">
+<table>
+  <thead><tr>
+    <th>Szempont</th>
+    <th style="color:var(--t-marx)">Marxizmus</th>
+    <th style="color:var(--t-vilag)">Leninizmus</th>
+    <th style="color:var(--t-keynes)">Titoizmus</th>
+  </tr></thead>
+  <tbody>
+    <tr><th>Kulcsalak, forrás</th>
+      <td>Karl Marx — <b>Das Kapital</b> (A Tőke); Kommunista Kiáltvány (1848)</td>
+      <td>Lenin; a Kiáltvány meghatározása: a munkáspártok „legfejlettebb és legelszántabb” része</td>
+      <td>Josip Broz Tito (1892–1980); a munkás-önigazgatás kidolgozója <b>Edvard Kardelj</b></td></tr>
+    <tr><th>Mit vizsgál, mit akar</th>
+      <td>A kapitalista termelési mód törvényeit: hogyan következnek az osztályellentétek a termelési módokból</td>
+      <td>A hatalom megszerzését és a szocializmus beiktatását — akár erőszakkal, forradalommal</td>
+      <td>Moszkvától független, „külön utas” szocializmust az 1948–49-es szakítás után</td></tr>
+    <tr><th>A párt szerepe</th>
+      <td>Nem pártelmélet: a burzsoázia bukása és a proletariátus győzelme egyformán elkerülhetetlen</td>
+      <td>A párt <b>kis létszámú, mélyen elkötelezett szellemi elit</b>, tekintélyelvű beállítottsággal</td>
+      <td>A Kommunista Párt (Kommunisták Ligája) <b>feladta a „vezető szerepét”</b></td></tr>
+    <tr><th>Gazdaságirányítás</th>
+      <td>A tőkés termelés elemzése; a cél a többletérték (profit) létrehozása</td>
+      <td>Központi irányítás, proletárdiktatúra: az <b>állam átveszi a termelőeszközöket</b></td>
+      <td><b>Felszámolta a központi tervezést</b>, és piacgazdaság egy formáját hozta létre</td></tr>
+    <tr><th>Tulajdon</th>
+      <td>A termelőeszközök magántulajdona a kizsákmányolás alapja</td>
+      <td>Állami tulajdon; a magánvállalkozás tiltása</td>
+      <td><b>Közösségi tulajdon</b> az iparban, <b>magánvállalkozás a mezőgazdaságban</b> — a magántulajdont sosem szüntették meg</td></tr>
+    <tr><th>Ki gyakorolja a hatalmat</th>
+      <td>Két alaposztály áll szemben: <b>burzsoázia</b> és <b>proletariátus</b></td>
+      <td>A proletárdiktatúrát a gyakorlatban <b>a párt vezetői</b> gyakorolták, nem a munkások</td>
+      <td>A gyár munkásai maguk rendelkeznek a termelőeszközök felett és választják a vezetőket</td></tr>
+    <tr><th>Kulcsfogalmak</th>
+      <td>Értéktöbblet; abszolút és relatív többletérték; a profitráta csökkenése; munkaérték-elmélet</td>
+      <td>Élcsapat; proletárdiktatúra; forradalom; tekintélyelvűség</td>
+      <td>Munkás önrendelkezés; közösségi tulajdon; valódi szövetségi állam</td></tr>
+    <tr class="trap"><th>Tipikus csapda</th>
+      <td><b>Abszolút</b> többletérték = a munkanap meghosszabbítása; <b>relatív</b> = a termelékenység növekedése. A kettő felcserélése a leggyakoribb hiba.</td>
+      <td>Nem a munkások, hanem a <b>pártvezetők</b> gyakorolták a proletárdiktatúrát.</td>
+      <td>NEM tartotta fenn a központi tervezést, és NEM tiltotta a magánvállalkozást.</td></tr>
+  </tbody>
+</table>
+</div>
+<p class="sheet-note">Forrás: 01. előadás · 27. dia · 02. előadás · 17–21. dia</p>
+
+<h3 class="sechead">2. Keresztény · zsidó · iszlám · buddhista gazdaságtan</h3>
+<p class="sheet-lede">Mind a négy irányzat etikai alapra helyezi a gazdasági döntést, de máshol húzza meg a határt: a kamat, az adakozás, a tulajdon és a munka kérdésében térnek el leginkább.</p>
+<div class="cmp">
+<table>
+  <thead><tr>
+    <th>Szempont</th>
+    <th style="color:var(--t-vallas)">Keresztény</th>
+    <th style="color:var(--t-alap)">Zsidó</th>
+    <th style="color:var(--t-klassz)">Iszlám</th>
+    <th style="color:var(--t-alternativ)">Buddhista</th>
+  </tr></thead>
+  <tbody>
+    <tr><th>Forrás, alap</th>
+      <td>Keresztény etika és teológia; pápai enciklikák</td>
+      <td><b>Tóra, Talmud</b>, rabbinikus irodalom</td>
+      <td>Iszlám alapelvek és a <b>saría</b> jog</td>
+      <td>Buddhista etika és filozófia</td></tr>
+    <tr><th>Fő cél</th>
+      <td>Közjó, emberi méltóság, szolidaritás; haszonmaximalizálás helyett értékalapú döntés</td>
+      <td>Erkölcs, közösségi felelősség és igazságosság a gazdasági életben</td>
+      <td>Társadalmi igazságosság és emberi jólét, az etika beépítésével</td>
+      <td>A <b>szenvedés csökkentése</b>, a boldogság és a belső harmónia növelése</td></tr>
+    <tr><th>Kamat, pénz</th>
+      <td>Nem központi kérdés; a Rerum Novarum a tisztességes bért és a munkakörülményeket állítja előtérbe</td>
+      <td><b>Ribbit:</b> a zsidók közötti kölcsön kamatának tilalma — még ajándék formájú kompenzáció sem adható</td>
+      <td><b>Riba</b> (kamat) tilos; a pénz nem árucikk, hanem közvetítő eszköz; hitel csak valós ügylethez</td>
+      <td>Nem szabályoz pénzügyi technikát; a mértéktelenséget utasítja el</td></tr>
+    <tr><th>Adakozás, újraelosztás</th>
+      <td>Társadalmi igazságosság: a szegénység, egyenlőtlenség és kizsákmányolás kérdései</td>
+      <td><b>Cedaka</b> — igazságosságból fakadó kötelezettség, nem spontán nagylelkűség; <b>tikkun olam</b>: a világ javítása</td>
+      <td><b>Zakát</b> — kötelező adakozás, a vagyon egy részének átadása a szegényeknek</td>
+      <td>Nincs kötelező forma; a mértékletesség és a közösségi szolgálat a hangsúly</td></tr>
+    <tr><th>Munka</th>
+      <td>Nem csupán árutermelés, hanem <b>hivatás és szolgálat</b>; a munka méltósága (Laborem Exercens)</td>
+      <td>A sabbat heti pihenő- és istentiszteleti nap péntek estétől szombat estéig</td>
+      <td>Csak <b>halal</b> tevékenységből származó jövedelem legitim (alkohol, szerencsejáték, fegyver nem)</td>
+      <td><b>Értelmes munka:</b> önmegvalósítás és közösségi szolgálat, nem lélekölő folyamat</td></tr>
+    <tr><th>Tulajdon</th>
+      <td>A <b>magántulajdonhoz való jog</b> megerősítve (Rerum Novarum), de felelősséggel</td>
+      <td>A <b>smita</b> évében: földpihentetés, adósság-elengedés, lemondás a termés tulajdonjogáról</td>
+      <td>A tulajdonjog elismert, de a vagyon <b>„Istentől kapott letét”</b>, felelősség a társadalom előtt</td>
+      <td>A birtoklás nem cél; a mértékletes szükségletkielégítés az irányadó</td></tr>
+    <tr><th>Környezet</th>
+      <td><b>Teremtésvédelem</b>; Laudato Si (2015): integrált ökológia</td>
+      <td>A smita célja az egyensúly helyreállítása Isten, az emberiség és a föld között</td>
+      <td>A közösségi igazságosság része a felelős gazdálkodás</td>
+      <td><b>Erőszakmentesség és környezeti felelősség</b></td></tr>
+    <tr><th>Kulcsnevek, művek</th>
+      <td>Rerum Novarum (1891, XIII. Leó); Weber: protestáns etika (1904); Laborem Exercens (1981); Laudato Si (2015)</td>
+      <td>Ribbit, cedaka, tikkun olam, kóserság, sabbat, smita</td>
+      <td>Riba, zakát, gharar, halal/haram; mudaraba, musharaka, sukuk, murabaha, ijara</td>
+      <td>E. F. Schumacher: <b>A kicsi szép</b> (1973); köztes technológia; „elégség”</td></tr>
+    <tr class="trap"><th>Tipikus csapda</th>
+      <td>Weber szerint a vagyon célja <b>nem</b> a személyes élvezet, hanem Isten dicsőítése.</td>
+      <td>A cedaka és a tikkun olam <b>nem</b> az egyéni vagyongyarapodásról szól, hanem közösségi felelősség.</td>
+      <td>A kockázatmegosztás eszköze <b>nem</b> a kamatozó hitel, hanem a nyereség-veszteség megosztás. A zakát kötelező, nem önkéntes.</td>
+      <td>Nem a haszon maximalizálása a cél; a „kicsi a szép” a decentralizációról szól, nem a szegénységről.</td></tr>
+  </tbody>
+</table>
+</div>
+<p class="sheet-note">Forrás: 03. előadás · 8–25. dia</p>
 </div>
 
 <div id="tpl-notes" hidden>
@@ -2190,6 +2316,7 @@ function render(){
   renderRail();
   if(state.view === "quiz") return renderQuiz();
   if(state.view === "notes") return renderNotes();
+  if(state.view === "sheet") return renderSheet();
   if(state.view === "stats") return renderStats();
 }
 function head(num, title, lede, right){
@@ -2232,6 +2359,11 @@ document.addEventListener("click", function(ev){
 });
 document.addEventListener("keydown", function(ev){ if(ev.key === "Escape") closePops(null); });
 
+function renderSheet(){
+  el("main").innerHTML = head("03", "Jegyzet",
+    "Összehasonlító táblázatok a könnyen összekeverhető irányzatokról, az előadások anyaga alapján.") +
+    el("tpl-sheet").innerHTML;
+}
 function renderNotes(){
   var lec = state.notesLec || "1";
   var L = LECTURES.filter(function(x){ return x.id === lec; })[0] || LECTURES[0];
@@ -2532,7 +2664,7 @@ function renderResult(){
 function renderStats(){
   var seenAll = Object.keys(store.first).length;
   var acc = store.answered ? Math.round(store.correct / store.answered * 100) : 0;
-  var html = head("03", "Haladás", "Az első próbálkozásod számít bele — az ismétlés már nem rontja el a képet. A halvány sávok mutatják, hova érdemes visszamenni a diákhoz.");
+  var html = head("04", "Haladás", "Az első próbálkozásod számít bele — az ismétlés már nem rontja el a képet. A halvány sávok mutatják, hova érdemes visszamenni a diákhoz.");
   html += '<div class="tiles">'+
     '<div class="tile"><div class="v">'+store.answered+'</div><div class="k">megválaszolt</div></div>'+
     '<div class="tile"><div class="v">'+(store.answered ? acc + "%" : "–")+'</div><div class="k">találati arány</div></div>'+
