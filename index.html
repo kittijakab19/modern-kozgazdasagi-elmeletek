@@ -204,6 +204,10 @@
   .tf-seg{display:flex;flex:none;border:1px solid var(--line-strong);border-radius:8px;overflow:hidden;background:var(--surface)}
   .tf-seg button{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;background:none;color:var(--muted);border:0;padding:7px 12px;cursor:pointer}
   .tf-seg button + button{border-left:1px solid var(--line-strong)}
+  .mt-seg{flex-wrap:wrap;max-width:100%}
+  .mt-seg button{font-size:11.5px;padding:7px 11px;text-transform:none;letter-spacing:.02em}
+  .mt-seg button[aria-pressed="true"]{background:var(--hue);border-color:var(--hue);color:var(--onaccent)}
+  .mt-seg button:hover:not(:disabled){color:var(--hue)}
   .tf-seg button[data-v="1"][aria-pressed="true"]{background:var(--good);border-color:var(--good);color:var(--onaccent)}
   .tf-seg button[data-v="0"][aria-pressed="true"]{background:var(--bad);border-color:var(--bad);color:var(--onaccent)}
   .tf-seg button[data-v="1"]:hover:not(:disabled){color:var(--good)}
@@ -1604,7 +1608,328 @@ const Q = [
   {s:"Az tőkét származékos (másodlagos) erőforrásként mutatjuk be a gazdaságban.",a:true,w:"Elsődleges a nyersanyag és a munka; a tőke, az eszközök és a pénz származékos. (01/21)"},
   {s:"A mikroökonómia az egyedi gazdasági szereplők döntéseit is vizsgálja.",a:true,w:"Egyedi entitások vs. a gazdaság teljesítménye összességében. (01/20)"},
   {s:"A merkantilista gazdaságpolitikában fontos szerepet kaptak az importkorlátozások és a vámok.",a:true,w:"A korai merkantilizmus eszközei a nemesfém-export tilalma mellett. (01/24)"}
- ],s:"01. előadás · 20–27. dia"}
+ ],s:"01. előadás · 20–27. dia"},
+
+/* ---- ELŐADÁSJEGYZET (hanganyag) — 01. előadás ---- */
+{id:"h1",t:"alap",type:"mc",q:"Mit mondott az előadó a mikro- és a makroökonómia feltevéseiről?",
+ o:["A mikró állandóságot, a makró már nem racionalitást feltételez.",
+    "A mikró és a makró is teljes racionalitást feltételez.",
+    "A makró állandóságot, a mikró változékonyságot feltételez.",
+    "Egyik sem feltételez semmit a szereplők viselkedéséről."],
+ a:0,w:"A makroökonómiában már megjelenik a társadalmi nyomás és a fogyasztási mintázat, ezért nem tartható a teljes racionalitás feltevése.",s:"01. előadás · hanganyag"},
+
+{id:"h2",t:"alap",type:"mc",q:"Mire épül az előadás szerint az európai gazdasági modell?",
+ o:["Olcsó energiából és erőforrásból magas hozzáadott érték.",
+    "Olcsó munkaerőből tömegtermelés a hazai piacra.",
+    "Nyersanyagexportból és alacsony hozzáadott értékből.",
+    "Az állami tulajdonú ipar és a vámok bővítéséből."],
+ a:0,w:"Az olcsón beszerzett energiából és erőforrásból nagy hozzáadott értékű terméket és szolgáltatást állítunk elő, amit Európán belül, kívül és a világpiacon értékesítünk.",s:"01. előadás · hanganyag"},
+
+{id:"h3",t:"alap",type:"mc",q:"Miért érdeke a jegybanknak az előadás példájában a gyenge árfolyam?",
+ o:["Mert segíti az exportot, de drágítja az importot.",
+    "Mert olcsóbbá teszi az importált termékeket.",
+    "Mert csökkenti a hazai bérek vásárlóerejét.",
+    "Mert növeli a jegybank aranykészletének értékét."],
+ a:0,w:"Az exportfejlesztési támogatások mellett a gyenge árfolyam is az exportot segíti. Az import viszont drágul, ezért nő az infláció, a drágulást pedig idővel a fizetések is követik.",s:"01. előadás · hanganyag"},
+
+{id:"h4",t:"alap",type:"mc",q:"Mi a különbség az objektív és a szubjektív érték között az előadás példáiban?",
+ o:["Az objektív mérhető előny, a szubjektív ízlés kérdése.",
+    "Az objektív az ár, a szubjektív a gyártási költség.",
+    "Az objektív a kereslet, a szubjektív a kínálat oldala.",
+    "Az objektív a hatósági ár, a szubjektív az alku vége."],
+ a:0,w:"Objektív: a nagyobb akkumulátorral tovább lehet menni. Szubjektív: tetszik a piros színe. A döntést gyakran a szubjektív érték viszi — és az érték nem egyenlő az árral.",s:"01. előadás · hanganyag"},
+
+{id:"h5",t:"alap",type:"mc",q:"Mit mond ki Gossen II. törvénye az előadásjegyzet szerint?",
+ o:["A hasznosság kiegyenlítődik: idővel más szükséglet jön.",
+    "A hasznosság minden további egységgel tovább nő.",
+    "A hasznosság független az elfogyasztott mennyiségtől.",
+    "A hasznosságot kizárólag a termék ára határozza meg."],
+ a:0,w:"A csökkenő határhaszon után ez a második lépés: a kielégített szükségletet felváltja egy másik. A fogyasztás végül negatív hasznosságba is fordulhat.",s:"01. előadás · hanganyag"},
+
+{id:"h6",t:"alap",type:"mc",q:"Mit jelent a fizetési hajlandóság az előadás szerint?",
+ o:["Ugyanazt a terméket más helyzetben más áron vesszük meg.",
+    "Mindenki ugyanannyit hajlandó fizetni egy termékért.",
+    "A fizetési hajlandóságot az állam szabályozza.",
+    "A fizetési hajlandóság mindig egyenlő a költséggel."],
+ a:0,w:"„Mennyibe kerül egy termék? Attól függ.” Különböző vásárlási helyzetekben az emberek ugyanazt a típusú terméket különböző áron hajlandók megvenni.",s:"01. előadás · hanganyag"},
+
+{id:"h7",t:"alap",type:"mc",q:"Mit példáz az Albertirsa és a budapesti V. kerület összehasonlítása?",
+ o:["Hogy a gazdagság és az érték viszonyítás kérdése.",
+    "Hogy az ingatlanárak országosan egységesek.",
+    "Hogy a vidéki ingatlan mindig jobb befektetés.",
+    "Hogy az értéket az előállítási költség adja meg."],
+ a:0,w:"Ugyanaz a 70 négyzetméteres lakás és kétéves autó Albertirsán gazdagságot jelent, a V. kerületben már nem feltétlenül: mindenki a saját környezetéhez viszonyít.",s:"01. előadás · hanganyag"},
+
+{id:"h8",t:"alap",type:"mc",q:"Hogyan oldja fel a gyémánt–víz paradoxont az előadás?",
+ o:["A gyémánt csereértéke, a víz határhaszna a magasabb.",
+    "A gyémánt határhaszna és csereértéke is magasabb.",
+    "A víz csereértéke és határhaszna is magasabb.",
+    "A kettő értéke a piacon mindig kiegyenlítődik."],
+ a:0,w:"Szélsőséges helyzetben bárki odaadná az összes gyémántját vízért: a víz hasznossága, vagyis határhaszna a magasabb, miközben a gyémánt csereértéke nagyobb.",s:"01. előadás · hanganyag"},
+
+{id:"h9",t:"alap",type:"mc",q:"Mit jelent a tervezett elavulás az előadás példájában?",
+ o:["A gyengébb minőség miatt gyakrabban kell újat venni.",
+    "A termék ára az idő múlásával tervezetten csökken.",
+    "A gyártó előre bejelenti a modell kifutásának évét.",
+    "A fogyasztó tervezi meg a csere pontos időpontját."],
+ a:0,w:"Ha 5-10 évente kell autót venni 20 helyett, ugyanahhoz a szükséglethez sokkal több alapanyag, beszállító és munkaerő kell.",s:"01. előadás · hanganyag"},
+
+{id:"h10",t:"alap",type:"mc",q:"Mit jelent a társadalmi homogenizáció az előadás szerint?",
+ o:["Minél egyformább a kereslet, annál olcsóbb a gyártás.",
+    "A jövedelmek fokozatos kiegyenlítődését a társadalomban.",
+    "A fogyasztók egyedi igényeinek pontos kiszolgálását.",
+    "A vállalati termékkínálat folyamatos bővítését."],
+ a:0,w:"A cégek pszichológiai eszközökkel alakítják, mire van szükségünk: a homogénebb társadalom ugyanazt a terméket keresi, így mennyiségi hatékonyság, nagyobb profit és kisebb fejlesztési költség érhető el.",s:"01. előadás · hanganyag"},
+
+{id:"h11",t:"alap",type:"mc",q:"Mit példáz a gyerek, aki ezer forintból inkább több olcsó csokit vesz?",
+ o:["A szűkös erőforrással maximalizáló magatartást.",
+    "A kockázatkerülő fogyasztói döntés logikáját.",
+    "A tervezett elavulás hatását a keresletre.",
+    "A fizetési hajlandóság gyors csökkenését."],
+ a:0,w:"A profitmaximalizáló magatartás lényege: a szűkös erőforrásból a lehető legtöbb fogyasztás, termék vagy szolgáltatás jöjjön ki.",s:"01. előadás · hanganyag"},
+
+{id:"h12",t:"alap",type:"mc",q:"Mit jelent a kockázati prémium az előadásjegyzet szerint?",
+ o:["Magasabb kockázatért cserébe magasabb jutalom jár.",
+    "A kockázat csökkentéséért fizetett biztosítási díj.",
+    "Az állam által garantált minimális hozam mértéke.",
+    "A kockázatkerülő fogyasztó pluszkiadása vásárláskor."],
+ a:0,w:"Aki nem próbál ki új dolgot, mert fél, hogy nem tetszik majd, a biztosat választja; a nagyobb kockázatot vállaló cserébe magasabb haszonra számíthat.",s:"01. előadás · hanganyag"},
+
+{id:"h13",t:"keynes",type:"mc",q:"Mit mondott Keynes a New Dealről az előadás szerint?",
+ o:["Nélküle nem jöttünk volna ki a nagy válságból.",
+    "Csak elnyújtotta a válság éveit feleslegesen.",
+    "Kizárólag a monetáris politikára épített.",
+    "A túltermelés gondját tovább fokozta."],
+ a:0,w:"A New Deal gazdaságpolitika törte meg a túltermelési válság negatív spirálját.",s:"01. előadás · hanganyag"},
+
+{id:"h14",t:"keynes",type:"mc",q:"Hogyan írja le az előadás a túltermelési válság negatív spirálját?",
+ o:["Zuhanó fogyasztás, majd sorban visszaeső gyártás és bér.",
+    "Növekvő fogyasztás, amit a gyártás nem tud követni.",
+    "Emelkedő árak, amelyek a bérekkel együtt nőnek.",
+    "Csökkenő import, amit az export növekedése pótol."],
+ a:0,w:"A cégek túl sokat gyártanak, a fogyasztás bezuhan: kevesebb műszak, kevesebb munkás, telítődő raktár, kevesebb alapanyag — a beszállítóknál ugyanez indul el, dominószerűen.",s:"01. előadás · hanganyag"},
+
+{id:"h15",t:"keynes",type:"mc",q:"Mit rótt fel Hayek az államnak a válságkezelésben?",
+ o:["Hogy mesterségesen alul- vagy felülszabályozta a piacot.",
+    "Hogy nem növelte eléggé a költségvetési kiadásokat.",
+    "Hogy nem vezetett be importkorlátozásokat időben.",
+    "Hogy elhanyagolta az exportfejlesztési támogatást."],
+ a:0,w:"Ebből az állásfoglalásból nő ki a neoliberális gazdaságpolitika.",s:"01. előadás · hanganyag"},
+
+{id:"h16",t:"merk",type:"mc",q:"Mi volt az állam dolga a merkantilizmus korai szakaszában?",
+ o:["Hadsereg, infrastruktúra, a külkereskedelem felügyelete.",
+    "A teljes termelés és az árak központi tervezése.",
+    "A szociális ellátás és az oktatás fenntartása.",
+    "A magántulajdon felszámolása és az újraelosztás."],
+ a:0,w:"A háborúhoz hadsereg kell, ahhoz pedig pénz, pénz, pénz — ezért nem jó, ha a nemesfém elhagyja az országot: jön az importkorlátozás és a vám, ez a protekcionista gazdaságpolitika alapja.",s:"01. előadás · hanganyag"},
+
+{id:"h17",t:"merk",type:"mc",q:"Mit jelent a gazdasági kolonizáció a késői merkantilizmusban?",
+ o:["Olcsó nyersanyag behozatala, magas értékű termék kivitele.",
+    "A gyarmatok politikai igazgatásának teljes kiépítése.",
+    "A nemesfémkészlet gyarmatokra telepítése biztonságból.",
+    "A gyarmati lakosság betelepítése az anyaországba."],
+ a:0,w:"A késői merkantilizmus a magasabb hozzáadott értékű, kifinomult ipari termékekre épít: az olcsó nyersanyagból itthon készül a drága termék, ami visszakerül exportra.",s:"01. előadás · hanganyag"},
+
+{id:"h18",t:"merk",type:"mc",q:"Miért járt rosszul Spanyolország a rengeteg importált arannyal?",
+ o:["A pénzbőség inflációt hozott, nem érte meg termelni.",
+    "A hajók elsüllyedése miatt elveszett a készlet java.",
+    "A gyarmatok fellázadtak a kitermelés ellen.",
+    "A nemesfém kivitelét más országok megtiltották."],
+ a:0,w:"Ha sok van valamiből, csökken az értéke: a túl sok arany durva inflációt okozott, így olcsóbb volt máshonnan megvenni a terméket, mint itthon gyártani.",s:"01. előadás · hanganyag"},
+
+{id:"h19",t:"merk",type:"mc",q:"Miben tér el a merkantilizmus és a klasszikus kapitalizmus logikája?",
+ o:["A merkantilizmus véd és beavatkozik, a kapitalizmus nem.",
+    "Mindkettő a szabad erőforrás-áramlást támogatja.",
+    "A merkantilizmus bízik a láthatatlan kéz működésében.",
+    "A kapitalizmus szerint vámokkal kell védekezni."],
+ a:0,w:"A kapitalizmus szerint a piac a szabályozó mechanizmus; a merkantilizmus szerint nem szabad hagyni az erőforrások szabad áramlását, mert az államnak a saját lakosságát és hadseregét kell néznie.",s:"01. előadás · hanganyag"},
+
+{id:"h20",t:"merk",type:"mc",q:"Mit tart a fiziokrata felfogás természetellenesnek?",
+ o:["Ha korlátozó tényezőt tesznek a gazdaság működésébe.",
+    "Ha a mezőgazdaság adóterhei jelentősen csökkennek.",
+    "Ha a magántulajdon szabadon öröklődik tovább.",
+    "Ha az egyenlőtlenség a jóléttel együtt növekszik."],
+ a:0,w:"Az alap a természet uralma: a tulajdonszabadságból jön a jólét növekedése, majd abból az egyenlőtlenség növekedése — ez a felfogás szerint természetes.",s:"01. előadás · hanganyag"},
+
+{id:"h21",t:"marx",type:"mc",q:"Mire vezeti vissza Marx a társadalmi különbségeket az előadás szerint?",
+ o:["A kapitalista, szabadpiaci gondolkodás osztályharcára.",
+    "A természeti erőforrások egyenlőtlen eloszlására.",
+    "Az egyéni képességek és a szerencse különbségeire.",
+    "A nemzetközi munkamegosztás kialakult szerkezetére."],
+ a:0,w:"Marx szerint minden társadalmi elégedetlenség és különbség ebből a mesterséges osztályharcból fakad.",s:"01. előadás · hanganyag"},
+
+/* ---- ELŐADÁSJEGYZET (hanganyag) — 02. előadás ---- */
+{id:"h22",t:"keynes",type:"mc",q:"Mit jelent a stagfláció az előadásjegyzet szerint?",
+ o:["Magas infláció lassú növekedéssel és válsággal együtt.",
+    "Magas infláció gyors gazdasági növekedés mellett.",
+    "Alacsony infláció tartós gazdasági stagnálással.",
+    "Árcsökkenés a kereslet tartós visszaesése miatt."],
+ a:0,w:"Vagyis egyszerre van jelen a pénzromlás és a lassuló gazdaság.",s:"02. előadás · hanganyag"},
+
+{id:"h23",t:"keynes",type:"mc",q:"Mi határozza meg a szabadon lebegő rendszerben két valuta árfolyamát?",
+ o:["A kereslet és a kínálat alakulása.",
+    "A jegybank havi hivatalos döntése.",
+    "A két ország aranykészletének aránya.",
+    "A két ország inflációs célkitűzése."],
+ a:0,w:"A Bretton Woods utáni rendszerben az árfolyamot a piac alakítja, nem a rögzített aranyparitás.",s:"02. előadás · hanganyag"},
+
+{id:"h24",t:"keynes",type:"mc",q:"Mit hirdet a neoliberalizmus a nemzetközi kereskedelemről?",
+ o:["Fejleszteni kell, korlátot nem szabad elé állítani.",
+    "Vámokkal kell védeni tőle a hazai termelést.",
+    "Az államnak kell bonyolítania a kereskedelmet.",
+    "Csak a nyersanyagok cseréjét érdemes bővíteni."],
+ a:0,w:"A felfogás szerint a nemzetközi kereskedelem pozitívan hat a gazdaságra, ezért a korlátozása káros.",s:"02. előadás · hanganyag"},
+
+{id:"h25",t:"marx",type:"mc",q:"Mit jelent a proletárdiktatúra a 2. előadás jegyzete szerint?",
+ o:["Az állam átveszi a termelőeszközöket.",
+    "A munkások közvetlenül irányítják a pártot.",
+    "A magántulajdon korlátlan védelmét jelenti.",
+    "A piac szabad árképzését a termelésben."],
+ a:0,w:"A gyakorlatban nem a munkások, hanem a kommunista párt vezetői gyakorolták ezt a hatalmat.",s:"02. előadás · hanganyag"},
+
+{id:"h26",t:"marx",type:"mc",q:"Mi volt különleges Jugoszláviában a tulajdonviszonyok terén?",
+ o:["Sosem szüntették meg a magántulajdont.",
+    "Teljesen államosították a mezőgazdaságot.",
+    "A gyárakat külföldi tulajdonba adták át.",
+    "A földet a pártvezetők között osztották fel."],
+ a:0,w:"A titoista modellben a munkás-önigazgatás mellett megmaradt a magánvállalkozás, elsősorban a mezőgazdaságban.",s:"02. előadás · hanganyag"},
+
+{id:"h27",t:"vilag",type:"mc",q:"Milyen országtípusokat különböztet meg az újbaloldal és a neomarxizmus?",
+ o:["Centrum, félperiféria és periféria.",
+    "Fejlett, fejlődő és elmaradott.",
+    "Északi, déli és semleges ország.",
+    "Gyarmattartó, gyarmat és semleges."],
+ a:0,w:"Ez a hármas a világrendszer-elmélet alapja: a nemzetközi munkamegosztásban elfoglalt pozíció szerint.",s:"02. előadás · hanganyag"},
+
+{id:"h28",t:"alap",type:"tf",q:"Jelöld, melyik állítás igaz és melyik hamis.",
+ items:[
+  {s:"Az előadás szerint az érték és az ár ugyanazt jelenti.",a:false,w:"Az érték nem egyenlő az árral: az érték szükséglet és viszonyítás kérdése."},
+  {s:"A csökkenő határhaszon elve szerint minden további egység kevésbé járul hozzá az elégedettséghez.",a:true,w:"Mert az eredeti szükségletet már kielégítettük."},
+  {s:"A fogyasztás az előadás szerint negatív hasznosságba is fordulhat.",a:true,w:"A hasznosság kiegyenlítődése után a további fogyasztás már ronthat is a helyzeten."},
+  {s:"A fizetési hajlandóság minden vásárlási helyzetben azonos.",a:false,w:"Ugyanazt a típusú terméket különböző helyzetekben különböző áron veszik meg az emberek."}
+ ],s:"01. előadás · hanganyag"},
+
+{id:"h29",t:"merk",type:"tf",q:"Jelöld, melyik állítás igaz és melyik hamis.",
+ items:[
+  {s:"A korai merkantilizmus szerint kedvező, ha a nemesfém elhagyja az országot.",a:false,w:"Éppen fordítva: a nemesfém beáramlása a jó, ezért jönnek az importkorlátozások és a vámok."},
+  {s:"A protekcionista gazdaságpolitika alapja az importkorlátozás és a vám.",a:true,w:"A hadsereg finanszírozásának igényéből nő ki."},
+  {s:"A késői merkantilizmus a magas hozzáadott értékű ipari termékekre épít.",a:true,w:"Olcsó nyersanyag be, drága termék ki — ez a gazdasági kolonizáció."},
+  {s:"Spanyolországban a nagy aranyimport fellendítette a hazai gyártást.",a:false,w:"A pénzbőség inflációt okozott, így nem érte meg gyártani, olcsóbb volt importálni."}
+ ],s:"01. előadás · hanganyag"},
+
+{id:"h30",t:"keynes",type:"tf",q:"Jelöld, melyik állítás igaz és melyik hamis.",
+ items:[
+  {s:"Keynes szerint a New Deal nélkül nem jöttünk volna ki a nagy válságból.",a:true,w:"Az állami beavatkozás törte meg a túltermelési válság spirálját."},
+  {s:"A túltermelési válságban a fogyasztás bezuhanása dominóhatást indít el.",a:true,w:"Kevesebb gyártás, kevesebb műszak, telítődő raktár, kevesebb alapanyag — a beszállítóknál ugyanez folytatódik."},
+  {s:"Hayek szerint az állam a piacok mesterséges szabályozásával rontott a helyzeten.",a:true,w:"Ebből nő ki a neoliberális gazdaságpolitika."},
+  {s:"A stagfláció alacsony inflációt és gyors növekedést jelent.",a:false,w:"Éppen fordítva: magas infláció lassú növekedéssel és válsággal együtt."}
+ ],s:"02. előadás · hanganyag"},
+
+/* ---- VIZSGABESZÁMOLÓK ALAPJÁN ---- */
+{id:"v01",t:"keynes",type:"mc",q:"Hogyan hat az alacsony kamatszint a gazdaságra?",
+ o:["Olcsóbb a hitel, élénkül a beruházás és a fogyasztás.",
+    "Drágul a hitel, ezért visszaesik a beruházási kedv.",
+    "Nő a megtakarítási hajlandóság, csökken a kereslet.",
+    "Erősödik a valuta, és emiatt visszaesik az export."],
+ a:0,w:"Az alacsony kamat expanzív hatású: a hitel olcsóbb, ezért többet fektetnek be és költenek. Cserébe inflációt gerjeszthet és gyengítheti a valutát.",s:"02. előadás · monetáris politika"},
+
+{id:"v02",t:"keynes",type:"mc",q:"Mit tesz a jegybank, ha le akarja törni az inflációt?",
+ o:["Kamatot emel, és szűkíti a pénzmennyiséget.",
+    "Kamatot csökkent, és bővíti a pénzmennyiséget.",
+    "Gyengíti az árfolyamot az export érdekében.",
+    "Növeli a költségvetés kiadásait a keresletért."],
+ a:0,w:"A szigorítás drágítja a hitelt, visszafogja a keresletet, és ezzel mérsékli az áremelkedést — ez a monetáris politika fő eszköze.",s:"02. előadás · monetáris politika"},
+
+{id:"v03",t:"keynes",type:"mc",q:"Mi történik tartósan magas kamatszint mellett?",
+ o:["Visszaesik a hitelezés, és lassul a növekedés.",
+    "Felgyorsul a beruházás és a lakossági fogyasztás.",
+    "Automatikusan nő az export és a termelés is.",
+    "Gyorsul az infláció, és csökken a megtakarítás."],
+ a:0,w:"A drága hitel visszafogja a beruházást és a fogyasztást: csillapítja az inflációt, de a növekedést is fékezi.",s:"02. előadás · monetáris politika"},
+
+{id:"v04",t:"keynes",type:"mc",q:"Mit vall a monetarista felfogás a pénzről az előadás szerint?",
+ o:["Szabad pénzfolyamatok, de befolyásolt pénzmennyiség.",
+    "Szigorú tőkekorlátozás és rögzített árfolyamrendszer.",
+    "A pénzmennyiség nem hat a gazdaság teljesítményére.",
+    "A kamatszintet a kormány határozza meg évente."],
+ a:0,w:"A neoliberális gazdaságpolitika monetarista eleme: a pénzfolyamatokat szabadon kell hagyni, a pénzmennyiséget viszont befolyásolni kell. A deregulált bankrendszer árát 2008-ban fizettük meg.",s:"02. előadás · 11. dia"},
+
+{id:"v05",t:"alap",type:"mc",q:"Hogyan függ össze a munkakínálat a növekvő jövedelemszinttel?",
+ o:["Egy szint felett a szabadidő értékesebb, a kínálat csökken.",
+    "A kínálat a jövedelemmel arányosan, korlátlanul nő.",
+    "A jövedelem nagysága nem befolyásolja a munkakínálatot.",
+    "A munkakínálatot kizárólag az árszínvonal határozza meg."],
+ a:0,w:"Alacsonyabb jövedelemnél a béremelés még több munkára ösztönöz (helyettesítési hatás), magasabb jövedelemnél viszont a jövedelmi hatás kerekedik felül: az ember inkább szabadidőt választ. Ezért hajlik vissza a munkakínálati görbe.",s:"01. előadás · munkakínálat"},
+
+{id:"v06",t:"alap",type:"mc",q:"Mit ír le a helyettesítési és a jövedelmi hatás a munkakínálatban?",
+ o:["Emelkedő bér: előbb több munka, később inkább szabadidő.",
+    "Emelkedő bér: az emberek mindig kevesebbet dolgoznak.",
+    "Emelkedő bér: a ledolgozott órák száma nem változik.",
+    "Csökkenő bér: az emberek több szabadidőt választanak."],
+ a:0,w:"A helyettesítési hatás szerint a dráguló szabadidő miatt többet dolgozunk; a jövedelmi hatás szerint a magasabb jövedelemből több szabadidőt engedünk meg magunknak.",s:"01. előadás · munkakínálat"},
+
+{id:"v07",t:"vallas",type:"tf",q:"Jelöld, melyik állítás igaz és melyik hamis.",
+ items:[
+  {s:"Az iszlám bankrendszer elsődleges célja a profit maximalizálása.",a:false,w:"A cél a társadalmi igazságosság és az emberi jólét; a pénz nem árucikk, hanem közvetítő eszköz. (03/17–19)"},
+  {s:"Az iszlám bankban a bank és az ügyfél megosztja a kockázatot és a nyereséget.",a:true,w:"Ez a mudaraba és a musharaka lényege, a kamat helyett. (03/19)"},
+  {s:"Hitelt csak megengedett (halal) tevékenységhez lehet kapcsolni.",a:true,w:"Alkohol, szerencsejáték, fegyver nem finanszírozható. (03/18–19)"},
+  {s:"A tisztán spekulatív ügyletek is finanszírozhatók, ha nyereségesek.",a:false,w:"A gharar — a túlzott bizonytalanság és a szerencsejáték jellegű ügylet — tilos. (03/19)"}
+ ],s:"03. előadás · 17–19. dia"},
+
+/* ---- PÁROSÍTÓS FELADATOK ---- */
+{id:"g1",t:"marx",type:"match",q:"Melyik irányzathoz tartoznak az állítások?",
+ cats:["Marxizmus","Leninizmus","Titoizmus"],
+ items:[
+  {s:"Az értéktöbblet fogalma és a két alaposztály elemzése a Das Kapitalban.",c:0,w:"Marx a piacgazdaságot elemzi, és új fogalmat vezet be: az értéktöbbletet. (02/18)"},
+  {s:"A párt mint elkötelezett szellemi elit, és a proletárdiktatúra.",c:1,w:"Lenin szerint a pártvezetők gyakorolják a hatalmat a munkások helyett. (02/19)"},
+  {s:"Munkás-önigazgatás a gyárakban, a központi tervezés felszámolása.",c:2,w:"Edvard Kardelj modellje, a moszkvai szakítás után. (02/21)"},
+  {s:"„A burzsoázia maga termeli meg a sírásóit.”",c:0,w:"A Kommunista Kiáltvány idézete Marxnál. (02/18)"}
+ ],s:"02. előadás · 18–21. dia"},
+
+{id:"g2",t:"merk",type:"match",q:"Melyik irányzat jellemzője?",
+ cats:["Merkantilizmus","Fiziokratizmus","Klasszikus"],
+ items:[
+  {s:"Nemesfém-felhalmozás, vámok és importkorlátozás.",c:0,w:"A korai merkantilizmus eszköztára. (01/24)"},
+  {s:"A természet uralma, Quesnay és a laissez faire.",c:1,w:"A fiziokraták szerint a rendszer állami beavatkozás nélkül is fennmarad. (01/25)"},
+  {s:"Munkaérték-elmélet és a komparatív előnyök tana.",c:2,w:"Hume, Smith és Ricardo koncepciója. (02/5)"},
+  {s:"Az állam védi a hazai termelést és a hadsereget.",c:0,w:"A protekcionista logika: nem szabad hagyni az erőforrások szabad áramlását."}
+ ],s:"01. előadás · 24–25. dia · 02. előadás · 5. dia"},
+
+{id:"g3",t:"keynes",type:"match",q:"Melyik gazdasági modellhez tartozik az állítás?",
+ cats:["Klasszikus","Keynesi","Neoliberális"],
+ items:[
+  {s:"A piac önszabályozó, az állam ne avatkozzon be.",c:0,w:"A láthatatlan kéz és a laissez faire. (01/22)"},
+  {s:"Az aggregált keresletet az állam finomhangolja.",c:1,w:"Vegyes gazdaság: monetáris és fiskális korrekció. (02/8)"},
+  {s:"Dereguláció, monetarizmus, a jóléti állam bírálata.",c:2,w:"A neoliberális gazdaságpolitika sarokpontjai. (02/11)"},
+  {s:"A piac instabil, ezért az állam korrigálja a hibáit.",c:1,w:"Keynes alaptétele az Általános elméletben. (02/8)"}
+ ],s:"02. előadás · 5–11. dia"},
+
+{id:"g4",t:"alternativ",type:"match",q:"Melyik irányzathoz köthető az állítás?",
+ cats:["Buddhista","Degrowth","Mindkettő"],
+ items:[
+  {s:"A cél a szenvedés csökkentése és a belső harmónia növelése.",c:0,w:"A buddhista gazdaságtan kiindulópontja. (03/21)"},
+  {s:"A termelés és a fogyasztás csökkentése a gazdag országokban.",c:1,w:"A nemnövekedés programja. (03/30)"},
+  {s:"A mértékletesség és az ökológiai felelősség hangsúlyozása.",c:2,w:"Mindkét irányzat közös vonása — Schumacher „elégség” fogalma köti össze őket. (03/21–30)"},
+  {s:"A GDP-növekedés mint társadalmi célkitűzés elvetése.",c:1,w:"A degrowth kifejezetten a növekedési cél eltörlését szorgalmazza. (03/30)"}
+ ],s:"03. előadás · 21–30. dia"},
+
+{id:"g5",t:"alternativ",type:"match",q:"Melyik gazdasági formához tartozik az állítás?",
+ cats:["Közösségi gazdaság","Szövetkezeti gazdaság"],
+ items:[
+  {s:"Helyi pénznemek és közösség által támogatott mezőgazdaság.",c:0,w:"A közösségi gazdaság gyakorlatai. (03/31)"},
+  {s:"A tagok egyszerre tulajdonosok és használók.",c:1,w:"A szövetkezet alapszerkezete. (03/32)"},
+  {s:"A nyereség a tagok javára és közösségi célokra megy.",c:1,w:"Nem profitmaximalizálás. (03/32)"},
+  {s:"A helyi szükségletek és a demokratikus kontroll előtérbe helyezése.",c:0,w:"A profitorientált modellekkel szemben. (03/31)"}
+ ],s:"03. előadás · 31–32. dia"},
+
+{id:"g6",t:"vilag",type:"match",q:"A világrendszer-elmélet melyik pozíciójához tartozik az állítás?",
+ cats:["Centrum","Félperiféria","Periféria"],
+ items:[
+  {s:"Tőkeerős, fejlett technológiát exportáló gazdaságok.",c:0,w:"A nemzetközi munkamegosztás nyertes pozíciója. (02/22)"},
+  {s:"Mindkét másik pozíció bizonyos jellemzőit hordozza.",c:1,w:"Átmeneti, kettős karakterű helyzet. (02/22)"},
+  {s:"Egyoldalú specializáltság, nyersanyag-kivitel.",c:2,w:"A reformirányzat szerint a külkereskedelem itt hat kedvezőtlenül. (02/9, 02/22)"},
+  {s:"A technológiatranszfer iránya jellemzően ide mutat.",c:0,w:"A tőke és a technológia a fejlett országok felé áramlik. (02/9)"}
+ ],s:"02. előadás · 22. dia"}
 ];
 
 (function(){
@@ -1928,12 +2253,17 @@ function renderQuiz(){
       (state.kind[q.id] === "new" ? '<span class="tag new">Új kérdés</span>' : "")+
       (state.kind[q.id] === "repeat" ? '<span class="tag repeat">Ismétlés — korábban hibáztál</span>' : "")+
       (state.kind[q.id] === "review" ? '<span class="tag">Felfrissítés</span>' : "")+
-      '<span class="tag">'+(q.type === "tf" ? "Igaz–hamis · 4 × 0,25 pont" : "Feleletválasztós · 1 pont")+'</span>'+
+      '<span class="tag">'+(q.type === "tf" ? "Igaz–hamis · 4 × 0,25 pont"
+        : q.type === "match" ? "Párosítás · " + q.items.length + " × 0,25 pont"
+        : "Feleletválasztós · 1 pont")+'</span>'+
     '</div></div>'+
     '<div class="card-body">'+
-      '<p class="qlead">'+(q.type === "tf" ? "Jelöld meg minden állításról, hogy igaz vagy hamis" : "Válaszd ki a helyes megoldást")+'</p>'+
+      '<p class="qlead">'+(q.type === "tf" ? "Jelöld meg minden állításról, hogy igaz vagy hamis"
+        : q.type === "match" ? "Húzd a megfelelő helyre: válaszd ki mindegyikhez a kategóriát"
+        : "Válaszd ki a helyes megoldást")+'</p>'+
       '<h3 class="q">'+esc(q.q)+'</h3>'+
-      (q.type === "tf" ? '<p class="qsub">A vizsgán a helyeseket pipával, a helyteleneket piros x-szel kell jelölni; állításonként 0,25 pont.</p>' : "");
+      (q.type === "tf" ? '<p class="qsub">A vizsgán a helyeseket pipával, a helyteleneket piros x-szel kell jelölni; állításonként 0,25 pont.</p>' : "")+
+      (q.type === "match" ? '<p class="qsub">A vizsgán ez a „húzd a megfelelő helyre” feladat; itt állításonként válaszd ki a kategóriát.</p>' : "");
 
   if(q.type === "mc"){
     var order = optOrder(q);
@@ -1945,18 +2275,25 @@ function renderQuiz(){
   } else {
     html += '<div class="tf-list" id="tflist">';
     q.items.forEach(function(it, ix){
-      html += '<div class="tf-item" data-ix="'+ix+'"><div class="tf-row"><div class="tf-text">'+esc(it.s)+'</div>'+
-        '<div class="tf-seg"><button type="button" data-v="1" aria-pressed="false">Igaz</button>'+
-        '<button type="button" data-v="0" aria-pressed="false">Hamis</button></div></div></div>';
+      var seg;
+      if(q.type === "match"){
+        seg = '<div class="tf-seg mt-seg">' + q.cats.map(function(c, ci){
+          return '<button type="button" data-v="'+ci+'" aria-pressed="false">'+esc(c)+'</button>';
+        }).join("") + '</div>';
+      } else {
+        seg = '<div class="tf-seg"><button type="button" data-v="1" aria-pressed="false">Igaz</button>'+
+              '<button type="button" data-v="0" aria-pressed="false">Hamis</button></div>';
+      }
+      html += '<div class="tf-item" data-ix="'+ix+'"><div class="tf-row"><div class="tf-text">'+esc(it.s)+'</div>'+seg+'</div></div>';
     });
     html += '</div>';
   }
 
   html += '<div id="fb"></div>'+
     '<div class="fbrow" style="margin-top:20px">'+
-      '<span class="kbd" id="kbdhint">'+(q.type === "mc" ? 'Billentyűvel: <b>1</b>–<b>4</b>, majd <b>Enter</b>' : "Mind a négy állításhoz válassz, majd ellenőrizz.")+'</span>'+
+      '<span class="kbd" id="kbdhint">'+(q.type === "mc" ? 'Billentyűvel: <b>1</b>–<b>4</b>, majd <b>Enter</b>' : "Mindegyik állításhoz válassz, majd ellenőrizz.")+'</span>'+
       '<span style="display:flex;gap:10px">'+
-        (q.type === "tf" ? '<button class="btn primary" type="button" id="checkBtn" disabled>Ellenőrzés</button>' : "")+
+        (q.type === "mc" ? "" : '<button class="btn primary" type="button" id="checkBtn" disabled>Ellenőrzés</button>')+
         '<button class="btn primary" type="button" id="nextBtn" hidden>'+(state.i === state.deck.length-1 ? "Eredmény" : "Következő")+'</button>'+
       '</span>'+
     '</div>'+
@@ -1976,7 +2313,7 @@ function renderQuiz(){
       Array.prototype.forEach.call(row.querySelectorAll(".tf-seg button"), function(b){
         b.onclick = function(){
           if(state.locked) return;
-          state.tf[ix] = b.dataset.v === "1";
+          state.tf[ix] = q.type === "match" ? Number(b.dataset.v) : (b.dataset.v === "1");
           Array.prototype.forEach.call(row.querySelectorAll(".tf-seg button"), function(o){
             o.setAttribute("aria-pressed", String(o === b));
           });
@@ -1984,7 +2321,7 @@ function renderQuiz(){
         };
       });
     });
-    el("checkBtn").onclick = function(){ checkTF(); };
+    el("checkBtn").onclick = function(){ if(q.type === "match") checkMatch(); else checkTF(); };
   }
   el("nextBtn").onclick = next;
 }
@@ -2037,6 +2374,28 @@ function checkTF(){
     good+'/4 állítás jó — '+fmt(val)+' pont</div>');
 }
 
+function checkMatch(){
+  if(state.locked) return;
+  state.locked = true;
+  var q = state.deck[state.i], good = 0;
+  var rows = el("tflist").querySelectorAll(".tf-item");
+  q.items.forEach(function(it, ix){
+    var row = rows[ix], hit = state.tf[ix] === it.c;
+    if(hit) good++;
+    row.classList.add(hit ? "right" : "wrong");
+    Array.prototype.forEach.call(row.querySelectorAll(".tf-seg button"), function(b){ b.disabled = true; });
+    var w = document.createElement("div");
+    w.className = "tf-why";
+    w.innerHTML = (hit ? "" : '<span class="solution">Helyesen: ' + esc(q.cats[it.c]) + '</span> ') + esc(it.w);
+    row.appendChild(w);
+  });
+  var val = good / q.items.length;
+  state.log.push({q:q, val: val, picks: q.items.map(function(_, ix){ return state.tf[ix]; })});
+  finish(q, val,
+    '<div class="verdict '+(good === q.items.length ? "ok" : "no")+'"><span class="mark"><span>'+
+    (good === q.items.length ? "✓" : "✕")+'</span></span>'+
+    good+'/'+q.items.length+' állítás jó — '+fmt(val)+' pont</div>');
+}
 function finish(q, val, verdictHTML){
   var wgt = weight(q);
   state.score += val * wgt; state.max += wgt;
@@ -2045,7 +2404,9 @@ function finish(q, val, verdictHTML){
   record(q, val);
 
   el("fb").innerHTML = '<div class="fb">' + verdictHTML +
-    '<div class="why"><p>'+esc(q.w || "A vizsgán ez a blokk 1 pontot ér, állításonként 0,25 pontot — az állítások alatt látod, melyik miért igaz vagy hamis.")+'</p>'+
+    '<div class="why"><p>'+esc(q.w || (q.type === "match"
+      ? "A blokk 1 pontot ér, állításonként 0,25 pontot — az állítások alatt látod, melyik kategóriába tartoznak és miért."
+      : "A vizsgán ez a blokk 1 pontot ér, állításonként 0,25 pontot — az állítások alatt látod, melyik miért igaz vagy hamis."))+'</p>'+
     '<span class="src">Forrás: '+esc(q.s)+'</span></div></div>';
   var n = el("nextBtn"); n.hidden = false; n.focus();
   var k = el("kbdhint"); if(k) k.innerHTML = 'Tovább: <b>Enter</b>';
@@ -2090,6 +2451,17 @@ function reviewHTML(){
       h += '<p class="rline '+(ok ? "good" : "bad")+'"><b>A te válaszod:</b> '+esc(q.o[r.pick])+'</p>';
       if(!ok) h += '<p class="rline good"><b>A helyes válasz:</b> '+esc(q.o[q.a])+'</p>';
       if(q.w) h += '<p class="rline muted">'+esc(q.w)+'</p>';
+    } else if(q.type === "match"){
+      h += '<div class="rtf">';
+      q.items.forEach(function(it, ix){
+        var hit = r.picks[ix] === it.c;
+        h += '<div class="rtf-row'+(hit ? "" : " miss")+'">'+
+             '<span class="rtf-mark">'+(hit ? "✓" : "✕")+'</span>'+
+             '<span class="rtf-s">'+esc(it.s)+(hit ? "" : ' <span class="rline muted">'+esc(it.w)+'</span>')+'</span>'+
+             '<span class="rtf-a">te: '+esc(q.cats[r.picks[ix]] || "—")+' · helyes: '+esc(q.cats[it.c])+'</span>'+
+             '</div>';
+      });
+      h += '</div>';
     } else {
       h += '<div class="rtf">';
       q.items.forEach(function(it, ix){
