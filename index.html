@@ -284,6 +284,24 @@
   .rtf-s{flex:1;min-width:160px}
   .rtf-a{flex:none;font-family:var(--mono);font-size:10.5px;color:var(--muted);letter-spacing:.05em}
   .rtf-row.miss .rtf-a{color:var(--bad)}
+  .ih{position:relative;display:inline-flex;vertical-align:middle;margin-left:9px}
+  .ih > button{
+    width:19px;height:19px;padding:0;border-radius:50%;border:1px solid var(--hue);background:var(--surface);
+    color:var(--hue);font-family:var(--display);font-weight:800;font-size:11px;line-height:1;cursor:pointer;
+    display:grid;place-items:center;text-transform:none;letter-spacing:0;
+  }
+  .ih > button:hover{background:var(--hue);color:var(--onaccent)}
+  .ih .pop{
+    position:absolute;left:-8px;top:calc(100% + 9px);z-index:40;width:min(460px,80vw);
+    background:var(--surface);border:1px solid var(--line-strong);border-radius:12px;box-shadow:var(--shadow-m);
+    padding:14px 16px;display:none;text-align:left;text-transform:none;letter-spacing:0;
+    font-family:var(--ui);font-weight:400;font-size:13.5px;line-height:1.6;color:var(--ink);
+  }
+  .ih.open .pop,.ih:focus-within .pop{display:block}
+  .ih .pop .k{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--hue);margin-bottom:8px}
+  .ih .pop p{margin:0 0 8px}
+  .ih .pop p:last-child{margin:0}
+  @media (max-width:640px){.ih .pop{left:auto;right:-8px;width:min(340px,86vw)}}
   .ttabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
   .ttab{display:flex;align-items:center;gap:9px;background:var(--surface);border:1px solid var(--line);
     border-radius:99px;padding:9px 16px;cursor:pointer;font-size:13.5px;font-weight:600;color:var(--muted);
@@ -403,17 +421,17 @@
 <details class="note" data-lecture="1" data-topic="alap" open>
       <summary>Mi a közgazdaságtan? Érték, elosztás, erőforrások <span class="lec">01. ea · 13–21. dia</span></summary>
       <div class="note-body">
-        <h3>13. dia — Mi a (KÖZ)GAZDASÁGTAN??</h3>
+        <h3>13. dia — Mi a (KÖZ)GAZDASÁGTAN??<span class="ih"><button type="button" aria-label="Saját jegyzet">i</button><span class="pop"><span class="k">Saját jegyzet — hanganyag</span><p>Főleg Európában: olcsó energiát és erőforrást kapunk, ebből nagy hozzáadott értéket és szolgáltatást állítunk elő, amit Európán belül, kívül és a világpiacon tudunk értékesíteni.</p><p>Exportfejlesztési támogatások is vannak. A nemzeti banknak, az országnak az a feladata, hogy gyengén tartsa az árfolyamot. Magas az infláció, mert drágábbak az import típusú termékek. Ha drágulnak a dolgok, az ingatlanok, akkor növekednek a fizetések, az életszínvonal.</p></span></span></h3>
         <ul>
           <li>A közgazdaságtan azt vizsgálja, hogy a társadalmak hogyan használják fel a szűkös erőforrásokat értékes áruk előállítására és azok különböző emberek közötti elosztására. (Samuelson, P.)</li>
         </ul>
-        <h3>14. dia — Mi az „érték”?</h3>
+        <h3>14. dia — Mi az „érték”?<span class="ih"><button type="button" aria-label="Saját jegyzet">i</button><span class="pop"><span class="k">Saját jegyzet — hanganyag</span><p><b>Objektív érték:</b> az egyik termék/szolgáltatás rosszabb vagy jobb (pl. nagyobb akkumulátor, cserébe tovább tudok vele menni).</p><p><b>Szubjektív érték:</b> nagyon cuki piros színe van, nekem ez jobban tetszik — ez alapján hozzuk meg a döntést, mert ez tetszik, ezt szeretnénk.</p><p><b>Az érték nem egyenlő az árral.</b></p></span></span></h3>
         <ul>
           <li>Szükséglet vagy vágy</li>
           <li>Fizetési hajlandóság</li>
           <li>Objektív VS Szubjektív</li>
         </ul>
-        <h3>16. dia — Érték paradoxon</h3>
+        <h3>16. dia — Érték paradoxon<span class="ih"><button type="button" aria-label="Saját jegyzet">i</button><span class="pop"><span class="k">Saját jegyzet — hanganyag</span><p>Ha az érték valamilyen szükséglet, akkor van egy alapvető szükségletem. <b>Csökkenő határhaszon elve:</b> mivel az eredeti szükségletemet kielégítettem, minden további fogyasztás kevésbé járul hozzá az elégedettségemhez. <b>Gossen II. törvénye</b> – hasznosság kiegyenlítődés: egy idő után jön más szükséglet. Negatív hasznosság.</p><p><b>Fizetési hajlandóság:</b> mennyibe kerül egy termék? Attól függ. Különböző vásárlási helyzetekben az emberek ugyanazt a típusú terméket különböző áron hajlandóak megvenni.</p><p><b>Példa:</b> gazdag embernek minősül, akinek van egy 70 négyzetméteres lakása és 2 éves Mercedes autója? Albertirsán nagyon gazdag ember vagyok; Budán, az V. kerületben, ahol 2 millió Ft a négyzetméter, ott már nem biztos. Minden viszonyítás kérdése — mindenki a saját környezetéhez viszonyít.</p><p><b>Határhaszon, csökkenő hozadék:</b> minél több van valamiből, annál kevésbé értékelem. A gyémántnak mindig magasabb a csereértéke, de van olyan helyzet, amikor az összes gyémántját odaadja valaki a vízért. Ha a hasznosságot nézzük, mindig a víznek lesz magasabb a határhaszna.</p></span></span></h3>
         <ul>
           <li>Érték fogalma VS. Csereérték</li>
           <li>Adam Smith: <i>„Ezek a szabályok határozzák meg azt, amit a javak relatív vagy cserélhető értékének nevezhetünk. Meg kell jegyezni, hogy az »érték« szónak két különböző jelentése van, és néha kifejezi a) egy adott tárgy hasznosságát, (öröm, elégedettség) néha pedig b) más javak megvásárlásának képességét, amelyet az adott tárgy birtoklása hordoz magában”.</i> (csereérték)</li>
@@ -426,7 +444,7 @@
           <li>Vagyoni különbségek</li>
           <li>Társadalmi (szociális) különbségek</li>
         </ul>
-        <h3>19. dia — Praktikus (gyakorlati) kérdések</h3>
+        <h3>19. dia — Praktikus (gyakorlati) kérdések<span class="ih"><button type="button" aria-label="Saját jegyzet">i</button><span class="pop"><span class="k">Saját jegyzet — hanganyag</span><p><b>Tervezett elavulás:</b> 5-10 évente autót kell vennem, de cserébe annyival több alapanyag, beszállító, alkalmazott és nyersanyag kell hozzá, mintha csak 20 évente vennék — mert nem olyan a minősége.</p><p><b>Társadalmi homogenizáció:</b> pszichológiailag a cégek trükkökkel megmondják, mire van szükségünk. Minél homogénebb a társadalom, annál inkább ugyanazt a terméket szeretné megvenni, így a cég többet tud gyártani: mennyiségi hatékonyság, magasabb profit, kevesebb fejlesztési és változási költség.</p><p><b>Profitmaximalizáló magatartás:</b> a szűkös erőforrásokat úgy akarom felhasználni, hogy abból maximális fogyasztás legyen — pl. a gyerek 1000 Ft-ból inkább több csokoládét vesz, mint egy drágábbat.</p><p><b>Kockázati prémium:</b> magasabb kockázat, cserébe haszon, magasabb jutalom (pl. valaki nem hajlandó új dolgokat kipróbálni, mert fél, hogy nem fog neki tetszeni).</p></span></span></h3>
         <ul>
           <li>A valóságban a preferenciák és a viselkedési normák folyamatosan változnak.</li>
           <li>A legtöbb döntés hiányos információkkal születik.</li>
@@ -436,7 +454,7 @@
           <li>A kockázatkerülő fogyasztók azt a lehetőséget választják, amelynek nagyobb a valószínűsége (kockázati prémium).</li>
           <li>Az intelligencia nem elválaszthatatlan a fogyasztói döntésekben! Mind az információhiány, mind az információdömping „káros” lehet, így a fogyasztók eltérő döntési képességgel rendelkeznek.</li>
         </ul>
-        <h3>20. dia — Mikró VS. Makró-GAZDASÁGTAN</h3>
+        <h3>20. dia — Mikró VS. Makró-GAZDASÁGTAN<span class="ih"><button type="button" aria-label="Saját jegyzet">i</button><span class="pop"><span class="k">Saját jegyzet — hanganyag</span><p>A <b>mikroökonómia állandóságot feltételez</b>. A <b>makroökonómia</b> már nem feltételezi a racionalitást: van társadalmi nyomás, fogyasztási mintázat.</p><p><b>Keynes</b> szerint soha nem jöttünk volna ki a nagy világválságból, ha nincs a <b>New Deal</b> gazdaságpolitika. Az alapja, hogy van egy túltermelési típusú válság: a túltermelés miatt egy idő után bezuhan a fogyasztás, és dominóként kezdenek bedőlni a cégek — kevesebb gyártás, kevesebb műszak, kevesebb munkás, telítődik a raktár, kevesebb alapanyag kell; az alapanyaggyártónál ugyanez indul el. Negatív spirálba kerülünk.</p><p><b>Hayek</b> szerint az állam beleszólt a válságba: alul- vagy felülszabályozta, tehát mesterségesen szabályozta a piacokat — neoliberális gazdaságpolitika.</p></span></span></h3>
         <ul>
           <li>Egyedi entitások vs. a gazdaság teljesítménye összességében</li>
           <li>Adam Smith (1723–1790) · John Maynard Keynes (1883–1946) · Friedrich Hayek (1899–1992)</li>
@@ -470,7 +488,7 @@
     <details class="note" data-lecture="1" data-topic="merk">
       <summary>Merkantilizmus és fiziokratizmus <span class="lec">01. ea · 24–25. dia</span></summary>
       <div class="note-body">
-        <h3>24. dia — Merkantilizmus</h3>
+        <h3>24. dia — Merkantilizmus<span class="ih"><button type="button" aria-label="Saját jegyzet">i</button><span class="pop"><span class="k">Saját jegyzet — hanganyag</span><p>Sokáig az állam felügyelte a külkereskedelmet, kevés feladata volt: legyen hadsereg és infrastruktúra.</p><p><b>Korai merkantilizmus:</b> vannak háborúk, hadsereg kell — ehhez 3 dolog kell: pénz, pénz, pénz. Ezért nem jó, ha a nemesfém elhagyja az országot; az jó, ha bejön. Tehát importkorlátozások, vámok — ez a protekcionista gazdaságpolitika alapja.</p><p><b>Késői merkantilizmus:</b> nézzük meg, minek van magasabb hozzáadott értéke — a kifinomult ipari termékeknek. Olcsó nyersanyagot beszállítok, magas hozzáadott értékű terméket hozok létre, majd visszaexportálom: <b>gazdasági kolonizáció</b>.</p><p><b>Spanyolország</b> abba bukott bele, hogy túl sok aranyat importált: a túl sok arany miatt túl sok volt a pénz, és ha sok van valamiből, csökken az értéke. Durva infláció lett, nem érte meg gyártani, olcsóbb volt máshonnan megvenni.</p><p><b>Kapitalizmus vs. merkantilizmus:</b> a kapitalizmus kimondja, hogy az állam ne szóljon bele, a piac a szabályozó mechanizmus. A merkantilizmus szerint nem szabad hagyni, hogy szabadon áramoljanak az erőforrások — nézni kell, mi a legjobb a lakosságnak, az állampolgároknak, a hadseregnek, tehát állami beavatkozás kell, védeni kell.</p></span></span></h3>
         <ul>
           <li><b>Korai merkantilizmus.</b> Az állam szerepe: háborúk, ezért hadseregre van szükség, ezért jelentős az arany szerepe → nemesfémek exportjának tilalma, jelentős importkorlátozások (vámok).</li>
           <li>Végeredmény: nem minden országnak lehet pozitív külkereskedelmi mérlege más országokból történő import nélkül.</li>
@@ -478,7 +496,7 @@
           <li>A népességnövekedés támogatása → a nemzetgazdaság növekedésének alapfeltétele.</li>
           <li>Spanyol ↔ angol (ipari kapitalizmus!) és francia merkantilisták.</li>
         </ul>
-        <h3>25. dia — Physiocratism</h3>
+        <h3>25. dia — Physiocratism<span class="ih"><button type="button" aria-label="Saját jegyzet">i</button><span class="pop"><span class="k">Saját jegyzet — hanganyag</span><p>Természetellenes, hogy valaki mindenféle korlátozó tényezőt állít be a gazdaság működésébe, az exportba, importba. Alapja: <b>a természet uralma</b>.</p><p>A tulajdonszabadságból jön, hogy növekszik a jólét, majd utána az egyenlőtlenség növekedése.</p></span></span></h3>
         <ul>
           <li>A merkantilista gazdaságpolitika tönkreteszi a gazdaságot.</li>
           <li>Recesszió a mezőgazdaságra nehezedő magas adóterhek, az infláció és az államadósság miatt.</li>
@@ -495,7 +513,7 @@
     <details class="note" data-lecture="1" data-topic="marx">
       <summary>A „tőke” termelési folyamata <span class="lec">01. ea · 27. dia</span></summary>
       <div class="note-body">
-        <h3>27. dia — A „tőke” termelési folyamata</h3>
+        <h3>27. dia — A „tőke” termelési folyamata<span class="ih"><button type="button" aria-label="Saját jegyzet">i</button><span class="pop"><span class="k">Saját jegyzet — hanganyag</span><p><b>Marx</b> szerint ezek a kapitalista típusú, szabadpiaci gondolkodásmódból származtathatók: minden társadalmi elégedetlenség, minden társadalmi különbség ebből a <b>mesterséges osztályharcból</b> fakad.</p></span></span></h3>
         <ul>
           <li>Marx feltárta a kapitalista termelési mód törvényeit.</li>
           <li>Hogyan következik az osztályellentétek kialakulása a termelési módokból?</li>
@@ -565,7 +583,7 @@
           <li>Az állam a monetáris és a fiskális politika segítségével képes korrigálni a piac hibáit, és finomhangolással a társadalmi optimum közelében tartani a gazdasági egyensúlyt (vegyes gazdaság).</li>
           <li>Az aggregált kereslet határozza meg a gazdasági fejlődést hosszú távon, erre makro szinten tud hatni az állam – monetáris és fiskális politika.</li>
         </ul>
-        <h3>9. dia — Poszt-keynesiánus, reform irányzat</h3>
+        <h3>9. dia — Poszt-keynesiánus, reform irányzat<span class="ih"><button type="button" aria-label="Saját jegyzet">i</button><span class="pop"><span class="k">Saját jegyzet — hanganyag</span><p><b>Stagfláció:</b> magas inflációs környezetben lassú gazdasági növekedéssel gazdasági válság van.</p><p><b>Szabadon lebegő árfolyamrendszer:</b> a kereslet és a kínálat határozza meg két valuta árfolyamát.</p></span></span></h3>
         <ul>
           <li>Bretton Woods (1944–1971).</li>
           <li>USA – a világ árutermelésének majdnem felét, miközben kezében tartotta a Föld aranykészletének mintegy 80%-át → az arany értékén stabilizált amerikai dollár volt az új gazdasági rendszer szívcsakrája + szabad áramlás!!</li>
@@ -583,7 +601,7 @@
           <li>Keynes: az aggregált kereslet határozza meg a gazdasági fejlődést hosszú távon, erre makro szinten tud hatni az állam – monetáris és fiskális politika.</li>
           <li>A vita pontjai: 1. Az állam szerepe · 2. Gazdasági ciklusok (business cycle) · 3. A monetáris politika hatásai · 4. Az egyén szerepe.</li>
         </ul>
-        <h3>11. dia — Neoliberalizmus</h3>
+        <h3>11. dia — Neoliberalizmus<span class="ih"><button type="button" aria-label="Saját jegyzet">i</button><span class="pop"><span class="k">Saját jegyzet — hanganyag</span><p><b>Neoliberalizmus:</b> fejleszteni kell a nemzetközi kereskedelmet, a nemzetközi kereskedelem pozitívan hat ránk, nem szabad korlátokat szabni a kereskedelemnek.</p></span></span></h3>
         <ul>
           <li>Gazdaságpolitikai gyakorlat inkább – a klasszikus és neoklasszikus közgazdaságtan talaján az állam kivonulásának szükségét hirdeti… ?</li>
           <li>„Laissez faire” – gazdasági liberalizáció – szabadpiaci spontaneitás.</li>
@@ -621,14 +639,14 @@
           <li>Marx az utópisztikus szocializmustól örökölte az osztály- és osztályharc eszméit. A kapitalista rendszerben két alaposztály áll szemben egymással: a termelési eszközök birtokosai, vagyis a burzsoázia és a munkások, vagyis a proletariátus. „A burzsoázia maga termeli meg a sírásóit. A burzsoázia bukása és a proletariátus győzelme egyformán elkerülhetetlen.” (A Kommunista Kiáltvány)</li>
           <li>Proletariátus: a legalacsonyabb vagy az egyik legalacsonyabb gazdasági és társadalmi osztály a társadalomban.</li>
         </ul>
-        <h3>19. dia — „Leninizmus”</h3>
+        <h3>19. dia — „Leninizmus”<span class="ih"><button type="button" aria-label="Saját jegyzet">i</button><span class="pop"><span class="k">Saját jegyzet — hanganyag</span><p><b>Proletárdiktatúra:</b> egy gazdasági rendszer, olyan folyamat, amikor az állam átveszi a termelőeszközöket.</p></span></span></h3>
         <ul>
           <li>A Kommunista Kiáltványban (1848) Karl Marx és Friedrich Engels úgy határozta meg a kommunistákat, mint „minden ország munkáspártjainak legfejlettebb és legelszántabb része, amely az összes többit előrenyomja”.</li>
           <li>Lenin a Kommunista Pártot rendkívül elkötelezett szellemi elitnek tekintette, aki (1) tudományosan érti a történelmet és a társadalmat a marxista elvek tükrében, (2) elkötelezte magát a kapitalizmus megszüntetése és a szocializmus beiktatása mellett, (3) a politikai hatalom megszerzése után ezen átmeneten keresztül kényszerültek, és (4) elkötelezték magukat amellett, hogy ezt a hatalmat minden lehetséges eszközzel elérjék, beleértve az erőszakot és a forradalmat is, ha szükséges.</li>
           <li>Lenin hangsúlyozása egy kis, mélyen elkötelezett csoport fellépésére mind a forradalmi mozgalom hatékonyságának és diszkréciójának igényéből, mind pedig az egész politikai gondolkodásában jelen lévő tekintélyelvű beállítottságból fakadt.</li>
           <li>A leninizmus tekintélyelvű aspektusa abban is megmutatkozott, hogy a hatalomátvételt követő „proletárdiktatúra” szükségességére van szükség, egy olyan diktatúrára, amelyet a gyakorlatban nem a munkások, hanem a kommunista párt vezetői gyakoroltak.</li>
         </ul>
-        <h3>21. dia — „Titoizmus”</h3>
+        <h3>21. dia — „Titoizmus”<span class="ih"><button type="button" aria-label="Saját jegyzet">i</button><span class="pop"><span class="k">Saját jegyzet — hanganyag</span><p><b>Jugoszláviában sose szüntették meg a magántulajdont.</b></p></span></span></h3>
         <ul>
           <li>A kommunizmus egyik változata, amelyet Josip Broz Tito (1892–1980) gyakorolt, aki nagyhatalmaktól független partizán hadsereget vezetett a jugoszláviai német megszállók feletti katonai győzelemre.</li>
           <li>Ez a győzelem más kelet-európai kormányzó kommunista pártoktól eltérően, 1945 után olyan függetlenséget biztosított pártjának (Jugoszláv Kommunista Szövetség), amely lehetővé tette számára, hogy a Moszkvával való 1948–1949-es szakítást követően a szocializmus jellegzetes védjegyét – a titoizmust – bevezesse.</li>
@@ -642,7 +660,7 @@
     <details class="note" data-lecture="2" data-topic="vilag">
       <summary>Újbaloldal és neomarxizmus — világrendszer-elmélet <span class="lec">02. ea · 22. dia</span></summary>
       <div class="note-body">
-        <h3>22. dia — Újbaloldal és neomarxizmus – a 60-as évektől</h3>
+        <h3>22. dia — Újbaloldal és neomarxizmus – a 60-as évektől<span class="ih"><button type="button" aria-label="Saját jegyzet">i</button><span class="pop"><span class="k">Saját jegyzet — hanganyag</span><p><b>3 féle ország van:</b> centrum (központi), félperiféria, periféria.</p></span></span></h3>
         <ul>
           <li>Egyenlőtlenségek – Első VS Harmadik Világ.</li>
           <li>Arghiri Emmanuel – egyenlőtlen nemzetközi csere.</li>
@@ -2196,6 +2214,24 @@ function bindTopCtl(){
   var rb = el("restart");
   if(rb) rb.onclick = function(){ state.view = "quiz"; newRound(); };
 }
+function closePops(except){
+  Array.prototype.forEach.call(document.querySelectorAll(".ih.open"), function(x){
+    if(x !== except) x.classList.remove("open");
+  });
+}
+document.addEventListener("click", function(ev){
+  var t = ev.target, wrap = null;
+  while(t && t !== document){
+    if(t.classList && t.classList.contains("ih")){ wrap = t; break; }
+    t = t.parentNode;
+  }
+  if(wrap) ev.preventDefault();
+  var wasOpen = wrap && wrap.classList.contains("open");
+  closePops(null);
+  if(wrap && !wasOpen) wrap.classList.add("open");
+});
+document.addEventListener("keydown", function(ev){ if(ev.key === "Escape") closePops(null); });
+
 function renderNotes(){
   var lec = state.notesLec || "1";
   var L = LECTURES.filter(function(x){ return x.id === lec; })[0] || LECTURES[0];
@@ -2210,7 +2246,7 @@ function renderNotes(){
     return d.getAttribute("data-lecture") === lec;
   }).map(function(d){ return d.outerHTML; }).join("");
 
-  el("main").innerHTML = head("02", "Előadások", L.full + " — a diák szövege diánként, szó szerint.") +
+  el("main").innerHTML = head("02", "Előadások", L.full + " — a diák szövege diánként, szó szerint. Ahol a saját jegyzeted kiegészíti a diát, egy i jel áll a dia címe mellett: kattints rá.") +
     '<div class="ttabs">' + tabs + '</div>' + blocks;
 
   var first = el("main").querySelector("details.note");
