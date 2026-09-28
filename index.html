@@ -312,6 +312,14 @@
   .cmp tr.trap td{background:var(--warn-soft)}
   .cmp td b{font-weight:700}
   .sheet-lede{font-size:14px;color:var(--ink-2);margin:0 0 14px;max-width:86ch}
+  .cmp td.who{font-weight:700;color:var(--ink);white-space:nowrap}
+  .cmp td.when{font-family:var(--mono);font-size:11.5px;color:var(--muted);white-space:nowrap;font-variant-numeric:tabular-nums}
+  .cmp td.src{font-family:var(--mono);font-size:10.5px;color:var(--muted);white-space:nowrap}
+  .cmp tbody tr.era th{background:var(--accent-soft);color:var(--accent-ink);font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase}
+  .cmp tbody tr.era td{background:var(--accent-soft)}
+  .facelist{display:flex;flex-direction:column;gap:8px;margin:0 0 10px;padding:0;list-style:none}
+  .facelist li{font-size:14px;line-height:1.55;padding-left:15px;position:relative}
+  .facelist li::before{content:"↔";position:absolute;left:0;color:var(--hot);font-size:12px;top:2px}
   .sheet-note{font-family:var(--mono);font-size:11px;color:var(--muted);margin:0 0 26px}
   .ttabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
   .ttab{display:flex;align-items:center;gap:9px;background:var(--surface);border:1px solid var(--line);
@@ -402,7 +410,7 @@
     <nav class="nav" id="nav">
       <button type="button" data-view="quiz" aria-current="true">Gyakorlás <span class="n" id="nav-quiz"></span></button>
       <button type="button" data-view="notes">Előadások <span class="n">3 diasor</span></button>
-      <button type="button" data-view="sheet">Jegyzet <span class="n">2 táblázat</span></button>
+      <button type="button" data-view="sheet">Jegyzet <span class="n">3 táblázat</span></button>
       <button type="button" data-view="stats">Haladás <span class="n" id="nav-stats"></span></button>
     </nav>
 
@@ -541,6 +549,91 @@
 </table>
 </div>
 <p class="sheet-note">Forrás: 03. előadás · 8–25. dia</p>
+
+<h3 class="sechead">3. Ki kicsoda — nevek időrendben</h3>
+<p class="sheet-lede">Az előadásokon előkerülő szerzők és szereplők abban a sorrendben, ahogy a gondolkodástörténetben következnek. A <b>°</b> jel azt jelöli, hogy az évszám nem szerepel a diákon, csak a tájékozódást segíti.</p>
+<div class="cmp">
+<table>
+  <thead><tr>
+    <th>Név</th><th>Mikor</th><th>Mi fűződik a nevéhez</th><th>Hol keresd</th>
+  </tr></thead>
+  <tbody>
+    <tr class="era"><th>Merkantilizmus és fiziokraták</th><td colspan="3">Az állam felügyeli a külkereskedelmet; majd az első „közgazdász-iskola” Franciaországban</td></tr>
+    <tr><td class="who">François Quesnay</td><td class="when">1694–1774°</td>
+        <td>A <b>fiziokraták</b> vezéralakja: „a természet uralma”, a termelés természetes folyamatai, a gazdaság belső egyensúlya, laissez faire</td><td class="src">01/25</td></tr>
+    <tr><td class="who">David Hume</td><td class="when">1711–1776°</td>
+        <td>A nemzetközi gazdasági <b>egyensúly-mechanizmus</b> felfogása; a klasszikus előfutárok egyike</td><td class="src">02/5</td></tr>
+    <tr class="era"><th>Klasszikusok</th><td colspan="3">Munkaérték-elmélet, laissez faire, szabad külkereskedelem</td></tr>
+    <tr><td class="who">Adam Smith</td><td class="when">1723–1790</td>
+        <td><b>A nemzetek gazdagsága</b>; <b>láthatatlan kéz</b>; az önérdek gyakran hatékonyabban szolgálja a közjót; az <b>értékparadoxon</b>: az „érték” szó két jelentése (hasznosság vs. csereérték)</td><td class="src">01/16, 01/20, 01/22</td></tr>
+    <tr><td class="who">David Ricardo</td><td class="when">1772–1823°</td>
+        <td>A <b>komparatív előnyök és költségek tana</b> — a nemzetközi munkamegosztás szabályozása</td><td class="src">02/5</td></tr>
+    <tr><td class="who">John Stuart Mill</td><td class="when">1836</td>
+        <td>A racionálisan, önérdekkövetően döntő <b>„gazdasági ember”</b> képe — a dián Kahneman és Tversky ellenpontjaként</td><td class="src">01/23</td></tr>
+    <tr><td class="who">H. H. Gossen</td><td class="when">1854°</td>
+        <td><b>Gossen II. törvénye</b> — hasznosság-kiegyenlítődés: egy idő után új szükséglet lép a régi helyére (a csökkenő határhaszon folytatása)</td><td class="src">hanganyag</td></tr>
+    <tr class="era"><th>Marxizmus és folytatásai</th><td colspan="3">Osztályelmélet, értéktöbblet, majd a megvalósított rendszerek</td></tr>
+    <tr><td class="who">Karl Marx</td><td class="when">1818–1883</td>
+        <td><b>A Tőke (Das Kapital)</b>; értéktöbblet; abszolút (hosszabb munkanap) és relatív (termelékenység) többletérték; a profitráta csökkenése; burzsoázia és proletariátus</td><td class="src">01/27, 02/18</td></tr>
+    <tr><td class="who">Friedrich Engels</td><td class="when">1848</td>
+        <td>Marxszal közösen a <b>Kommunista Kiáltvány</b>: a kommunisták a munkáspártok „legfejlettebb és legelszántabb” része</td><td class="src">02/19</td></tr>
+    <tr><td class="who">Lenin</td><td class="when">1917°</td>
+        <td><b>Leninizmus</b>: a párt mint elkötelezett szellemi elit; hatalomátvétel akár erőszakkal; <b>proletárdiktatúra</b>, amit a gyakorlatban a pártvezetők gyakoroltak</td><td class="src">02/19</td></tr>
+    <tr><td class="who">Josip Broz Tito</td><td class="when">1892–1980</td>
+        <td><b>Titoizmus</b>: független partizángyőzelem, az <b>1948–49-es</b> moszkvai szakítás, a központi tervezés felszámolása, valódi szövetségi állam</td><td class="src">02/21</td></tr>
+    <tr><td class="who">Edvard Kardelj</td><td class="when">1950-es évek°</td>
+        <td>A <b>munkás önrendelkezés</b> (önigazgatás) kidolgozója: a gyár dolgozói rendelkeznek a termelőeszközök felett</td><td class="src">02/21</td></tr>
+    <tr class="era"><th>A 20. századi nagy vita</th><td colspan="3">Állami beavatkozás vagy szabadpiac?</td></tr>
+    <tr><td class="who">J. M. Keynes</td><td class="when">1883–1946</td>
+        <td><b>A foglalkoztatás, a kamat és a pénz általános elmélete</b> (1936): a piac instabil, az <b>aggregált kereslet</b> a fejlődés meghatározója, vegyes gazdaság; a hanganyag szerint a <b>New Deal</b> nélkül nem jöttünk volna ki a válságból</td><td class="src">02/8, 02/10</td></tr>
+    <tr><td class="who">Friedrich Hayek</td><td class="when">1899–1992</td>
+        <td>A <b>Keynes–Hayek vita</b> (1931/32) másik oldala: az állam mesterségesen szabályozta a piacokat; innen nőnek ki a <b>neoliberális</b> gazdaságpolitika alapjai</td><td class="src">02/10, 02/11</td></tr>
+    <tr><td class="who">Piero Sraffa</td><td class="when">1931/32</td>
+        <td>A Keynes–Hayek vita harmadik szereplője az <i>Economica</i> és az <i>Economic Journal</i> hasábjain</td><td class="src">02/10</td></tr>
+    <tr><td class="who">Paul Samuelson</td><td class="when">20. század°</td>
+        <td>Tőle származik az előadás <b>közgazdaságtan-definíciója</b>: a szűkös erőforrások felhasználása és elosztása</td><td class="src">01/13</td></tr>
+    <tr><td class="who">Richard Nixon</td><td class="when">1971</td>
+        <td><b>Lebegő valutává tette a dollárt</b> — ezzel ért véget a Bretton Woods-i rendszer, és nyílt meg az út a neoliberális fordulat előtt</td><td class="src">02/9</td></tr>
+    <tr class="era"><th>Újbaloldal, világrendszer</th><td colspan="3">A 60-as évektől: Első vs. Harmadik Világ</td></tr>
+    <tr><td class="who">Arghiri Emmanuel</td><td class="when">1960-as évek°</td>
+        <td><b>Egyenlőtlen nemzetközi csere</b></td><td class="src">02/22</td></tr>
+    <tr><td class="who">Immanuel Wallerstein</td><td class="when">1974°</td>
+        <td><b>Világrendszer-elmélet</b>: a XVI. századtól épülő nemzetközi munkamegosztás, amely a XIX. századra áll össze; <b>centrum – félperiféria – periféria</b></td><td class="src">02/22</td></tr>
+    <tr><td class="who">Kahneman és Tversky</td><td class="when">1974</td>
+        <td>A racionális döntéshozó képének cáfolata: <b>heurisztikák és torzítások</b> — a dián Mill ellenpontja</td><td class="src">01/23</td></tr>
+    <tr class="era"><th>Alternatív és intézményi irányzatok</th><td colspan="3">Etika, ökológia és intézmények a gazdaságban</td></tr>
+    <tr><td class="who">E. F. Schumacher</td><td class="when">1973</td>
+        <td><b>A kicsi szép</b>: buddhista közgazdaságtan, <b>köztes (intermediate) technológia</b>, „elégség”, a megújuló erőforrások nem elkölthető jövedelmek</td><td class="src">03/22–25</td></tr>
+    <tr><td class="who">Mark Granovetter</td><td class="when">1985°</td>
+        <td><b>Beágyazottság</b> (embeddedness): a gazdasági cselekvés társadalmi hálózatokba ágyazott; a tisztán racionális szereplő képének cáfolata</td><td class="src">03/4</td></tr>
+    <tr><td class="who">Douglass North</td><td class="when">1990-es évek°</td>
+        <td>Az <b>új intézményi közgazdaságtan</b> alakja: az intézmények = formális szabályok + informális normák; tulajdonjogok és jogrendszer → beruházási ösztönzők; a társadalmak leragadhatnak rossz intézményekben</td><td class="src">03/6</td></tr>
+    <tr><td class="who">Acemoglu és Robinson</td><td class="when">2012°</td>
+        <td><b>Miért buknak el nemzetek?</b> — az előadás hivatkozása az intézmények szerepére</td><td class="src">03/5</td></tr>
+    <tr class="era"><th>Vallási gazdasági gondolkodás</th><td colspan="3">Egyházi dokumentumok és szerzők</td></tr>
+    <tr><td class="who">XIII. Leó pápa</td><td class="when">1891</td>
+        <td><b>Rerum Novarum</b>: elutasítja a szélsőséges szocializmust és a szabályozatlan laissez-faire-t is; megerősíti a magántulajdont; tisztességes bér, biztonságos munkakörülmények, szakszervezet</td><td class="src">03/9</td></tr>
+    <tr><td class="who">Max Weber</td><td class="when">1904</td>
+        <td><b>A protestáns etika és a kapitalizmus szelleme</b>: kálvinista eleve elrendelés, világi aszkézis, a profit újrabefektetése — nem a személyes élvezetért, hanem Isten dicsőítésére</td><td class="src">03/9</td></tr>
+    <tr><td class="who">II. János Pál pápa</td><td class="when">1920–2005</td>
+        <td><b>Laborem Exercens</b> (1981): az ember és a munka kapcsolata; a munka méltósága, közjó, emberközpontú gazdaság</td><td class="src">03/10–11</td></tr>
+    <tr><td class="who">Ferenc pápa</td><td class="when">1936–2025</td>
+        <td><b>Laudato Si</b> (2015): <b>integrált ökológia</b>; a fogyasztás és a felelőtlen fejlődés bírálata, környezetkárosodás és társadalmi igazságtalanság összekötése</td><td class="src">03/10–11</td></tr>
+  </tbody>
+</table>
+</div>
+
+<p class="sheet-lede" style="margin-top:18px"><b>Szembeállítások, ahogy a diák hozzák:</b></p>
+<ul class="facelist">
+  <li><b>Mill (1836)</b> racionális gazdasági embere <b>Kahneman és Tversky (1974)</b> torzításokkal döntő embere ellen <span class="sheet-note" style="display:inline">01/23</span></li>
+  <li><b>Keynes</b> aktív állama <b>Hayek</b> szabadpiaca ellen — állam szerepe, ciklusok, monetáris politika, az egyén szerepe <span class="sheet-note" style="display:inline">02/10</span></li>
+  <li><b>Merkantilizmus</b> védővámjai a <b>klasszikus</b> szabadkereskedelem ellen <span class="sheet-note" style="display:inline">01/24, 02/5</span></li>
+  <li><b>Régi</b> intézményi közgazdaságtan (evolúciós, holisztikus) az <b>új</b> ellen (North: deduktív modellek, tranzakciós költségek) <span class="sheet-note" style="display:inline">03/5–6</span></li>
+  <li><b>Riba</b> (iszlám) és <b>ribbit</b> (zsidó) — ugyanaz a kamattilalom két hagyományban <span class="sheet-note" style="display:inline">03/13, 03/17</span></li>
+</ul>
+
+<p class="sheet-lede"><b>Vigyázz, ezek nem személynevek:</b> <b>Bretton Woods</b> (1944–1971) egy New Hampshire-i üdülőhely, ahol a konferenciát tartották — a rendszer a helyszínről kapta a nevét; a <b>New Deal</b> Roosevelt gazdaságpolitikai programja; a <b>Gossen II. törvénye</b> pedig törvény, nem mű.</p>
+<p class="sheet-note">Forrás: 01–03. előadás diasorai és a hanganyaghoz készült jegyzet.</p>
 </div>
 
 <div id="tpl-notes" hidden>
@@ -2361,7 +2454,7 @@ document.addEventListener("keydown", function(ev){ if(ev.key === "Escape") close
 
 function renderSheet(){
   el("main").innerHTML = head("03", "Jegyzet",
-    "Összehasonlító táblázatok a könnyen összekeverhető irányzatokról, az előadások anyaga alapján.") +
+    "Összehasonlító táblázatok a könnyen összekeverhető irányzatokról és a szerzőkről, az előadások anyaga alapján.") +
     el("tpl-sheet").innerHTML;
 }
 function renderNotes(){
