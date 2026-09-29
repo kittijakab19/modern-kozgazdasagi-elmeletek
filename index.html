@@ -317,6 +317,13 @@
   .cmp td.src{font-family:var(--mono);font-size:10.5px;color:var(--muted);white-space:nowrap}
   .cmp tbody tr.era th{background:var(--accent-soft);color:var(--accent-ink);font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase}
   .cmp tbody tr.era td{background:var(--accent-soft)}
+  .lineage{display:flex;flex-direction:column;gap:16px;margin:0 0 20px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:18px;box-shadow:var(--shadow-s)}
+  .lin{display:flex;flex-wrap:wrap;gap:7px;align-items:center}
+  .lin .lab{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--hue);width:100%;margin-bottom:2px}
+  .lin .node{background:var(--surface-2);border:1px solid var(--line-strong);border-radius:99px;padding:6px 13px;font-size:13px;line-height:1.3}
+  .lin .node.hi{border-color:var(--hue);color:var(--hue);font-weight:700;background:var(--surface)}
+  .lin .arw{color:var(--hot);font-size:12px;font-weight:700}
+  .lin .node small{display:block;font-family:var(--mono);font-size:9.5px;color:var(--muted);letter-spacing:.06em}
   .facelist{display:flex;flex-direction:column;gap:8px;margin:0 0 10px;padding:0;list-style:none}
   .facelist li{font-size:14px;line-height:1.55;padding-left:15px;position:relative}
   .facelist li::before{content:"↔";position:absolute;left:0;color:var(--hot);font-size:12px;top:2px}
@@ -410,7 +417,7 @@
     <nav class="nav" id="nav">
       <button type="button" data-view="quiz" aria-current="true">Gyakorlás <span class="n" id="nav-quiz"></span></button>
       <button type="button" data-view="notes">Előadások <span class="n">3 diasor</span></button>
-      <button type="button" data-view="sheet">Jegyzet <span class="n">3 táblázat</span></button>
+      <button type="button" data-view="sheet">Jegyzet <span class="n">4 táblázat</span></button>
       <button type="button" data-view="stats">Haladás <span class="n" id="nav-stats"></span></button>
     </nav>
 
@@ -440,7 +447,77 @@
 <div id="tpl-sheet" hidden>
 <p class="sheet-lede">A két legtöbbet kevert blokk egymás mellé téve, kizárólag a három előadás anyagából. A sárga sor mindig azt mutatja, mit szoktak felcserélni — ezek a tipikus vizsgacsapdák.</p>
 
-<h3 class="sechead">1. Marxizmus · leninizmus · titoizmus</h3>
+<h3 class="sechead">1. Irányzattérkép — mi micsoda, és miből nő ki</h3>
+<p class="sheet-lede">A 02. előadás nevei nem egy listán sorakozó, egyenrangú „izmusok”: <b>két fejlődési ág</b> állomásai. A fő vonal a piac működéséről szól, a kritikai vonal a tulajdonról és az egyenlőtlenségről. Egy részük <b>elmélet</b>, más részük <b>gazdaságpolitikai gyakorlat</b>, megint más <b>megvalósult rendszer</b> — a vizsgán ezt szokták összekeverni.</p>
+
+<div class="lineage">
+  <div class="lin" data-topic="klassz">
+    <span class="lab">Fő vonal — a piac működése</span>
+    <span class="node">Merkantilizmus<small>15–18. sz.</small></span><span class="arw">→</span>
+    <span class="node">Fiziokraták<small>18. sz.</small></span><span class="arw">→</span>
+    <span class="node hi">Klasszikus<small>Smith, Ricardo</small></span><span class="arw">→</span>
+    <span class="node hi">Neoklasszikus<small>tényezőellátottság</small></span><span class="arw">→</span>
+    <span class="node hi">Keynesi<small>1936</small></span><span class="arw">→</span>
+    <span class="node hi">Poszt-keynesiánus, reform<small>1944–1971</small></span><span class="arw">→</span>
+    <span class="node hi">Neoliberalizmus<small>1971 után</small></span>
+  </div>
+  <div class="lin" data-topic="marx">
+    <span class="lab">Kritikai vonal — tulajdon és egyenlőtlenség</span>
+    <span class="node">Munkaérték-elmélet<small>klasszikus örökség</small></span><span class="arw">→</span>
+    <span class="node hi">Marxizmus<small>A Tőke</small></span><span class="arw">→</span>
+    <span class="node hi">Szocializmus<small>doktrína</small></span><span class="arw">→</span>
+    <span class="node hi">Leninizmus<small>szovjet modell</small></span>
+    <span class="node hi">Titoizmus<small>külön út, 1948</small></span><span class="arw">→</span>
+    <span class="node hi">Újbaloldal, neomarxizmus<small>60-as évektől</small></span>
+  </div>
+</div>
+
+<div class="cmp">
+<table>
+  <thead><tr>
+    <th>Irányzat</th><th>Mikor</th><th>Mi ez?</th><th>Miből nő ki</th><th>Kulcsállítás</th><th>Hol keresd</th>
+  </tr></thead>
+  <tbody>
+    <tr><td class="who">Klasszikus</td><td class="when">18–19. sz.</td>
+        <td>Elmélet</td><td>A merkantilizmus bírálata</td>
+        <td>Munkaérték-elmélet; laissez faire; Hume egyensúly-mechanizmusa és Ricardo komparatív előnyei</td><td class="src">02/5</td></tr>
+    <tr><td class="who">Neoklasszikus</td><td class="when">19. sz. vége°</td>
+        <td>Elmélet — a klasszikus <b>korrekciója</b>, nem ellenlábasa</td><td>A klasszikusból</td>
+        <td>Alaposabb kereslet-kínálat, a komparatív költségek újragondolása, <b>tényezőellátottság</b>, K–L termelési függvény; „további iskolák megalapozója”</td><td class="src">02/6</td></tr>
+    <tr><td class="who">Keynesi</td><td class="when">1936</td>
+        <td>Elmélet + gazdaságpolitika</td><td>Az 1929-es válság tapasztalatából, a klasszikus önszabályozás cáfolataként</td>
+        <td>A piac <b>instabil</b>; az aggregált kereslet a fejlődés meghatározója; vegyes gazdaság</td><td class="src">02/8</td></tr>
+    <tr><td class="who">Poszt-keynesiánus, reform</td><td class="when">1944–1971</td>
+        <td>A keynesi vonal <b>nemzetközi kiterjesztése</b></td><td>A keynesi elméletből, a Bretton Woods-i korszakban</td>
+        <td>Az országok egyenlőtlenségéből indul: <b>nincs automatikus egyensúly</b>; dominancia és függő kapcsolatok; a tőke „perverz” áramlása</td><td class="src">02/9</td></tr>
+    <tr><td class="who">Neoliberalizmus</td><td class="when">1971 után</td>
+        <td><b>Inkább gazdaságpolitikai gyakorlat</b>, mint elmélet</td><td>A klasszikus-neoklasszikus talajon, Hayek nyomán</td>
+        <td>Az állam kivonulása, liberalizáció, protekcionizmus-ellenesség, monetarizmus, a jóléti állam bírálata</td><td class="src">02/11</td></tr>
+    <tr><td class="who">Szocializmus</td><td class="when">19–20. sz.</td>
+        <td><b>Doktrína</b> — a kritikai ág kerete</td><td>A kapitalizmus bírálatából</td>
+        <td>A tulajdon és a természeti erőforrások állami (közösségi) tulajdona; minden termék társadalmi termék</td><td class="src">02/17</td></tr>
+    <tr><td class="who">Marxizmus</td><td class="when">1867</td>
+        <td>Elmélet</td><td>Smith és Ricardo kategóriáiból, adaptálva</td>
+        <td>Értéktöbblet; a gazdaság egészének elemzése; burzsoázia és proletariátus</td><td class="src">02/18</td></tr>
+    <tr><td class="who">Leninizmus</td><td class="when">1917 után°</td>
+        <td><b>Megvalósult rendszer</b> + pártelmélet</td><td>A marxizmusból</td>
+        <td>A párt mint élcsapat; proletárdiktatúra, amit a pártvezetők gyakorolnak; központi tervezés</td><td class="src">02/19</td></tr>
+    <tr><td class="who">Titoizmus</td><td class="when">1948 után</td>
+        <td><b>Megvalósult rendszer</b> — „külön út”</td><td>A szovjet modelltől elszakadva</td>
+        <td>Munkás-önigazgatás; a központi tervezés felszámolása; magánvállalkozás a mezőgazdaságban</td><td class="src">02/21</td></tr>
+    <tr><td class="who">Újbaloldal, neomarxizmus</td><td class="when">60-as évektől</td>
+        <td>Elmélet — a marxizmus megújítása <b>világgazdasági szinten</b></td><td>A marxizmusból, de már nem osztályokról, hanem országokról szól</td>
+        <td>Emmanuel: egyenlőtlen nemzetközi csere; Wallerstein: világrendszer, <b>centrum – félperiféria – periféria</b></td><td class="src">02/22</td></tr>
+    <tr class="trap"><th>Tipikus csapda</th><td colspan="5">
+        <b>Neoklasszikus ≠ neoliberalizmus:</b> az egyik elmélet (tényezőellátottság, K–L függvény), a másik gazdaságpolitikai gyakorlat (dereguláció, monetarizmus). —
+        <b>Poszt-keynesiánus reform ≠ neomarxizmus:</b> mindkettő az országok közti egyenlőtlenségről szól, de az egyik a <b>keynesi</b>, a másik a <b>marxi</b> hagyományból jön. —
+        <b>Szocializmus ≠ marxizmus ≠ leninizmus:</b> a szocializmus a gyűjtőfogalom (doktrína), a marxizmus az elmélet, a leninizmus és a titoizmus a megvalósítás két változata.</td></tr>
+  </tbody>
+</table>
+</div>
+<p class="sheet-note">Forrás: 02. előadás · 5–22. dia</p>
+
+<h3 class="sechead">2. Marxizmus · leninizmus · titoizmus</h3>
 <p class="sheet-lede">Közös keret: a <b>szocializmus</b> doktrínája a tulajdon és a természeti erőforrások állami (közösségi) tulajdonát vagy ellenőrzését követeli meg; minden termék bizonyos értelemben társadalmi termék. A három irányzat ezt tölti ki eltérő tartalommal.</p>
 <div class="cmp">
 <table>
@@ -488,7 +565,7 @@
 </div>
 <p class="sheet-note">Forrás: 01. előadás · 27. dia · 02. előadás · 17–21. dia</p>
 
-<h3 class="sechead">2. Keresztény · zsidó · iszlám · buddhista gazdaságtan</h3>
+<h3 class="sechead">3. Keresztény · zsidó · iszlám · buddhista gazdaságtan</h3>
 <p class="sheet-lede">Mind a négy irányzat etikai alapra helyezi a gazdasági döntést, de máshol húzza meg a határt: a kamat, az adakozás, a tulajdon és a munka kérdésében térnek el leginkább.</p>
 <div class="cmp">
 <table>
@@ -550,7 +627,7 @@
 </div>
 <p class="sheet-note">Forrás: 03. előadás · 8–25. dia</p>
 
-<h3 class="sechead">3. Ki kicsoda — nevek időrendben</h3>
+<h3 class="sechead">4. Ki kicsoda — nevek időrendben</h3>
 <p class="sheet-lede">Az előadásokon előkerülő szerzők és szereplők abban a sorrendben, ahogy a gondolkodástörténetben következnek. A <b>°</b> jel azt jelöli, hogy az évszám nem szerepel a diákon, csak a tájékozódást segíti.</p>
 <div class="cmp">
 <table>
@@ -2454,7 +2531,7 @@ document.addEventListener("keydown", function(ev){ if(ev.key === "Escape") close
 
 function renderSheet(){
   el("main").innerHTML = head("03", "Jegyzet",
-    "Összehasonlító táblázatok a könnyen összekeverhető irányzatokról és a szerzőkről, az előadások anyaga alapján.") +
+    "Irányzattérkép és összehasonlító táblázatok: mi micsoda, miből nő ki, és mit szoktak felcserélni.") +
     el("tpl-sheet").innerHTML;
 }
 function renderNotes(){
