@@ -304,6 +304,17 @@
   .cmp td.src{font-family:var(--mono);font-size:10.5px;color:var(--muted);white-space:nowrap}
   .cmp tbody tr.era th{background:var(--accent-soft);color:var(--accent-ink);font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase}
   .cmp tbody tr.era td{background:var(--accent-soft)}
+  .explain{display:grid;grid-template-columns:1fr;gap:14px;margin:0 0 14px}
+  @media (min-width:900px){.explain{grid-template-columns:1fr 1fr}}
+  .ex-col{background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--hue);border-radius:var(--r);padding:16px 18px;box-shadow:var(--shadow-s)}
+  .ex-col h4{font-family:var(--display);font-size:15.5px;font-weight:700;letter-spacing:-.015em;margin:0 0 9px}
+  .ex-col .chain{font-family:var(--mono);font-size:11.5px;color:var(--muted);line-height:1.8;margin:0 0 12px}
+  .ex-col .chain b{color:var(--hue);font-weight:500}
+  .ex-col ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:9px}
+  .ex-col li{font-size:13.5px;line-height:1.55}
+  .ex-col li::marker{color:var(--hue)}
+  .mixups{background:var(--warn-soft);border:1px solid var(--warn);border-radius:10px;padding:13px 15px;font-size:13.5px;line-height:1.6;margin:0 0 20px}
+  .mixups b{font-weight:700}
   .lineage{display:flex;flex-direction:column;gap:16px;margin:0 0 20px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:18px;box-shadow:var(--shadow-s)}
   .lin{display:flex;flex-wrap:wrap;gap:7px;align-items:center}
   .lin .lab{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--hue);width:100%;margin-bottom:2px}
@@ -458,6 +469,28 @@
     <span class="node hi">Újbaloldal, neomarxizmus<small>60-as évektől</small></span>
   </div>
 </div>
+
+<div class="explain">
+  <div class="ex-col" data-topic="klassz">
+    <h4>Fő vonal — a piac működéséről szól</h4>
+    <p class="chain">Merkantilizmus <b>→</b> fiziokraták <b>→</b> klasszikus <b>→</b> neoklasszikus <b>→</b> keynesi <b>→</b> poszt-keynesiánus/reform <b>→</b> neoliberalizmus</p>
+    <ul>
+      <li>A <b>neoklasszikus</b> nem ellenlábasa a klasszikusnak, hanem a <b>korrekciója</b>: alaposabb kereslet-kínálat, a komparatív költségek újragondolása, tényezőellátottság, K–L termelési függvény. A dia szó szerint azt mondja: „további közgazdasági iskolák megalapozója lett”.</li>
+      <li>A <b>keynesi</b> az első szakítás: a piac nem önszabályozó, hanem instabil.</li>
+      <li>A <b>poszt-keynesiánus, reform irányzat</b> nem új ideológia, hanem a keynesi vonal <b>nemzetközi kiterjesztése</b> a Bretton Woods-korszakban: az országok egyenlőtlenségéből indul, és nincs automatikus világgazdasági egyensúly.</li>
+      <li>A <b>neoliberalizmus</b> a dia saját megfogalmazásában „gazdaságpolitikai gyakorlat inkább”, nem elmélet — a klasszikus-neoklasszikus talajon, Hayek nyomán.</li>
+    </ul>
+  </div>
+  <div class="ex-col" data-topic="marx">
+    <h4>Kritikai vonal — a tulajdonról és az egyenlőtlenségről szól</h4>
+    <p class="chain">Munkaérték-elmélet <b>→</b> marxizmus <b>→</b> szocializmus <b>→</b> leninizmus / titoizmus <b>→</b> újbaloldal és neomarxizmus</p>
+    <ul>
+      <li>A <b>szocializmus</b> a gyűjtőfogalom (doktrína az állami, közösségi tulajdonról), a <b>marxizmus</b> az elmélet mögötte, a <b>leninizmus</b> és a <b>titoizmus</b> pedig a két megvalósult rendszer.</li>
+      <li>Az <b>újbaloldal és neomarxizmus</b> a marxi gondolat megújítása világgazdasági szinten: már nem osztályokról, hanem <b>országokról</b> szól — Emmanuel: egyenlőtlen csere, Wallerstein: centrum–félperiféria–periféria.</li>
+    </ul>
+  </div>
+</div>
+<p class="mixups"><b>A három leggyakoribb összekeverés:</b> neoklasszikus ≠ neoliberalizmus (elmélet vs. gyakorlat) · poszt-keynesiánus reform ≠ neomarxizmus (ugyanarról szól, de más hagyományból) · szocializmus ≠ marxizmus ≠ leninizmus (doktrína vs. elmélet vs. megvalósítás).</p>
 
 <div class="cmp">
 <table>
