@@ -279,12 +279,14 @@
   .rline.bad{color:var(--bad)}
   .rline.muted{color:var(--muted)}
   .rtf{display:flex;flex-direction:column;gap:7px}
-  .rtf-row{display:flex;gap:10px;align-items:baseline;font-size:13px;line-height:1.45;flex-wrap:wrap}
-  .rtf-mark{flex:none;font-weight:700;color:var(--good)}
+  .rtf-row{display:grid;grid-template-columns:16px minmax(0,1fr);gap:3px 9px;align-items:start;font-size:13px;line-height:1.45}
+  .rtf-mark{grid-column:1;grid-row:1;font-weight:700;color:var(--good);line-height:1.45}
   .rtf-row.miss .rtf-mark{color:var(--bad)}
-  .rtf-s{flex:1;min-width:160px}
-  .rtf-a{flex:none;font-family:var(--mono);font-size:10.5px;color:var(--muted);letter-spacing:.05em}
+  .rtf-s{grid-column:2;grid-row:1;min-width:0;overflow-wrap:anywhere}
+  .rtf-s .rline{display:block;margin-top:4px}
+  .rtf-a{grid-column:2;grid-row:2;font-family:var(--mono);font-size:10.5px;color:var(--muted);letter-spacing:.05em;overflow-wrap:anywhere}
   .rtf-row.miss .rtf-a{color:var(--bad)}
+  .rev-body .rtf{gap:12px}
   .ih{position:relative;display:inline-flex;vertical-align:middle;margin-left:9px}
   .ih > button{
     width:19px;height:19px;padding:0;border-radius:50%;border:1px solid var(--hue);background:var(--surface);
@@ -493,6 +495,7 @@
 
     <nav class="nav" id="nav">
       <button type="button" data-view="quiz" aria-current="true">Gyakorlás <span class="n" id="nav-quiz"></span></button>
+      <button type="button" data-view="drill">Táblázatok <span class="n" id="nav-drill"></span></button>
       <button type="button" data-view="notes">Előadások <span class="n">3 diasor</span></button>
       <button type="button" data-view="sheet">Jegyzet <span class="n">4 táblázat</span></button>
       <button type="button" data-view="stats">Haladás <span class="n" id="nav-stats"></span></button>
@@ -2342,7 +2345,61 @@ const Q = [
   {s:"Mindkét másik pozíció bizonyos jellemzőit hordozza.",c:1,w:"Átmeneti, kettős karakterű helyzet. (02/22)"},
   {s:"Egyoldalú specializáltság, nyersanyag-kivitel.",c:2,w:"A reformirányzat szerint a külkereskedelem itt hat kedvezőtlenül. (02/9, 02/22)"},
   {s:"A technológiatranszfer iránya jellemzően ide mutat.",c:0,w:"A tőke és a technológia a fejlett országok felé áramlik. (02/9)"}
- ],s:"02. előadás · 22. dia"}
+ ],s:"02. előadás · 22. dia"},
+
+{id:"g7",t:"vallas",type:"match",q:"Melyik vallási gazdaságtanhoz tartozik a fogalom?",
+ cats:["Keresztény","Zsidó","Iszlám"],
+ items:[
+  {s:"Rerum Novarum: tisztességes bér és szakszervezet-alapítás.",c:0,w:"XIII. Leó pápa 1891-es enciklikája. (03/9)"},
+  {s:"Cedaka és tikkun olam: kötelesség és a világ javítása.",c:1,w:"A cedaka igazságosságból fakadó kötelezettség, nem spontán adakozás. (03/14)"},
+  {s:"Zakát és a riba tilalma, nyereség-veszteség megosztással.",c:2,w:"A kamat helyett mudaraba és musharaka. (03/18–19)"},
+  {s:"Smita: hetedik évenkénti adósság-elengedés és földpihentetés.",c:1,w:"A sabbatév előírásai. (03/15)"}
+ ],s:"03. előadás · 9–19. dia"},
+
+{id:"g8",t:"tarsadalmi",type:"match",q:"Melyik intézményi irányzat módszere?",
+ cats:["Régi intézményi","Új intézményi"],
+ items:[
+  {s:"Evolúciós, holisztikus megközelítés, a szokások elemzése.",c:0,w:"Az intézmények, a technológia és a társadalom összekapcsolódása adott történelmi kontextusban. (03/5)"},
+  {s:"Deduktív érvelés, játékelmélet, tranzakciós költségek.",c:1,w:"Analitikusabb, mainstream-orientáltabb irányzat. (03/5)"},
+  {s:"Módszertani individualizmus, a „játék szabályai”.",c:1,w:"North, Coase és Williamson vonala. (03/5–6)"},
+  {s:"Történeti kontextusban vizsgált gazdasági teljesítmény.",c:0,w:"A régi irányzat leíró, történeti szemlélete. (03/5)"}
+ ],s:"03. előadás · 5–6. dia"},
+
+{id:"g9",t:"keynes",type:"match",q:"Kinek az álláspontja a Keynes–Hayek vitában?",
+ cats:["Keynes","Hayek"],
+ items:[
+  {s:"Az aggregált keresletre az állam makroszinten hat.",c:0,w:"Monetáris és fiskális politikával, finomhangolva. (02/8, 02/10)"},
+  {s:"Az állam mesterségesen alul- vagy felülszabályozta a piacot.",c:1,w:"Ebből nő ki a neoliberális gazdaságpolitika. (hanganyag, 02/11)"},
+  {s:"A piac instabil, ezért vegyes gazdaság kell.",c:0,w:"Az Általános elmélet (1936) alaptétele. (02/8)"},
+  {s:"A szabadpiac erényei: a beavatkozás okozza a bajt.",c:1,w:"A vita négy témája: az állam szerepe, a ciklusok, a monetáris politika és az egyén szerepe. (02/10)"}
+ ],s:"02. előadás · 8–11. dia"},
+
+{id:"g10",t:"alap",type:"match",q:"Az értékparadoxon melyik értékfogalmához tartozik?",
+ cats:["Használati érték","Csereérték"],
+ items:[
+  {s:"Egy adott tárgy hasznossága: öröm, elégedettség.",c:0,w:"Adam Smith első jelentése az „érték” szóra. (01/16)"},
+  {s:"Más javak megvásárlásának képessége a birtoklás révén.",c:1,w:"Adam Smith második jelentése. (01/16)"},
+  {s:"A víznél ez a magasabb, bár az ára alacsony.",c:0,w:"A hanganyag feloldása: a víz határhaszna, hasznossága a nagyobb."},
+  {s:"A gyémántnál ez a magasabb: többet kell érte adni.",c:1,w:"Ezért tűnik paradoxnak a két érték viszonya."}
+ ],s:"01. előadás · 16. dia"},
+
+{id:"g11",t:"merk",type:"match",q:"A merkantilizmus melyik szakaszához tartozik?",
+ cats:["Korai merkantilizmus","Késői merkantilizmus"],
+ items:[
+  {s:"Nemesfém-export tilalma, vámok és importkorlátozás.",c:0,w:"Háború → hadsereg → az arany szerepe. (01/24)"},
+  {s:"Ipari nyersanyagok importja a termelés növeléséért.",c:1,w:"A magas hozzáadott értékű termékek logikája. (01/24)"},
+  {s:"A népességnövekedés támogatása mint alapfeltétel.",c:1,w:"A nemzetgazdaság növekedésének feltétele a dián. (01/24)"},
+  {s:"Az állam fő dolga a hadsereg és az infrastruktúra.",c:0,w:"A hanganyag szerint sokáig az állam felügyelte a külkereskedelmet is."}
+ ],s:"01. előadás · 24. dia"},
+
+{id:"g12",t:"klassz",type:"match",q:"Klasszikus vagy neoklasszikus jellemző?",
+ cats:["Klasszikus","Neoklasszikus"],
+ items:[
+  {s:"Munkaérték-elmélet: a termelő munka a gazdagodás forrása.",c:0,w:"Hume, Smith és Ricardo kiindulópontja. (02/5)"},
+  {s:"Kéttényezős termelési függvény: K (tőke) és L (munka).",c:1,w:"A neoklasszikus modellezés alapja. (02/6)"},
+  {s:"Komparatív előnyök és költségek tana.",c:0,w:"Ricardo: a nemzetközi munkamegosztás szabályozása. (02/5)"},
+  {s:"Az országok tényezőellátottságának hangsúlyozása.",c:1,w:"Ezzel egészítette ki a klasszikus külkereskedelmi elméletet. (02/6)"}
+ ],s:"02. előadás · 5–6. dia"}
 ];
 
 (function(){
@@ -2457,6 +2514,9 @@ function dueCount(){
   }).length;
 }
 
+function matchPool(){
+  return Q.filter(function(q){ return q.type === "match"; });
+}
 function quizPool(){
   if(st.filter === "lecture") return Q.filter(inLecture);
   return Q.filter(function(q){ return st.topics.indexOf(q.t) >= 0; });
@@ -2507,16 +2567,20 @@ function renderRail(){
     : p + " kérdés";
   var practiced = Object.keys(store.first).length;
   el("nav-stats").textContent = practiced ? practiced + "/" + Q.length : "még üres";
+  el("nav-drill").textContent = matchPool().length + " feladat";
   Array.prototype.forEach.call(el("nav").querySelectorAll("button"), function(b){
     b.setAttribute("aria-current", String(b.dataset.view === state.view));
   });
+  el("topicsPanel").hidden = state.view === "drill";
 }
 
 /* ---------------- kör ---------------- */
 function newRound(){
   var deck, kind = {}, mix = {fresh:0, repeat:0, review:0};
 
-  {
+  if(state.view === "drill"){
+    deck = shuffle(matchPool().slice());
+  } else {
     store.round += 1;
     var pool = quizPool(), fresh = [], repeat = [], review = [], later = [];
     pool.forEach(function(q){
@@ -2583,7 +2647,7 @@ function mixLine(){
 /* ---------------- nézetek ---------------- */
 function render(){
   renderRail();
-  if(state.view === "quiz") return renderQuiz();
+  if(state.view === "quiz" || state.view === "drill") return renderQuiz();
   if(state.view === "notes") return renderNotes();
   if(state.view === "sheet") return renderSheet();
   if(state.view === "stats") return renderStats();
@@ -2625,6 +2689,11 @@ function paintTimer(){
   t.textContent = m + ":" + ("0" + sec).slice(-2);
   t.parentNode.dataset.state = !timer.id ? "off" : (left < 60000 ? "crit" : (left < 300000 ? "warn" : ""));
 }
+function drillControl(){
+  return '<div class="topctl"><span class="lbl">Párosítós feladatok</span><div class="topctl-row">'+
+    '<span class="tmr" data-state="off"><b>'+matchPool().length+'</b><span>feladat</span></span>'+
+    '<button class="btn" type="button" id="restart">Új kör</button></div></div>';
+}
 function timerControl(){
   var left = timeLeft(), m = Math.floor(left / 60000), sec = Math.floor(left % 60000 / 1000);
   return '<div class="topctl"><span class="lbl">Hátralévő idő</span><div class="topctl-row">'+
@@ -2633,7 +2702,7 @@ function timerControl(){
 }
 function bindTopCtl(){
   var rb = el("restart");
-  if(rb) rb.onclick = function(){ state.view = "quiz"; newRound(); };
+  if(rb) rb.onclick = function(){ if(state.view !== "drill") state.view = "quiz"; newRound(); };
   paintTimer();
 }
 document.addEventListener("click", function(ev){
@@ -2665,7 +2734,7 @@ document.addEventListener("click", function(ev){
 document.addEventListener("keydown", function(ev){ if(ev.key === "Escape") closePops(null); });
 
 function renderSheet(){
-  el("main").innerHTML = head("03", "Jegyzet",
+  el("main").innerHTML = head("04", "Jegyzet",
     "Irányzattérkép és összehasonlító táblázatok: mi micsoda, miből nő ki, és mit szoktak felcserélni.") +
     el("tpl-sheet").innerHTML;
 }
@@ -2683,7 +2752,7 @@ function renderNotes(){
     return d.getAttribute("data-lecture") === lec;
   }).map(function(d){ return d.outerHTML; }).join("");
 
-  el("main").innerHTML = head("02", "Előadások", L.full + " — a diák szövege diánként, szó szerint. Ahol a saját jegyzeted kiegészíti a diát, egy i jel áll a dia címe mellett: kattints rá.") +
+  el("main").innerHTML = head("03", "Előadások", L.full + " — a diák szövege diánként, szó szerint. Ahol a saját jegyzeted kiegészíti a diát, egy i jel áll a dia címe mellett: kattints rá.") +
     '<div class="ttabs">' + tabs + '</div>' + blocks;
 
   var first = el("main").querySelector("details.note");
@@ -2699,9 +2768,12 @@ function renderNotes(){
 }
 
 function renderQuiz(){
-  var main = el("main");
-  var lede = "Egy kör 25 kérdés, 30 perc alatt — mint a vizsgán. Minden kör főként új kérdéseket hoz; amit elrontottál, hamarabb és többször tér vissza, amit tudtál, jóval később.";
-  var htmlHead = head("01", "Gyakorlás", lede, timerControl()) + mixLine();
+  var main = el("main"), drill = state.view === "drill";
+  var lede = drill
+    ? "Csak a „húzd a megfelelő helyre” feladatok, egy körben az összes — irányzatok, vallási gazdaságtanok, értékfogalmak. Nincs időkorlát."
+    : "Egy kör 25 kérdés, 30 perc alatt — mint a vizsgán. Minden kör főként új kérdéseket hoz; amit elrontottál, hamarabb és többször tér vissza, amit tudtál, jóval később.";
+  var htmlHead = head(drill ? "02" : "01", drill ? "Táblázatok" : "Gyakorlás", lede,
+                      drill ? drillControl() : timerControl()) + (drill ? "" : mixLine());
 
   if(!state.deck.length){
     main.innerHTML = htmlHead + '<div class="card"><div class="card-body"><p class="empty">Ehhez a szűréshez nincs kérdés.</p></div></div>';
@@ -3016,11 +3088,13 @@ function reviewHTML(){
 }
 function renderResult(){
   stopTimer();
+  var drill = state.view === "drill";
   var pct = state.max ? Math.round(state.score / state.max * 100) : 0;
-  var lejart = timer.over && state.log.length < state.deck.length;
-  var html = head("01", lejart ? "Lejárt a 30 perc" : "Kör vége",
+  var lejart = !drill && timer.over && state.log.length < state.deck.length;
+  var html = head(drill ? "02" : "01", drill ? "Kész a párosítás" : (lejart ? "Lejárt a 30 perc" : "Kör vége"),
     lejart ? "Az idő letelt, a kör lezárult. Ennyit sikerült megoldani — a többi kérdés a következő körben visszatér."
-           : "Ennyi jött össze ebben a körben.", timerControl());
+           : (drill ? "Így ment a párosítás — a hibás kártyák mellett ott a helyes oszlop."
+                    : "Ennyi jött össze ebben a körben."), drill ? drillControl() : timerControl());
   html += '<div class="resultcard"><div class="score"><span class="big">'+fmt(state.score)+'</span><span class="of">/ '+fmt(state.max)+' pont · '+pct+'%</span></div>'+
     '<p>'+(pct >= 90 ? "Ez ZH-képes tudás. Fuss át még egyszer a hibázott kérdéseket, és kész."
       : pct >= 70 ? "Jó alap. A gyenge témaköröket nézd át az előadásoknál, aztán jöhet egy újabb kör."
@@ -3036,7 +3110,7 @@ function renderResult(){
 function renderStats(){
   var seenAll = Object.keys(store.first).length;
   var acc = store.answered ? Math.round(store.correct / store.answered * 100) : 0;
-  var html = head("04", "Haladás", "Az első próbálkozásod számít bele — az ismétlés már nem rontja el a képet. A halvány sávok mutatják, hova érdemes visszamenni a diákhoz.");
+  var html = head("05", "Haladás", "Az első próbálkozásod számít bele — az ismétlés már nem rontja el a képet. A halvány sávok mutatják, hova érdemes visszamenni a diákhoz.");
   html += '<div class="tiles">'+
     '<div class="tile"><div class="v">'+store.answered+'</div><div class="k">megválaszolt</div></div>'+
     '<div class="tile"><div class="v">'+(store.answered ? acc + "%" : "–")+'</div><div class="k">találati arány</div></div>'+
@@ -3075,9 +3149,9 @@ el("nav").addEventListener("click", function(ev){
   var b = ev.target.closest ? ev.target.closest("button[data-view]") : null;
   if(!b) return;
   var v = b.dataset.view;
-  if(v === state.view && v === "quiz") return;
+  if(v === state.view && (v === "quiz" || v === "drill")) return;
   state.view = v;
-  if(v === "quiz") newRound(); else render();
+  if(v === "quiz" || v === "drill") newRound(); else render();
   window.scrollTo({top:0, behavior:"smooth"});
 });
 el("topics-all").onclick = function(){
@@ -3102,7 +3176,7 @@ el("reset-btn").onclick = function(){
   save(); newRound();
 };
 document.addEventListener("keydown", function(ev){
-  if(state.view !== "quiz" || state.done) return;
+  if((state.view !== "quiz" && state.view !== "drill") || state.done) return;
   var tag = ev.target.tagName;
   if(tag === "INPUT" || tag === "TEXTAREA") return;
   var q = state.deck[state.i]; if(!q) return;
