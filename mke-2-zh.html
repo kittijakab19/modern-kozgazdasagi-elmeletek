@@ -150,6 +150,7 @@
   .tally .g{color:var(--good)} .tally .r{color:var(--bad)}
 
   @keyframes rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+  #tpl-minta .card,.mintalista .card{animation:none}
   .card{
     background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--hue);
     border-radius:var(--r);box-shadow:var(--shadow-m);overflow:hidden;animation:rise .26s ease both;
@@ -506,7 +507,7 @@
       <button type="button" data-view="sheet">Jegyzet <span class="n">8 táblázat</span></button>
       <button type="button" data-view="notes">Előadások <span class="n">4 diasor</span></button>
       <button type="button" data-view="calc">Számolás <span class="n">SNA · GDP</span></button>
-      <button type="button" data-view="mintazh">Minta ZH <span class="n">készül</span></button>
+      <button type="button" data-view="mintazh">Minta ZH <span class="n">8 feladat</span></button>
     </nav>
 
     <div class="panel" id="topicsPanel">
@@ -530,6 +531,189 @@
   </aside>
 
   <main id="main"></main>
+</div>
+
+<div id="tpl-minta" hidden>
+<p class="sheet-lede">A megírt minta ZH mind a nyolc feladata, a válaszlehetőségekkel együtt — a helyes megoldás bejelölve. Az eredmény <b>87,5%</b> lett, vagyis nyolcból egy feladat nem sikerült; alább megjelöltem, melyik az, és miért.</p>
+
+<p class="mixups"><b>Itt veszett el a 12,5%:</b> az <b>5. feladat</b> („A klasszikus közgazdaságtan szerint a válságokat elsősorban az állami túlszabályozás okozza") a dián <b>HAMIS</b>, a dokumentumban viszont IGAZ-ként szerepel. A klasszikusoknál a válság oka <b>külső zavar</b> (háború, természeti katasztrófa), és a gazdaság önszabályozó; az <b>állami túlszabályozást</b> az <b>osztrák iskola</b> (Mises, Hayek) hibáztatja. A többi hét feladat megoldása egyezik a diákkal.</p>
+
+<div class="card" data-topic="kereskedelem">
+  <div class="card-top"><div class="tagrow">
+    <span class="tag topic">Kereskedelempolitika, globalizáció</span>
+    <span class="tag">Igaz–hamis · 4 állítás</span>
+  </div><span class="counter">1 / 8</span></div>
+  <div class="card-body">
+    <p class="qlead">Jelölje, hogy az alábbi állítások igazak vagy hamisak</p>
+    <div class="tf-list">
+      <div class="tf-item right"><div class="tf-row">
+        <div class="tf-text">A gazdasági liberalizmus szerint a piac képes önmagát egyensúlyba hozni.</div>
+        <div class="tf-seg"><button type="button" data-v="1" aria-pressed="true" disabled>Igaz</button><button type="button" data-v="0" aria-pressed="false" disabled>Hamis</button></div>
+      </div><div class="tf-why"><b>Igaz.</b> „A piacok, ha békén hagyják őket, természetes módon egyensúlyba kerülnek és jóléthez vezetnek” — az árak a kereslet és kínálat révén igazodnak. (07/11)</div></div>
+
+      <div class="tf-item right"><div class="tf-row">
+        <div class="tf-text">A protekcionizmus rövid távon a hazai termelőknek kedvez, de magasabb fogyasztói árakat eredményezhet.</div>
+        <div class="tf-seg"><button type="button" data-v="1" aria-pressed="true" disabled>Igaz</button><button type="button" data-v="0" aria-pressed="false" disabled>Hamis</button></div>
+      </div><div class="tf-why"><b>Igaz.</b> A kvóta mellett a hazai termelő nyereségesen termelhet, a vámok és az egyéb védelem viszont „gyakran magasabb fogyasztói árakhoz vezet rövid és hosszú távon”. (07/8–9)</div></div>
+
+      <div class="tf-item right"><div class="tf-row">
+        <div class="tf-text">A stratégiai kereskedelemelmélet tökéletesen versenyző piacokra vonatkozik.</div>
+        <div class="tf-seg"><button type="button" data-v="1" aria-pressed="false" disabled>Igaz</button><button type="button" data-v="0" aria-pressed="true" disabled>Hamis</button></div>
+      </div><div class="tf-why"><b>Hamis.</b> „A tökéletes versenyt feltételező hagyományos modellekkel ellentétben ez az elmélet néhány nagyvállalat által uralt iparágakra vonatkozik” — oligopóliumokra, mint a repülőgép- vagy a félvezetőipar. (07/10)</div></div>
+
+      <div class="tf-item right"><div class="tf-row">
+        <div class="tf-text">A „semmi” globalizációja a kulturális sokszínűség erősödéséhez vezet.</div>
+        <div class="tf-seg"><button type="button" data-v="1" aria-pressed="false" disabled>Igaz</button><button type="button" data-v="0" aria-pressed="true" disabled>Hamis</button></div>
+      </div><div class="tf-why"><b>Hamis.</b> Épp fordítva: a „semmi grobalizációja” <b>veszélyezteti</b> a sokszínűséget, kulturális homogenizációhoz vezet — a sokszínűséget a „valami” glokalizációja őrzi meg. (07/15)</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="card" data-topic="kereskedelem">
+  <div class="card-top"><div class="tagrow">
+    <span class="tag topic">Kereskedelempolitika</span>
+    <span class="tag">Feleletválasztós</span>
+  </div><span class="counter">2 / 8</span></div>
+  <div class="card-body">
+    <p class="qlead">Válaszd ki a helyes megoldást</p>
+    <h3 class="q">Melyik tartozik a protekcionista eszközök közé?</h3>
+    <div class="opts">
+      <button class="opt" type="button" disabled><span class="k">A</span><span>Devizaerősítés</span></button>
+      <button class="opt right" type="button" disabled><span class="k">B</span><span>Importvámok kivetése</span></button>
+      <button class="opt" type="button" disabled><span class="k">C</span><span>Exporttilalom a hazai vállalatokra</span></button>
+      <button class="opt" type="button" disabled><span class="k">D</span><span>Tiszta laissez-faire gazdaságpolitika</span></button>
+    </div>
+    <div class="why"><p>A protekcionista eszköztár: <b>vámok, kvóták, támogatások, importengedélyek és szabványok, devizamanipuláció</b>. A devizánál a cél a valuta <b>gyengítése</b> (hogy az export olcsóbb, az import drágább legyen), nem az erősítése — ezért a Devizaerősítés csapda. Az exporttilalom a hazai vállalatokra és a laissez-faire épp az ellenkező irány.</p><span class="src">Forrás: 07. előadás · 7–8. dia</span></div>
+  </div>
+</div>
+
+<div class="card" data-topic="kereskedelem">
+  <div class="card-top"><div class="tagrow">
+    <span class="tag topic">Merkantilizmus</span>
+    <span class="tag">Feleletválasztós</span>
+  </div><span class="counter">3 / 8</span></div>
+  <div class="card-body">
+    <p class="qlead">Válaszd ki a helyes megoldást</p>
+    <h3 class="q">Mi volt a merkantilizmus elsődleges gazdasági célja?</h3>
+    <div class="opts">
+      <button class="opt" type="button" disabled><span class="k">A</span><span>A fogyasztói választási lehetőségek bővítése</span></button>
+      <button class="opt" type="button" disabled><span class="k">B</span><span>Teljes szabadkereskedelem biztosítása</span></button>
+      <button class="opt" type="button" disabled><span class="k">C</span><span>Kormányzati beavatkozás teljes mellőzése</span></button>
+      <button class="opt right" type="button" disabled><span class="k">D</span><span>Külkereskedelmi többlet és nemesfém-felhalmozás növelése</span></button>
+    </div>
+    <div class="why"><p>A merkantilizmus célja, hogy <b>exporttal növelje az állam arany- és ezüstkészletét</b>, ahelyett, hogy importtal csökkentené; emellett a hazai foglalkoztatást támogatja. Ez a kérdés az első ZH-n is szerepelt, szó szerint ugyanígy.</p><span class="src">Forrás: 07. előadás · 3. dia · 01. előadás · 24. dia</span></div>
+  </div>
+</div>
+
+<div class="card" data-topic="kereskedelem">
+  <div class="card-top"><div class="tagrow">
+    <span class="tag topic">Kereskedelmi elméletek</span>
+    <span class="tag">Párosítás · 4 pár</span>
+  </div><span class="counter">4 / 8</span></div>
+  <div class="card-body">
+    <p class="qlead">Párosítsa össze a fogalmakat a hozzájuk tartozó meghatározásokkal</p>
+    <div class="dnd-board">
+      <div class="dcol"><div class="dcol-h">Kezdő iparági elmélet</div><div class="dcol-body">
+        <div class="dcard right">Az új hazai iparágak <b>ideiglenes</b> védelme, amíg versenyképessé nem válnak.<small>Hamilton és List (1841); a védelem átmeneti. (07/9)</small></div></div></div>
+      <div class="dcol"><div class="dcol-h">Stratégiai kereskedelemelmélet</div><div class="dcol-body">
+        <div class="dcard right">A kormány beavatkozása megváltoztatja az <b>oligopol piac</b> eredményeit, a hazai cégek javára.<small>A profit átcsoportosítása a külföldi vállalatoktól. (07/10)</small></div></div></div>
+      <div class="dcol"><div class="dcol-h">Gazdasági liberalizmus</div><div class="dcol-body">
+        <div class="dcard right">A piac <b>önszabályozó</b>, az állami beavatkozásnak minimálisnak kell lennie.<small>Egyéni szabadság, magántulajdon, szabad piacok. (07/11)</small></div></div></div>
+      <div class="dcol"><div class="dcol-h">Grobalizáció (Ritzer)</div><div class="dcol-body">
+        <div class="dcard right">A multinacionális vállalatok és erős államok globális terjeszkedése, <b>kulturális homogenizációval</b>.<small>Felülről lefelé, hatalomvezérelt folyamat. (07/16)</small></div></div></div>
+    </div>
+  </div>
+</div>
+
+<div class="card" data-topic="valsag" id="minta-vitas">
+  <div class="card-top"><div class="tagrow">
+    <span class="tag topic">Válságelméletek</span>
+    <span class="tag exam">Itt veszett el a pont</span>
+  </div><span class="counter">5 / 8</span></div>
+  <div class="card-body">
+    <p class="qlead">Igaz vagy hamis?</p>
+    <h3 class="q">A klasszikus közgazdaságtan szerint a válságokat elsősorban az állami túlszabályozás okozza.</h3>
+    <div class="tf-list">
+      <div class="tf-item wrong"><div class="tf-row">
+        <div class="tf-text">A dokumentumban bejelölt válasz: <b>IGAZ</b></div>
+        <div class="tf-seg"><button type="button" data-v="1" aria-pressed="true" disabled>Igaz</button><button type="button" data-v="0" aria-pressed="false" disabled>Hamis</button></div>
+      </div><div class="tf-why"><span class="solution">Helyesen: hamis</span> A klasszikus válságelmélet szerint a gazdaság <b>önszabályozó</b>, a válság <b>átmeneti</b>, mert az árak és a bérek alkalmazkodnak; az ok <b>külső zavar</b> — háború vagy természeti katasztrófa. (06/22)</div></div>
+    </div>
+    <div class="why miss"><p>Az <b>állami beavatkozást és a mesterségesen olcsó hitelt</b> az <b>osztrák iskola</b> (Mises, Hayek) teszi felelőssé a válságokért, a megoldása pedig piaci kamatláb és kevesebb beavatkozás. A klasszikusoknál (Smith, Ricardo, Say) ilyen állítás nem szerepel — ezért a kijelentés hamis.</p><span class="src">Forrás: 06. előadás · 22. és 27. dia</span></div>
+  </div>
+</div>
+
+<div class="card" data-topic="valsag">
+  <div class="card-top"><div class="tagrow">
+    <span class="tag topic">Válság, ciklusok, kereskedelem</span>
+    <span class="tag">Igaz–hamis · 4 állítás</span>
+  </div><span class="counter">6 / 8</span></div>
+  <div class="card-body">
+    <p class="qlead">Jelölje, hogy az alábbi állítások igazak vagy hamisak</p>
+    <div class="tf-list">
+      <div class="tf-item right"><div class="tf-row">
+        <div class="tf-text">A monetarista megközelítés szerint a pénzkínálat duplázása hosszú távon az árszint duplázódásához vezet.</div>
+        <div class="tf-seg"><button type="button" data-v="1" aria-pressed="true" disabled>Igaz</button><button type="button" data-v="0" aria-pressed="false" disabled>Hamis</button></div>
+      </div><div class="tf-why"><b>Igaz.</b> A pénz mennyiségi elmélete: „az általános árszint egyenesen arányos a pénzkínálattal” — ha a forgalomban lévő pénz megduplázódik, az árak is, feltéve hogy a pénz forgási sebessége és az árumennyiség állandó. (06/25)</div></div>
+
+      <div class="tf-item right"><div class="tf-row">
+        <div class="tf-text">A Kondratyev-ciklusok 40–60 évig tartanak, és nagy értékű tőkejavak időszakos megújulásához kapcsolódnak.</div>
+        <div class="tf-seg"><button type="button" data-v="1" aria-pressed="true" disabled>Igaz</button><button type="button" data-v="0" aria-pressed="false" disabled>Hamis</button></div>
+      </div><div class="tf-why"><b>Igaz.</b> Szó szerint ez áll a dián; a hosszú hullám a társadalomban bekövetkezett jelentős változásokkal is összefügg. (06/16)</div></div>
+
+      <div class="tf-item right"><div class="tf-row">
+        <div class="tf-text">A komparatív előny elmélete szerint csak az abszolút előny számít a specializációban.</div>
+        <div class="tf-seg"><button type="button" data-v="1" aria-pressed="false" disabled>Igaz</button><button type="button" data-v="0" aria-pressed="true" disabled>Hamis</button></div>
+      </div><div class="tf-why"><b>Hamis.</b> A komparatív előny épp az <b>alternatív költséget</b> veszi figyelembe: akkor is érdemes specializálódni, ha az egyik országnak mindkét termékben abszolút előnye van. (06/6, 06/9)</div></div>
+
+      <div class="tf-item right"><div class="tf-row">
+        <div class="tf-text">Az agyelszívás kizárólag negatív jelenség, és nem járhat tudás-visszaáramlással.</div>
+        <div class="tf-seg"><button type="button" data-v="1" aria-pressed="false" disabled>Igaz</button><button type="button" data-v="0" aria-pressed="true" disabled>Hamis</button></div>
+      </div><div class="tf-why"><b>Hamis.</b> „Az agyelszívás tehát nemcsak veszteség, hanem a tudás globális áramlásának (<b>agykeringés</b>) része is”; a migrációs döntés családi szinten kockázatmegosztást teremt, és a külföldi tapasztalat hazavihető. (06/29)</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="card" data-topic="valsag">
+  <div class="card-top"><div class="tagrow">
+    <span class="tag topic">Válságelméletek</span>
+    <span class="tag">Párosítás · 4 pár</span>
+  </div><span class="counter">7 / 8</span></div>
+  <div class="card-body">
+    <p class="qlead">Párosítsa a megfelelő válságelméletet a hozzá tartozó okokkal</p>
+    <div class="dnd-board">
+      <div class="dcol"><div class="dcol-h">Klasszikus</div><div class="dcol-body">
+        <div class="dcard right">A gazdaság önszabályozó, a válságok <b>átmenetiek</b>.<small>Smith, Ricardo, Say; az ok külső zavar. (06/22)</small></div></div></div>
+      <div class="dcol"><div class="dcol-h">Marxista</div><div class="dcol-body">
+        <div class="dcard right">A válságok oka a <b>profitráta csökkenése</b> és a túltermelés.<small>A rendszer belső ellentmondásai. (06/23)</small></div></div></div>
+      <div class="dcol"><div class="dcol-h">Keynesi</div><div class="dcol-body">
+        <div class="dcard right">A válságokat a <b>kereslet hiánya</b> okozza, az államnak be kell avatkoznia.<small>Költségvetési politika, beruházások. (06/24)</small></div></div></div>
+      <div class="dcol"><div class="dcol-h">Monetarista</div><div class="dcol-body">
+        <div class="dcard right">A <b>pénzkínálat hibás szabályozása</b> idézi elő a válságot.<small>Friedman; megoldás a stabil pénzkínálat. (06/25)</small></div></div></div>
+    </div>
+  </div>
+</div>
+
+<div class="card" data-topic="valsag">
+  <div class="card-top"><div class="tagrow">
+    <span class="tag topic">Monetáris politika</span>
+    <span class="tag">Feleletválasztós</span>
+  </div><span class="counter">8 / 8</span></div>
+  <div class="card-body">
+    <p class="qlead">Válaszd ki a helyes megoldást</p>
+    <h3 class="q">Az infláció elleni küzdelem során a Nemzeti/Központi Bank emeli az alapkamatot, amely…</h3>
+    <div class="opts">
+      <button class="opt right" type="button" disabled><span class="k">A</span><span>a növekvő vállalati költségek miatt stagnálást/recessziót okozhat.</span></button>
+      <button class="opt" type="button" disabled><span class="k">B</span><span>élénkíti a nemzetközi kereskedelmet az ennek hatására gyengülő hazai valuta miatt.</span></button>
+      <button class="opt" type="button" disabled><span class="k">C</span><span>csak ideiglenes intézkedés, rövidtávú hatásmechanizmussal.</span></button>
+      <button class="opt" type="button" disabled><span class="k">D</span><span>változtatja és élénkíti a beruházási ciklusokat.</span></button>
+    </div>
+    <div class="why"><p>A kamatemelés <b>drágítja a hitelt</b>: visszafogja a beruházást és a fogyasztást, ezzel csillapítja az inflációt, de a növekedést is fékezi. A <b>B</b> azért rossz, mert a kamatemelés <b>erősíti</b>, nem gyengíti a valutát; a <b>D</b> pedig fordított — a drága hitel visszafogja, nem élénkíti a beruházási ciklust.</p><span class="src">Forrás: 06. előadás · 18. és 25. dia · monetáris politika</span></div>
+  </div>
+</div>
+
+<p class="sheet-note">A dokumentumban a feleletválasztós kérdéseknél a zölddel kiemelt válasz volt bejelölve; mindhárom egyezik a diák szerinti helyes megoldással.</p>
+
 </div>
 
 <div id="tpl-calc" hidden>
@@ -1734,12 +1918,8 @@ function renderSheet(){
 }
 function renderMinta(){
   el("main").innerHTML = head("05", "Minta ZH",
-    "Teljes vizsgaszimuláció: ugyanaz a felépítés és pontozás, mint az éles ZH-n.") +
-    '<div class="card"><div class="card-body">'+
-    '<p class="qlead">Még nincs feltöltve</p>'+
-    '<h3 class="q">A minta ZH kérdései még nem érkeztek meg.</h3>'+
-    '<p class="qsub">Amint megvannak a kérdések, ide kerülnek — egy körben, az éles ZH pontozásával és a 30 perces órával. Addig a Gyakorlás, a Jegyzet és a Számolás menüpontok használhatók.</p>'+
-    '</div></div>';
+    "A megírt minta ZH nyolc feladata a válaszlehetőségekkel, a helyes megoldás bejelölve.") +
+    el("tpl-minta").innerHTML;
 }
 function renderCalc(){
   el("main").innerHTML = head("04", "Számolás",
