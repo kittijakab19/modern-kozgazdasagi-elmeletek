@@ -31,12 +31,28 @@ SHELL_HEAD = """<!doctype html>
 """
 
 
-def build():
-    body = io.open(SRC, encoding="utf-8").read()
+# (forrás, kimenet) párok: az első ZH oldala és a második ZH oldala
+PAGES = [
+    (SRC, OUT),
+    (os.path.join(HERE, "mke-2-zh.html"), os.path.join(HERE, "zh2", "index.html")),
+]
+
+
+def build_one(src, out):
+    body = io.open(src, encoding="utf-8").read()
     html = SHELL_HEAD + body + "\n</body>\n</html>\n"
-    io.open(OUT, "w", encoding="utf-8").write(html)
+    d = os.path.dirname(out)
+    if d and not os.path.isdir(d):
+        os.makedirs(d)
+    io.open(out, "w", encoding="utf-8").write(html)
     return len(html)
 
 
+def build():
+    return build_one(SRC, OUT)
+
+
 if __name__ == "__main__":
-    print("index.html kesz: %d byte" % build())
+    for src, out in PAGES:
+        if os.path.exists(src):
+            print("%s kesz: %d byte" % (os.path.relpath(out, HERE), build_one(src, out)))

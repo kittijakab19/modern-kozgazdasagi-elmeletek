@@ -1,0 +1,2012 @@
+<!doctype html>
+<html lang="hu">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+<meta name="googlebot" content="noindex, nofollow">
+<style>
+  :root{color-scheme:light dark;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+  body{margin:0;font:14px system-ui,-apple-system,sans-serif;background:#F1F0F7}
+  img{max-width:100%}
+  [hidden]{display:none!important}
+</style>
+<title>Modern Közgazdasági Elméletek 2. ZH</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Figtree:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  :root{
+    --bg:#F1F0F7; --surface:#FFFFFF; --surface-2:#F7F6FC; --surface-3:#ECEAF6;
+    --ink:#16133A; --ink-2:#514B76; --muted:#7A7399;
+    --line:#E3E0F1; --line-strong:#C9C3E4;
+    --accent:#4B31D6; --accent-ink:#3A24B0; --accent-soft:#EAE5FF; --onaccent:#FFFFFF;
+    --hot:#E8542A;
+    --good:#0E8A5F; --good-soft:#DDF2E9;
+    --bad:#CF3B3B; --bad-soft:#FBE4E2;
+    --warn:#A96F0C; --warn-soft:#FBEFD8;
+    --t-gdp:#4B31D6; --t-oko:#12806A; --t-kultura:#BB6710; --t-delamerika:#BE3459;
+    --t-verseny:#2A6FE0; --t-valsag:#A63A8A; --t-kereskedelem:#0C8B8B;
+    --hue:var(--accent);
+    --r:12px;
+    --shadow-s:0 1px 2px rgba(22,19,58,.06);
+    --shadow-m:0 2px 4px rgba(22,19,58,.05), 0 14px 32px -22px rgba(22,19,58,.55);
+    --display:"Archivo","Helvetica Neue",Arial,sans-serif;
+    --ui:"Figtree","Helvetica Neue",Arial,sans-serif;
+    --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#0C0A18; --surface:#15122C; --surface-2:#1B1737; --surface-3:#231E45;
+      --ink:#EDEBF8; --ink-2:#BEB7DC; --muted:#9C95C2;
+      --line:#272148; --line-strong:#3E3670;
+      --accent:#A392FF; --accent-ink:#C5BAFF; --accent-soft:#251D50; --onaccent:#0C0A18;
+      --hot:#FF8259;
+      --good:#4ECB95; --good-soft:#123326;
+      --bad:#F07A6F; --bad-soft:#351D1F;
+      --warn:#E3A94A; --warn-soft:#33260F;
+      --t-gdp:#9C8CFF; --t-oko:#4FC9A8; --t-kultura:#E9A44E; --t-delamerika:#F0708F;
+      --t-verseny:#6BA6FF; --t-valsag:#EE93D2; --t-kereskedelem:#39C8C0;
+      --shadow-s:0 1px 2px rgba(0,0,0,.45);
+      --shadow-m:0 2px 4px rgba(0,0,0,.4), 0 16px 34px -24px #000;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#0C0A18; --surface:#15122C; --surface-2:#1B1737; --surface-3:#231E45;
+    --ink:#EDEBF8; --ink-2:#BEB7DC; --muted:#9C95C2;
+    --line:#272148; --line-strong:#3E3670;
+    --accent:#A392FF; --accent-ink:#C5BAFF; --accent-soft:#251D50; --onaccent:#0C0A18;
+    --hot:#FF8259;
+    --good:#4ECB95; --good-soft:#123326;
+    --bad:#F07A6F; --bad-soft:#351D1F;
+    --warn:#E3A94A; --warn-soft:#33260F;
+    --t-gdp:#9C8CFF; --t-oko:#4FC9A8; --t-kultura:#E9A44E; --t-delamerika:#F0708F;
+    --t-verseny:#6BA6FF; --t-valsag:#EE93D2; --t-kereskedelem:#39C8C0;
+    --shadow-s:0 1px 2px rgba(0,0,0,.45);
+    --shadow-m:0 2px 4px rgba(0,0,0,.4), 0 16px 34px -24px #000;
+  }
+  [data-topic="gdp"]{--hue:var(--t-gdp)}
+  [data-topic="oko"]{--hue:var(--t-oko)}
+  [data-topic="kultura"]{--hue:var(--t-kultura)}
+  [data-topic="delamerika"]{--hue:var(--t-delamerika)}
+  [data-topic="verseny"]{--hue:var(--t-verseny)}
+  [data-topic="valsag"]{--hue:var(--t-valsag)}
+  [data-topic="kereskedelem"]{--hue:var(--t-kereskedelem)}
+  [data-lect="4"]{--hue:var(--t-gdp)}
+  [data-lect="5"]{--hue:var(--t-kultura)}
+  [data-lect="6"]{--hue:var(--t-valsag)}
+  [data-lect="7"]{--hue:var(--t-kereskedelem)}
+
+  *{box-sizing:border-box}
+  html,body{max-width:100%;overflow-x:hidden}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--ui);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+  button,input,select{font:inherit;color:inherit}
+  h1,h2,h3{margin:0;text-wrap:balance}
+  :focus-visible{outline:2px solid var(--hue);outline-offset:2px;border-radius:5px}
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+  .topband{position:fixed;inset:0 0 auto 0;height:3px;z-index:60;
+    background:linear-gradient(90deg,var(--t-gdp),var(--t-oko) 20%,var(--t-kultura) 38%,var(--t-delamerika) 54%,var(--t-verseny) 70%,var(--t-valsag) 85%,var(--t-kereskedelem))}
+
+  .wrap{max-width:none;margin:0;padding:26px 26px 72px;display:grid;grid-template-columns:272px minmax(0,1fr);gap:30px;align-items:start}
+  @media (min-width:1600px){.wrap{grid-template-columns:304px minmax(0,1fr);gap:38px;padding:28px 40px 72px}}
+  @media (max-width:940px){
+    .wrap{display:flex;flex-direction:column;gap:16px;padding:16px 16px 52px;align-items:stretch}
+    .rail{position:static;display:contents}
+    .brand{order:1} .nav{order:2} main{order:3} #topicsPanel{order:4} #setupPanel{order:5} .railfoot{order:6}
+    .nav{flex-direction:row;gap:6px;overflow-x:auto;padding-bottom:2px}
+  }
+
+  /* ---------- bal sáv ---------- */
+  .rail{position:sticky;top:22px;display:flex;flex-direction:column;gap:20px}
+  .brand{display:grid;grid-template-columns:auto 1fr;gap:0 12px;align-items:center}
+  .brand .mark{
+    grid-row:span 2;width:40px;height:40px;border-radius:12px;display:grid;place-items:center;
+    font-family:var(--display);font-weight:800;font-size:19px;letter-spacing:-.02em;color:var(--onaccent);
+    background:linear-gradient(145deg,var(--accent),var(--t-valsag));box-shadow:0 6px 16px -8px var(--accent);
+  }
+  .brand h1{font-family:var(--display);font-weight:800;font-size:19.5px;letter-spacing:-.03em;line-height:1.12}
+  .brand p{margin:5px 0 0;font-size:11.5px;color:var(--muted);font-family:var(--mono);line-height:1.5}
+  .nav{display:flex;flex-direction:column;gap:2px}
+  .nav button{
+    display:flex;align-items:center;justify-content:space-between;gap:10px;background:none;border:0;
+    padding:9px 11px;border-radius:10px;cursor:pointer;text-align:left;color:var(--ink-2);font-weight:600;
+    white-space:nowrap;transition:background .12s,color .12s;
+  }
+  .nav button:hover{background:var(--surface-2);color:var(--ink)}
+  .nav button[aria-current="true"]{background:var(--accent-soft);color:var(--accent-ink);box-shadow:inset 3px 0 0 var(--accent)}
+  .nav .n{font-family:var(--mono);font-size:11px;color:var(--muted);font-weight:400}
+  .nav button[aria-current="true"] .n{color:var(--accent-ink)}
+
+  .panel{border:1px solid var(--line);background:var(--surface-2);border-radius:var(--r);padding:14px}
+  .lbl{font-family:var(--mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);margin-bottom:9px;display:block}
+  .topics{display:flex;flex-direction:column;gap:1px}
+  .topics label{display:flex;align-items:center;gap:9px;padding:6px;border-radius:8px;cursor:pointer;font-size:13.5px;color:var(--ink-2)}
+  .topics label:hover{background:var(--surface)}
+  .topics input{accent-color:var(--hue);margin:0;width:14px;height:14px;flex:none}
+  .topics .dot{width:9px;height:9px;border-radius:3px;background:var(--hue);flex:none}
+  .topics .tx{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .topics .n{font-family:var(--mono);font-size:11px;color:var(--muted)}
+  .topics-foot{display:flex;gap:8px;margin-top:8px;padding-top:9px;border-top:1px dashed var(--line-strong)}
+  .linkbtn{background:none;border:0;padding:0;color:var(--muted);font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;cursor:pointer}
+  .linkbtn:hover{color:var(--accent-ink)}
+
+  .seg{display:flex;border:1px solid var(--line-strong);border-radius:9px;overflow:hidden;background:var(--surface-3)}
+  .seg button{flex:1;background:none;border:0;padding:7px 4px;font-size:12.5px;cursor:pointer;color:var(--ink-2);border-right:1px solid var(--line)}
+  .seg button:last-child{border-right:0}
+  .seg button[aria-pressed="true"]{background:var(--surface);color:var(--ink);font-weight:700;box-shadow:inset 0 -2px 0 var(--accent)}
+  .field + .field{margin-top:13px}
+  .hint{font-size:12px;color:var(--muted);margin:9px 0 0}
+  .railfoot{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+  .stamp{font-family:var(--mono);font-size:10px;letter-spacing:.08em;color:var(--muted);width:100%}
+
+  .btn{border:1px solid var(--line-strong);background:var(--surface);padding:10px 16px;border-radius:9px;cursor:pointer;font-weight:700;font-size:14px;transition:border-color .12s,background .12s,transform .12s}
+  .btn:hover{border-color:var(--muted)}
+  .btn.primary{background:var(--accent);border-color:var(--accent);color:var(--onaccent)}
+  .btn.primary:hover{background:var(--accent-ink);border-color:var(--accent-ink)}
+  .btn.ghost{background:none;border-color:transparent;color:var(--muted);padding:8px 10px;font-weight:600;font-size:12.5px}
+  .btn.ghost:hover{background:var(--surface-2);color:var(--ink)}
+  .btn:disabled{opacity:.45;cursor:not-allowed}
+
+  /* ---------- jobb oldal ---------- */
+  main{min-width:0;display:block}
+  .viewhead{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:6px}
+  .viewhead h2{font-family:var(--display);font-size:clamp(20px,2.6vw,26px);font-weight:800;letter-spacing:-.03em}
+  .viewhead .vnum{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--hot)}
+  .viewlede{color:var(--muted);font-size:14px;margin:0 0 18px;max-width:70ch}
+
+  .bar{display:flex;align-items:center;gap:14px;margin-bottom:16px;flex-wrap:wrap}
+  .track{flex:1;min-width:120px;height:6px;background:var(--surface-3);border:1px solid var(--line);border-radius:99px;overflow:hidden}
+  .track i{display:block;height:100%;background:var(--hue);width:0;transition:width .3s cubic-bezier(.4,0,.2,1)}
+  .count{font-family:var(--mono);font-size:12.5px;color:var(--ink-2);font-variant-numeric:tabular-nums;white-space:nowrap}
+  .tally{font-family:var(--mono);font-size:12.5px;font-variant-numeric:tabular-nums;white-space:nowrap}
+  .tally .g{color:var(--good)} .tally .r{color:var(--bad)}
+
+  @keyframes rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+  .card{
+    background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--hue);
+    border-radius:var(--r);box-shadow:var(--shadow-m);overflow:hidden;animation:rise .26s ease both;
+  }
+  .card-top{display:flex;flex-wrap:wrap;gap:9px;align-items:center;justify-content:space-between;padding:12px 22px;background:var(--surface-2);border-bottom:1px solid var(--line)}
+  .tagrow{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+  .tag{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:3px 9px;border-radius:99px;border:1px solid var(--line-strong);color:var(--muted)}
+  .tag.topic{color:var(--hue);border-color:var(--hue)}
+  .tag.exam{color:var(--warn);border-color:var(--warn);background:var(--warn-soft)}
+  .tag.pts{color:var(--hot);border-color:var(--hot)}
+  .tag.new{color:var(--good);border-color:var(--good);background:var(--good-soft)}
+  .tag.repeat{color:var(--bad);border-color:var(--bad);background:var(--bad-soft)}
+  .mixline{font-family:var(--mono);font-size:11.5px;color:var(--muted);margin:8px 0 0}
+  .mixline b{color:var(--ink);font-weight:500}
+  .card-body{padding:22px 24px 24px}
+  @media (max-width:640px){.card-body{padding:18px 16px 20px}.card-top{padding:11px 16px}}
+  .qlead{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:0 0 10px}
+  .q{font-family:var(--display);font-size:clamp(19px,2.3vw,24px);font-weight:700;line-height:1.26;letter-spacing:-.022em;margin:0;text-wrap:pretty}
+  .qsub{font-size:13px;color:var(--muted);margin:10px 0 0}
+
+  .opts{display:flex;flex-direction:column;gap:9px;margin-top:20px}
+  .opt{display:flex;gap:12px;align-items:flex-start;text-align:left;width:100%;font-size:15px;line-height:1.45;color:var(--ink);
+    background:var(--surface);border:1px solid var(--line-strong);border-radius:10px;padding:12px 14px;cursor:pointer;
+    box-shadow:var(--shadow-s);transition:border-color .12s,background .12s,transform .12s}
+  .opt:hover:not(:disabled){border-color:var(--hue);background:var(--surface-2);transform:translateX(3px)}
+  .opt:disabled{cursor:default}
+  .opt .k{flex:none;font-family:var(--mono);font-size:12px;width:24px;height:24px;border-radius:7px;display:grid;place-items:center;border:1px solid var(--line-strong);color:var(--muted);margin-top:1px}
+  .opt.right{border-color:var(--good);background:var(--good-soft)}
+  .opt.right .k{border-color:var(--good);background:var(--good);color:var(--surface)}
+  .opt.wrong{border-color:var(--bad);background:var(--bad-soft)}
+  .opt.wrong .k{border-color:var(--bad);background:var(--bad);color:var(--surface)}
+
+  .tf-list{display:flex;flex-direction:column;gap:10px;margin-top:20px}
+  .tf-item{border:1px solid var(--line-strong);border-radius:10px;padding:12px 14px;background:var(--surface);box-shadow:var(--shadow-s)}
+  .tf-item.right{border-color:var(--good);background:var(--good-soft)}
+  .tf-item.wrong{border-color:var(--bad);background:var(--bad-soft)}
+  .tf-row{display:flex;gap:14px;align-items:flex-start;justify-content:space-between;flex-wrap:wrap}
+  .tf-text{font-size:14.5px;line-height:1.45;flex:1 1 220px}
+  .tf-seg{display:flex;flex:none;border:1px solid var(--line-strong);border-radius:8px;overflow:hidden;background:var(--surface)}
+  .tf-seg button{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;background:none;color:var(--muted);border:0;padding:7px 12px;cursor:pointer}
+  .tf-seg button + button{border-left:1px solid var(--line-strong)}
+  .mt-seg{flex-wrap:wrap;max-width:100%}
+  .mt-seg button{font-size:11.5px;padding:7px 11px;text-transform:none;letter-spacing:.02em}
+  .mt-seg button[aria-pressed="true"]{background:var(--hue);border-color:var(--hue);color:var(--onaccent)}
+  .mt-seg button:hover:not(:disabled){color:var(--hue)}
+  .tf-seg button[data-v="1"][aria-pressed="true"]{background:var(--good);border-color:var(--good);color:var(--onaccent)}
+  .tf-seg button[data-v="0"][aria-pressed="true"]{background:var(--bad);border-color:var(--bad);color:var(--onaccent)}
+  .tf-seg button[data-v="1"]:hover:not(:disabled){color:var(--good)}
+  .tf-seg button[data-v="0"]:hover:not(:disabled){color:var(--bad)}
+  .tf-why{font-size:13px;color:var(--ink-2);margin-top:9px;padding-top:9px;border-top:1px dashed var(--line-strong)}
+  .tf-why b{color:var(--ink);font-weight:700}
+  .tf-why .solution{display:inline-block;font-family:var(--mono);font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--bad);border:1px solid var(--bad);border-radius:99px;padding:1px 8px;margin-right:6px}
+
+  .fb{margin-top:20px;border-top:1px solid var(--line);padding-top:16px;display:grid;gap:12px}
+  .verdict{display:flex;align-items:center;gap:9px;font-weight:700;font-size:15px}
+  .verdict.ok{color:var(--good)} .verdict.no{color:var(--bad)}
+  .verdict .mark{width:21px;height:21px;border-radius:50%;display:grid;place-items:center;background:currentColor;flex:none}
+  .verdict .mark span{color:var(--surface);line-height:1;font-size:12px}
+  .why{background:var(--surface-2);border:1px solid var(--line);border-left:3px solid var(--hue);border-radius:0 10px 10px 0;padding:14px 16px}
+  .why p{margin:0;font-size:14.5px;line-height:1.55}
+  .why .src{display:block;font-family:var(--mono);font-size:11px;color:var(--muted);margin-top:10px}
+  .fbrow{display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:space-between}
+  .kbd{font-family:var(--mono);font-size:11px;color:var(--muted)}
+  .kbd b{border:1px solid var(--line-strong);border-bottom-width:2px;border-radius:5px;padding:1px 5px;font-weight:400}
+
+  /* eredmény */
+  .resultcard{background:var(--surface);border:1px solid var(--line);border-top:4px solid var(--accent);border-radius:var(--r);box-shadow:var(--shadow-m);padding:26px 24px}
+  .score{display:flex;align-items:baseline;gap:12px;font-family:var(--display)}
+  .score .big{font-size:54px;font-weight:800;letter-spacing:-.04em;line-height:1;color:var(--accent);font-variant-numeric:tabular-nums}
+  .score .of{font-size:17px;color:var(--muted);font-weight:600}
+  .resultcard p{color:var(--ink-2);margin:12px 0 18px;max-width:58ch;font-size:14.5px}
+  .misses{display:grid;gap:1px;margin:4px 0 18px}
+  .miss{display:flex;justify-content:space-between;gap:14px;padding:9px 0;border-bottom:1px solid var(--line);font-size:14px}
+  .miss:last-child{border-bottom:0}
+  .miss b{font-weight:600;color:var(--ink)}
+  .miss span{color:var(--muted);font-family:var(--mono);font-size:11.5px;white-space:nowrap}
+
+  /* haladás */
+  .tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-bottom:22px}
+  .tile{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:15px 17px;box-shadow:var(--shadow-s)}
+  .tile:nth-child(1){border-top:3px solid var(--t-gdp)}
+  .tile:nth-child(2){border-top:3px solid var(--t-oko)}
+  .tile:nth-child(3){border-top:3px solid var(--t-kultura)}
+  .tile:nth-child(4){border-top:3px solid var(--t-delamerika)}
+  .tile .v{font-family:var(--display);font-size:29px;font-weight:800;letter-spacing:-.03em;line-height:1.1;font-variant-numeric:tabular-nums}
+  .tile .k{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:3px}
+  .brows{display:grid;gap:12px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:18px;box-shadow:var(--shadow-s)}
+  .brow{display:grid;grid-template-columns:1fr 92px;gap:8px 14px;align-items:center}
+  @media (min-width:620px){.brow{grid-template-columns:230px 1fr 92px}}
+  .brow .nm{font-size:13.5px;font-weight:600;display:flex;align-items:center;gap:9px;min-width:0}
+  .brow .nm i{width:9px;height:9px;border-radius:3px;background:var(--hue);flex:none}
+  .brow .nm span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .brow .meter{grid-column:1/-1;height:8px;border-radius:99px;background:var(--surface-3);border:1px solid var(--line);overflow:hidden}
+  @media (min-width:620px){.brow .meter{grid-column:auto}}
+  .brow .meter i{display:block;height:100%;background:var(--hue);border-radius:99px;transition:width .4s ease}
+  .brow .meter i.low{opacity:.4} .brow .meter i.mid{opacity:.72}
+  .brow .pc{font-family:var(--mono);font-size:11.5px;text-align:right;color:var(--muted);font-variant-numeric:tabular-nums}
+  .statsnote{margin-top:16px;font-size:13.5px;color:var(--muted)}
+  .review{display:flex;flex-direction:column;gap:8px;margin:4px 0 20px}
+  .rev{border:1px solid var(--line);border-left:3px solid var(--good);border-radius:10px;background:var(--surface-2);overflow:hidden}
+  .rev[data-wrong="1"]{border-left-color:var(--bad)}
+  .rev > summary{cursor:pointer;list-style:none;display:flex;gap:11px;align-items:baseline;padding:11px 14px;font-size:14px}
+  .rev > summary::-webkit-details-marker{display:none}
+  .rev > summary:hover{background:var(--surface-3)}
+  .rmark{flex:none;font-weight:700;font-size:13px}
+  .rmark.ok{color:var(--good)} .rmark.no{color:var(--bad)}
+  .rq{flex:1;min-width:0;line-height:1.4}
+  .rpts{flex:none;font-family:var(--mono);font-size:11px;color:var(--muted);font-variant-numeric:tabular-nums}
+  .rev-body{padding:12px 14px 14px;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:8px;background:var(--surface)}
+  .rline{margin:0;font-size:13.5px;line-height:1.5}
+  .rline b{font-weight:700}
+  .rline.good{color:var(--good)}
+  .rline.bad{color:var(--bad)}
+  .rline.muted{color:var(--muted)}
+  .rtf{display:flex;flex-direction:column;gap:7px}
+  .rtf-row{display:grid;grid-template-columns:16px minmax(0,1fr);gap:3px 9px;align-items:start;font-size:13px;line-height:1.45}
+  .rtf-mark{grid-column:1;grid-row:1;font-weight:700;color:var(--good);line-height:1.45}
+  .rtf-row.miss .rtf-mark{color:var(--bad)}
+  .rtf-s{grid-column:2;grid-row:1;min-width:0;overflow-wrap:anywhere}
+  .rtf-s .rline{display:block;margin-top:4px}
+  .rtf-a{grid-column:2;grid-row:2;font-family:var(--mono);font-size:10.5px;color:var(--muted);letter-spacing:.05em;overflow-wrap:anywhere}
+  .rtf-row.miss .rtf-a{color:var(--bad)}
+  .rev-body .rtf{gap:12px}
+  .ih{position:relative;display:inline-flex;vertical-align:middle;margin-left:9px}
+  .ih > button{
+    width:19px;height:19px;padding:0;border-radius:50%;border:1px solid var(--hue);background:var(--surface);
+    color:var(--hue);font-family:var(--display);font-weight:800;font-size:11px;line-height:1;cursor:pointer;
+    display:grid;place-items:center;text-transform:none;letter-spacing:0;
+  }
+  .ih > button:hover{background:var(--hue);color:var(--onaccent)}
+  .ih .pop{
+    position:absolute;left:-8px;top:calc(100% + 9px);z-index:40;width:min(460px,80vw);
+    background:var(--surface);border:1px solid var(--line-strong);border-radius:12px;box-shadow:var(--shadow-m);
+    padding:14px 16px;display:none;text-align:left;text-transform:none;letter-spacing:0;
+    font-family:var(--ui);font-weight:400;font-size:13.5px;line-height:1.6;color:var(--ink);
+  }
+  .ih.open .pop,.ih:focus-within .pop{display:block}
+  .ih .pop .k{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--hue);margin-bottom:8px}
+  .ih .pop p{margin:0 0 8px}
+  .ih .pop p:last-child{margin:0}
+  @media (max-width:640px){.ih .pop{left:auto;right:-8px;width:min(340px,86vw)}}
+  .cmp{overflow-x:auto;border:1px solid var(--line);border-radius:var(--r);background:var(--surface);box-shadow:var(--shadow-s);margin:0 0 10px}
+  .cmp table{border-collapse:collapse;width:100%;min-width:760px;font-size:13.5px}
+  .cmp th,.cmp td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--line);vertical-align:top;line-height:1.5}
+  .cmp thead th{background:var(--surface-2);font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;border-bottom:2px solid var(--line-strong);white-space:nowrap}
+  .cmp tbody th{background:var(--surface-2);font-weight:700;font-size:12.5px;width:158px;min-width:150px;border-right:1px solid var(--line);color:var(--ink-2)}
+  .cmp tbody tr:last-child th,.cmp tbody tr:last-child td{border-bottom:0}
+  .cmp tr.trap th{color:var(--warn)}
+  .cmp tr.trap td{background:var(--warn-soft)}
+  .cmp td b{font-weight:700}
+  .sheet-lede{font-size:14px;color:var(--ink-2);margin:0 0 14px;max-width:86ch}
+  .cmp td.who{font-weight:700;color:var(--ink);white-space:nowrap}
+  .cmp td.when{font-family:var(--mono);font-size:11.5px;color:var(--muted);white-space:nowrap;font-variant-numeric:tabular-nums}
+  .cmp td.src{font-family:var(--mono);font-size:10.5px;color:var(--muted);white-space:nowrap}
+  .cmp tbody tr.era th{background:var(--accent-soft);color:var(--accent-ink);font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase}
+  .cmp tbody tr.era td{background:var(--accent-soft)}
+  /* --- visszaszámláló --- */
+  .tmr{display:inline-flex;align-items:baseline;gap:6px;border:1px solid var(--line-strong);background:var(--surface);
+    border-radius:9px;padding:7px 13px;font-family:var(--mono);font-variant-numeric:tabular-nums}
+  .tmr b{font-size:16px;font-weight:500;letter-spacing:.02em;color:var(--ink)}
+  .tmr span{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+  .tmr[data-state="warn"]{border-color:var(--warn);background:var(--warn-soft)}
+  .tmr[data-state="warn"] b{color:var(--warn)}
+  .tmr[data-state="crit"]{border-color:var(--bad);background:var(--bad-soft)}
+  .tmr[data-state="crit"] b{color:var(--bad)}
+  .tmr[data-state="off"]{opacity:.5}
+
+  /* --- húzós párosítás --- */
+  .dnd-hint{font-size:12.5px;color:var(--muted);margin:16px 0 8px}
+  .dnd-pool{display:flex;flex-wrap:wrap;gap:8px;padding:12px;border:1px dashed var(--line-strong);border-radius:12px;background:var(--surface-2);min-height:58px}
+  .dnd-pool.over{background:var(--accent-soft);border-color:var(--accent)}
+  .dcard{display:block;text-align:left;font-size:13.5px;line-height:1.45;background:var(--surface);border:1px solid var(--line-strong);
+    border-radius:9px;padding:9px 12px;cursor:grab;box-shadow:var(--shadow-s);max-width:100%;color:var(--ink)}
+  .dcard:hover{border-color:var(--hue)}
+  .dcard.sel{border-color:var(--hue);box-shadow:0 0 0 2px var(--hue)}
+  .dcard.drag{opacity:.45}
+  .dcard.right{border-color:var(--good);background:var(--good-soft);cursor:default}
+  .dcard.wrong{border-color:var(--bad);background:var(--bad-soft);cursor:default}
+  .dcard small{display:block;margin-top:7px;padding-top:7px;border-top:1px dashed var(--line-strong);font-size:11.5px;line-height:1.5;color:var(--ink-2)}
+  .dnd-board{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px;margin-top:12px}
+  .dcol{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--surface);box-shadow:var(--shadow-s)}
+  .dcol-h{padding:10px 12px;background:var(--surface-2);border-bottom:1px solid var(--line);text-align:center;
+    font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--hue)}
+  .dcol-body{min-height:96px;padding:10px;display:flex;flex-direction:column;gap:8px}
+  .dcol-body.over{background:var(--accent-soft)}
+  .calcbox{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:18px;box-shadow:var(--shadow-s);margin-bottom:10px}
+  .calc-data ul{margin:8px 0 18px;padding-left:18px;display:grid;gap:5px;font-size:13.5px}
+  .calc-data li b{font-variant-numeric:tabular-nums}
+  .calc-rows{display:grid;gap:9px}
+  .calc-row{display:grid;grid-template-columns:minmax(0,1fr) 120px 40px;gap:10px;align-items:center;
+    border:1px solid var(--line);border-left:3px solid var(--line-strong);border-radius:10px;padding:9px 12px;background:var(--surface-2)}
+  .calc-row label{display:flex;flex-direction:column;gap:2px;font-size:13.5px;min-width:0}
+  .calc-row label b{font-weight:700}
+  .calc-row label span{font-family:var(--mono);font-size:10.5px;color:var(--muted)}
+  .calc-row input{width:100%;border:1px solid var(--line-strong);border-radius:8px;padding:8px 10px;background:var(--surface);
+    font-family:var(--mono);font-size:14px;text-align:right;font-variant-numeric:tabular-nums}
+  .calc-row .calc-fb{font-family:var(--mono);font-size:12px;color:var(--muted);text-align:right;white-space:nowrap}
+  .calc-row.right{border-left-color:var(--good);background:var(--good-soft)}
+  .calc-row.right .calc-fb{color:var(--good)}
+  .calc-row.wrong{border-left-color:var(--bad);background:var(--bad-soft)}
+  .calc-row.wrong .calc-fb{color:var(--bad)}
+  .calc-score{margin:14px 0 0;font-weight:700;font-size:14px}
+  .calc-score.ok{color:var(--good)} .calc-score.no{color:var(--bad)}
+  @media (max-width:640px){
+    .calc-row{grid-template-columns:minmax(0,1fr) 92px 32px;padding:9px 10px}
+    .calc-row input{font-size:13px;padding:7px 8px}
+  }
+  .inote{
+    width:17px;height:17px;padding:0;border-radius:50%;border:1px solid var(--hue);background:transparent;color:var(--hue);
+    font-family:var(--display);font-weight:800;font-size:10.5px;line-height:1;cursor:pointer;display:inline-grid;place-items:center;
+    vertical-align:middle;margin-left:6px;flex:none;
+  }
+  .inote:hover,.inote[aria-expanded="true"]{background:var(--hue);color:var(--onaccent)}
+  .inote-body{
+    display:block;margin-top:9px;padding:10px 12px;background:var(--surface-2);border-left:2px solid var(--hue);
+    border-radius:0 8px 8px 0;font-size:12.5px;line-height:1.6;color:var(--ink-2);font-weight:400;
+  }
+  .inote-body b{color:var(--ink);font-weight:700}
+  .cmp td .inote-body,.cmp th .inote-body{max-width:420px}
+  .explain{display:grid;grid-template-columns:1fr;gap:14px;margin:0 0 14px}
+  @media (min-width:900px){.explain{grid-template-columns:1fr 1fr}}
+  .ex-col{background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--hue);border-radius:var(--r);padding:16px 18px;box-shadow:var(--shadow-s)}
+  .ex-col h4{font-family:var(--display);font-size:15.5px;font-weight:700;letter-spacing:-.015em;margin:0 0 9px}
+  .ex-col .chain{font-family:var(--mono);font-size:11.5px;color:var(--muted);line-height:1.8;margin:0 0 12px}
+  .ex-col .chain b{color:var(--hue);font-weight:500}
+  .ex-col ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:9px}
+  .ex-col li{font-size:13.5px;line-height:1.55}
+  .ex-col li::marker{color:var(--hue)}
+  .mixups{background:var(--warn-soft);border:1px solid var(--warn);border-radius:10px;padding:13px 15px;font-size:13.5px;line-height:1.6;margin:0 0 20px}
+  .mixups b{font-weight:700}
+  .lineage{display:flex;flex-direction:column;gap:16px;margin:0 0 20px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:18px;box-shadow:var(--shadow-s)}
+  .lin{display:flex;flex-wrap:wrap;gap:7px;align-items:center}
+  .lin .lab{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--hue);width:100%;margin-bottom:2px}
+  .lin .node{background:var(--surface-2);border:1px solid var(--line-strong);border-radius:99px;padding:6px 13px;font-size:13px;line-height:1.3}
+  .lin .node.hi{border-color:var(--hue);color:var(--hue);font-weight:700;background:var(--surface)}
+  .lin .arw{color:var(--hot);font-size:12px;font-weight:700}
+  .lin .node small{display:block;font-family:var(--mono);font-size:9.5px;color:var(--muted);letter-spacing:.06em}
+  .facelist{display:flex;flex-direction:column;gap:8px;margin:0 0 10px;padding:0;list-style:none}
+  .facelist li{font-size:14px;line-height:1.55;padding-left:15px;position:relative}
+  .facelist li::before{content:"↔";position:absolute;left:0;color:var(--hot);font-size:12px;top:2px}
+  .sheet-note{font-family:var(--mono);font-size:11px;color:var(--muted);margin:0 0 26px}
+  .ttabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+  .ttab{display:flex;align-items:center;gap:9px;background:var(--surface);border:1px solid var(--line);
+    border-radius:99px;padding:9px 16px;cursor:pointer;font-size:13.5px;font-weight:600;color:var(--muted);
+    transition:border-color .12s,color .12s,background .12s}
+  .ttab i{width:9px;height:9px;border-radius:3px;background:var(--hue);flex:none}
+  .ttab:hover{color:var(--ink);border-color:var(--hue)}
+  .ttab[aria-pressed="true"]{border-color:var(--hue);color:var(--ink);background:var(--surface-2);box-shadow:inset 0 -2px 0 var(--hue)}
+  .sechead{font-family:var(--display);font-size:15.5px;font-weight:700;letter-spacing:-.015em;margin:24px 0 10px}
+  #segFilter{margin-bottom:12px}
+
+  /* tételvázlat */
+  details.note{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--hue);border-radius:var(--r);margin-top:10px;box-shadow:var(--shadow-s);overflow:hidden}
+  details.note > summary{cursor:pointer;padding:14px 17px;font-family:var(--display);font-size:16px;font-weight:700;letter-spacing:-.02em;display:flex;gap:11px;align-items:center;list-style:none}
+  details.note > summary::-webkit-details-marker{display:none}
+  details.note > summary::before{content:"";flex:none;width:17px;height:17px;border-radius:5px;border:1.5px solid var(--hue);
+    background:linear-gradient(var(--hue),var(--hue)) center/8px 1.5px no-repeat,linear-gradient(var(--hue),var(--hue)) center/1.5px 8px no-repeat}
+  details.note[open] > summary::before{background:linear-gradient(var(--hue),var(--hue)) center/8px 1.5px no-repeat}
+  details.note > summary:hover{color:var(--hue)}
+  details.note > summary .lec{font-family:var(--mono);font-size:10px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);margin-left:auto;flex:none;text-align:right}
+  .note-body{padding:14px 20px 18px;border-top:1px solid var(--line)}
+  .note-body h3{font-family:var(--mono);font-size:10.5px;font-weight:500;letter-spacing:.13em;text-transform:uppercase;margin:18px 0 8px;color:var(--hue)}
+  .note-body h3:first-child{margin-top:0}
+  .note-body ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px}
+  .note-body li{font-size:14.5px;line-height:1.55;max-width:88ch}
+  .note-body li::marker{color:var(--hue)}
+  .note-body .slide{font-family:var(--mono);font-size:10.5px;color:var(--muted)}
+
+  /* 0,5 pont */
+  .audit{background:var(--surface);border:1px solid var(--line);border-top:4px solid var(--warn);border-radius:0 0 var(--r) var(--r);padding:22px;box-shadow:var(--shadow-s)}
+  .audit h3{font-family:var(--display);font-size:16.5px;margin:24px 0 8px;font-weight:700;letter-spacing:-.02em}
+  .audit h3:first-of-type{margin-top:0}
+  .audit p{font-size:14.5px;margin:0 0 11px;line-height:1.58;max-width:82ch}
+  .audit ol,.audit ul{padding-left:19px;margin:0 0 11px;display:flex;flex-direction:column;gap:7px}
+  .audit li{font-size:14.5px;line-height:1.5;max-width:82ch}
+  .audit li::marker{color:var(--warn)}
+  .verdict-line{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--warn);margin:0 0 10px}
+  .audit table{width:100%;border-collapse:collapse;font-size:13.5px;margin:6px 0 14px;min-width:520px}
+  .audit th,.audit td{text-align:left;padding:9px 11px;border-bottom:1px solid var(--line);vertical-align:top}
+  .audit th{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:400;background:var(--surface-2)}
+  .audit td.ok{color:var(--good);font-family:var(--mono);font-size:11.5px}
+  .audit td.risk{color:var(--warn);font-family:var(--mono);font-size:11.5px}
+  .tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:10px}
+  .note-body .slide,.audit .slide{font-family:var(--mono);font-size:10.5px;color:var(--muted)}
+
+  .headrow{display:flex;gap:18px;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;margin-bottom:18px}
+  .headtext{min-width:0;flex:1 1 300px}
+  .headrow .viewhead{margin-bottom:6px}
+  .headrow .viewlede{margin-bottom:0}
+  .topctl{flex:none;display:flex;flex-direction:column;gap:7px;align-items:flex-end}
+  .topctl .lbl{margin:0}
+  .topctl-row{display:flex;gap:8px;align-items:center}
+  .topctl .seg{background:var(--surface)}
+  .topctl .seg button{flex:none;padding:8px 14px;font-size:13px}
+  .topctl .btn{padding:8px 14px;font-size:13.5px}
+  @media (max-width:700px){
+    .topctl{align-items:flex-start;width:100%}
+    .topctl-row{width:100%}
+    .topctl .seg{flex:1}
+    .topctl .seg button{flex:1}
+  }
+  .foot{margin-top:30px;font-size:12px;color:var(--muted);font-family:var(--mono);line-height:1.7;max-width:80ch}
+  .empty{color:var(--muted);padding:34px 0;text-align:center;font-size:15px}
+
+  /* keskeny kepernyo: a kerdes kerul elore, a beallitasok ala */
+  @media (max-width:940px){
+    .rail{position:static;display:contents}
+    .brand{order:1}
+    .nav{order:2;flex-direction:column;gap:6px;overflow:visible;padding-bottom:0}
+    .nav button{width:100%;border-radius:10px;border:1px solid var(--line);background:var(--surface);padding:12px 14px;white-space:normal}
+    .nav button[aria-current="true"]{border-color:var(--accent);box-shadow:inset 3px 0 0 var(--accent)}
+    main{order:3}
+    #topicsPanel{order:4}
+    #setupPanel{order:5}
+    .railfoot{order:6}
+  }
+  /* keskeny kijelzőn a táblázatok kártyákra bomlanak, hogy ne kelljen oldalra húzni */
+  @media (max-width:760px){
+    .cmp{overflow:visible;border:0;background:none;box-shadow:none;margin-bottom:4px}
+    .cmp table{display:block;width:100%;min-width:0;font-size:13.5px}
+    .cmp thead{display:none}
+    .cmp tbody{display:block}
+    .cmp tbody tr{display:block;background:var(--surface);border:1px solid var(--line);border-radius:12px;margin-bottom:10px;box-shadow:var(--shadow-s);overflow:hidden}
+    .cmp tbody th{display:block;width:auto;min-width:0;border-right:0;border-bottom:1px solid var(--line);background:var(--surface-2);font-size:13px;color:var(--ink)}
+    .cmp tbody td{display:block;border-bottom:1px solid var(--line);padding:11px 14px}
+    .cmp tbody tr td:last-child{border-bottom:0}
+    .cmp td[data-col]::before{
+      content:attr(data-col);display:block;font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;
+      text-transform:uppercase;color:var(--hue);margin-bottom:5px;
+    }
+    .cmp td.who{font-size:15px;background:var(--surface-2);border-bottom:1px solid var(--line)}
+    .cmp td.when,.cmp td.src{color:var(--muted)}
+    .cmp tbody tr.era{background:var(--accent-soft);margin-bottom:10px}
+    .cmp tbody tr.era th{background:none;border-bottom:0}
+    .cmp tbody tr.era td{border-bottom:0;padding-top:0}
+    .cmp tr.trap th{border-bottom:1px solid var(--line)}
+    .cmp td .inote-body,.cmp th .inote-body{max-width:none}
+    .lin .node{font-size:12.5px;padding:5px 11px}
+    .sheet-lede,.mixups,.ex-col li{font-size:13.5px}
+  }
+</style>
+
+<div class="topband" aria-hidden="true"></div>
+<div class="wrap">
+  <aside class="rail">
+    <div class="brand">
+      <span class="mark" aria-hidden="true">MK</span>
+      <h1>Modern Közgazdasági Elméletek</h1>
+      <p>04–07. előadás · <span id="brandN">0</span> kérdés</p>
+    </div>
+
+    <nav class="nav" id="nav">
+      <button type="button" data-view="quiz" aria-current="true">Gyakorlás <span class="n" id="nav-quiz"></span></button>
+      <button type="button" data-view="notes">Előadások <span class="n">4 diasor</span></button>
+      <button type="button" data-view="calc">Számolás <span class="n">SNA · GDP</span></button>
+      <button type="button" data-view="sheet">Jegyzet <span class="n">készül</span></button>
+      <button type="button" data-view="stats">Haladás <span class="n" id="nav-stats"></span></button>
+    </nav>
+
+    <div class="panel" id="topicsPanel">
+      <span class="lbl">Miből kérdezzen</span>
+      <div class="seg" id="segFilter">
+        <button type="button" data-v="topic" aria-pressed="true">Témakör</button>
+        <button type="button" data-v="lecture" aria-pressed="false">Előadás</button>
+      </div>
+      <div class="topics" id="topics"></div>
+      <div class="topics-foot">
+        <button class="linkbtn" type="button" id="topics-all">Mind</button>
+        <button class="linkbtn" type="button" id="topics-none">Egyik sem</button>
+      </div>
+    </div>
+
+    <div class="railfoot">
+      <button class="btn ghost" type="button" id="theme-btn">Téma váltása</button>
+      <button class="btn ghost" type="button" id="reset-btn">Haladás törlése</button>
+      <span class="stamp" id="stamp"></span>
+    </div>
+  </aside>
+
+  <main id="main"></main>
+</div>
+
+<div id="tpl-calc" hidden>
+<p class="sheet-lede">Az SNA-mutatók levezetése a 04. előadás és a számolási gyakorlat alapján. Alul gyakorló feladat, amely minden indításnál új számokat ad.</p>
+
+<div class="lineage">
+  <div class="lin" data-topic="gdp">
+    <span class="lab">A mutatók lánca — mindig ebben a sorrendben</span>
+    <span class="node hi">G0 − TF<small>= GDP</small></span><span class="arw">→</span>
+    <span class="node">− A<small>= NDP</small></span><span class="arw">→</span>
+    <span class="node hi">± (L+K)<small>= GNI</small></span><span class="arw">→</span>
+    <span class="node">− A<small>= NNI</small></span><span class="arw">→</span>
+    <span class="node hi">± TR<small>= GNDI</small></span><span class="arw">→</span>
+    <span class="node">− A<small>= NNDI</small></span>
+  </div>
+</div>
+
+<div class="cmp">
+<table>
+  <thead><tr><th>Mutató</th><th>Magyarul</th><th>Képlet</th><th>Mire figyelj</th></tr></thead>
+  <tbody>
+    <tr><td class="who">GDP</td><td data-col="Magyarul">Bruttó hazai termék</td><td class="when" data-col="Képlet">G0 − TF</td>
+        <td data-col="Mire figyelj">A <b>rezidens</b> egységek által egy év alatt létrehozott hozzáadott érték. G0 = bruttó kibocsátás, TF (PC) = folyó termelő fogyasztás.</td></tr>
+    <tr><td class="who">NDP</td><td data-col="Magyarul">Nettó hazai termék</td><td class="when" data-col="Képlet">GDP − A</td>
+        <td data-col="Mire figyelj">Nettó = bruttó − amortizáció. Az <b>A</b> ugyanaz a szám marad, bármelyik szinten vonod le.</td></tr>
+    <tr><td class="who">GNI</td><td data-col="Magyarul">Bruttó nemzeti jövedelem</td><td class="when" data-col="Képlet">GDP − (L+K)ki + (L+K)be</td>
+        <td data-col="Mire figyelj">Az <b>elsődleges jövedelmek</b> cseréje: ami a külföldieknek megy, levonódik; amit a hazaiak külföldről hoznak, hozzáadódik.</td></tr>
+    <tr><td class="who">NNI</td><td data-col="Magyarul">Nettó nemzeti jövedelem</td><td class="when" data-col="Képlet">GNI − A</td>
+        <td data-col="Mire figyelj">Számolható az NDP-ből is: NDP − (L+K)ki + (L+K)be — ugyanazt adja.</td></tr>
+    <tr><td class="who">GNDI</td><td data-col="Magyarul">Bruttó nemzeti rendelkezésre álló jövedelem</td><td class="when" data-col="Képlet">GNI − TRki + TRbe</td>
+        <td data-col="Mire figyelj">A <b>transzferek</b> (segély, támogatás, pályázat) egyenlege. Ez a végső felhasználásra fordítható jövedelem.</td></tr>
+    <tr><td class="who">NNDI</td><td data-col="Magyarul">Nettó nemzeti rendelkezésre álló jövedelem</td><td class="when" data-col="Képlet">GNDI − A</td>
+        <td data-col="Mire figyelj">Vagy a nettó oldalról: NNI − TRki + TRbe. Mindkét út ugyanoda vezet.</td></tr>
+  </tbody>
+</table>
+</div>
+<p class="sheet-note">Forrás: 04. előadás · 11–14. dia · SNA számolási gyakorlat</p>
+
+<h3 class="sechead">Gyakorló feladat</h3>
+<p class="sheet-lede">Töltsd ki mind a hat mezőt, majd ellenőrizd. Az „Új adatsor” gomb más számokkal indít.</p>
+<div class="calcbox" id="calcbox"></div>
+
+<h3 class="sechead">Kidolgozott példák az óráról</h3>
+<details class="note" data-topic="gdp">
+  <summary>1. gyakorlat — minden adat megvan <span class="lec">SNA gyakorlat · 5–6. dia</span></summary>
+  <div class="note-body">
+    <h3>Adatok</h3>
+    <ul>
+      <li>Összes kibocsátás: <b>1000</b> · Termelőfogyasztás: <b>400</b> · Amortizáció: <b>80</b></li>
+      <li>Hazaiak külföldi munka- és tőkejövedelme: <b>90</b> · Külföldiek hazai munka- és tőkejövedelme: <b>110</b></li>
+      <li>Jövedelemtranszfer külföldről: <b>40</b> · Jövedelemtranszfer külföldre: <b>70</b></li>
+    </ul>
+    <h3>Megoldás</h3>
+    <ul>
+      <li>GDP = 1000 − 400 = <b>600</b></li>
+      <li>NDP = 600 − 80 = <b>520</b></li>
+      <li>GNI = 600 + 90 − 110 = <b>580</b></li>
+      <li>NNI = 580 − 80 = <b>500</b> (vagy 520 + 90 − 110 = 500)</li>
+      <li>GNDI = 580 + 40 − 70 = <b>550</b></li>
+      <li>NNDI = 550 − 80 = <b>470</b> (vagy 500 + 40 − 70 = 470)</li>
+    </ul>
+  </div>
+</details>
+<details class="note" data-topic="gdp">
+  <summary>2. gyakorlat — visszafelé, GNI-ből <span class="lec">SNA gyakorlat · 7–9. dia</span></summary>
+  <div class="note-body">
+    <h3>Adatok</h3>
+    <ul>
+      <li>GNI: <b>80</b> · NNI: <b>68</b></li>
+      <li>Hazaiak külföldi munkajövedelme: <b>4</b> · tőkejövedelme: <b>6</b></li>
+      <li>Külföldiek hazai munkajövedelme: <b>3</b> · tőkejövedelme: <b>5</b></li>
+      <li>Jövedelemtranszfer külföldről: <b>7</b> · külföldre: <b>9</b></li>
+      <li>Kérdés: GDP, NNDI és az amortizáció.</li>
+    </ul>
+    <h3>GDP</h3>
+    <ul>
+      <li>G0 és TF nincs megadva — de a GDP benne van a GNI-ben: <b>GNI = GDP − (L+K)ki + (L+K)be</b>.</li>
+      <li>Ami elhagyja az országot: −(3+5) = <b>−8</b>. Ami bejön: +(4+6) = <b>+10</b>.</li>
+      <li>80 = GDP − 8 + 10 → GDP = 80 + 8 − 10 = <b>78</b></li>
+    </ul>
+    <h3>Amortizáció és NNDI</h3>
+    <ul>
+      <li>Az amortizáció a bruttó és a nettó különbsége: GNI − NNI = 80 − 68 = <b>12</b></li>
+      <li>NNDI a nettó oldalról: 68 − 9 + 7 = <b>66</b></li>
+      <li>Vagy bruttóból: GNDI = 80 − 9 + 7 = 78, majd NNDI = 78 − 12 = <b>66</b>. Ugyanaz az eredmény mindkét úton.</li>
+    </ul>
+  </div>
+</details>
+
+<h3 class="sechead">A GDP felhasználási oldala</h3>
+<div class="cmp">
+<table>
+  <thead><tr><th>Fogalom</th><th>Mit jelent</th></tr></thead>
+  <tbody>
+    <tr><td class="who">GDP = C + I + G + EX − IM</td>
+        <td data-col="Mit jelent"><b>C</b> lakossági fogyasztás · <b>I</b> beruházás (bruttó felhalmozás) · <b>G</b> állami kiadás · <b>EX</b> export · <b>IM</b> import. Az import <b>levonódik</b>, mert nem hazai termelés.</td></tr>
+    <tr><td class="who">Nominális vs. reál GDP</td>
+        <td data-col="Mit jelent">Nominális (folyó áras): az <b>adott évi</b> piaci árakon. Reál (változatlan áras): a <b>bázisév</b> árain. A tényleges teljesítményhez ki kell szűrni az árak változását.</td></tr>
+    <tr><td class="who">Kibocsátási érték</td>
+        <td data-col="Mit jelent">megtermelt mennyiség × ár</td></tr>
+  </tbody>
+</table>
+</div>
+<p class="sheet-note">Forrás: 04. előadás · 17., 22–23. dia</p>
+</div>
+
+<div id="tpl-sheet" hidden>
+<p class="sheet-lede">A 04–07. előadás összehasonlító táblázatai készülnek — hamarosan itt lesznek.</p>
+</div>
+
+<div id="tpl-notes" hidden>
+<details class="note" data-lecture="4" data-topic="gdp" open>
+      <summary>GDP, SNA és a mutatószámok <span class="lec">04. ea · 3–14. dia</span></summary>
+      <div class="note-body">
+        <h3>3. dia — Jövedelmek</h3>
+        <ul>
+          <li>GDP megközelítése: <b>1. Végső kibocsátás · 2. Végső felhasználás · 3. Megtermelt jövedelem</b>.</li>
+          <li>A három megegyezik egymással.</li>
+        </ul>
+        <h3>4. dia — Kulcskifejezések</h3>
+        <ul>
+          <li><b>GDP</b> (Gross Domestic Product – Bruttó hazai termék)</li>
+          <li><b>NDP</b> (Net Domestic Product – Nettó hazai termék)</li>
+          <li><b>GNI</b> (Gross National Income – Bruttó nemzeti jövedelem)</li>
+          <li><b>NNI</b> (Net National Income – Nettó nemzeti jövedelem)</li>
+          <li>Elsődleges jövedelmek: <b>munka (L – labour)</b> és <b>tőke (K – kapital)</b></li>
+          <li><b>GNDI</b> (Gross National Disposable Income – Bruttó nemzeti rendelkezésre álló jövedelem)</li>
+          <li><b>NNDI</b> (Net National Disposable Income – Nettó nemzeti rendelkezésre álló jövedelem)</li>
+          <li><b>ppp</b> – vásárlóerő paritás (purchasing power parity)</li>
+        </ul>
+        <h3>5. dia — SNA: a három kulcsmutató definíciója</h3>
+        <ul>
+          <li><b>GDP:</b> a rezidens szervezeti egységek által a nemzetgazdaságban egy év alatt létrehozott <b>hozzáadott érték összege</b>.</li>
+          <li><b>Rezidens</b> (hazai) szervezeti egység: amelynek hosszabb időn keresztül (általában egy év) az ország területén van gazdasági érdekeltsége.</li>
+          <li><b>GNI:</b> a szektorok elsődleges jövedelmének, valamint a rezidens szektorok és a külföld egymás közötti tulajdonosi jövedelem-átutalásainak, továbbá az Európai Uniótól kapott támogatások és az Uniónak fizetett adók egyenlegének az összege.</li>
+          <li><b>GNDI:</b> a nemzetgazdaság szereplőinek egy adott évben <b>végső felhasználásra fordítható</b> összes bruttó jövedelme.</li>
+        </ul>
+        <h3>10. dia — SNA – System of National Accounts</h3>
+        <ul>
+          <li>Az <b>ENSZ</b> által a világ összes országa számára ajánlott statisztikai rendszer (módszertan) az országok gazdasági teljesítményének számítására: <b>1953-ban</b> dolgozták ki.</li>
+          <li><b>1993 óta:</b> SNA93; <b>2009 óta:</b> SNA2008.</li>
+          <li>Az Európai Unióban érvényes változat: <b>ESA95</b>; <b>2014:</b> új ESA (ESA2010).</li>
+          <li>Az USA némileg eltérő rendszere: <b>NIPA</b> (National Income and Product Accounts).</li>
+          <li>Magyarország: <b>1949</b> MPS – Material Product System (KGST, Szovjetunió 1930-as évek); <b>1968</b> párhuzamosan két módszer; <b>1993</b> megszűnt az MPS, bevezetésre került az SNA/ESA; <b>2014</b> új ESA.</li>
+        </ul>
+        <h3>11. dia — A nemzetgazdaság és a külföld</h3>
+        <ul>
+          <li><b>GDP = G0 − TF</b>, ahol <b>G0</b> a bruttó kibocsátás, <b>TF</b> a folyó termelő fogyasztás.</li>
+          <li>Elsődleges jövedelem: <b>L</b> – munka (labour), <b>K</b> – tőke (kapital); a külföldön élő magyarok és a külföldiek jövedelme mindkét irányban áramlik.</li>
+          <li><b>Transzferek (TR):</b> segély, támogatás, felzárkóztatási program, pályázat.</li>
+        </ul>
+        <h3>12–14. dia — A mutatók levezetése</h3>
+        <ul>
+          <li><b>NETTÓ = BRUTTÓ − AMORTIZÁCIÓ</b></li>
+          <li>GDP Bruttó Hazai Termék: <b>GDP = G0 − TF</b></li>
+          <li>NDP Nettó Hazai Termék: <b>NDP = GDP − A</b></li>
+          <li>GNI Bruttó Nemzeti Jövedelem: <b>GNI = GDP − (L+K) + (L+K)</b></li>
+          <li>NNI Nettó Nemzeti Jövedelem: <b>NNI = GNI − A</b></li>
+          <li>GNDI: <b>GNDI = GNI − TR + TR</b></li>
+          <li>NNDI: <b>NNDI = NNI − TR + TR</b></li>
+          <li>Teljes lánc: <b>GNDI = (G0 − TF) − (L+K) + (L+K) − TR + TR</b>; a nettó oldalon ugyanez amortizációval: <b>NNDI = (G0 − TF) − A − (L+K) + (L+K) − TR + TR</b>. A dián visszatérő jelölés: <b>BE</b> és <b>KI</b> — mi jön be az országba és mi hagyja el.</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="note" data-lecture="4" data-topic="gdp">
+      <summary>Mit mér a GDP? Felhasználás, nominális és reál <span class="lec">04. ea · 17–23. dia</span></summary>
+      <div class="note-body">
+        <h3>17. dia — Felhasználási oldal</h3>
+        <ul>
+          <li><b>GDP = C + I + G + EX − IM</b></li>
+          <li><b>C</b> – lakossági fogyasztás · <b>I</b> – beruházás (bruttó felhalmozás) · <b>G</b> – állami kiadás (kormányzati vásárlás) · <b>EX</b> – export · <b>IM</b> – import.</li>
+        </ul>
+        <h3>19. dia — Mit is mér a Bruttó Hazai Termék?</h3>
+        <ul>
+          <li><b>ÚJ ÉRTÉK CSAK A TERMELÉSBEN KELETKEZIK!</b></li>
+          <li>A termelés lehet <b>legális, rejtett, illegális</b>; <b>piaci, nem piaci</b>.</li>
+          <li>Kimarad: a <b>háztartáson belüli szolgáltatás</b>; a <b>környezetkárosítás, háború</b> mint negatív termelés és egyéb externáliák; az <b>erőszakos tranzakció</b> (pl. lopás).</li>
+        </ul>
+        <h3>22–23. dia — Nominális vs. reál GDP</h3>
+        <ul>
+          <li><b>Nominális GDP</b> (folyó áras): a termékeket és szolgáltatásokat az <b>adott évi piaci áron</b> veszi számításba.</li>
+          <li><b>Reál GDP</b> (változatlan áras): egy kitüntetett év (<b>bázisév</b>) árain veszi számításba.</li>
+          <li>Termelési (kibocsátási) érték = <b>megtermelt mennyiség × ár</b>.</li>
+          <li>Ha a tényleges teljesítmény változását akarjuk meghatározni: <b>ki kell szűrni az árak változását!</b></li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="note" data-lecture="4" data-topic="oko">
+      <summary>Alternatív mutatók, ökológia, növekedés <span class="lec">04. ea · 25–37. dia</span></summary>
+      <div class="note-body">
+        <h3>25. dia — ISEW (Index of Sustainable Economic Welfare)</h3>
+        <ul>
+          <li>Fenntartható Gazdasági Jólét Index: annak mértéke, hogy egy régió gazdasági tevékenysége <b>mennyiben járul hozzá a jóléthez, és mennyiben csökkenti azt</b>, és mennyire fenntartható ez a tevékenység.</li>
+          <li>Kiigazított gazdasági mutató, amely megpróbálja beépíteni a <b>költségeket és hasznokat, amelyeket általában nem pénzben mérnek</b>; a pozitív és negatív kiigazításokat társadalmi, gazdasági és környezeti tényezők figyelembevétele érdekében hajtják végre.</li>
+        </ul>
+        <h3>27. dia — GPI (Genuine Progress Indicator)</h3>
+        <ul>
+          <li>Valódi előrehaladás mutatója: a GDP <b>alternatív mérőszáma</b>.</li>
+          <li>Mindent figyelembe vesz, amit a GDP felhasznál, de hozzáad olyan számadatokat, amelyek a gazdasági tevékenységhez kapcsolódó <b>negatív hatások költségét</b> reprezentálják: például a bűnözés költségeit, az ózonréteg károsodásának költségeit és az <b>erőforrások kimerülésének</b> költségeit.</li>
+        </ul>
+        <h3>29. dia — HDI (Human Development Index)</h3>
+        <ul>
+          <li>Humán Fejlődési Index: az <b>ENSZ</b> által kifejlesztett statisztika a társadalmi és gazdasági fejlettség mérésére.</li>
+          <li>Négy fő területe: <b>átlagos iskolai évek · várható iskolai évek · születéskor várható élettartam · egy főre jutó bruttó nemzeti jövedelem (GNI)</b>.</li>
+        </ul>
+        <h3>32–33. dia — Ökológiai lábnyom</h3>
+        <ul>
+          <li>Az ökológiai túlfogyasztást három tényező befolyásolja: <b>(1) a fogyasztás mértéke, (2) az emberiség létszáma, (3) az erőforrásokat szolgáltató természet állapota, azaz a biokapacitás</b>.</li>
+          <li>Kapcsolódó fogalmak: <b>Ecological Footprint</b>, <b>Overshoot day</b>.</li>
+        </ul>
+        <h3>34. dia — HPI és EPI</h3>
+        <ul>
+          <li><b>Boldog Bolygó Index (HPI):</b> várható élettartam + ökológiai lábnyom + élettel való elégedettség.</li>
+          <li><b>Környezeti Teljesítmény Index (EPI):</b> 25 teljesítményindikátor alapján, lefedve a környezetvédelmet, a közegészségügyet és az ökoszisztéma egészségét is.</li>
+        </ul>
+        <h3>36. dia — Gazdasági növekedés</h3>
+        <ul>
+          <li>Egy ország <b>potenciális GDP-jének</b> vagy nemzeti kibocsátásának bővítése; a potenciális kibocsátás <b>hosszú távú</b> növekedése.</li>
+          <li>Akkor következik be, amikor az ország <b>termelési potenciáljának határát kitolják</b> (PPH – termelési lehetőségek határa: a görbe kifelé mozog).</li>
+          <li><b>Életszínvonal-emelkedés = az egy főre jutó kibocsátás növekedése</b>; az életszínvonal elemzése mindig <b>egy főre eső</b> kategóriákat igényel (pl. GDP/fő).</li>
+        </ul>
+        <h3>37. dia — A növekedés változói (faktorok)</h3>
+        <ul>
+          <li><b>Humán erőforrás:</b> munkaerő-kínálat, képzés, szakértelem, fegyelem, motiváció.</li>
+          <li><b>Természeti erőforrás:</b> föld, ásványkincsek, energiaforrások, környezetminőség.</li>
+          <li><b>Tőkefelhalmozás:</b> gyárak, gépek, utak, immateriális javak.</li>
+          <li><b>Technológiai változás:</b> tudomány, műszaki ismeretek, menedzsment, vállalkozás.</li>
+          <li>A növekedéselméletek nem egyidősek a közgazdasági gondolkodással: a kérdés a <b>klasszikus angol iskola</b> megszületésével intézményesült.</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="note" data-lecture="5" data-topic="kultura">
+      <summary>Konfucianizmus és a kínai gazdaságfelfogás <span class="lec">05. ea · 3–14. dia</span></summary>
+      <div class="note-body">
+        <h3>3. dia — Konfucianizmus</h3>
+        <ul>
+          <li>Az az életmód, amelyet <b>Konfuciusz</b> terjesztett az <b>i. e. 6–5. században</b>, és amelyet a kínai nép több mint két évezreden át követett.</li>
+          <li>A hagyomány szerint Konfuciusz <b>i. e. 551 és 479</b> között Kelet-Kínában, a <b>Lu Fejedelemségben</b> élt.</li>
+          <li>Egyszerre világnézet, társadalmi etika, politikai ideológia, tudományos hagyomány és életmód: a múlt jelentésének újjáélesztését javasolta a <b>ritualizált élet</b> támogatásával.</li>
+        </ul>
+        <h3>4. dia — Az öt erény</h3>
+        <ul>
+          <li><b>Ren (仁):</b> jóindulat, emberségesség, együttérzés — a legmagasabb erény.</li>
+          <li><b>Yi (義):</b> igazságosság és becsület; megfelelő és erkölcsös cselekvés.</li>
+          <li><b>Li (禮):</b> rituálék, illem, etikett; a harmóniát elősegítő viselkedés.</li>
+          <li><b>Zhi (智):</b> bölcsesség; a jó és a rossz megkülönböztetésének képessége.</li>
+          <li><b>Xin (信):</b> őszinteség és megbízhatóság.</li>
+          <li>Gazdasági vetület: az üzleti gyakorlatot becsületesen, szigorú etikai kódex szerint kell végezni; a <b>humán tőke</b> felhalmozása, a kitartás és a <b>hosszú távú jövőorientáció</b> kulcsfontosságú a fejlődéshez.</li>
+        </ul>
+        <h3>5. dia — Konfuciánus közgazdaságtan</h3>
+        <ul>
+          <li><b>Igazságosság a profit helyett:</b> a gazdasági tevékenységet erkölcsi elvek vezérlik, nem a puszta haszonszerzés.</li>
+          <li><b>Társadalmi harmónia és egyenlőség:</b> a társadalmi béke a növekedés előfeltétele; alapvető életszínvonal minden állampolgárnak.</li>
+          <li><b>A család mint egység:</b> az alapvető „munkaegység”, amely erős felelősségérzeten keresztül befolyásolja a döntést és a motivációt.</li>
+          <li><b>Beágyazott piacok:</b> az etikától mentes „szabad piac” helyett piacalapú rendszer, <b>erkölcsi keretbe ágyazva</b>.</li>
+          <li><b>A kormányzat mint erkölcsi útmutató:</b> az államnak erkölcsi felelőssége ápolni népe erényes jellemét (vö. intézményi közgazdaságtan).</li>
+        </ul>
+        <h3>8. dia — Kína és a „harmónia”</h3>
+        <ul>
+          <li>A „kínai harmonikus gazdaság” a <b>2000-es évek elején</b> jelent meg, főként <b>Hu Csin-tao és Ven Csia-pao</b> vezetésével; szorosan kapcsolódik a „harmonikus társadalom” politikájához, amelyet a gyors növekedés negatív társadalmi hatásainak enyhítésére dolgoztak ki.</li>
+          <li>Lényege: ne csak a GDP növekedésére, hanem a <b>társadalmi, környezeti és regionális egyensúlyra</b> is törekedjen; a „harmónia” mélyen gyökerezik a konfuciánus gondolkodásban.</li>
+          <li><b>Kritika:</b> a jövedelmi különbségek továbbra is magasak, a környezetszennyezés komoly probléma, és a politikai centralizáció néha akadályozza a valódi társadalmi párbeszédet.</li>
+        </ul>
+        <h3>9. dia — Kettős körforgás</h3>
+        <ul>
+          <li>Kína növekedésének a <b>belföldi és a nemzetközi</b> gazdasági vérkeringésre is támaszkodnia kell — de a hangsúly a <b>belföldi piacon</b>.</li>
+          <li><b>Belföldi vérkeringés:</b> a fogyasztás, az innováció és a technológiai önellátás erősítése; cél, hogy Kína ne legyen túlzottan függő az exporttól vagy a külföldi technológiától.</li>
+          <li><b>Nemzetközi vérkeringés:</b> az export, a külföldi tőke és a befektetések fontosak, de <b>kiegészítik</b>, nem meghatározzák a belső gazdasági erőt.</li>
+          <li>Fő cél: önellátóbb, <b>technológiailag szuverén</b>, belső piacalapú szuperhatalommá válni.</li>
+        </ul>
+        <h3>10. dia — Zöld fejlődés</h3>
+        <ul>
+          <li>A növekedést össze kell hangolni a környezetvédelemmel és az ökológiai egyensúllyal — nem csupán környezetpolitika, hanem <b>gazdaságfilozófia</b>.</li>
+          <li><b>Karbonsemlegesség 2060-ra</b>; energiahatékonyság, a fosszilis függőség csökkentése, zöld technológiák (elektromos járművek, nap- és szélenergia).</li>
+        </ul>
+        <h3>14. dia — Kínai típusú modernizáció</h3>
+        <ul>
+          <li>Kína a modernizációban a <b>saját útját járja</b>, nem nyugati modelleket másol.</li>
+          <li>Jellemzők: <b>nagy népességű modernizáció</b> (1,4 milliárd ember jóléte) · <b>közös jólét</b> (a jövedelmi egyenlőtlenségek csökkentése) · az anyagi és kulturális fejlődés összehangolása · <b>ember és természet harmóniája</b> · a békén keresztül — nem imperialista vagy gyarmati úton — elért fejlődés.</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="note" data-lecture="5" data-topic="kultura">
+      <summary>Japán vállalati kapitalizmus: zaibatsu, keiretsu, ringi <span class="lec">05. ea · 17–24. dia</span></summary>
+      <div class="note-body">
+        <h3>17. dia — Japán vállalati kapitalizmus („corporate capitalism”)</h3>
+        <ul>
+          <li>Olyan gazdasági modell, amely különbözik <b>mind az amerikai piaci kapitalizmustól, mind az európai szociális piacgazdaságtól</b>.</li>
+          <li>A vállalatok, a kormányzat és a pénzügyi szektor <b>szoros kölcsönös függőségben</b> működnek a hosszú távú stabilitás és a kollektív érdek érdekében — szemben a nyugati (különösen amerikai) rövid távú profitmaximalizáló logikával.</li>
+          <li>Fő cél: nem a <b>részvényesi azonnali profit</b> maximalizálása, hanem a vállalat, az alkalmazottak és a nemzet <b>közös hosszú távú fejlődése</b>.</li>
+        </ul>
+        <h3>18. dia — A háború utáni modell</h3>
+        <ul>
+          <li><b>Életre szóló foglalkoztatás:</b> a munkavállalók a lojalitásért cserébe munkahelyi biztonságot, nyugdíjat és szociális védelmet vártak el.</li>
+          <li><b>Bank-vállalati kapcsolatok:</b> a bankok és az általuk finanszírozott vállalatok közötti szoros kapcsolat döntő támogatást nyújtott és befolyásolta a vezetést.</li>
+          <li><b>Kormányzati felügyelet:</b> a Nemzetközi Kereskedelmi és Ipari Minisztérium jelentős szerepet játszott a vállalati szektor felügyeletében.</li>
+        </ul>
+        <h3>19. dia — „Zaibatsu”</h3>
+        <ul>
+          <li>Szó szerint <b>„pénzklán”</b> vagy „gazdasági birodalom”; a <b>Meiji-restauráció (19. század vége)</b> és a második világháború között a japán gazdaság domináns formája.</li>
+          <li>Nagy, <b>családi tulajdonban</b> lévő konglomerátumok: bankok, gyárak (termelés), kereskedelmi vállalatok (értékesítés) és biztosítók egyesítve, egy központi <b>holdingtársasággal</b> a család kezében.</li>
+          <li>Szoros kapcsolat a kormánnyal és a hadsereggel; kulcsszerep Japán iparosodásában és háborús gazdaságában. Később <b>keiretsuvá</b> alakult.</li>
+        </ul>
+        <h3>20. dia — „Keiretsu”</h3>
+        <ul>
+          <li>Vállalati konglomerátum, ahol több vállalat (gyártók, bankok, biztosítók, kereskedőházak) <b>kereszttulajdonlás</b> és stabil üzleti kapcsolatok révén kapcsolódik össze.</li>
+          <li>Klasszikus példák: <b>Mitsui, Mitsubishi, Sumitomo, Toyota Group</b>.</li>
+          <li>A vállalatok kölcsönösen birtokolják egymás részvényeit → jobban ellenállnak a piaci ingadozásoknak; a <b>főbank</b> központi szerepet játszik a finanszírozásban és a válságkezelésben.</li>
+        </ul>
+        <h3>22. dia — Japán vs. Korea</h3>
+        <ul>
+          <li><b>Csebol (chaebol):</b> dél-koreai, <b>családi kézben lévő</b> üzleti konglomerátumok.</li>
+          <li>Japánban ugyanezt <b>keiretsunak</b>, a háború előtti megfelelőjét <b>zaibatsunak</b> hívják.</li>
+          <li>Különbség: a csebolokat a <b>családi tulajdon és vezetés</b> jellemzi, míg a keiretsu <b>decentralizáltabb, horizontális szövetség</b>, amely a bankok és a professzionális vezetés köré szerveződik.</li>
+        </ul>
+        <h3>23–24. dia — „Ringi”</h3>
+        <ul>
+          <li><b>Konszenzuson alapuló döntéshozatal</b>; a szó jelentése nagyjából „jóváhagyási körlevél” vagy „megbeszélés útján hozott döntés”.</li>
+          <li>Egy alsóbb beosztású alkalmazott vagy középvezető javaslatot dolgoz ki (<b>ringi-sho</b>), amely felfelé halad a hierarchiában, minden szinten felülvizsgálják és <b>pecséttel (hanko)</b> jóváhagyják; akkor válik hivatalossá, ha a felettesek többsége jóváhagyta.</li>
+          <li>A cél <b>nem a gyorsaság, hanem a harmónia és a közös felelősség</b>; erősíti a lojalitást és a kollektív felelősségvállalást.</li>
+          <li>Hátrányai: lassú döntéshozatal, az alulról jövő kezdeményezések korlátai, az <b>egyéni felelősség elmosódása</b>. Elméletileg nem konfrontatív, hanem konszenzusra törekvő — a dia hozzáteszi: „… ELMÉLETILEG!!!”</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="note" data-lecture="5" data-topic="delamerika">
+      <summary>Dél-Amerika: Buen Vivir, függőség, felszabadítás <span class="lec">05. ea · 33–47. dia</span></summary>
+      <div class="note-body">
+        <h3>33. dia — „Buen Vivir”</h3>
+        <ul>
+          <li>Magyarul <b>„Jó Élet”</b>: dél-amerikai társadalomfilozófia az <b>őslakos hagyományokból</b>, amely a természettel harmóniában lévő közösségi jólétet helyezi előtérbe az individualista, növekedésre összpontosító fejlődéssel szemben.</li>
+          <li><b>Közösségközpontú:</b> a közösség jóléte, amely magában foglalja az embereket és a természetet is; elutasítja a „független egyén” gondolatát.</li>
+          <li><b>Ökológiai egyensúly:</b> a természeti tőke megőrzése, a természet tisztelete az élet szerves részeként.</li>
+          <li><b>Elégségesség a növekedés helyett</b>, és <b>holisztikus nézet:</b> ember, társadalom és természet egyetlen rendszer összekapcsolódó részei.</li>
+        </ul>
+        <h3>34. dia — Értékek kontrasztja</h3>
+        <ul>
+          <li>Nyugati: egyéni jólét, fogyasztás — Buen Vivir: <b>közösségi jólét, közösségi felelősség</b>.</li>
+          <li>Nyugati: az ember a természet felett — Buen Vivir: <b>az ember a természet része</b>.</li>
+          <li>Nyugati: gazdasági növekedés = siker — Buen Vivir: <b>egyensúly, mértékletesség, fenntarthatóság</b>.</li>
+          <li>Nyugati: verseny és profit — Buen Vivir: <b>együttműködés és kölcsönösség</b>.</li>
+          <li>Nyugati: államközpontú fejlődés — Buen Vivir: <b>közösségi önrendelkezés</b>.</li>
+          <li>A dia kiemelése: <b>a Buen Vivir nem fejlődéselmélet, hanem fejlődéskritika!</b></li>
+        </ul>
+        <h3>35. dia — Közösségek és a környezet</h3>
+        <ul>
+          <li><b>Közösségi gazdaság</b> (economía solidaria / comunitaria): a gazdasági döntéseket közösségi szinten hozzák, az <b>egyenlőség és a kölcsönösség</b> elvén. Formái: szövetkezetek, közösségi földtulajdon, helyi csere- és támogatási rendszerek.</li>
+          <li><b>Politikai-gazdasági ellentmondás:</b> Ecuador és Bolívia hivatalosan vallja a Buen Vivirt, de gazdaságuk nagymértékben függ a nyersanyag-exporttól (olaj, gáz, lítium) — ez a <b>„neo-extraktivizmus”</b>: környezetbarát retorika, kizsákmányoló gyakorlat.</li>
+          <li>Nehéz operacionalizálni, és kérdés a kulturális integráció: őslakos vs. vidéki vs. városi társadalmak.</li>
+        </ul>
+        <h3>37. dia — Függőségelmélet (dependency theory)</h3>
+        <ul>
+          <li>Latin-Amerikában született az <b>1950-es és 1970-es években</b>, válaszul a domináns neoklasszikus és modernizációs elméletekre, amelyek szerint „a fejlődő országok végül utolérik a fejletteket”, ha a nyugati modellt követik.</li>
+          <li>A globális kapitalista rendszer úgy van felépítve, hogy a <b>periféria állandóan függ a központtól</b>; a <b>központ fejlődése a periféria alulfejlettségén alapul</b>.</li>
+          <li>Példa: Latin-Amerika olcsó nyersanyag- és élelmiszerexportja fenntartja a központ ipari jólétét.</li>
+          <li>A szegénység és az alulfejlettség nem „fejletlenség”, hanem a globális kapitalizmus működésének <b>szükségszerű következménye</b> (vö. neomarxizmus).</li>
+        </ul>
+        <h3>39. dia — Felszabadítási elmélet (liberation theology)</h3>
+        <ul>
+          <li>Az <b>1960-as és 1970-es években</b> alakult ki, főként katolikus papok és baloldali értelmiségiek körében Latin-Amerikában.</li>
+          <li>Kezdetben teológiai mozgalom, erős társadalmi-gazdasági tartalommal: a szegénység, a kizsákmányolás és az egyenlőtlenség <b>strukturális bűnök</b>.</li>
+          <li>A társadalmi igazságtalanság nem természetes, hanem <b>politikailag fenntartott struktúra</b>; a cél nem a jótékonyság, hanem a <b>struktúrák megváltoztatása</b> (földreform, szolidáris gazdaság). A gazdasági és a spirituális elnyomás összefonódik.</li>
+        </ul>
+        <h3>40. dia — Hogyan áll össze?</h3>
+        <ul>
+          <li>A 21. században a <b>Buen Vivir a függőségi és a felszabadítási elméletek „örökösének”</b> tekinthető: a függőség mint a globális egyenlőtlenségek kritikája, a felszabadulás mint etikai-spirituális dimenzió, a Buen Vivir pedig ezeket integrálja a fejlődés új, holisztikus kritikájába.</li>
+        </ul>
+        <h3>47. dia — Dollármentesedés (de-dollarisation)</h3>
+        <ul>
+          <li>Az a folyamat, amelynek során a világ <b>eltávolodik az amerikai dollártól</b> mint fő tartalékvalutától.</li>
+          <li>A tartalékok <b>aranyba vagy más valutákba</b> való átcsoportosítása mellett az országok úgy is csökkentik a dollárfüggőséget, hogy a nemzetközi tranzakciókban kihagyják az amerikai valutát.</li>
+          <li>Példa: Kína a hatalmas oroszországi áruvásárlásaiért <b>renminbiben</b> fizet, és megállapodásokat írt alá saját valutájának használatáról Szaúd-Arábiával és Brazíliával is.</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="note" data-lecture="6" data-topic="verseny">
+      <summary>Versenyképesség és a kereskedelmi elméletek <span class="lec">06. ea · 2–13. dia</span></summary>
+      <div class="note-body">
+        <h3>2. dia — A nemzetközi kereskedelem okai</h3>
+        <ul>
+          <li><b>Természeti erőforrásokbeli különbségek</b> (termékeny földek, olajmezők, kikötők).</li>
+          <li><b>Fogyasztói preferenciákbeli különbségek</b> — egy ország esetleg nem tudja előállítani, amit az emberek a legjobban szeretnek.</li>
+          <li><b>Költségbeli különbségek</b> — például az alacsonyabb magyarországi munkaerőköltség miatt sok vállalat telepíti ide üzemeit.</li>
+        </ul>
+        <h3>3–4. dia — Verseny és versenyelőny</h3>
+        <ul>
+          <li>A kérdés: mely termékekre specializálódjon egy nemzetgazdaság, és mivel kapcsolódjon be a nemzetközi kereskedelembe?</li>
+          <li><b>Adam Smith:</b> abszolút előnyök elmélete · <b>David Ricardo:</b> komparatív előnyök elmélete · <b>Heckscher–Ohlin:</b> több termelési tényező · <b>Michael Porter:</b> versenyelőny-elmélet (<b>gyémántmodell</b>).</li>
+          <li><b>Porter kritikája</b> a komparatív előnyök elméletéről: nem veszi figyelembe a méretgazdaságosságot, a technológia és a know-how fontosságát, a termékdifferenciálást, a monopolisztikus piacokat, a vállalati hálózatokat és stratégiai szövetségeket; az országon belüli termelési tényezőket állandónak tekinti, és nem foglalkozik a tényezők országok közötti áramlásával.</li>
+        </ul>
+        <h3>5. dia — Heckscher–Ohlin elmélet</h3>
+        <ul>
+          <li>Minden ország kölcsönös előnyökre tehet szert, ha olyan termékre specializálódik, amely a nála <b>viszonylag bőségesen rendelkezésre álló termelési tényezőt</b> használja intenzívebben — figyelembe véve a termékek eltérő tényezőigényét (<b>munkaigényes vagy tőkeigényes</b>) és az ország <b>tényezőellátottságát</b>.</li>
+        </ul>
+        <h3>6. dia — Abszolút vs. komparatív előny</h3>
+        <ul>
+          <li><b>Abszolút előny:</b> a termelő ugyanazon költségért nagyobb mennyiséget, vagy ugyanazt a mennyiséget alacsonyabb költséggel állítja elő, mint mások.</li>
+          <li><b>Komparatív előny:</b> figyelembe veszi az <b>alternatív költségeket</b>; megmutatja, hogy a dolgok nem mindig olyan egyszerűek, mint az abszolút előnynél.</li>
+          <li>A kereskedelmi döntéseket befolyásolják az akadályok (vámok, kvóták), a termelési költségek és a méretgazdaságosság, valamint a helyi igények összetétele — egy ország abszolút vagy komparatív előny mellett is gyakran olyat termel, amiben nincs előnye.</li>
+        </ul>
+        <h3>7–8. dia — Termelékenységi példa</h3>
+        <ul>
+          <li>„A” ország: X termékből 8 db/óra, Y termékből 4 db/óra. „B” ország: X-ből 4 db/óra, Y-ból 8 db/óra.</li>
+          <li>„A” <b>abszolút előnyben</b> van X-ben (kétszer akkora termelékenység), „B” pedig Y-ban — ezért mindkettő arra specializálódik.</li>
+          <li>A <b>specializációval</b>, azonos mennyiségű munkával a nemzetközi gazdaság <b>+4 darabot termel X-ből és +4-et Y-ból</b>.</li>
+          <li>A jólét kölcsönösen — bár nem feltétlenül egyenlő mértékben — növekszik: többlettermelés, többletfogyasztás.</li>
+        </ul>
+        <h3>9. dia — Komparatív előny</h3>
+        <ul>
+          <li>Ha „A” országnak mindkét termékből abszolút előnye van, „B”-nek pedig mindkettőből hátránya, a specializáció <b>nem dönthető el az abszolút előnyök alapján</b>.</li>
+          <li>Ricardo eredeti modellje <b>Anglia és Portugália</b>, a bor és a szövet példáján; Samuelson példája Amerika és Európa, az élelmiszer- és ruházati piacon.</li>
+          <li>Mindenkinek a <b>komparatív előnnyel</b> előállított termékre érdemes specializálódnia — nagyobb abszolút előnnyel vagy kisebb abszolút hátránnyal.</li>
+          <li>Példa: az USA-ban a ruházat kétszer drágább, mint az élelmiszer, Európában 4/3-szor. Az USA-ban a ruházat relatíve drágább, Európában az élelmiszer. Így <b>az USA élelmiszert, Európa ruházatot exportál</b>, ami csökkenti az árakat és növeli a vagyont.</li>
+        </ul>
+        <h3>13. dia — „Vitatkozzunk…”</h3>
+        <ul>
+          <li>A modell <b>versenyző piacot</b> feltételez; ha ez nem teljesül (ami jellemző a modern gazdaságokra), hatékonyságvesztés lép fel, és a külkereskedelem hatása megkérdőjelezhető.</li>
+          <li>Környezetromlás, merev árak és bérek; kényszerű munkanélküliség; hatékonyságcsökkenés externáliák és közjavak miatt.</li>
+          <li><b>Jövedelemeloszlás:</b> a külkereskedelem általában jó az országnak, de nem mindenkinek — lesznek nyertesek és vesztesek.</li>
+          <li><b>Stolper–Samuelson tétel:</b> a szabadkereskedelem <b>emeli az exportban felhasznált tényezők árát</b>, és <b>csökkenti az importban felhasználtakét</b>.</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="note" data-lecture="6" data-topic="valsag">
+      <summary>Ciklusok, válságelméletek, agyelszívás <span class="lec">06. ea · 15–29. dia</span></summary>
+      <div class="note-body">
+        <h3>15. dia — Gazdasági válság és üzleti ciklus</h3>
+        <ul>
+          <li>A makrogazdasági mutatók (GDP, árszint, infláció, kamatláb) <b>ingadozást</b> mutatnak: a gazdaságban növekedési és hanyatlási fázisok váltják egymást.</li>
+          <li><b>Üzleti ciklus:</b> a gazdasági teljesítmény időbeli ingadozása — egy fellendülés kezdetétől a következő fellendülés kezdetéig.</li>
+          <li><b>Növekedési szakasz:</b> a GDP nő, bővülnek a fogyasztási és szükséglet-kielégítési lehetőségek. <b>Hanyatlás:</b> a teljesítmény csökken.</li>
+        </ul>
+        <h3>16. dia — Ciklusok időtáv szerint</h3>
+        <ul>
+          <li><b>Kitchin-ciklus (10–40 hónap):</b> a monetáris és hitelszférában figyelhető meg.</li>
+          <li><b>Klasszikus üzleti ciklus (8–10 év):</b> lefolyását és okait a <b>beruházások</b> határozzák meg; a monopolizáció, az állam szerepének növekedése és a szerkezeti átalakulás jelentősen megváltoztatta.</li>
+          <li><b>Kuznets-ciklus (18–20 év):</b> egyedi létesítmények építése során, ahol a termék élettartama jóval hosszabb a termelőeszközökénél; a befejezés után recessziós jelenségek (felesleges infrastruktúra, kihasználatlan kapacitások).</li>
+          <li><b>Kondratyev hosszú ciklus (40–60 év):</b> oka a nagy értékű <b>tőkejavak időszakos megújulása</b>, társadalmi változásokkal összefüggésben.</li>
+          <li><b>Szuperhosszú ciklusok (150–200 év):</b> létezésük nem egyértelműen bizonyított; okuk a korszakalkotó találmányokban és az alapkutatásban keresendő (vö. destruktív technológiák).</li>
+          <li>Valódi gazdasági növekedés akkor látható, amikor <b>diszruptív, radikális innováció</b> születik — ilyenkor tolódik ki a termelési lehetőségek határa (PPF).</li>
+        </ul>
+        <h3>18. dia — Globális és lokális válságok okai</h3>
+        <ul>
+          <li><b>Túltermelési és alulfogyasztási ciklusok</b> — a termelés és a fogyasztás közötti különbségből.</li>
+          <li><b>Gazdaságpolitikai ciklusok</b> — kormányzati döntések nyomán (közmunkaprogram, transzferfizetés, adókulcsváltozás).</li>
+          <li><b>Monetáris ciklusok</b> — a pénzkínálat változásán keresztül.</li>
+          <li><b>Beruházási ciklusok</b> — a jelentős pénzügyi kötelezettségvállalás és az eredmény közötti <b>időeltolódás</b> miatt.</li>
+          <li><b>Tartós fogyasztási cikkek</b> vásárlása által okozott ciklusok — a vásárlás nem folyamatos, hanem ciklikus.</li>
+          <li><b>Politikai ciklusok</b> — a választások ciklikusságához kapcsolódva.</li>
+        </ul>
+        <h3>22–27. dia — Válságelméletek</h3>
+        <ul>
+          <li><b>Klasszikus (Smith, Ricardo, Say, 18–19. sz.):</b> a gazdaság önszabályozó, a válság átmeneti, mert az árak és bérek alkalmazkodnak. Ok: külső zavar (háború, természeti katasztrófa). Következmény: rövid visszaesés, gyors helyreállás.</li>
+          <li><b>Marxista (Marx, 1840–50-es évek, A tőke 1894):</b> a válság a rendszer <b>belső ellentmondásaiból</b> fakad — tőkefelhalmozás, a profitráta csökkenése, túltermelés. Következmény: munkanélküliség, csökkenő árak, társadalmi feszültség.</li>
+          <li><b>Keynesi (1920–30-as évek):</b> a válságot az <b>aggregált kereslet hiánya</b> okozza; a magánszektor megtakarít, nem költ. Megoldás: állami beavatkozás, kormányzati kiadások, beruházások. (A dia Japánt és a deflációt hozza összevetésnek.)</li>
+          <li><b>Monetarista (Friedman, 1956):</b> a válságot a <b>pénzkínálat rossz szabályozása</b> okozza; megoldás a stabil, kiszámítható pénzkínálat. A pénz mennyiségi elmélete szerint az általános árszint egyenesen arányos a pénzkínálattal.</li>
+          <li><b>Pénzügyi instabilitás hipotézise (Minsky, 1970–80-as évek):</b> <b>maga a stabilitás szül válságot</b> — a túlzott magabiztosság túl sok hitelt, buborékot és összeomlást okoz.</li>
+          <li><b>Osztrák iskola (Mises, Hayek, 1920–30-as évek):</b> a válságot a <b>mesterségesen alacsony kamatlábak</b> és a túlzott hitelexpanzió okozza; a befektetők rossz döntéseket hoznak. Megoldás: piaci kamatlábak, kevesebb beavatkozás.</li>
+        </ul>
+        <h3>28–29. dia — Agyelszívás (brain drain)</h3>
+        <ul>
+          <li>A magasan képzett munkavállalók (orvosok, mérnökök, kutatók, informatikusok) vándorlása egy fejlettebb országba jobb lehetőségek reményében: az <b>emberi tőke exportja</b> a kevésbé fejlett országokból a fejlettebbekbe.</li>
+          <li>Okai: <b>gazdasági</b> (alacsony bérek, gyenge munkaerőpiac, kevés kutatási erőforrás) · <b>társadalmi</b> (rossz életkörülmények, korrupció, politikai bizonytalanság, bizalomhiány) · <b>személyes</b> (karrier, életminőség, a gyermekek oktatása) · <b>globalizáció</b>.</li>
+          <li><b>Emberi tőke elmélet:</b> az oktatás befektetés, amelynek hozamát az agyelszívásnál egy másik ország élvezi — a küldő ország „elveszíti” a hozamot.</li>
+          <li><b>A munkaerő-migráció új közgazdaságtana:</b> a migráció <b>családi döntés</b>, a hazaküldött pénz kockázatmegosztást és jövedelemdiverzifikációt teremt; a külföldi tapasztalat később hazavihető.</li>
+          <li><b>Függőségi elmélet:</b> a centrum elnyeli a periféria erőforrásait, beleértve az emberi tőkét — az agyelszívás a globális egyenlőtlenség egyik formája.</li>
+          <li><b>Globalizáció és hálózatelméletek:</b> a tudás és a munkaerő globális hálózatokban áramlik; az agyelszívás nemcsak veszteség, hanem az <b>agykeringés</b> része is.</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="note" data-lecture="7" data-topic="kereskedelem">
+      <summary>Merkantilizmus, protekcionizmus, liberalizmus <span class="lec">07. ea · 2–11. dia</span></summary>
+      <div class="note-body">
+        <h3>2. dia — A közgazdasági gondolkodás térképe</h3>
+        <ul>
+          <li>A dia ábrája a fiziokratáktól és merkantilistáktól indul: <b>klasszikus politikai gazdaságtan</b> → marxista politikai gazdaságtan (nyugati és új marxizmus, kelet-európai marxizmus), <b>német történeti iskola</b>, freiburgi iskola, <b>neoklasszikus közgazdaságtan</b> (osztrák iskola, chicagói iskola, stockholmi iskola, ökonometria, neoklasszikus makroökonómia), <b>keynesi közgazdaságtan</b> (poszt-keynesi, neo-keynesi), <b>régi és új intézményi közgazdaságtan</b>, jóléti és új jóléti közgazdaságtan, <b>viselkedési közgazdaságtan</b>.</li>
+        </ul>
+        <h3>3. dia — Merkantilizmus</h3>
+        <ul>
+          <li>A <b>gazdasági nacionalizmus</b> egyik formája, amely korlátozó kereskedelmi gyakorlatokon keresztül növeli a nemzet jólétét és hatalmát; célja az <b>arany- és ezüstkészlet növelése exporttal</b>, nem pedig csökkentése importtal. Emellett a <b>hazai foglalkoztatást</b> támogatja.</li>
+          <li>A kereskedelmi többlet védelme magában foglalta a <b>gyarmatok más nemzetekkel való kereskedelmének megtiltását</b> és az importvámokat.</li>
+          <li>A merkantilista kormányok <b>manipulálják a gazdaságot</b> a kedvező kereskedelmi mérleg érdekében. Az <b>imperializmus</b> a katonai erő és a tömeges bevándorlás kombinációjával kényszeríti rá a merkantilizmust a kevésbé fejlett régiókra.</li>
+          <li>A kapitalizmus szabad kereskedelme megfizethetőbb árukat kínálhat, míg a merkantilizmus <b>korlátozza az importot és a fogyasztói választást</b>: kevesebb import → kevesebb verseny, több monopólium, magasabb árak (vö. nemzeti érdek).</li>
+        </ul>
+        <h3>7–8. dia — Protekcionizmus és eszközei</h3>
+        <ul>
+          <li>Kormányzati stratégiák a nemzetközi kereskedelem korlátozására a <b>hazai ipar támogatása</b> érdekében; kulcskoncepció: <b>távol tartani a külföldi árukat vagy drágítani azokat</b>.</li>
+          <li><b>Vámok</b> — importált árukra kivetett adók.</li>
+          <li><b>Kvóták</b> — az importálható mennyiség korlátozása; növeli a belföldi árakat, de a hazai termelő nyereségesen termelhet.</li>
+          <li><b>Támogatások</b> — közvetlen vagy közvetett pénzügyi segítség (adókedvezmény, kifizetés) a helyi termelőknek.</li>
+          <li><b>Importengedélyezés és szabványok</b> — bürokratikus követelmények vagy biztonsági előírások, gyakran egészségügyi vagy környezetvédelmi indokkal.</li>
+          <li><b>Devizamanipuláció</b> — a nemzeti valuta mesterséges gyengítése, hogy az export olcsóbb, az import drágább legyen.</li>
+        </ul>
+        <h3>9. dia — Kezdő iparág elmélete (infant industry)</h3>
+        <ul>
+          <li><b>Alexander Hamilton</b> (USA pénzügyminisztere) és <b>Friedrich List</b> (1841, <i>A politikai gazdaságtan nemzeti rendszere</i>) érvelése: az új hazai iparágakat <b>ideiglenesen</b> védeni kell vámokkal vagy támogatással, amíg elég erősek nem lesznek az önálló versenyre.</li>
+          <li>A támogatás új iparágak kiépítéséhez, munkahelyteremtéshez és <b>továbbgyűrűző előnyökhöz</b> vezethet; kezeli a piaci tökéletlenségeket (pl. finanszírozási nehézségek).</li>
+          <li><b>Kritika:</b> a védett iparág versenyképtelenné válhat, sosem éri el az önállóságot, vagy monopóliumot képez; a védelem <b>magasabb fogyasztói árakhoz</b> vezet (vö. Dél-Korea).</li>
+        </ul>
+        <h3>10. dia — Stratégiai kereskedelmi elmélet</h3>
+        <ul>
+          <li>A kormányok támogatással és vámokkal befolyásolhatják a <b>nemzetközi oligopóliumok</b> kimenetelét, a profitot a külföldi vállalatoktól a hazaiakhoz csoportosítva át, és növelve a hazai jólétet.</li>
+          <li>A hagyományos — tökéletes versenyt feltételező — modellekkel szemben <b>kevés, erős vállalattal és méretgazdaságossággal</b> rendelkező iparágakra összpontosít (repülőgépipar, félvezetőipar).</li>
+        </ul>
+        <h3>11. dia — Liberalizmus</h3>
+        <ul>
+          <li>Az a meggyőződés, hogy az <b>egyéni szabadság, a magántulajdon és a szabad piacok</b> a legjobb módjai a gazdaság szervezésének; minimális kormányzati beavatkozás (vö. laissez faire).</li>
+          <li>Feltevés: a piac szabad és közel tökéletes, az <b>információs aszimmetriák</b> korlátozottak, és a gazdaság önszabályozó.</li>
+          <li>Az árakat, béreket és kibocsátást a <b>kereslet és kínálat</b> határozza meg; a pénz, a beruházás és az emberek szabadon áramlanak (vö. globalizáció).</li>
+          <li>A vállalatok versenyeznek a fogyasztókért, ami hatékonysághoz, innovációhoz és alacsonyabb árakhoz vezethet.</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="note" data-lecture="7" data-topic="kereskedelem">
+      <summary>Globalizáció, grobalizáció, amerikanizáció <span class="lec">07. ea · 15–22. dia</span></summary>
+      <div class="note-body">
+        <h3>15. dia — „A semmi globalizációja” (George Ritzer)</h3>
+        <ul>
+          <li>A mű a <b>grobalizáció</b> (globális rendszerek és normák rákényszerítése) és a <b>glokalizáció</b> (globális és lokális elemek keveredése) közötti feszültségre összpontosít.</li>
+          <li><b>„Semmi”:</b> olyan társadalmi formák, amelyeket „központilag fogant és ellenőrzött, és nagyrészt hiányzik a megkülönböztető tartalom” — bevásárlóközpontok, gyorséttermi láncok, mindenhol hasonló hitelkártyák.</li>
+          <li><b>„Valami”:</b> „őshonos alapon fogant és ellenőrzött”, tartalomban gazdag formák — helyi piacok egyedi ételekkel, hagyományos kézműves termékek.</li>
+          <li>A <b>„semmi grobalizációja”</b> a kulturális homogenizáció felé visz, míg a <b>„valami glokalizációja”</b> utat kínál a sokszínűség megőrzésére.</li>
+        </ul>
+        <h3>16. dia — Gl(r)obalizáció</h3>
+        <ul>
+          <li><b>Globalizáció:</b> a világ gazdaságainak, kultúráinak és népességeinek növekvő <b>kölcsönös függősége</b>, amelyet a határokon átnyúló kereskedelem, technológia és befektetés hajt.</li>
+          <li><b>Grobalizáció (R-rel):</b> akkor következik be, amikor a multinacionális vállalatok és a hatalmas országok globálisan terjeszkednek a <b>profit maximalizálása, a piacbővítés és az ideológia terjesztése</b> érdekében.</li>
+          <li><b>McDonaldizáció / disneyfikáció:</b> nemzetek, vállalatok és szervezetek imperialista ambíciói, hogy termékeiket, értékeiket és kultúrájukat más társadalmakra erőltessék → globális homogenizáció (vö. demokrácia és kulturális export).</li>
+          <li>Tehát a globalizáció a növekvő összekapcsoltság folyamata, a grobalizáció viszont a nyugati — különösen amerikai — kapitalizmus és kultúra <b>hatalomvezérelt, felülről lefelé irányuló</b> terjedése, amely Ritzer szerint „semmi” kultúrához vezet.</li>
+        </ul>
+        <h3>17. dia — Kulturális homogenizáció</h3>
+        <ul>
+          <li>Az a folyamat, amelynek során a helyi kultúrák egyre inkább hasonlóvá válnak egy <b>domináns globális kultúrához</b>, ami a kulturális sokszínűség csökkenéséhez vezet.</li>
+          <li>Hajtóerői: a <b>tömegmédia</b>, a globalizáció és a multinacionális vállalatok, amelyek egységes nyelveket, szokásokat és fogyasztói gyakorlatokat szorgalmaznak.</li>
+        </ul>
+        <h3>19. dia — Amerikanizáció</h3>
+        <ul>
+          <li><b>Kulturális befolyás:</b> az amerikai popkultúra — zene, film, televízió, gyorséttermek — terjedése.</li>
+          <li><b>Gazdasági és politikai befolyás:</b> amerikai üzleti gyakorlatok, politikai technikák és gazdasági modellek átvétele.</li>
+          <li><b>Média és nyelv:</b> az amerikai szókincs és helyesírás átvétele.</li>
+          <li><b>Homogenizáció vagy hibridizáció?</b> Egyesek szerint a világ kultúráinak homogenizálódásához vezet, mások szerint <b>kulturális hibridizáció</b>: a kultúrák összeolvadásából új, különálló formák születnek — a globalizáció, a migráció és a kereskedelem hajtásával.</li>
+        </ul>
+        <h3>22. dia — A vám hatása (jelölések)</h3>
+        <ul>
+          <li><b>TR</b> – tarifa (vám) bevétel · <b>CS</b> – fogyasztói többlet (consumer surplus) · <b>PS</b> – termelői többlet (producer surplus) · <b>NW</b> – nemzeti jólét.</li>
+          <li>A <b>PS kisebb ütemben növekszik, mint amennyivel a CS csökken</b>, mivel az árak növekedése miatt a fogyasztás visszaesik.</li>
+        </ul>
+      </div>
+    </details>
+
+</div>
+
+<script>
+const TOPICS = [
+  {id:"gdp",          name:"GDP, SNA, mutatószámok"},
+  {id:"oko",          name:"Alternatív mutatók, ökológia"},
+  {id:"kultura",      name:"Konfucianizmus, Kína, Japán"},
+  {id:"delamerika",   name:"Buen Vivir, függőség"},
+  {id:"verseny",      name:"Versenyképesség, előnyök"},
+  {id:"valsag",       name:"Ciklusok, válságelméletek"},
+  {id:"kereskedelem", name:"Kereskedelempolitika, globalizáció"}
+];
+
+const Q = [];
+
+(function(){
+"use strict";
+
+var LS = "mke-zh2-v1";
+var LECTURES = [
+  {id:"4", name:"04. GDP és mutatók",  full:"04. előadás — GDP és alternatív mutatók, ökológia"},
+  {id:"5", name:"05. Kultúrák",        full:"05. előadás — Kultúrák találkozása"},
+  {id:"6", name:"06. Versenyképesség", full:"06. előadás — Versenyképesség, válság, brain drain"},
+  {id:"7", name:"07. Kereskedelem",    full:"07. előadás — Nemzetközi kereskedelem"}
+];
+function lecturesOf(q){
+  if(!q._lec){
+    var out = [], re = /0(\d)\. előadás/g, m;
+    while((m = re.exec(q.s))) if(out.indexOf(m[1]) < 0) out.push(m[1]);
+    q._lec = out.length ? out : ["1"];
+  }
+  return q._lec;
+}
+function inLecture(q){
+  var ls = lecturesOf(q);
+  for(var i = 0; i < ls.length; i++) if(st.lectures.indexOf(ls[i]) >= 0) return true;
+  return false;
+}
+
+var store = {first:{}, seen:{}, sched:{}, round:0, answered:0, correct:0, streak:0, best:0,
+             settings:{topics:TOPICS.map(function(t){return t.id;}),
+                       lectures:LECTURES.map(function(l){return l.id;}),
+                       filter:"topic", len:25}};
+try{
+  var raw = localStorage.getItem(LS);
+  if(raw){
+    var p = JSON.parse(raw);
+    if(p && typeof p === "object"){
+      ["first","seen","sched","round","answered","correct","streak","best"].forEach(function(k){ if(p[k] !== undefined) store[k] = p[k]; });
+      if(p.settings){
+        if(p.settings.topics) store.settings.topics = p.settings.topics;
+        if(p.settings.lectures) store.settings.lectures = p.settings.lectures;
+        if(p.settings.filter === "topic" || p.settings.filter === "lecture") store.settings.filter = p.settings.filter;
+        // a kör mérete mostantól fix 25 kérdés
+      }
+    }
+  }
+}catch(e){}
+function save(){ try{ localStorage.setItem(LS, JSON.stringify(store)); }catch(e){} }
+
+// témakör-lista rendezése: ismeretlen id-k kiszűrése
+(function(){
+  var valid = TOPICS.map(function(t){ return t.id; });
+  var kept = (store.settings.topics || []).filter(function(id){ return valid.indexOf(id) >= 0; });
+  if(kept.length !== (store.settings.topics || []).length || !kept.length) kept = valid.slice();
+  store.settings.topics = kept;
+})();
+
+var st = store.settings;
+var state = {view:"quiz", deck:[], i:0, locked:false, tf:{}, ok:0, bad:0, score:0, max:0, done:false, misses:[], kind:{}, mix:{}, order:{}, log:[], notesLec:LECTURES[0].id};
+try{
+  var savedLec = localStorage.getItem(LS + "-lec");
+  if(savedLec && LECTURES.some(function(l){ return l.id === savedLec; })) state.notesLec = savedLec;
+}catch(e){}
+
+function esc(s){ return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
+function el(id){ return document.getElementById(id); }
+function shuffle(a){ for(var i=a.length-1;i>0;i--){ var j=Math.floor(Math.random()*(i+1)); var t=a[i]; a[i]=a[j]; a[j]=t; } return a; }
+function byId(id){ for(var i=0;i<Q.length;i++) if(Q[i].id === id) return Q[i]; return null; }
+function topicName(id){ for(var i=0;i<TOPICS.length;i++) if(TOPICS[i].id===id) return TOPICS[i].name; return id; }
+function fmt(n){ return String(Math.round(n*100)/100).replace(".", ","); }
+function weight(q){ return 1; }
+
+/* Leitner-dobozok: hány kör múlva jöjjön vissza a kérdés.
+   A 6-7. doboz a „megszilárdult” tudásé: 3-4 egymás utáni jó válasz után ide kerül. */
+var GAP = [1, 2, 3, 5, 8, 13, 25, 40];
+var SOLID = 3;   // ennyi egymás utáni jó válasz után jön a hosszú pihenő
+
+function schedOf(q){
+  var sc = store.sched[q.id];
+  if(sc) return sc;
+  var f = store.first[q.id];
+  if(!f) return null;                      // még sosem láttad
+  sc = {box: f === "ok" ? 2 : (f === "partial" ? 1 : 0), due: store.round, run: f === "ok" ? 1 : 0};
+  store.sched[q.id] = sc;
+  return sc;
+}
+function schedule(q, val){
+  var sc = store.sched[q.id] || {box:0, due:store.round, run:0};
+  if(sc.run === undefined) sc.run = 0;
+  if(val === 1){
+    sc.run += 1;
+    sc.box = Math.min(sc.box + 1, GAP.length - 1);
+    // 3 egymás utáni jó válasz után hosszú pihenő, a 4. után még hosszabb
+    if(sc.run >= SOLID) sc.box = Math.max(sc.box, 5 + Math.min(sc.run - SOLID + 1, 2));
+    sc.due = store.round + GAP[sc.box];
+  } else if(val >= 0.75){
+    sc.due = store.round + GAP[sc.box];
+  } else {
+    sc.run = 0;
+    sc.box = Math.max(0, sc.box - 2);
+    sc.due = store.round + 1;
+  }
+  store.sched[q.id] = sc;
+}
+function solidCount(){
+  return Q.filter(function(q){
+    var sc = store.sched[q.id];
+    return sc && sc.run >= SOLID;
+  }).length;
+}
+function dueCount(){
+  return quizPool().filter(function(q){
+    var sc = schedOf(q);
+    return sc && sc.due <= store.round;
+  }).length;
+}
+
+function matchPool(){
+  return Q.filter(function(q){ return q.type === "match"; });
+}
+function quizPool(){
+  if(st.filter === "lecture") return Q.filter(inLecture);
+  return Q.filter(function(q){ return st.topics.indexOf(q.t) >= 0; });
+}
+/* ---------------- bal sáv ---------------- */
+function renderRail(){
+  var box = el("topics"), html = "", byLecture = st.filter === "lecture";
+
+  Array.prototype.forEach.call(el("segFilter").querySelectorAll("button"), function(b){
+    b.setAttribute("aria-pressed", String(st.filter === b.dataset.v));
+    b.onclick = function(){
+      if(st.filter === b.dataset.v) return;
+      st.filter = b.dataset.v; save(); state.view = "quiz"; newRound();
+    };
+  });
+
+  if(byLecture){
+    LECTURES.forEach(function(L){
+      var n = Q.filter(function(q){ return lecturesOf(q).indexOf(L.id) >= 0; }).length;
+      html += '<label data-lect="'+L.id+'" title="'+esc(L.full)+'"><input type="checkbox" data-l="'+L.id+'"'+(st.lectures.indexOf(L.id)>=0?" checked":"")+
+        '><i class="dot"></i><span class="tx">'+esc(L.name)+'</span><span class="n">'+n+'</span></label>';
+    });
+  } else {
+    TOPICS.forEach(function(t){
+      var n = Q.filter(function(q){ return q.t === t.id; }).length;
+      html += '<label data-topic="'+t.id+'"><input type="checkbox" data-t="'+t.id+'"'+(st.topics.indexOf(t.id)>=0?" checked":"")+
+        '><i class="dot"></i><span class="tx" title="'+esc(t.name)+'">'+esc(t.name)+'</span><span class="n">'+n+'</span></label>';
+    });
+  }
+  box.innerHTML = html;
+
+  Array.prototype.forEach.call(box.querySelectorAll("input"), function(inp){
+    inp.addEventListener("change", function(){
+      var list = byLecture ? st.lectures : st.topics;
+      var id = byLecture ? inp.dataset.l : inp.dataset.t, ix = list.indexOf(id);
+      if(inp.checked && ix < 0) list.push(id);
+      if(!inp.checked && ix >= 0) list.splice(ix, 1);
+      if(!list.length){ list.push(id); inp.checked = true; }
+      save();
+      state.view = "quiz";
+      newRound();
+    });
+  });
+  var p = quizPool().length;
+  el("brandN").textContent = Q.length;
+  el("nav-quiz").textContent = state.view === "quiz" && state.deck.length
+    ? (Math.min(state.i + 1, state.deck.length) + "/" + state.deck.length)
+    : p + " kérdés";
+  var practiced = Object.keys(store.first).length;
+  el("nav-stats").textContent = practiced ? practiced + "/" + Q.length : "még üres";
+  Array.prototype.forEach.call(el("nav").querySelectorAll("button"), function(b){
+    b.setAttribute("aria-current", String(b.dataset.view === state.view));
+  });
+  el("topicsPanel").hidden = state.view !== "quiz";
+}
+
+/* ---------------- kör ---------------- */
+function newRound(){
+  var deck, kind = {}, mix = {fresh:0, repeat:0, review:0};
+
+  if(state.view === "drill"){
+    // előbb a legutóbb elrontottak, aztán a még nem látottak, végül a régen látottak
+    var rank = function(q){
+      var sc = store.sched[q.id];
+      if(!store.first[q.id]) return 1;
+      if(sc && sc.run === 0) return 0;
+      return 2;
+    };
+    deck = shuffle(matchPool().slice()).sort(function(a, b){
+      var d = rank(a) - rank(b);
+      if(d) return d;
+      var sa = store.sched[a.id], sb = store.sched[b.id];
+      return (sa ? sa.due : 0) - (sb ? sb.due : 0);
+    });
+    deck = shuffle(deck.slice(0, DRILL_N));
+    deck.forEach(function(q){ kind[q.id] = rank(q) === 0 ? "repeat" : (rank(q) === 1 ? "new" : "review"); });
+  } else {
+    store.round += 1;
+    var pool = quizPool(), fresh = [], repeat = [], review = [], later = [];
+    pool.forEach(function(q){
+      var sc = schedOf(q);
+      if(!sc){ fresh.push(q); return; }
+      if(sc.due > store.round){ later.push(q); return; }
+      (sc.box === 0 ? repeat : review).push(q);
+    });
+    shuffle(fresh); shuffle(repeat); shuffle(review);
+    later.sort(function(a, b){ return schedOf(a).due - schedOf(b).due; });
+
+    var n = Math.min(st.len || 25, pool.length);
+    deck = [];
+    function take(list, limit, tag){
+      for(var i = 0; i < list.length && deck.length < n && limit > 0; i++, limit--){
+        deck.push(list[i]); kind[list[i].id] = tag; list.splice(i--, 1);
+      }
+    }
+    // 1. amit elrontottál — a kör legfeljebb harmada
+    take(repeat, Math.max(1, Math.round(n * 0.3)), "repeat");
+    // 2. ami épp esedékes felfrissítésre — legfeljebb ötöde
+    take(review, Math.max(1, Math.round(n * 0.2)), "review");
+    // 3. a többi hely új kérdéseké
+    take(fresh, n, "new");
+    // 4. ha még maradt hely: a maradék esedékes, majd a később esedékes kérdések
+    take(repeat, n, "repeat");
+    take(review, n, "review");
+    take(later, n, "review");
+    shuffle(deck);
+    deck.forEach(function(q){
+      if(kind[q.id] === "new") mix.fresh++;
+      else if(kind[q.id] === "repeat") mix.repeat++;
+      else mix.review++;
+    });
+    save();
+  }
+
+  state.kind = kind; state.mix = mix; state.order = {};
+  if(state.view === "quiz") startTimer(); else stopTimer();
+  state.log = [];
+  state.deck = deck; state.i = 0; state.locked = false; state.tf = {};
+  state.ok = 0; state.bad = 0; state.score = 0; state.max = 0; state.done = false; state.misses = [];
+  render();
+}
+function filterLine(){
+  if(st.filter === "lecture"){
+    var names = LECTURES.filter(function(l){ return st.lectures.indexOf(l.id) >= 0; })
+                        .map(function(l){ return l.name; });
+    return "Előadás szerint: " + (names.length === LECTURES.length ? "mind a három" : names.join(" · "));
+  }
+  var n = st.topics.length;
+  return "Témakör szerint: " + (n === TOPICS.length ? "mind a " + n : n + " kiválasztva");
+}
+function mixLine(){
+  var m = state.mix || {}, parts = [];
+  if(m.fresh) parts.push("<b>" + m.fresh + "</b> új");
+  if(m.repeat) parts.push("<b>" + m.repeat + "</b> ismétlés");
+  if(m.review) parts.push("<b>" + m.review + "</b> felfrissítés");
+  return parts.length
+    ? '<p class="mixline">' + esc(filterLine()) + ' — ebben a körben: ' + parts.join(" · ") + "</p>"
+    : "";
+}
+
+/* ---------------- nézetek ---------------- */
+function render(){
+  renderRail();
+  if(state.view === "quiz" || state.view === "drill") return renderQuiz();
+  if(state.view === "calc") return renderCalc();
+  if(state.view === "notes") return renderNotes();
+  if(state.view === "sheet") return renderSheet();
+  if(state.view === "stats") return renderStats();
+}
+function head(num, title, lede, right){
+  return '<div class="headrow"><div class="headtext">'+
+    '<div class="viewhead"><span class="vnum">'+num+'</span><h2>'+esc(title)+'</h2></div>'+
+    '<p class="viewlede">'+esc(lede)+'</p></div>'+
+    (right || "") + '</div>';
+}
+var ROUND_MIN = 30;                       // a gyakorló teszt hossza percben
+var timer = {end:0, id:null, over:false};
+function startTimer(){
+  stopTimer();
+  timer.end = Date.now() + ROUND_MIN * 60000;
+  timer.over = false;
+  timer.id = setInterval(tickTimer, 1000);
+  paintTimer();
+}
+function stopTimer(){ if(timer.id){ clearInterval(timer.id); timer.id = null; } }
+function timeLeft(){ return Math.max(0, timer.end - Date.now()); }
+function tickTimer(){
+  if(timeLeft() <= 0){
+    stopTimer();
+    timer.over = true;
+    if(state.view === "quiz" && !state.done){
+      state.done = true;
+      renderQuiz();
+      renderRail();
+    } else paintTimer();
+    return;
+  }
+  paintTimer();
+}
+function paintTimer(){
+  var t = el("timer");
+  if(!t) return;
+  var left = timeLeft(), m = Math.floor(left / 60000), sec = Math.floor(left % 60000 / 1000);
+  t.textContent = m + ":" + ("0" + sec).slice(-2);
+  t.parentNode.dataset.state = !timer.id ? "off" : (left < 60000 ? "crit" : (left < 300000 ? "warn" : ""));
+}
+var DRILL_N = 10;                         // ennyi párosítás egy körben
+function drillControl(){
+  return '<div class="topctl"><span class="lbl">Párosítós feladatok</span><div class="topctl-row">'+
+    '<span class="tmr" data-state="off"><b>'+Math.min(DRILL_N, matchPool().length)+' / '+matchPool().length+'</b><span>feladat</span></span>'+
+    '<button class="btn" type="button" id="restart">Új kör</button></div></div>';
+}
+function timerControl(){
+  var left = timeLeft(), m = Math.floor(left / 60000), sec = Math.floor(left % 60000 / 1000);
+  return '<div class="topctl"><span class="lbl">Hátralévő idő</span><div class="topctl-row">'+
+    '<span class="tmr" data-state="'+(!timer.id ? "off" : "")+'"><b id="timer">'+m+':'+("0"+sec).slice(-2)+'</b><span>perc</span></span>'+
+    '<button class="btn" type="button" id="restart">Új kör</button></div></div>';
+}
+function bindTopCtl(){
+  var rb = el("restart");
+  if(rb) rb.onclick = function(){ if(state.view !== "drill") state.view = "quiz"; newRound(); };
+  paintTimer();
+}
+document.addEventListener("click", function(ev){
+  var b = ev.target && ev.target.closest ? ev.target.closest(".inote") : null;
+  if(!b) return;
+  var body = b.nextElementSibling;
+  if(!body || !body.classList.contains("inote-body")) return;
+  var open = !body.hidden;
+  body.hidden = open;
+  b.setAttribute("aria-expanded", String(!open));
+});
+
+function closePops(except){
+  Array.prototype.forEach.call(document.querySelectorAll(".ih.open"), function(x){
+    if(x !== except) x.classList.remove("open");
+  });
+}
+document.addEventListener("click", function(ev){
+  var t = ev.target, wrap = null;
+  while(t && t !== document){
+    if(t.classList && t.classList.contains("ih")){ wrap = t; break; }
+    t = t.parentNode;
+  }
+  if(wrap) ev.preventDefault();
+  var wasOpen = wrap && wrap.classList.contains("open");
+  closePops(null);
+  if(wrap && !wasOpen) wrap.classList.add("open");
+});
+document.addEventListener("keydown", function(ev){ if(ev.key === "Escape") closePops(null); });
+
+function renderSheet(){
+  el("main").innerHTML = head("04", "Jegyzet",
+    "Irányzattérkép és összehasonlító táblázatok: mi micsoda, miből nő ki, és mit szoktak felcserélni.") +
+    el("tpl-sheet").innerHTML;
+}
+function renderCalc(){
+  el("main").innerHTML = head("02", "Számolás",
+    "SNA-mutatók: képletek, kidolgozott példák és gyakorló feladat generált számokkal.") +
+    el("tpl-calc").innerHTML;
+  newCalc();
+}
+var CALC_ROWS = [
+  ["GDP",  "G0 − TF"],
+  ["NDP",  "GDP − A"],
+  ["GNI",  "GDP − (L+K)ki + (L+K)be"],
+  ["NNI",  "GNI − A"],
+  ["GNDI", "GNI − TRki + TRbe"],
+  ["NNDI", "GNDI − A"]
+];
+function newCalc(){
+  var box = el("calcbox");
+  if(!box) return;
+  var r = function(a, b){ return a + Math.floor(Math.random() * (b - a + 1)); };
+  var go = r(60, 200) * 10, tf = r(25, 55) * 10, a = r(4, 12) * 10;
+  if(tf >= go) tf = Math.round(go * 0.4 / 10) * 10;
+  var d = {go:go, tf:tf, a:a, lkOut:r(5, 16) * 10, lkIn:r(5, 16) * 10, trOut:r(2, 9) * 10, trIn:r(2, 9) * 10};
+  var v = {};
+  v.GDP = d.go - d.tf;
+  v.NDP = v.GDP - d.a;
+  v.GNI = v.GDP - d.lkOut + d.lkIn;
+  v.NNI = v.GNI - d.a;
+  v.GNDI = v.GNI - d.trOut + d.trIn;
+  v.NNDI = v.GNDI - d.a;
+  box.dataset.sol = JSON.stringify(v);
+
+  var html = '<div class="calc-data"><span class="lbl">Adatok</span><ul>'+
+    '<li>Bruttó kibocsátás (G0): <b>'+d.go+'</b></li>'+
+    '<li>Folyó termelő fogyasztás (TF): <b>'+d.tf+'</b></li>'+
+    '<li>Amortizáció (A): <b>'+d.a+'</b></li>'+
+    '<li>Hazaiak külföldi munka- és tőkejövedelme (be): <b>'+d.lkIn+'</b></li>'+
+    '<li>Külföldiek hazai munka- és tőkejövedelme (ki): <b>'+d.lkOut+'</b></li>'+
+    '<li>Jövedelemtranszfer külföldről (be): <b>'+d.trIn+'</b></li>'+
+    '<li>Jövedelemtranszfer külföldre (ki): <b>'+d.trOut+'</b></li>'+
+    '</ul></div><div class="calc-rows">';
+  CALC_ROWS.forEach(function(row){
+    html += '<div class="calc-row" data-k="'+row[0]+'">'+
+      '<label for="in-'+row[0]+'"><b>'+row[0]+'</b><span>'+esc(row[1])+'</span></label>'+
+      '<input id="in-'+row[0]+'" type="number" inputmode="numeric" autocomplete="off" placeholder="?">'+
+      '<span class="calc-fb"></span></div>';
+  });
+  html += '</div><div class="fbrow" style="margin-top:16px"><span class="kbd">A lánc bármelyik ága jó, ha az eredmény stimmel.</span>'+
+    '<span style="display:flex;gap:10px"><button class="btn ghost" type="button" id="calcNew">Új adatsor</button>'+
+    '<button class="btn primary" type="button" id="calcCheck">Ellenőrzés</button></span></div>';
+  box.innerHTML = html;
+  el("calcNew").onclick = newCalc;
+  el("calcCheck").onclick = checkCalc;
+}
+function checkCalc(){
+  var box = el("calcbox"), sol = JSON.parse(box.dataset.sol || "{}"), jo = 0, n = 0;
+  CALC_ROWS.forEach(function(row){
+    var k = row[0], wrap = box.querySelector('.calc-row[data-k="' + k + '"]');
+    if(!wrap) return;
+    var inp = wrap.querySelector("input"), fb = wrap.querySelector(".calc-fb");
+    var val = inp.value.trim() === "" ? null : Number(inp.value.replace(",", "."));
+    n++;
+    wrap.classList.remove("right", "wrong");
+    if(val !== null && Math.abs(val - sol[k]) < 0.001){
+      wrap.classList.add("right"); fb.textContent = "✓"; jo++;
+    } else {
+      wrap.classList.add("wrong"); fb.textContent = "✕ " + sol[k];
+    }
+  });
+  var old = box.querySelector(".calc-score");
+  if(old) old.parentNode.removeChild(old);
+  var p = document.createElement("p");
+  p.className = "calc-score " + (jo === n ? "ok" : "no");
+  p.textContent = jo + " / " + n + " jó" + (jo === n ? " — hibátlan lánc." : " — a piros mezőknél ott a helyes érték.");
+  box.appendChild(p);
+}
+function renderNotes(){
+  var lec = state.notesLec || LECTURES[0].id;
+  var L = LECTURES.filter(function(x){ return x.id === lec; })[0] || LECTURES[0];
+  var tabs = LECTURES.map(function(x){
+    return '<button class="ttab" type="button" data-lec="'+x.id+'" data-lect="'+x.id+'" aria-pressed="'+(x.id === lec)+'">'+
+           '<i></i>'+esc(x.id+". előadás")+'</button>';
+  }).join("");
+
+  var tmp = document.createElement("div");
+  tmp.innerHTML = el("tpl-notes").innerHTML;
+  var blocks = Array.prototype.filter.call(tmp.querySelectorAll("details.note"), function(d){
+    return d.getAttribute("data-lecture") === lec;
+  }).map(function(d){ return d.outerHTML; }).join("");
+
+  el("main").innerHTML = head("03", "Előadások", L.full + " — a diák szövege diánként, szó szerint. Ahol a saját jegyzeted kiegészíti a diát, egy i jel áll a dia címe mellett: kattints rá.") +
+    '<div class="ttabs">' + tabs + '</div>' + blocks;
+
+  var first = el("main").querySelector("details.note");
+  if(first) first.open = true;
+  Array.prototype.forEach.call(el("main").querySelectorAll(".ttab"), function(b){
+    b.onclick = function(){
+      state.notesLec = b.dataset.lec;
+      try{ localStorage.setItem(LS + "-lec", state.notesLec); }catch(e){}
+      renderNotes();
+      window.scrollTo({top:0, behavior:"smooth"});
+    };
+  });
+}
+
+function renderQuiz(){
+  var main = el("main"), drill = state.view === "drill";
+  var lede = drill
+    ? "Csak a „húzd a megfelelő helyre” feladatok, körönként 10 — irányzatok, szerzők, fogalmak, évszámok. Egy oszlopba több kártya is kerülhet. Amit elrontottál, a következő körben elöl jön. Nincs időkorlát."
+    : "Egy kör 25 kérdés, 30 perc alatt — mint a vizsgán. Minden kör főként új kérdéseket hoz; amit elrontottál, hamarabb és többször tér vissza, amit tudtál, jóval később.";
+  var htmlHead = head(drill ? "02" : "01", drill ? "Táblázatok" : "Gyakorlás", lede,
+                      drill ? drillControl() : timerControl()) + (drill ? "" : mixLine());
+
+  if(!state.deck.length){
+    main.innerHTML = htmlHead + '<div class="card"><div class="card-body"><p class="empty">Ehhez a szűréshez nincs kérdés.</p></div></div>';
+    bindTopCtl();
+    return;
+  }
+  if(state.done) return renderResult();
+
+  var q = state.deck[state.i];
+  var pct = Math.round(state.i / state.deck.length * 100);
+  var html = htmlHead +
+    '<div class="bar" data-topic="'+q.t+'">'+
+    '<span class="count">'+(state.i+1)+' / '+state.deck.length+'</span>'+
+    '<span class="track"><i style="width:'+pct+'%"></i></span>'+
+    '<span class="tally"><span class="g">'+state.ok+' ✓</span>&nbsp;&nbsp;<span class="r">'+state.bad+' ✗</span></span>'+
+    '</div>';
+
+  html += '<div class="card" data-topic="'+q.t+'">'+
+    '<div class="card-top"><div class="tagrow">'+
+      '<span class="tag topic">'+esc(topicName(q.t))+'</span>'+
+      (q.exam ? '<span class="tag exam">Pluszpontos teszt</span>' : "")+
+      (state.kind[q.id] === "new" ? '<span class="tag new">Új kérdés</span>' : "")+
+      (state.kind[q.id] === "repeat" ? '<span class="tag repeat">Ismétlés — korábban hibáztál</span>' : "")+
+      (state.kind[q.id] === "review" ? '<span class="tag">Felfrissítés</span>' : "")+
+      '<span class="tag">'+(q.type === "tf" ? "Igaz–hamis · 4 × 0,25 pont"
+        : q.type === "match" ? "Párosítás · " + q.items.length + " kártya · " + q.cats.length + " oszlop"
+        : "Feleletválasztós · 1 pont")+'</span>'+
+    '</div></div>'+
+    '<div class="card-body">'+
+      '<p class="qlead">'+(q.type === "tf" ? "Jelöld meg minden állításról, hogy igaz vagy hamis"
+        : q.type === "match" ? "Húzd a megfelelő helyre: válaszd ki mindegyikhez a kategóriát"
+        : "Válaszd ki a helyes megoldást")+'</p>'+
+      '<h3 class="q">'+esc(q.q)+'</h3>'+
+      (q.type === "tf" ? '<p class="qsub">A vizsgán a helyeseket pipával, a helyteleneket piros x-szel kell jelölni; állításonként 0,25 pont.</p>' : "")+
+      (q.type === "match" ? '<p class="qsub">A vizsgán ez a „húzd a megfelelő helyre” feladat; itt állításonként válaszd ki a kategóriát.</p>' : "");
+
+  if(q.type === "mc"){
+    var order = optOrder(q);
+    html += '<div class="opts" id="opts">';
+    order.forEach(function(oi, pos){
+      html += '<button class="opt" type="button" data-ix="'+oi+'"><span class="k">'+"ABCD".charAt(pos)+'</span><span>'+esc(q.o[oi])+'</span></button>';
+    });
+    html += '</div>';
+  } else if(q.type === "match"){
+    html += '<p class="dnd-hint">Húzd a mondatokat a megfelelő oszlopba — vagy koppints a mondatra, majd az oszlopra. Egy oszlopba több kártya is kerülhet, de nem mindegyikbe ugyanannyi.</p>'+
+            '<div class="dnd-pool" id="pool">';
+    shuffle(q.items.map(function(_, ix){ return ix; })).forEach(function(ix){
+      html += '<button class="dcard" type="button" draggable="true" data-ix="'+ix+'">'+esc(q.items[ix].s)+'</button>';
+    });
+    html += '</div><div class="dnd-board" id="board">';
+    q.cats.forEach(function(c, ci){
+      html += '<div class="dcol"><div class="dcol-h">'+esc(c)+'</div><div class="dcol-body" data-ci="'+ci+'"></div></div>';
+    });
+    html += '</div>';
+  } else {
+    html += '<div class="tf-list" id="tflist">';
+    q.items.forEach(function(it, ix){
+      html += '<div class="tf-item" data-ix="'+ix+'"><div class="tf-row"><div class="tf-text">'+esc(it.s)+'</div>'+
+        '<div class="tf-seg"><button type="button" data-v="1" aria-pressed="false">Igaz</button>'+
+        '<button type="button" data-v="0" aria-pressed="false">Hamis</button></div></div></div>';
+    });
+    html += '</div>';
+  }
+
+  html += '<div id="fb"></div>'+
+    '<div class="fbrow" style="margin-top:20px">'+
+      '<span class="kbd" id="kbdhint">'+(q.type === "mc" ? 'Billentyűvel: <b>1</b>–<b>4</b>, majd <b>Enter</b>' : "Mindegyik állításhoz válassz, majd ellenőrizz.")+'</span>'+
+      '<span style="display:flex;gap:10px">'+
+        (q.type === "mc" ? "" : '<button class="btn primary" type="button" id="checkBtn" disabled>Ellenőrzés</button>')+
+        '<button class="btn primary" type="button" id="nextBtn" hidden>'+(state.i === state.deck.length-1 ? "Eredmény" : "Következő")+'</button>'+
+      '</span>'+
+    '</div>'+
+    '</div></div>';
+
+  main.innerHTML = html;
+  bindTopCtl();
+
+  if(q.type === "mc"){
+    Array.prototype.forEach.call(el("opts").querySelectorAll(".opt"), function(b){
+      b.onclick = function(){ answerMC(Number(b.dataset.ix)); };
+    });
+  } else if(q.type === "match"){
+    state.tf = {};
+    bindDnD(q);
+    el("checkBtn").onclick = function(){ checkMatch(); };
+  } else {
+    state.tf = {};
+    Array.prototype.forEach.call(el("tflist").querySelectorAll(".tf-item"), function(row){
+      var ix = Number(row.dataset.ix);
+      Array.prototype.forEach.call(row.querySelectorAll(".tf-seg button"), function(b){
+        b.onclick = function(){
+          if(state.locked) return;
+          state.tf[ix] = q.type === "match" ? Number(b.dataset.v) : (b.dataset.v === "1");
+          Array.prototype.forEach.call(row.querySelectorAll(".tf-seg button"), function(o){
+            o.setAttribute("aria-pressed", String(o === b));
+          });
+          el("checkBtn").disabled = Object.keys(state.tf).length < q.items.length;
+        };
+      });
+    });
+    el("checkBtn").onclick = function(){ if(q.type === "match") checkMatch(); else checkTF(); };
+  }
+  el("nextBtn").onclick = next;
+}
+
+function bindDnD(q){
+  var pool = el("pool"), board = el("board"), picked = null;
+
+  function refresh(){
+    var placed = board.querySelectorAll(".dcard").length;
+    el("checkBtn").disabled = placed < q.items.length;
+  }
+  function select(card){
+    if(state.locked) return;
+    if(picked === card){ card.classList.remove("sel"); picked = null; return; }
+    if(picked) picked.classList.remove("sel");
+    picked = card; card.classList.add("sel");
+  }
+  function place(card, target, ci){
+    if(state.locked) return;
+    target.appendChild(card);
+    card.classList.remove("sel");
+    picked = null;
+    if(ci === null) delete state.tf[Number(card.dataset.ix)];
+    else state.tf[Number(card.dataset.ix)] = ci;
+    refresh();
+  }
+  function wireCard(card){
+    card.onclick = function(){ select(card); };
+    card.ondragstart = function(ev){
+      if(state.locked){ ev.preventDefault(); return; }
+      picked = card; card.classList.add("drag");
+      try{ ev.dataTransfer.setData("text/plain", card.dataset.ix); ev.dataTransfer.effectAllowed = "move"; }catch(e){}
+    };
+    card.ondragend = function(){ card.classList.remove("drag"); };
+  }
+  function wireZone(zone, ci){
+    zone.ondragover = function(ev){ if(state.locked) return; ev.preventDefault(); zone.classList.add("over"); };
+    zone.ondragleave = function(){ zone.classList.remove("over"); };
+    zone.ondrop = function(ev){
+      ev.preventDefault(); zone.classList.remove("over");
+      if(state.locked || !picked) return;
+      place(picked, zone, ci);
+    };
+    zone.onclick = function(ev){
+      if(state.locked || !picked) return;
+      if(ev.target.classList && ev.target.classList.contains("dcard")) return;
+      place(picked, zone, ci);
+    };
+  }
+
+  Array.prototype.forEach.call(pool.querySelectorAll(".dcard"), wireCard);
+  wireZone(pool, null);
+  Array.prototype.forEach.call(board.querySelectorAll(".dcol-body"), function(z){
+    wireZone(z, Number(z.dataset.ci));
+  });
+  refresh();
+}
+function optOrder(q){
+  if(!state.order[q.id]) state.order[q.id] = shuffle(q.o.map(function(_, i){ return i; }));
+  return state.order[q.id];
+}
+function answerMC(ix){
+  if(state.locked) return;
+  state.locked = true;
+  var q = state.deck[state.i], letter = "?";
+  var btns = el("opts").querySelectorAll(".opt");
+  Array.prototype.forEach.call(btns, function(b, pos){
+    var oi = Number(b.dataset.ix);
+    b.disabled = true;
+    if(oi === q.a){ b.classList.add("right"); letter = "ABCD".charAt(pos); }
+    else if(oi === ix) b.classList.add("wrong");
+  });
+  var good = ix === q.a;
+  state.log.push({q:q, val: good ? 1 : 0, pick: ix});
+  finish(q, good ? 1 : 0,
+    '<div class="verdict '+(good ? "ok" : "no")+'"><span class="mark"><span>'+(good ? "✓" : "✕")+'</span></span>'+
+    (good ? "Helyes" : "Nem ez a jó válasz — a helyes: " + letter + ")")+'</div>');
+}
+
+function checkTF(){
+  if(state.locked) return;
+  state.locked = true;
+  var q = state.deck[state.i], good = 0;
+  var rows = el("tflist").querySelectorAll(".tf-item");
+  q.items.forEach(function(it, ix){
+    var row = rows[ix], hit = state.tf[ix] === it.a;
+    if(hit) good++;
+    row.classList.add(hit ? "right" : "wrong");
+    // a saját jelölésed marad kiemelve — a sor háttere mutatja, hogy jó volt-e
+    Array.prototype.forEach.call(row.querySelectorAll(".tf-seg button"), function(b){
+      b.disabled = true;
+    });
+    var w = document.createElement("div");
+    w.className = "tf-why";
+    w.innerHTML = (hit ? "" : '<span class="solution">Helyesen: ' + (it.a ? "igaz" : "hamis") + '</span> ') +
+                  "<b>" + (it.a ? "Igaz." : "Hamis.") + "</b> " + esc(it.w);
+    row.appendChild(w);
+  });
+  var val = good / 4;
+  state.log.push({q:q, val: val, picks: q.items.map(function(_, ix){ return state.tf[ix] === true; })});
+  finish(q, val,
+    '<div class="verdict '+(good === 4 ? "ok" : "no")+'"><span class="mark"><span>'+(good === 4 ? "✓" : "✕")+'</span></span>'+
+    good+'/4 állítás jó — '+fmt(val)+' pont</div>');
+}
+
+function checkMatch(){
+  if(state.locked) return;
+  var q = state.deck[state.i];
+  if(Object.keys(state.tf).length < q.items.length) return;
+  state.locked = true;
+  var good = 0;
+  q.items.forEach(function(it, ix){
+    var card = el("board").querySelector('.dcard[data-ix="' + ix + '"]');
+    var hit = state.tf[ix] === it.c;
+    if(hit) good++;
+    if(!card) return;
+    card.classList.add(hit ? "right" : "wrong");
+    card.setAttribute("draggable", "false");
+    var w = document.createElement("small");
+    w.innerHTML = (hit ? "" : '<b>Helyesen: ' + esc(q.cats[it.c]) + '.</b> ') + esc(it.w);
+    card.appendChild(w);
+  });
+  var val = good / q.items.length;
+  state.log.push({q:q, val: val, picks: q.items.map(function(_, ix){ return state.tf[ix]; })});
+  finish(q, val,
+    '<div class="verdict '+(good === q.items.length ? "ok" : "no")+'"><span class="mark"><span>'+
+    (good === q.items.length ? "✓" : "✕")+'</span></span>'+
+    good+'/'+q.items.length+' állítás jó — '+fmt(val)+' pont</div>');
+}
+function finish(q, val, verdictHTML){
+  var wgt = weight(q);
+  state.score += val * wgt; state.max += wgt;
+  if(val === 1) state.ok++; else state.bad++;
+  if(val < 1) state.misses.push({q:q, val:val});
+  record(q, val);
+
+  el("fb").innerHTML = '<div class="fb">' + verdictHTML +
+    '<div class="why"><p>'+esc(q.w || (q.type === "match"
+      ? "A feladat 1 pontot ér, a helyesen elhelyezett kártyák arányában — a kártyák alatt látod, melyik kategóriába tartoznak és miért."
+      : "A vizsgán ez a blokk 1 pontot ér, állításonként 0,25 pontot — az állítások alatt látod, melyik miért igaz vagy hamis."))+'</p>'+
+    '<span class="src">Forrás: '+esc(q.s)+'</span></div></div>';
+  var n = el("nextBtn"); n.hidden = false; n.focus();
+  var k = el("kbdhint"); if(k) k.innerHTML = 'Tovább: <b>Enter</b>';
+  var c = el("checkBtn"); if(c) c.hidden = true;
+  renderRail();
+}
+
+function next(){
+  if(state.i === state.deck.length - 1) state.done = true;
+  else state.i++;
+  state.locked = false; state.tf = {};
+  renderQuiz();
+  renderRail();
+}
+
+function record(q, val){
+  if(!store.seen[q.id]){
+    store.seen[q.id] = true;
+    store.first[q.id] = val === 1 ? "ok" : (val === 0 ? "wrong" : "partial");
+  }
+  schedule(q, val);
+  store.answered += 1;
+  store.correct += val;
+  if(val === 1){ store.streak += 1; store.best = Math.max(store.best, store.streak); }
+  else store.streak = 0;
+  save();
+}
+
+function reviewHTML(){
+  if(!state.log.length) return "";
+  var wrong = state.log.filter(function(r){ return r.val < 1; }).length;
+  var h = '<h3 class="sechead">Válaszaid — ' + state.log.length + ' kérdés, ' +
+          (wrong ? wrong + " nem sikerült" : "mind jó lett") + '</h3><div class="review">';
+  state.log.forEach(function(r){
+    var q = r.q, ok = r.val === 1;
+    h += '<details class="rev" data-wrong="'+(ok ? 0 : 1)+'"'+(ok ? "" : " open")+'>'+
+      '<summary><span class="rmark '+(ok ? "ok" : "no")+'">'+(ok ? "✓" : "✕")+'</span>'+
+      '<span class="rq">'+esc(q.q)+'</span>'+
+      '<span class="rpts">'+fmt(r.val)+'/1</span></summary>'+
+      '<div class="rev-body">';
+    if(q.type === "mc"){
+      h += '<p class="rline '+(ok ? "good" : "bad")+'"><b>A te válaszod:</b> '+esc(q.o[r.pick])+'</p>';
+      if(!ok) h += '<p class="rline good"><b>A helyes válasz:</b> '+esc(q.o[q.a])+'</p>';
+      if(q.w) h += '<p class="rline muted">'+esc(q.w)+'</p>';
+    } else if(q.type === "match"){
+      h += '<div class="rtf">';
+      q.items.forEach(function(it, ix){
+        var hit = r.picks[ix] === it.c;
+        h += '<div class="rtf-row'+(hit ? "" : " miss")+'">'+
+             '<span class="rtf-mark">'+(hit ? "✓" : "✕")+'</span>'+
+             '<span class="rtf-s">'+esc(it.s)+(hit ? "" : ' <span class="rline muted">'+esc(it.w)+'</span>')+'</span>'+
+             '<span class="rtf-a">te: '+esc(q.cats[r.picks[ix]] || "—")+' · helyes: '+esc(q.cats[it.c])+'</span>'+
+             '</div>';
+      });
+      h += '</div>';
+    } else {
+      h += '<div class="rtf">';
+      q.items.forEach(function(it, ix){
+        var hit = r.picks[ix] === it.a;
+        h += '<div class="rtf-row'+(hit ? "" : " miss")+'">'+
+             '<span class="rtf-mark">'+(hit ? "✓" : "✕")+'</span>'+
+             '<span class="rtf-s">'+esc(it.s)+(hit ? "" : ' <span class="rline muted">'+esc(it.w)+'</span>')+'</span>'+
+             '<span class="rtf-a">te: '+(r.picks[ix] ? "igaz" : "hamis")+' · helyes: '+(it.a ? "igaz" : "hamis")+'</span>'+
+             '</div>';
+      });
+      h += '</div>';
+    }
+    h += '<span class="src">Forrás: '+esc(q.s)+'</span></div></details>';
+  });
+  return h + '</div>';
+}
+function renderResult(){
+  stopTimer();
+  var drill = state.view === "drill";
+  var pct = state.max ? Math.round(state.score / state.max * 100) : 0;
+  var lejart = !drill && timer.over && state.log.length < state.deck.length;
+  var html = head(drill ? "02" : "01", drill ? "Kész a párosítás" : (lejart ? "Lejárt a 30 perc" : "Kör vége"),
+    lejart ? "Az idő letelt, a kör lezárult. Ennyit sikerült megoldani — a többi kérdés a következő körben visszatér."
+           : (drill ? "Így ment a párosítás — a hibás kártyák mellett ott a helyes oszlop."
+                    : "Ennyi jött össze ebben a körben."), drill ? drillControl() : timerControl());
+  html += '<div class="resultcard"><div class="score"><span class="big">'+fmt(state.score)+'</span><span class="of">/ '+fmt(state.max)+' pont · '+pct+'%</span></div>'+
+    '<p>'+(pct >= 90 ? "Ez ZH-képes tudás. Fuss át még egyszer a hibázott kérdéseket, és kész."
+      : pct >= 70 ? "Jó alap. A gyenge témaköröket nézd át az előadásoknál, aztán jöhet egy újabb kör."
+      : "Érdemes visszamenni az előadásokhoz, és témakörönként újrakezdeni.")+'</p>';
+  html += reviewHTML();
+  html += '<div class="fbrow"><span></span><span style="display:flex;gap:10px">'+
+    '<button class="btn primary" type="button" id="againBtn">Új kör</button></span></div></div>';
+  el("main").innerHTML = html;
+  bindTopCtl();
+  el("againBtn").onclick = function(){ newRound(); };
+}
+
+function renderStats(){
+  var seenAll = Object.keys(store.first).length;
+  var acc = store.answered ? Math.round(store.correct / store.answered * 100) : 0;
+  var html = head("05", "Haladás", "Az első próbálkozásod számít bele — az ismétlés már nem rontja el a képet. A halvány sávok mutatják, hova érdemes visszamenni a diákhoz.");
+  html += '<div class="tiles">'+
+    '<div class="tile"><div class="v">'+store.answered+'</div><div class="k">megválaszolt</div></div>'+
+    '<div class="tile"><div class="v">'+(store.answered ? acc + "%" : "–")+'</div><div class="k">találati arány</div></div>'+
+    '<div class="tile"><div class="v">'+store.best+'</div><div class="k">leghosszabb sorozat</div></div>'+
+    '<div class="tile"><div class="v">'+seenAll+'/'+Q.length+'</div><div class="k">érintett kérdés</div></div>'+
+    '<div class="tile"><div class="v">'+dueCount()+'</div><div class="k">ismétlésre vár</div></div>'+
+    '<div class="tile"><div class="v">'+solidCount()+'</div><div class="k">megszilárdult</div></div>'+
+    '</div><div class="brows">';
+  TOPICS.forEach(function(t){
+    var qs = Q.filter(function(q){ return q.t === t.id; });
+    var seen = qs.filter(function(q){ return store.first[q.id]; });
+    var val = seen.reduce(function(s, q){ return s + (store.first[q.id] === "ok" ? 1 : (store.first[q.id] === "partial" ? .5 : 0)); }, 0);
+    var pct = seen.length ? Math.round(val / seen.length * 100) : 0;
+    html += '<div class="brow" data-topic="'+t.id+'">'+
+      '<div class="nm"><i></i><span>'+esc(t.name)+'</span></div>'+
+      '<div class="meter"><i class="'+(pct < 50 ? "low" : (pct < 80 ? "mid" : ""))+'" style="width:'+(seen.length ? pct : 0)+'%"></i></div>'+
+      '<div class="pc">'+(seen.length ? pct + "% · " + seen.length + "/" + qs.length : "0/" + qs.length)+'</div></div>';
+  });
+  html += '</div><h3 class="sechead">Előadásonként</h3><div class="brows">';
+  LECTURES.forEach(function(L){
+    var qs = Q.filter(function(q){ return lecturesOf(q).indexOf(L.id) >= 0; });
+    var seen = qs.filter(function(q){ return store.first[q.id]; });
+    var val = seen.reduce(function(a, q){ return a + (store.first[q.id] === "ok" ? 1 : (store.first[q.id] === "partial" ? .5 : 0)); }, 0);
+    var pc = seen.length ? Math.round(val / seen.length * 100) : 0;
+    html += '<div class="brow" data-lect="'+L.id+'">'+
+      '<div class="nm"><i></i><span title="'+esc(L.full)+'">'+esc(L.name)+'</span></div>'+
+      '<div class="meter"><i class="'+(pc < 50 ? "low" : (pc < 80 ? "mid" : ""))+'" style="width:'+(seen.length ? pc : 0)+'%"></i></div>'+
+      '<div class="pc">'+(seen.length ? pc + "% · " + seen.length + "/" + qs.length : "0/" + qs.length)+'</div></div>';
+  });
+  html += '</div><p class="statsnote">Az ismétlési ütemező a hibázott kérdéseket a következő körbe teszi vissza, a tudottakat 2 · 3 · 5 · 8 · 13 kör múlva hozza elő újra, amit pedig háromszor-négyszer egymás után eltaláltál, azt 25, majd 40 körre pihenteti. A haladás ebben a böngészőben marad meg; a bal oldali „Haladás törlése” gombbal nullázható.</p>';
+  el("main").innerHTML = html;
+}
+
+/* ---------------- események ---------------- */
+el("nav").addEventListener("click", function(ev){
+  var b = ev.target.closest ? ev.target.closest("button[data-view]") : null;
+  if(!b) return;
+  var v = b.dataset.view;
+  if(v === state.view && (v === "quiz" || v === "drill")) return;
+  state.view = v;
+  if(v === "quiz" || v === "drill") newRound(); else render();
+  window.scrollTo({top:0, behavior:"smooth"});
+});
+el("topics-all").onclick = function(){
+  if(st.filter === "lecture") st.lectures = LECTURES.map(function(l){ return l.id; });
+  else st.topics = TOPICS.map(function(t){ return t.id; });
+  save(); state.view = "quiz"; newRound();
+};
+el("topics-none").onclick = function(){
+  if(st.filter === "lecture") st.lectures = [LECTURES[0].id];
+  else st.topics = [TOPICS[0].id];
+  save(); state.view = "quiz"; newRound();
+};
+el("theme-btn").onclick = function(){
+  var root = document.documentElement, cur = root.getAttribute("data-theme");
+  var dark = cur ? cur === "dark" : window.matchMedia("(prefers-color-scheme: dark)").matches;
+  root.setAttribute("data-theme", dark ? "light" : "dark");
+  try{ localStorage.setItem(LS + "-theme", root.getAttribute("data-theme")); }catch(e){}
+};
+el("reset-btn").onclick = function(){
+  store.first = {}; store.seen = {}; store.sched = {}; store.round = 0;
+  store.answered = 0; store.correct = 0; store.streak = 0; store.best = 0;
+  save(); newRound();
+};
+document.addEventListener("keydown", function(ev){
+  if((state.view !== "quiz" && state.view !== "drill") || state.done) return;
+  var tag = ev.target.tagName;
+  if(tag === "INPUT" || tag === "TEXTAREA") return;
+  var q = state.deck[state.i]; if(!q) return;
+  if(!state.locked && q.type === "mc" && ["1","2","3","4"].indexOf(ev.key) >= 0){
+    var pos = Number(ev.key) - 1, ord = state.order[q.id] || [0,1,2,3];
+    if(pos < q.o.length){ ev.preventDefault(); answerMC(ord[pos]); }
+  } else if(state.locked && (ev.key === "Enter" || ev.key === " ")){
+    var n = el("nextBtn");
+    if(n && !n.hidden){ ev.preventDefault(); next(); }
+  }
+});
+try{
+  var th = localStorage.getItem(LS + "-theme");
+  if(th === "dark" || th === "light") document.documentElement.setAttribute("data-theme", th);
+}catch(e){}
+
+try{
+  var lm = new Date(document.lastModified);
+  if(!isNaN(lm)) el("stamp").textContent = "frissítve: " +
+    lm.getFullYear() + ". " + ("0"+(lm.getMonth()+1)).slice(-2) + ". " + ("0"+lm.getDate()).slice(-2) + ". " +
+    ("0"+lm.getHours()).slice(-2) + ":" + ("0"+lm.getMinutes()).slice(-2);
+}catch(e){}
+
+newRound();
+})();
+</script>
+
+</body>
+</html>

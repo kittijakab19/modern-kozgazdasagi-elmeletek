@@ -8,7 +8,17 @@ from http.server import BaseHTTPRequestHandler, HTTPServer
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 PAGE = os.path.join(HERE, "modern-kozgazdasagi-elmeletek.html")
+PAGE_ZH2 = os.path.join(HERE, "mke-2-zh.html")
 PORT = int(os.environ.get("PORT", "8947"))
+
+# melyik útvonal melyik forrásfájlt szolgálja ki
+ROUTES = {
+    "/": PAGE,
+    "/index.html": PAGE,
+    "/zh2": PAGE_ZH2,
+    "/zh2/": PAGE_ZH2,
+    "/zh2.html": PAGE_ZH2,
+}
 
 SHELL_HEAD = """<!doctype html>
 <html lang="hu">
@@ -26,11 +36,12 @@ SHELL_HEAD = """<!doctype html>
 
 class Handler(BaseHTTPRequestHandler):
     def do_GET(self):
-        if self.path.split("?")[0] not in ("/", "/index.html"):
+        route = self.path.split("?")[0]
+        if route not in ROUTES:
             self.send_error(404, "Not found")
             return
         try:
-            body = io.open(PAGE, encoding="utf-8").read()
+            body = io.open(ROUTES[route], encoding="utf-8").read()
         except OSError as err:
             self.send_error(500, "Nem olvashato: %s" % err)
             return
