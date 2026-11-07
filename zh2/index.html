@@ -516,10 +516,10 @@
 
     <nav class="nav" id="nav">
       <button type="button" data-view="quiz" aria-current="true">Gyakorlás <span class="n" id="nav-quiz"></span></button>
+      <button type="button" data-view="sheet">Jegyzet <span class="n">8 táblázat</span></button>
       <button type="button" data-view="notes">Előadások <span class="n">4 diasor</span></button>
       <button type="button" data-view="calc">Számolás <span class="n">SNA · GDP</span></button>
-      <button type="button" data-view="sheet">Jegyzet <span class="n">készül</span></button>
-      <button type="button" data-view="stats">Haladás <span class="n" id="nav-stats"></span></button>
+      <button type="button" data-view="mintazh">Minta ZH <span class="n">készül</span></button>
     </nav>
 
     <div class="panel" id="topicsPanel">
@@ -650,7 +650,282 @@
 </div>
 
 <div id="tpl-sheet" hidden>
-<p class="sheet-lede">A 04–07. előadás összehasonlító táblázatai készülnek — hamarosan itt lesznek.</p>
+<p class="sheet-lede">A 04–07. előadás anyaga összehasonlító táblákban: mutatószámok, kultúramodellek, válság- és kereskedelemelméletek, ciklusok, globalizációs fogalmak és a nevek. A sárga sor mindig a tipikus vizsgacsapdát mutatja. Az SNA-képletek és a számolás a <b>Számolás</b> menüpontban vannak.</p>
+
+<h3 class="sechead">1. GDP és az alternatív mutatók</h3>
+<p class="sheet-lede">A GDP csak a <b>termelésben keletkező új értéket</b> méri — a többi mutató éppen azt teszi hozzá vagy vonja le, ami ebből kimarad.</p>
+<div class="cmp">
+<table>
+  <thead><tr><th>Mutató</th><th>Mit mér</th><th>Mit tesz hozzá a GDP-hez képest</th><th>Hol keresd</th></tr></thead>
+  <tbody>
+    <tr><td class="who" data-col="Mutató">GDP</td>
+        <td data-col="Mit mér">A rezidens egységek egy év alatt létrehozott hozzáadott értéke.</td>
+        <td data-col="Mit tesz hozzá a GDP-hez képest">Semmit: <b>új érték csak a termelésben keletkezik</b>. Kimarad a háztartáson belüli szolgáltatás, a környezetkárosítás és a háború mint negatív termelés, az externáliák és az erőszakos tranzakció (lopás). A termelés lehet legális, rejtett vagy illegális; piaci vagy nem piaci.</td>
+        <td class="src" data-col="Hol keresd">04/5, 04/19</td></tr>
+    <tr><td class="who" data-col="Mutató">ISEW</td>
+        <td data-col="Mit mér">Fenntartható Gazdasági Jólét Index: mennyiben járul hozzá a gazdasági tevékenység a jóléthez, és mennyiben csökkenti azt.</td>
+        <td data-col="Mit tesz hozzá a GDP-hez képest"><b>Kiigazított</b> mutató: beépíti a költségeket és hasznokat, amelyeket általában <b>nem pénzben mérnek</b>; a pozitív és negatív kiigazítások társadalmi, gazdasági és környezeti tényezők mentén történnek.</td>
+        <td class="src" data-col="Hol keresd">04/25</td></tr>
+    <tr><td class="who" data-col="Mutató">GPI</td>
+        <td data-col="Mit mér">Valódi előrehaladás mutatója — a GDP alternatívája a növekedés mérésére.</td>
+        <td data-col="Mit tesz hozzá a GDP-hez képest">Mindent figyelembe vesz, amit a GDP, <b>plusz a negatív hatások költségét</b>: a bűnözés költségeit, az ózonréteg károsodását és az <b>erőforrások kimerülését</b>.</td>
+        <td class="src" data-col="Hol keresd">04/27</td></tr>
+    <tr><td class="who" data-col="Mutató">HDI</td>
+        <td data-col="Mit mér">Humán Fejlődési Index: a társadalmi és gazdasági fejlettség szintje (ENSZ).</td>
+        <td data-col="Mit tesz hozzá a GDP-hez képest">Négy terület: <b>átlagos iskolai évek · várható iskolai évek · születéskor várható élettartam · egy főre jutó GNI</b>. Tehát nem csak jövedelem, hanem oktatás és egészség is.</td>
+        <td class="src" data-col="Hol keresd">04/29</td></tr>
+    <tr><td class="who" data-col="Mutató">Ökológiai lábnyom</td>
+        <td data-col="Mit mér">A természeti erőforrások igénybevétele a biokapacitáshoz képest.</td>
+        <td data-col="Mit tesz hozzá a GDP-hez képest">A túlfogyasztást három tényező mozgatja: <b>(1) a fogyasztás mértéke, (2) az emberiség létszáma, (3) a biokapacitás</b> — az erőforrásokat szolgáltató természet állapota. Kapcsolódó fogalom: <b>Overshoot day</b>.</td>
+        <td class="src" data-col="Hol keresd">04/32–33</td></tr>
+    <tr><td class="who" data-col="Mutató">HPI</td>
+        <td data-col="Mit mér">Boldog Bolygó Index.</td>
+        <td data-col="Mit tesz hozzá a GDP-hez képest"><b>Várható élettartam + ökológiai lábnyom + élettel való elégedettség</b> — a jólétet az ökológiai árral együtt nézi.</td>
+        <td class="src" data-col="Hol keresd">04/34</td></tr>
+    <tr><td class="who" data-col="Mutató">EPI</td>
+        <td data-col="Mit mér">Környezeti Teljesítmény Index.</td>
+        <td data-col="Mit tesz hozzá a GDP-hez képest"><b>25 teljesítményindikátor</b>, amelyek lefedik a környezetvédelmet, a közegészségügyet és az ökoszisztéma egészségét.</td>
+        <td class="src" data-col="Hol keresd">04/34</td></tr>
+    <tr class="trap"><th>Tipikus csapda</th><td colspan="3">
+        A <b>HDI</b> négy eleme közül a jövedelmi az <b>egy főre jutó GNI</b> — nem GDP. A <b>HPI</b> három összetevős (élettartam, lábnyom, elégedettség), az <b>EPI</b> viszont 25 indikátoros. A <b>GPI</b> a GDP-hez <b>hozzáad</b> költségtételeket, az <b>ISEW</b> pedig kiigazít — a kettő rokon, de nem ugyanaz.</td></tr>
+  </tbody>
+</table>
+</div>
+<p class="sheet-note">Forrás: 04. előadás · 5–34. dia</p>
+
+<h3 class="sechead">2. Kultúrák és gazdasági modellek</h3>
+<p class="sheet-lede">Mindegyik modell <b>a nyugati, individualista, profitközpontú kapitalizmus alternatívájaként</b> fogalmazza meg magát — de más-más alapértékre épít.</p>
+<div class="cmp">
+<table>
+  <thead><tr><th>Modell</th><th>Alapérték</th><th>Szervezet, tulajdon</th><th>Állam és döntés</th><th>Hol keresd</th></tr></thead>
+  <tbody>
+    <tr><td class="who" data-col="Modell">Konfuciánus közgazdaságtan</td>
+        <td data-col="Alapérték"><b>Igazságosság a profit helyett</b>; társadalmi harmónia és egyenlőség mint a növekedés előfeltétele. Öt erény: <b>ren, yi, li, zhi, xin</b>.</td>
+        <td data-col="Szervezet, tulajdon">A <b>család</b> az alapvető munkaegység; <b>beágyazott piacok</b>: piacalapú rendszer erkölcsi keretben, nem „etikától mentes szabad piac”.</td>
+        <td data-col="Állam és döntés">A kormányzat <b>erkölcsi útmutató</b>: felelőssége ápolni a nép erényes jellemét (vö. intézményi közgazdaságtan).</td>
+        <td class="src" data-col="Hol keresd">05/3–5</td></tr>
+    <tr><td class="who" data-col="Modell">Kínai „harmonikus gazdaság”</td>
+        <td data-col="Alapérték">Nemcsak GDP-növekedés, hanem <b>társadalmi, környezeti és regionális egyensúly</b>; a harmónia konfuciánus gyökerű.</td>
+        <td data-col="Szervezet, tulajdon"><b>Kettős körforgás:</b> belföldi vérkeringés (fogyasztás, innováció, technológiai önellátás) + nemzetközi vérkeringés, amely csak kiegészít.</td>
+        <td data-col="Állam és döntés">Állami program: <b>Hu Csin-tao és Ven Csia-pao</b>, 2000-es évek eleje; <b>zöld fejlődés</b>, karbonsemlegesség 2060-ra; kínai típusú modernizáció.</td>
+        <td class="src" data-col="Hol keresd">05/8–14</td></tr>
+    <tr><td class="who" data-col="Modell">Japán vállalati kapitalizmus</td>
+        <td data-col="Alapérték">Nem a <b>részvényesi azonnali profit</b>, hanem a vállalat, az alkalmazottak és a nemzet <b>hosszú távú</b> fejlődése.</td>
+        <td data-col="Szervezet, tulajdon"><b>Keiretsu:</b> kereszttulajdonlás, stabil üzleti kapcsolatok, <b>főbank</b> a középpontban (Mitsui, Mitsubishi, Sumitomo, Toyota). Előzménye a <b>zaibatsu</b>: családi tulajdonú konglomerátum holdinggal.</td>
+        <td data-col="Állam és döntés"><b>Ringi:</b> konszenzusos, alulról felfelé haladó döntés (ringi-sho, hanko-pecsét) — a cél a harmónia és a közös felelősség. Kormányzati felügyelet a Nemzetközi Kereskedelmi és Ipari Minisztériumon át.</td>
+        <td class="src" data-col="Hol keresd">05/17–24</td></tr>
+    <tr><td class="who" data-col="Modell">Koreai csebol</td>
+        <td data-col="Alapérték">Nagy, diverzifikált üzleti csoport, erős növekedési orientációval.</td>
+        <td data-col="Szervezet, tulajdon"><b>Családi tulajdon és vezetés</b> — ez a fő különbség a keiretsuhoz képest.</td>
+        <td data-col="Állam és döntés">Központosítottabb irányítás; a keiretsu ezzel szemben <b>decentralizált, horizontális</b> szövetség a bankok és a professzionális vezetés köré.</td>
+        <td class="src" data-col="Hol keresd">05/22</td></tr>
+    <tr><td class="who" data-col="Modell">Buen Vivir</td>
+        <td data-col="Alapérték"><b>„Jó Élet”</b>: közösségi jólét a természettel harmóniában; <b>elégségesség a növekedés helyett</b>; az ember a természet <b>része</b>.</td>
+        <td data-col="Szervezet, tulajdon"><b>Közösségi gazdaság</b> (economía solidaria): szövetkezetek, közösségi földtulajdon, helyi csere- és támogatási rendszerek.</td>
+        <td data-col="Állam és döntés"><b>Közösségi önrendelkezés</b> az államközpontú fejlődés helyett. A dia kiemelése: <b>nem fejlődéselmélet, hanem fejlődéskritika</b>.</td>
+        <td class="src" data-col="Hol keresd">05/33–35</td></tr>
+    <tr class="trap"><th>Tipikus csapda</th><td colspan="4">
+        <b>Zaibatsu ≠ keiretsu:</b> az előbbi a Meiji-restauráció és a II. világháború közötti, <b>családi tulajdonú holding</b>, az utóbbi a háború utáni, <b>kereszttulajdonláson</b> alapuló csoport. A <b>csebol koreai</b> és családi, a keiretsu japán és decentralizált. A <b>ringi</b> nem gyorsaságra, hanem <b>harmóniára</b> optimalizál. Ecuador és Bolívia hivatalosan vallja a Buen Vivirt, de gazdaságuk nyersanyag-exportra épül: ez a <b>neo-extraktivizmus</b>.</td></tr>
+  </tbody>
+</table>
+</div>
+<p class="sheet-note">Forrás: 05. előadás · 3–35. dia</p>
+
+<h3 class="sechead">3. Válságelméletek</h3>
+<p class="sheet-lede">Ugyanarra a jelenségre — a visszatérő gazdasági válságra — hat különböző magyarázat, mindegyik más okkal és más gyógymóddal.</p>
+<div class="cmp">
+<table>
+  <thead><tr><th>Elmélet</th><th>Ki és mikor</th><th>Mi okozza a válságot</th><th>Következmény és megoldás</th></tr></thead>
+  <tbody>
+    <tr><td class="who" data-col="Elmélet">Klasszikus</td>
+        <td class="when" data-col="Ki és mikor">Smith, Ricardo, Say · 18–19. sz.</td>
+        <td data-col="Mi okozza a válságot"><b>Külső zavar</b> (háború, természeti katasztrófa). A gazdaság önszabályozó, egyensúlyba kerül.</td>
+        <td data-col="Következmény és megoldás">Rövid távú visszaesés, de a gazdaság <b>gyorsan helyreáll</b>, mert az árak és bérek alkalmazkodnak.</td></tr>
+    <tr><td class="who" data-col="Elmélet">Marxista</td>
+        <td class="when" data-col="Ki és mikor">Marx · 1840–50-es évek, A tőke 1894</td>
+        <td data-col="Mi okozza a válságot">A rendszer <b>belső ellentmondásai</b>: tőkefelhalmozás, a <b>profitráta csökkenése</b>, a termelés meghaladja a fogyasztást (túltermelés).</td>
+        <td data-col="Következmény és megoldás">Munkanélküliség, csökkenő árak, társadalmi feszültségek — <b>rendszeres, ciklikus</b> válságok.</td></tr>
+    <tr><td class="who" data-col="Elmélet">Keynesi</td>
+        <td class="when" data-col="Ki és mikor">Keynes · 1920–30-as évek</td>
+        <td data-col="Mi okozza a válságot">Az <b>aggregált kereslet hiánya</b>: a magánszektor megtakarít és nem költ, így a gazdaság lelassul.</td>
+        <td data-col="Következmény és megoldás">Visszaesés és munkanélküliség. Megoldás: <b>költségvetési politika</b> — kormányzati kiadások és beruházások növelése.</td></tr>
+    <tr><td class="who" data-col="Elmélet">Monetarista</td>
+        <td class="when" data-col="Ki és mikor">Friedman · 1956</td>
+        <td data-col="Mi okozza a válságot">A <b>pénzkínálat rossz szabályozása</b>: túl sok vagy túl kevés pénz a gazdaságban.</td>
+        <td data-col="Következmény és megoldás">Infláció vagy recesszió, áringadozás. Megoldás: <b>stabil, kiszámítható pénzkínálat</b>. A pénz mennyiségi elmélete: az árszint egyenesen arányos a pénzkínálattal.</td></tr>
+    <tr><td class="who" data-col="Elmélet">Pénzügyi instabilitás</td>
+        <td class="when" data-col="Ki és mikor">Minsky · 1970–80-as évek</td>
+        <td data-col="Mi okozza a válságot"><b>Maga a stabilitás szül válságot</b>: a túlzott magabiztosság túl sok hitelt, spekulációt és pénzügyi eufóriát hoz.</td>
+        <td data-col="Következmény és megoldás">Pénzügyi <b>buborék</b>, hitelválság, összeomlás.</td></tr>
+    <tr><td class="who" data-col="Elmélet">Osztrák iskola</td>
+        <td class="when" data-col="Ki és mikor">Mises, Hayek · 1920–30-as évek</td>
+        <td data-col="Mi okozza a válságot"><b>Mesterségesen alacsony kamatlábak</b> és túlzott hitelexpanzió: a befektetők rossz döntéseket hoznak (malinvesztíció).</td>
+        <td data-col="Következmény és megoldás">Buborék, majd recesszió. Megoldás: <b>piaci kamatlábak</b>, kevesebb kormányzati beavatkozás — önkorrekciós mechanizmusok.</td></tr>
+    <tr class="trap"><th>Tipikus csapda</th><td colspan="3">
+        A <b>monetarista</b> és az <b>osztrák</b> is a pénzre mutat, de más okból: a monetarista a <b>pénzmennyiség rossz szabályozását</b> hibáztatja, az osztrák a <b>mesterségesen olcsó hitelt</b>. A <b>keynesi</b> megoldás állami költekezés, a <b>monetarista</b> megoldás stabil pénzkínálat. Minskynél nem a baj, hanem a <b>nyugalom</b> okozza a válságot.</td></tr>
+  </tbody>
+</table>
+</div>
+<p class="sheet-note">Forrás: 06. előadás · 22–27. dia</p>
+
+<h3 class="sechead">4. Gazdasági ciklusok</h3>
+<div class="cmp">
+<table>
+  <thead><tr><th>Ciklus</th><th>Hossz</th><th>Mi mozgatja</th></tr></thead>
+  <tbody>
+    <tr><td class="who" data-col="Ciklus">Kitchin</td><td class="when" data-col="Hossz">10–40 hónap</td>
+        <td data-col="Mi mozgatja">A <b>monetáris és hitelszférában</b> figyelhető meg.</td></tr>
+    <tr><td class="who" data-col="Ciklus">Klasszikus üzleti ciklus</td><td class="when" data-col="Hossz">8–10 év</td>
+        <td data-col="Mi mozgatja">Lefolyását és okait a <b>beruházások</b> határozzák meg. A monopolizáció, az állam szerepének növekedése és a szerkezeti átalakulás jelentősen megváltoztatta.</td></tr>
+    <tr><td class="who" data-col="Ciklus">Kuznets</td><td class="when" data-col="Hossz">18–20 év</td>
+        <td data-col="Mi mozgatja">Egyedi <b>létesítmények építése</b>: a termék élettartama jóval hosszabb a termelőeszközökénél; a befejezés után recessziós jelenségek — felesleges infrastruktúra, kihasználatlan kapacitások.</td></tr>
+    <tr><td class="who" data-col="Ciklus">Kondratyev</td><td class="when" data-col="Hossz">40–60 év</td>
+        <td data-col="Mi mozgatja">A nagy értékű <b>tőkejavak időszakos megújulása</b>, jelentős társadalmi változásokkal összefüggésben.</td></tr>
+    <tr><td class="who" data-col="Ciklus">Szuperhosszú</td><td class="when" data-col="Hossz">150–200 év</td>
+        <td data-col="Mi mozgatja">Létezésük <b>nem egyértelműen bizonyított</b>; okuk a korszakalkotó találmányokban és az alapkutatásban keresendő (vö. destruktív technológiák).</td></tr>
+    <tr class="trap"><th>Tipikus csapda</th><td colspan="2">
+        A hosszakat szokták cserélni: <b>Kitchin a legrövidebb</b> (hónapokban mérve), <b>Kondratyev a hosszú hullám</b> (40–60 év), a <b>Kuznets</b> pedig a kettő között, az építési beruházásokhoz kötve. Valódi növekedés akkor látszik, amikor <b>diszruptív innováció</b> tolja ki a termelési lehetőségek határát.</td></tr>
+  </tbody>
+</table>
+</div>
+<p class="sheet-note">Forrás: 06. előadás · 16–18. dia</p>
+
+<h3 class="sechead">5. Kereskedelmi elméletek — miért kereskedünk?</h3>
+<div class="cmp">
+<table>
+  <thead><tr><th>Elmélet</th><th>Lényeg</th><th>Mire ad választ</th><th>Korlát, kritika</th></tr></thead>
+  <tbody>
+    <tr><td class="who" data-col="Elmélet">Abszolút előny<br><span class="when">Adam Smith</span></td>
+        <td data-col="Lényeg">Az adott termelő <b>ugyanazért a költségért többet</b>, vagy ugyanazt a mennyiséget <b>olcsóbban</b> állítja elő, mint mások.</td>
+        <td data-col="Mire ad választ">Mindenki arra specializálódjon, amiben abszolút előnye van. A példában „A” ország X-ben, „B” ország Y-ban — a specializációval <b>+4 és +4 darab</b> keletkezik ugyanannyi munkából.</td>
+        <td data-col="Korlát, kritika">Nem mond semmit arról, mi legyen, ha az egyik országnak <b>mindkét termékben</b> előnye van.</td></tr>
+    <tr><td class="who" data-col="Elmélet">Komparatív előny<br><span class="when">David Ricardo</span></td>
+        <td data-col="Lényeg">Az <b>alternatív költséget</b> nézi: a nagyobb abszolút előny vagy a kisebb abszolút hátrány számít.</td>
+        <td data-col="Mire ad választ">Akkor is érdemes kereskedni, ha az egyik ország mindenben jobb. Ricardónál Anglia és Portugália (bor, szövet), Samuelsonnál Amerika és Európa (élelmiszer, ruházat).</td>
+        <td data-col="Korlát, kritika">Egytényezős (munka) modell; versenyző piacot feltételez.</td></tr>
+    <tr><td class="who" data-col="Elmélet">Heckscher–Ohlin</td>
+        <td data-col="Lényeg">Az ország a nála <b>bőségesen rendelkezésre álló termelési tényezőt</b> intenzíven használó termékre specializálódik.</td>
+        <td data-col="Mire ad választ">Miért más országok exportálnak <b>munkaigényes</b>, illetve <b>tőkeigényes</b> termékeket — a <b>tényezőellátottság</b> magyarázza.</td>
+        <td data-col="Korlát, kritika">A tényezőket adottnak veszi, és nem foglalkozik azok országok közötti áramlásával.</td></tr>
+    <tr><td class="who" data-col="Elmélet">Porter gyémántmodell</td>
+        <td data-col="Lényeg"><b>Versenyelőny</b>-elmélet: a vállalati környezet, a technológia és a hálózatok döntenek, nem pusztán a tényezők.</td>
+        <td data-col="Mire ad választ">Miért versenyképes egy iparág egy adott országban.</td>
+        <td data-col="Korlát, kritika">Porter szerint a komparatív előny elmélete nem veszi figyelembe a <b>méretgazdaságosságot, a technológiát és a know-how-t, a termékdifferenciálást, a monopolisztikus piacokat, a vállalati hálózatokat</b>, és állandónak tekinti az országon belüli termelési tényezőket.</td></tr>
+    <tr><td class="who" data-col="Elmélet">Stolper–Samuelson tétel</td>
+        <td data-col="Lényeg">A szabadkereskedelem <b>emeli az exportban felhasznált tényezők árát</b>, és <b>csökkenti az importban felhasználtakét</b>.</td>
+        <td data-col="Mire ad választ">Miért vannak a kereskedelemnek <b>nyertesei és vesztesei</b> egy országon belül is.</td>
+        <td data-col="Korlát, kritika">A külkereskedelem általában jó az országnak, de nem mindenkinek — jövedelemeloszlási kérdés.</td></tr>
+    <tr class="trap"><th>Tipikus csapda</th><td colspan="3">
+        <b>Abszolút ≠ komparatív:</b> az abszolút a termelékenységet hasonlítja össze, a komparatív az <b>alternatív költséget</b>. A <b>Heckscher–Ohlin</b> kulcsszava a <b>tényezőellátottság</b> (ezt kérdezték az első ZH-n is), a <b>Porteré</b> a gyémántmodell és a komparatív előny bírálata.</td></tr>
+  </tbody>
+</table>
+</div>
+<p class="sheet-note">Forrás: 06. előadás · 2–13. dia</p>
+
+<h3 class="sechead">6. Kereskedelempolitika — nyitás vagy védelem?</h3>
+<div class="cmp">
+<table>
+  <thead><tr><th>Irányzat</th><th>Cél</th><th>Eszköz</th><th>Érv és kritika</th></tr></thead>
+  <tbody>
+    <tr><td class="who" data-col="Irányzat">Merkantilizmus</td>
+        <td data-col="Cél">A <b>gazdasági nacionalizmus</b> egyik formája: az állam arany- és ezüstkészletének növelése exporttal, a hazai foglalkoztatás támogatása.</td>
+        <td data-col="Eszköz">Importvámok, a gyarmatok más nemzetekkel való kereskedelmének <b>megtiltása</b>, a kereskedelmi mérleg manipulálása.</td>
+        <td data-col="Érv és kritika">Kevesebb import → <b>kevesebb verseny, több monopólium, magasabb árak</b>, szűkebb fogyasztói választás. Az <b>imperializmus</b> katonai erővel kényszeríti rá a kevésbé fejlett régiókra.</td></tr>
+    <tr><td class="who" data-col="Irányzat">Protekcionizmus</td>
+        <td data-col="Cél">A nemzetközi kereskedelem korlátozása a <b>hazai ipar támogatása</b> érdekében.</td>
+        <td data-col="Eszköz"><b>Vámok · kvóták · támogatások · importengedélyek és szabványok · devizamanipuláció</b> (a valuta mesterséges gyengítése).</td>
+        <td data-col="Érv és kritika">Kulcskoncepció: távol tartani vagy drágítani a külföldi árut. A szabványokat gyakran egészségügyi vagy környezetvédelmi okkal indokolják.</td></tr>
+    <tr><td class="who" data-col="Irányzat">Kezdő iparág elmélete</td>
+        <td data-col="Cél">Az <b>új hazai iparágak ideiglenes</b> védelme, amíg meg nem erősödnek.</td>
+        <td data-col="Eszköz">Átmeneti vámok vagy támogatások. Képviselői: <b>Alexander Hamilton</b> és <b>Friedrich List</b> (1841, A politikai gazdaságtan nemzeti rendszere).</td>
+        <td data-col="Érv és kritika">Érv: új iparágak, munkahelyek, továbbgyűrűző előnyök, a piaci tökéletlenségek kezelése. <b>Kritika:</b> a védett iparág versenyképtelen maradhat vagy monopóliumot képez, és a védelem magasabb fogyasztói árakhoz vezet (vö. Dél-Korea).</td></tr>
+    <tr><td class="who" data-col="Irányzat">Stratégiai kereskedelmi elmélet</td>
+        <td data-col="Cél">A profit átcsoportosítása a külföldi vállalatoktól a <b>hazaiakhoz</b>, a hazai jólét növelése.</td>
+        <td data-col="Eszköz">Támogatás és vám a <b>nemzetközi oligopóliumok</b> kimenetelének befolyásolására.</td>
+        <td data-col="Érv és kritika">Nem tökéletes versenyt feltételez, hanem <b>kevés nagyvállalat</b> uralta, méretgazdaságos iparágakra szabott (repülőgépipar, félvezetők).</td></tr>
+    <tr><td class="who" data-col="Irányzat">Liberalizmus</td>
+        <td data-col="Cél"><b>Egyéni szabadság, magántulajdon, szabad piacok</b>; minimális kormányzati beavatkozás.</td>
+        <td data-col="Eszköz">Szabad ár-, bér- és kibocsátásalakulás; a pénz, a beruházás és az emberek szabad áramlása.</td>
+        <td data-col="Érv és kritika">Feltevés: a piac közel tökéletes, az információs aszimmetriák korlátozottak, a gazdaság önszabályozó (vö. laissez faire, globalizáció).</td></tr>
+    <tr class="trap"><th>Tipikus csapda</th><td colspan="3">
+        A <b>kezdő iparág</b> védelme <b>ideiglenes</b> és fejlesztési célú; a <b>stratégiai kereskedelem</b> viszont tartósan, oligopol piacon csoportosítja át a profitot. A <b>merkantilizmus</b> a nemesfémre és a kereskedelmi többletre fókuszál — a protekcionizmus ennél tágabb eszköztár, és ma is használatos.</td></tr>
+  </tbody>
+</table>
+</div>
+<p class="sheet-note">Forrás: 07. előadás · 3–11. dia</p>
+
+<h3 class="sechead">7. Globalizáció — fogalmak Ritzer nyomán</h3>
+<div class="cmp">
+<table>
+  <thead><tr><th>Fogalom</th><th>Mit jelent</th><th>Példa, megjegyzés</th></tr></thead>
+  <tbody>
+    <tr><td class="who" data-col="Fogalom">Globalizáció</td>
+        <td data-col="Mit jelent">A világ gazdaságainak, kultúráinak és népességeinek növekvő <b>kölcsönös függősége</b>.</td>
+        <td data-col="Példa, megjegyzés">Hajtóereje a határokon átnyúló kereskedelem, a technológia és a befektetések áramlása.</td></tr>
+    <tr><td class="who" data-col="Fogalom">Grobalizáció (R-rel)</td>
+        <td data-col="Mit jelent">Amikor multinacionális vállalatok és nagy országok <b>globálisan terjeszkednek</b> a profit, a piacbővítés és az ideológia terjesztése érdekében.</td>
+        <td data-col="Példa, megjegyzés"><b>Felülről lefelé, hatalomvezérelt</b> folyamat — McDonaldizáció, disneyfikáció.</td></tr>
+    <tr><td class="who" data-col="Fogalom">Glokalizáció</td>
+        <td data-col="Mit jelent">A globális és a <b>lokális elemek keveredése</b>.</td>
+        <td data-col="Példa, megjegyzés">A „valami” glokalizációja utat kínál a kulturális sokszínűség megőrzésére.</td></tr>
+    <tr><td class="who" data-col="Fogalom">„Semmi”</td>
+        <td data-col="Mit jelent"><b>Központilag fogant és ellenőrzött</b> társadalmi formák, amelyekből hiányzik a megkülönböztető tartalom.</td>
+        <td data-col="Példa, megjegyzés">Bevásárlóközpontok, gyorséttermi láncok, mindenhol hasonló hitelkártyák.</td></tr>
+    <tr><td class="who" data-col="Fogalom">„Valami”</td>
+        <td data-col="Mit jelent"><b>Őshonos alapon fogant</b>, tartalomban gazdag formák.</td>
+        <td data-col="Példa, megjegyzés">Helyi piacok egyedi ételekkel, hagyományos kézműves termékek.</td></tr>
+    <tr><td class="who" data-col="Fogalom">Kulturális homogenizáció</td>
+        <td data-col="Mit jelent">A helyi kultúrák egyre inkább hasonlóvá válnak egy <b>domináns globális kultúrához</b>.</td>
+        <td data-col="Példa, megjegyzés">Hajtóerők: tömegmédia, globalizáció, multinacionális vállalatok — egységes nyelv, szokások, fogyasztói gyakorlat.</td></tr>
+    <tr><td class="who" data-col="Fogalom">Amerikanizáció</td>
+        <td data-col="Mit jelent">Az amerikai popkultúra, üzleti gyakorlatok, politikai technikák és gazdasági modellek <b>átvétele</b>.</td>
+        <td data-col="Példa, megjegyzés">Médián és nyelven keresztül is hat: az amerikai szókincs és helyesírás terjedése.</td></tr>
+    <tr><td class="who" data-col="Fogalom">Kulturális hibridizáció</td>
+        <td data-col="Mit jelent">A különböző kultúrák <b>összeolvadásából új formák</b> születnek.</td>
+        <td data-col="Példa, megjegyzés">A homogenizáció ellenpontja: nem kioltja, hanem keveri a kultúrákat.</td></tr>
+    <tr class="trap"><th>Tipikus csapda</th><td colspan="2">
+        A <b>globalizáció</b> leíró fogalom (összekapcsoltság), a <b>grobalizáció</b> értékelő: <b>hatalmi, felülről lefelé</b> irányuló ráerőltetés. A „semmi” nem a minőségről szól, hanem arról, hogy a forma <b>központilag fogant</b>, és hiányzik belőle a helyi tartalom.</td></tr>
+  </tbody>
+</table>
+</div>
+<p class="sheet-note">Forrás: 07. előadás · 15–19. dia</p>
+
+<h3 class="sechead">8. Ki kicsoda a 04–07. előadásban</h3>
+<div class="cmp">
+<table>
+  <thead><tr><th>Név</th><th>Mikor</th><th>Mi fűződik a nevéhez</th><th>Hol keresd</th></tr></thead>
+  <tbody>
+    <tr><td class="who" data-col="Név">Konfuciusz</td><td class="when" data-col="Mikor">i. e. 551–479</td>
+        <td data-col="Mi fűződik a nevéhez">A <b>konfucianizmus</b>: öt erény (ren, yi, li, zhi, xin), ritualizált élet, a család mint alapegység; a Lu Fejedelemségben élt, Kelet-Kínában.</td><td class="src" data-col="Hol keresd">05/3–4</td></tr>
+    <tr><td class="who" data-col="Név">Hu Csin-tao és Ven Csia-pao</td><td class="when" data-col="Mikor">2000-es évek eleje</td>
+        <td data-col="Mi fűződik a nevéhez">A <b>„harmonikus társadalom”</b> és a harmonikus gazdaság politikája a gyors növekedés társadalmi hatásainak enyhítésére.</td><td class="src" data-col="Hol keresd">05/8</td></tr>
+    <tr><td class="who" data-col="Név">Michael Porter</td><td class="when" data-col="Mikor">°</td>
+        <td data-col="Mi fűződik a nevéhez"><b>Versenyelőny-elmélet, gyémántmodell</b>; a komparatív előnyök elméletének bírálata.</td><td class="src" data-col="Hol keresd">06/3–4</td></tr>
+    <tr><td class="who" data-col="Név">Heckscher és Ohlin</td><td class="when" data-col="Mikor">°</td>
+        <td data-col="Mi fűződik a nevéhez">A <b>tényezőellátottságra</b> épülő specializáció elmélete: munkaigényes vagy tőkeigényes termékek.</td><td class="src" data-col="Hol keresd">06/5</td></tr>
+    <tr><td class="who" data-col="Név">Stolper és Samuelson</td><td class="when" data-col="Mikor">°</td>
+        <td data-col="Mi fűződik a nevéhez">A szabadkereskedelem <b>tényezőárakra</b> gyakorolt hatása: nyertesek és vesztesek egy országon belül. Samuelson példája az USA–Európa élelmiszer–ruházat eset is.</td><td class="src" data-col="Hol keresd">06/9, 06/13</td></tr>
+    <tr><td class="who" data-col="Név">Kitchin · Kuznets · Kondratyev</td><td class="when" data-col="Mikor">°</td>
+        <td data-col="Mi fűződik a nevéhez">A <b>ciklusok</b> névadói: 10–40 hónap · 18–20 év · 40–60 év.</td><td class="src" data-col="Hol keresd">06/16</td></tr>
+    <tr><td class="who" data-col="Név">Milton Friedman</td><td class="when" data-col="Mikor">1956</td>
+        <td data-col="Mi fűződik a nevéhez"><b>Monetarista válságelmélet</b>, a pénz mennyiségi elméletének újrafogalmazása: az árszint egyenesen arányos a pénzkínálattal.</td><td class="src" data-col="Hol keresd">06/25</td></tr>
+    <tr><td class="who" data-col="Név">Hyman Minsky</td><td class="when" data-col="Mikor">1970–80-as évek</td>
+        <td data-col="Mi fűződik a nevéhez"><b>Pénzügyi instabilitás hipotézise:</b> a stabilitás szül válságot — túlhitelezés, spekuláció, eufória.</td><td class="src" data-col="Hol keresd">06/26</td></tr>
+    <tr><td class="who" data-col="Név">Mises és Hayek</td><td class="when" data-col="Mikor">1920–30-as évek</td>
+        <td data-col="Mi fűződik a nevéhez"><b>Osztrák üzleti ciklus elmélet:</b> mesterségesen alacsony kamat és hitelexpanzió okozza a buborékot.</td><td class="src" data-col="Hol keresd">06/27</td></tr>
+    <tr><td class="who" data-col="Név">Alexander Hamilton · Friedrich List</td><td class="when" data-col="Mikor">1841</td>
+        <td data-col="Mi fűződik a nevéhez"><b>Kezdő iparág elmélete</b>; List műve: A politikai gazdaságtan nemzeti rendszere.</td><td class="src" data-col="Hol keresd">07/9</td></tr>
+    <tr><td class="who" data-col="Név">George Ritzer</td><td class="when" data-col="Mikor">°</td>
+        <td data-col="Mi fűződik a nevéhez"><b>A semmi globalizációja</b>: grobalizáció vs. glokalizáció, „semmi” és „valami”, McDonaldizáció.</td><td class="src" data-col="Hol keresd">07/15–16</td></tr>
+    <tr><td class="who" data-col="Név">Ray Dalio</td><td class="when" data-col="Mikor">°</td>
+        <td data-col="Mi fűződik a nevéhez">A dia hivatkozása a változó világrendről: <i>Principles for Dealing with the Changing World Order</i> — a dollármentesedés kontextusában.</td><td class="src" data-col="Hol keresd">05/47–48</td></tr>
+    <tr class="trap"><th>Megjegyzés</th><td colspan="3">
+        A <b>°</b> azt jelöli, hogy a diákon nem szerepel évszám — ezek tájékoztató adatok, nem számonkérhető diaadatok.</td></tr>
+  </tbody>
+</table>
+</div>
+<p class="sheet-note">Forrás: 04–07. előadás diasorai</p>
+
 </div>
 
 <div id="tpl-notes" hidden>
@@ -1281,7 +1556,8 @@ function renderRail(){
     ? (Math.min(state.i + 1, state.deck.length) + "/" + state.deck.length)
     : p + " kérdés";
   var practiced = Object.keys(store.first).length;
-  el("nav-stats").textContent = practiced ? practiced + "/" + Q.length : "még üres";
+  var navStats = el("nav-stats");
+  if(navStats) navStats.textContent = practiced ? practiced + "/" + Q.length : "még üres";
   Array.prototype.forEach.call(el("nav").querySelectorAll("button"), function(b){
     b.setAttribute("aria-current", String(b.dataset.view === state.view));
   });
@@ -1377,6 +1653,7 @@ function render(){
   renderRail();
   if(state.view === "quiz" || state.view === "drill") return renderQuiz();
   if(state.view === "calc") return renderCalc();
+  if(state.view === "mintazh") return renderMinta();
   if(state.view === "notes") return renderNotes();
   if(state.view === "sheet") return renderSheet();
   if(state.view === "stats") return renderStats();
@@ -1464,12 +1741,21 @@ document.addEventListener("click", function(ev){
 document.addEventListener("keydown", function(ev){ if(ev.key === "Escape") closePops(null); });
 
 function renderSheet(){
-  el("main").innerHTML = head("04", "Jegyzet",
-    "Irányzattérkép és összehasonlító táblázatok: mi micsoda, miből nő ki, és mit szoktak felcserélni.") +
+  el("main").innerHTML = head("02", "Jegyzet",
+    "Nyolc összehasonlító táblázat a 04–07. előadás anyagából: mutatók, modellek, elméletek és nevek.") +
     el("tpl-sheet").innerHTML;
 }
+function renderMinta(){
+  el("main").innerHTML = head("05", "Minta ZH",
+    "Teljes vizsgaszimuláció: ugyanaz a felépítés és pontozás, mint az éles ZH-n.") +
+    '<div class="card"><div class="card-body">'+
+    '<p class="qlead">Még nincs feltöltve</p>'+
+    '<h3 class="q">A minta ZH kérdései még nem érkeztek meg.</h3>'+
+    '<p class="qsub">Amint megvannak a kérdések, ide kerülnek — egy körben, az éles ZH pontozásával és a 30 perces órával. Addig a Gyakorlás, a Jegyzet és a Számolás menüpontok használhatók.</p>'+
+    '</div></div>';
+}
 function renderCalc(){
-  el("main").innerHTML = head("02", "Számolás",
+  el("main").innerHTML = head("04", "Számolás",
     "SNA-mutatók: képletek, kidolgozott példák és gyakorló feladat generált számokkal.") +
     el("tpl-calc").innerHTML;
   newCalc();
@@ -1580,7 +1866,7 @@ function renderQuiz(){
                       drill ? drillControl() : timerControl()) + (drill ? "" : mixLine());
 
   if(!state.deck.length){
-    main.innerHTML = htmlHead + '<div class="card"><div class="card-body"><p class="empty">Ehhez a szűréshez nincs kérdés.</p></div></div>';
+    main.innerHTML = htmlHead + '<div class="card"><div class="card-body"><p class="empty">Ebbe a kérdésbankba még nem került kérdés — a 04–07. előadás anyagából hamarosan jönnek. Addig a Jegyzet, az Előadások és a Számolás menüpont használható.</p></div></div>';
     bindTopCtl();
     return;
   }
