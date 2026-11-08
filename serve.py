@@ -34,9 +34,30 @@ SHELL_HEAD = """<!doctype html>
 """
 
 
+MIME = {".jpg": "image/jpeg", ".jpeg": "image/jpeg", ".png": "image/png",
+        ".json": "application/json; charset=utf-8", ".svg": "image/svg+xml"}
+
+
 class Handler(BaseHTTPRequestHandler):
+    def send_static(self, rel):
+        """A zh2 mappabol kiszolgalt allomany (diakepek)."""
+        path = os.path.normpath(os.path.join(HERE, "zh2", rel.lstrip("/")))
+        if not path.startswith(os.path.join(HERE, "zh2")) or not os.path.isfile(path):
+            self.send_error(404, "Not found")
+            return
+        data = io.open(path, "rb").read()
+        self.send_response(200)
+        self.send_header("Content-Type", MIME.get(os.path.splitext(path)[1].lower(), "application/octet-stream"))
+        self.send_header("Content-Length", str(len(data)))
+        self.send_header("Cache-Control", "max-age=300")
+        self.end_headers()
+        self.wfile.write(data)
+
     def do_GET(self):
         route = self.path.split("?")[0]
+        for pre in ("/zh2/dia/", "/dia/", "/zh2/manifest.json"):
+            if route.startswith(pre):
+                return self.send_static(route.split("/zh2", 1)[-1] if route.startswith("/zh2") else route)
         if route not in ROUTES:
             self.send_error(404, "Not found")
             return

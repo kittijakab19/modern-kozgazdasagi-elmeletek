@@ -429,6 +429,19 @@
   .slide-count{font-family:var(--mono);font-size:11px;color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
   .slide-track{height:3px;background:var(--line);position:relative}
   .slide-track i{position:absolute;inset:0 auto 0 0;background:var(--hue);transition:width .18s}
+  .slide-img{background:#fff;display:flex;justify-content:center;align-items:center;min-height:180px}
+  .slide-img img{display:block;width:100%;height:auto}
+  .slide-note{padding:20px 24px 24px;border-top:1px solid var(--line)}
+  .slide-note .nk{font-family:var(--mono);font-size:10.5px;font-weight:500;letter-spacing:.13em;
+    text-transform:uppercase;color:var(--hue);margin:0 0 10px}
+  .slide-note ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:7px}
+  .slide-note li{font-size:14.5px;line-height:1.58}
+  .slide-note p{font-size:14.5px;line-height:1.58;margin:0 0 9px}
+  .slide-jump{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:0 0 16px}
+  .slide-jump label{font-family:var(--mono);font-size:10.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--muted)}
+  .slide-jump input{width:68px;padding:7px 10px;border:1px solid var(--line);border-radius:9px;
+    background:var(--surface);color:var(--ink);font:600 13px var(--ui);font-variant-numeric:tabular-nums}
+  .slide-jump .hasnote{font-size:12.5px;color:var(--muted)}
   .slide-body{padding:24px 24px 26px;min-height:220px}
   .slide-body h3{font-family:var(--display);font-size:clamp(18px,2vw,22px);font-weight:700;letter-spacing:-.015em;
     margin:0 0 14px;color:var(--ink);text-transform:none}
@@ -439,7 +452,7 @@
     padding:14px 20px;border-top:1px solid var(--line);background:var(--surface-2)}
   .slide-nav .mid{font-family:var(--mono);font-size:11px;color:var(--muted);text-align:center;flex:1}
   .slide-nav .btn[disabled]{opacity:.4;cursor:default}
-  @media (max-width:640px){.slide-body{padding:18px 16px 20px}.slide-nav{padding:12px 14px}.slide-nav .btn{padding:8px 12px;font-size:13px}.slide-nav .mid{font-size:10px}}
+  @media (max-width:640px){.slide-note{padding:16px 16px 18px}.slide-body{padding:18px 16px 20px}.slide-nav{padding:12px 14px}.slide-nav .btn{padding:8px 12px;font-size:13px}.slide-nav .mid{font-size:10px}}
   .sechead{font-family:var(--display);font-size:15.5px;font-weight:700;letter-spacing:-.015em;margin:24px 0 10px}
   #segFilter{margin-bottom:12px}
 
@@ -557,7 +570,7 @@
     <nav class="nav" id="nav">
       <button type="button" data-view="quiz" aria-current="true">Gyakorlás <span class="n" id="nav-quiz"></span></button>
       <button type="button" data-view="sheet">Jegyzet <span class="n">8 tábla + jegyzet</span></button>
-      <button type="button" data-view="notes">Előadások <span class="n">59 dia</span></button>
+      <button type="button" data-view="notes">Előadások <span class="n">5 diasor · 151 dia</span></button>
       <button type="button" data-view="calc">Számolás <span class="n">SNA · GDP</span></button>
       <button type="button" data-view="mintazh">Minta ZH <span class="n">8 feladat</span></button>
     </nav>
@@ -676,7 +689,6 @@
 <div class="card" data-topic="valsag" id="minta-vitas">
   <div class="card-top"><div class="tagrow">
     <span class="tag topic">Válságelméletek</span>
-    <span class="tag exam">Itt veszett el a pont</span>
   </div><span class="counter">5 / 8</span></div>
   <div class="card-body">
     <p class="qlead">Igaz vagy hamis? — a helyes válasz: HAMIS</p>
@@ -1670,7 +1682,7 @@ var st = store.settings;
 var state = {view:"quiz", deck:[], i:0, locked:false, tf:{}, ok:0, bad:0, score:0, max:0, done:false, misses:[], kind:{}, mix:{}, order:{}, log:[], started:false, slide:0, notesLec:LECTURES[0].id};
 try{
   var savedLec = localStorage.getItem(LS + "-lec");
-  if(savedLec && LECTURES.some(function(l){ return l.id === savedLec; })) state.notesLec = savedLec;
+  if(savedLec && ["4","5","6","7","sna"].indexOf(savedLec) >= 0) state.notesLec = savedLec;
 }catch(e){}
 
 function esc(s){ return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
@@ -2063,6 +2075,41 @@ function checkCalc(){
   p.textContent = jo + " / " + n + " jó" + (jo === n ? " — hibátlan lánc." : " — a piros mezőknél ott a helyes érték.");
   box.appendChild(p);
 }
+/* a diasorok — a kepek a dia/<mappa>/<oldal>.jpg utvonalon */
+var DECKS = [
+  {id:"4", dir:"04", tab:"4. előadás", pages:38},
+  {id:"5", dir:"05", tab:"5. előadás", pages:50},
+  {id:"6", dir:"06", tab:"6. előadás", pages:30},
+  {id:"7", dir:"07", tab:"7. előadás", pages:23},
+  {id:"sna", dir:"sna", tab:"Számolás gyakorlat", pages:10,
+   full:"SNA — Nemzeti mutatószámrendszer, GDP számolás gyakorlat", name:"Számolás gyakorlat"}
+];
+function deckOf(id){
+  for(var i = 0; i < DECKS.length; i++) if(DECKS[i].id === id) return DECKS[i];
+  return DECKS[0];
+}
+var DECK = {};
+DECKS.forEach(function(d){ DECK[d.id] = d.pages; });
+function slideImg(lec, page){ return "dia/"+deckOf(lec).dir+"/"+("0"+page).slice(-2)+".jpg"; }
+var NOTE_CACHE = {};
+function notesByPage(lec){
+  if(NOTE_CACHE[lec]) return NOTE_CACHE[lec];
+  var map = {};
+  slidesOf(lec).forEach(function(sl){
+    var txt = sl.title.replace(/<[^>]+>/g, "");
+    var m = txt.match(/^\s*(\d+)/);
+    if(!m) return;
+    var from = Number(m[1]);
+    var to = from;
+    var r = txt.match(/^\s*\d+\s*[–-]\s*(\d+)/);
+    if(r) to = Number(r[1]);
+    for(var pg = from; pg <= to; pg++){
+      if(!map[pg]) map[pg] = {title:sl.title, html:sl.html, group:sl.group};
+    }
+  });
+  NOTE_CACHE[lec] = map;
+  return map;
+}
 var SLIDE_CACHE = {};
 function slidesOf(lec){
   if(SLIDE_CACHE[lec]) return SLIDE_CACHE[lec];
@@ -2096,53 +2143,77 @@ function slidesOf(lec){
   return out;
 }
 function lecTabs(lec){
-  return '<div class="ttabs">' + LECTURES.map(function(x){
-    return '<button class="ttab" type="button" data-lec="'+x.id+'" data-lect="'+x.id+'" aria-pressed="'+(x.id === lec)+'">'+
-           '<i></i>'+esc(x.id+". előadás")+'</button>';
+  return '<div class="ttabs">' + DECKS.map(function(x){
+    return '<button class="ttab" type="button" data-lec="'+x.id+'" data-lect="'+(x.id === "sna" ? "4" : x.id)+'" aria-pressed="'+(x.id === lec)+'">'+
+           '<i></i>'+esc(x.tab)+'</button>';
   }).join("") + '</div>';
 }
 function gotoSlide(n){
-  var slides = slidesOf(state.notesLec || LECTURES[0].id);
-  if(!slides.length) return;
-  state.slide = Math.max(0, Math.min(slides.length - 1, n));
+  var total = DECK[state.notesLec || LECTURES[0].id] || 0;
+  if(!total) return;
+  state.slide = Math.max(0, Math.min(total - 1, n));
   renderNotes();
 }
 function renderNotes(){
   var lec = state.notesLec || LECTURES[0].id;
-  var L = LECTURES.filter(function(x){ return x.id === lec; })[0] || LECTURES[0];
-  var slides = slidesOf(lec);
-  var i = Math.max(0, Math.min(state.slide || 0, slides.length - 1));
+  var D = deckOf(lec);
+  var L = LECTURES.filter(function(x){ return x.id === lec; })[0] ||
+          {id:D.id, name:D.name || D.tab, full:D.full || D.tab};
+  var total = DECK[lec] || 0;
+  var i = Math.max(0, Math.min(state.slide || 0, total - 1));
   state.slide = i;
-  var sl = slides[i];
+  var page = i + 1;
+  var notes = notesByPage(lec);
+  var note = notes[page];
 
   var htmlHead = head("03", "Előadások",
-    L.full + " — a diasor diánként, lapozva. A dia szövege szó szerint, ahogy a vetítésen szerepel.") + lecTabs(lec);
+    L.full + (lec === "sna"
+      ? " — a gyakorlat diasora diánként. A kidolgozott példák és a gyakorlófeladat a Számolás menüpontban vannak."
+      : " — az eredeti diasor, diánként lapozva. Ahol készült hozzá jegyzet, az a dia alatt olvasható.")) + lecTabs(lec);
 
-  if(!sl){
+  if(!total){
     el("main").innerHTML = htmlHead + '<div class="card"><div class="card-body"><p class="empty">Ehhez az előadáshoz még nincs feltöltve diasor.</p></div></div>';
     bindLecTabs();
     return;
   }
 
-  var pct = Math.round((i + 1) / slides.length * 100);
+  var withNotes = 0;
+  for(var k in notes) if(notes.hasOwnProperty(k)) withNotes++;
+  var pct = Math.round(page / total * 100);
+
   el("main").innerHTML = htmlHead +
+    '<div class="slide-jump">'+
+      '<label for="jump">Ugrás diára</label>'+
+      '<input type="number" id="jump" min="1" max="'+total+'" value="'+page+'">'+
+      '<span class="hasnote">'+total+' dia'+(withNotes ? ' · '+withNotes+' diához van jegyzet' : '')+'</span>'+
+    '</div>'+
     '<div class="card slide">'+
       '<div class="slide-top">'+
-        '<span class="slide-group">'+esc(sl.group)+'</span>'+
-        '<span class="slide-count">'+esc(sl.src)+' · '+(i+1)+' / '+slides.length+'</span>'+
+        '<span class="slide-group">'+esc(note ? note.group : L.name)+'</span>'+
+        '<span class="slide-count">'+esc(lec === "sna" ? "Számolás gyakorlat" : L.id+". előadás")+' · '+page+' / '+total+'</span>'+
       '</div>'+
       '<div class="slide-track"><i style="width:'+pct+'%"></i></div>'+
-      '<div class="slide-body"><h3>'+sl.title+'</h3>'+sl.html+'</div>'+
+      '<div class="slide-img"><img src="'+slideImg(lec, page)+'" alt="'+esc(L.id+". előadás, "+page+". dia")+'"></div>'+
+      (note ? '<div class="slide-note"><p class="nk">Jegyzet ehhez a diához</p>'+note.html+'</div>' : "")+
       '<div class="slide-nav">'+
         '<button class="btn" type="button" id="prevSlide"'+(i === 0 ? " disabled" : "")+'>← Előző dia</button>'+
         '<span class="mid">← → billentyűvel is lapozhatsz</span>'+
-        '<button class="btn primary" type="button" id="nextSlide"'+(i === slides.length - 1 ? " disabled" : "")+'>Következő dia →</button>'+
+        '<button class="btn primary" type="button" id="nextSlide"'+(i === total - 1 ? " disabled" : "")+'>Következő dia →</button>'+
       '</div>'+
     '</div>';
 
-  var pv = el("prevSlide"), nx = el("nextSlide");
+  // a következő két dia előtöltése, hogy lapozáskor ne villanjon
+  [page + 1, page + 2].forEach(function(n){
+    if(n <= total){ var im = new Image(); im.src = slideImg(lec, n); }
+  });
+
+  var pv = el("prevSlide"), nx = el("nextSlide"), jp = el("jump");
   if(pv) pv.onclick = function(){ gotoSlide(i - 1); };
   if(nx) nx.onclick = function(){ gotoSlide(i + 1); };
+  if(jp) jp.onchange = function(){
+    var v = parseInt(jp.value, 10);
+    if(!isNaN(v)) gotoSlide(v - 1);
+  };
   bindLecTabs();
 }
 function bindLecTabs(){
