@@ -211,6 +211,8 @@
   .verdict .mark span{color:var(--surface);line-height:1;font-size:12px}
   .why{background:var(--surface-2);border:1px solid var(--line);border-left:3px solid var(--hue);border-radius:0 10px 10px 0;padding:14px 16px}
   .why p{margin:0;font-size:14.5px;line-height:1.55}
+  .why.pick{border-left-color:var(--bad)}
+  .why p+p{margin-top:9px}
   .why .src{display:block;font-family:var(--mono);font-size:11px;color:var(--muted);margin-top:10px}
   .fbrow{display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:space-between}
   .kbd{font-family:var(--mono);font-size:11px;color:var(--muted)}
@@ -399,6 +401,32 @@
   .ttab i{width:9px;height:9px;border-radius:3px;background:var(--hue);flex:none}
   .ttab:hover{color:var(--ink);border-color:var(--hue)}
   .ttab[aria-pressed="true"]{border-color:var(--hue);color:var(--ink);background:var(--surface-2);box-shadow:inset 0 -2px 0 var(--hue)}
+  /* jegyzet szakaszok badge-dzsel */
+  .grouphead{display:flex;align-items:center;gap:12px;margin:30px 0 12px;padding-top:4px}
+  .grouphead:first-child{margin-top:0}
+  .gbadge{font-family:var(--mono);font-size:10.5px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;
+    color:var(--hue);border:1px solid var(--hue);background:var(--surface);border-radius:99px;padding:6px 12px;white-space:nowrap}
+  .grouphead .gline{flex:1;height:1px;background:var(--line)}
+  .lecsep{font-family:var(--display);font-size:14.5px;font-weight:700;margin:22px 0 10px;color:var(--ink-2)}
+  /* lapozható diasor */
+  .slide{overflow:hidden}
+  .slide-top{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;
+    padding:12px 20px;border-bottom:1px solid var(--line);background:var(--surface-2)}
+  .slide-group{font-size:12.5px;font-weight:600;color:var(--muted)}
+  .slide-count{font-family:var(--mono);font-size:11px;color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
+  .slide-track{height:3px;background:var(--line);position:relative}
+  .slide-track i{position:absolute;inset:0 auto 0 0;background:var(--hue);transition:width .18s}
+  .slide-body{padding:24px 24px 26px;min-height:220px}
+  .slide-body h3{font-family:var(--display);font-size:clamp(18px,2vw,22px);font-weight:700;letter-spacing:-.015em;
+    margin:0 0 14px;color:var(--ink);text-transform:none}
+  .slide-body ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:8px}
+  .slide-body li{font-size:15px;line-height:1.6}
+  .slide-body p{font-size:15px;line-height:1.6;margin:0 0 10px}
+  .slide-nav{display:flex;align-items:center;justify-content:space-between;gap:12px;
+    padding:14px 20px;border-top:1px solid var(--line);background:var(--surface-2)}
+  .slide-nav .mid{font-family:var(--mono);font-size:11px;color:var(--muted);text-align:center;flex:1}
+  .slide-nav .btn[disabled]{opacity:.4;cursor:default}
+  @media (max-width:640px){.slide-body{padding:18px 16px 20px}.slide-nav{padding:12px 14px}.slide-nav .btn{padding:8px 12px;font-size:13px}.slide-nav .mid{font-size:10px}}
   .sechead{font-family:var(--display);font-size:15.5px;font-weight:700;letter-spacing:-.015em;margin:24px 0 10px}
   #segFilter{margin-bottom:12px}
 
@@ -515,8 +543,8 @@
 
     <nav class="nav" id="nav">
       <button type="button" data-view="quiz" aria-current="true">Gyakorlás <span class="n" id="nav-quiz"></span></button>
-      <button type="button" data-view="sheet">Jegyzet <span class="n">8 táblázat</span></button>
-      <button type="button" data-view="notes">Előadások <span class="n">4 diasor</span></button>
+      <button type="button" data-view="sheet">Jegyzet <span class="n">8 tábla + jegyzet</span></button>
+      <button type="button" data-view="notes">Előadások <span class="n">59 dia</span></button>
       <button type="button" data-view="calc">Számolás <span class="n">SNA · GDP</span></button>
       <button type="button" data-view="mintazh">Minta ZH <span class="n">8 feladat</span></button>
     </nav>
@@ -644,7 +672,7 @@
       <button class="opt" type="button" disabled><span class="k">I</span><span>Igaz</span></button>
       <button class="opt right" type="button" disabled><span class="k">H</span><span>Hamis</span></button>
     </div>
-    <div class="why miss">
+    <div class="why pick">
       <p><b>Miért hamis az állítás?</b> A 22. dia külön sorban nevezi meg a válság okát: „<b>Ok: Külső zavarok (pl. háború, természeti katasztrófa).</b>” Az állami túlszabályozás tehát nem szerepel okként a klasszikusoknál.</p>
       <p><b>Amit a dia mond — és ez igaz:</b> a gazdaság önszabályozó, egyensúlyba kerül, a válság csak átmeneti, mert az árak és a bérek alkalmazkodnak; rövid távú visszaesés után gyorsan helyreáll. Ez azonban azt magyarázza, <b>miért múlik el</b> a válság, nem azt, <b>mi okozza</b>.</p>
       <p><b>Kinél lenne igaz?</b> Az <b>osztrák iskolánál</b> (Mises, Hayek): ott a mesterségesen alacsony kamatláb és a túlzott hitelexpanzió okozza a bajt, a megoldás pedig a piaci kamat és a kevesebb kormányzati beavatkozás. A vizsgakérdés ezt a két iskolát cseréli fel.</p>
@@ -1626,7 +1654,7 @@ function save(){ try{ localStorage.setItem(LS, JSON.stringify(store)); }catch(e)
 })();
 
 var st = store.settings;
-var state = {view:"quiz", deck:[], i:0, locked:false, tf:{}, ok:0, bad:0, score:0, max:0, done:false, misses:[], kind:{}, mix:{}, order:{}, log:[], started:false, notesLec:LECTURES[0].id};
+var state = {view:"quiz", deck:[], i:0, locked:false, tf:{}, ok:0, bad:0, score:0, max:0, done:false, misses:[], kind:{}, mix:{}, order:{}, log:[], started:false, slide:0, notesLec:LECTURES[0].id};
 try{
   var savedLec = localStorage.getItem(LS + "-lec");
   if(savedLec && LECTURES.some(function(l){ return l.id === savedLec; })) state.notesLec = savedLec;
@@ -1925,9 +1953,23 @@ document.addEventListener("click", function(ev){
 document.addEventListener("keydown", function(ev){ if(ev.key === "Escape") closePops(null); });
 
 function renderSheet(){
+  var tmp = document.createElement("div");
+  tmp.innerHTML = el("tpl-notes").innerHTML;
+  var notes = "";
+  LECTURES.forEach(function(L){
+    var blocks = Array.prototype.filter.call(tmp.querySelectorAll("details.note"), function(d){
+      return d.getAttribute("data-lecture") === L.id;
+    }).map(function(d){ d.removeAttribute("open"); return d.outerHTML; }).join("");
+    if(blocks) notes += '<p class="lecsep">'+esc(L.id+". előadás — "+L.name)+'</p>' + blocks;
+  });
+
   el("main").innerHTML = head("02", "Jegyzet",
-    "Nyolc összehasonlító táblázat a 04–07. előadás anyagából: mutatók, modellek, elméletek és nevek.") +
-    el("tpl-sheet").innerHTML;
+    "A 04–07. előadás anyaga: összehasonlító táblázatok és a diákból kiszedett jegyzet, előadásonként.") +
+    '<div class="grouphead"><span class="gbadge">Táblázatok</span><span class="gline"></span></div>' +
+    el("tpl-sheet").innerHTML +
+    '<div class="grouphead"><span class="gbadge">Előadásjegyzet</span><span class="gline"></span></div>' +
+    '<p class="sheet-lede">A diák szövege témánként csoportosítva — nyisd ki azt a blokkot, amelyik kell. Diánként lapozva az <b>Előadások</b> menüpontban találod ugyanezt.</p>' +
+    notes;
 }
 function renderMinta(){
   el("main").innerHTML = head("05", "Minta ZH",
@@ -2008,28 +2050,93 @@ function checkCalc(){
   p.textContent = jo + " / " + n + " jó" + (jo === n ? " — hibátlan lánc." : " — a piros mezőknél ott a helyes érték.");
   box.appendChild(p);
 }
+var SLIDE_CACHE = {};
+function slidesOf(lec){
+  if(SLIDE_CACHE[lec]) return SLIDE_CACHE[lec];
+  var tmp = document.createElement("div");
+  tmp.innerHTML = el("tpl-notes").innerHTML;
+  var out = [];
+  Array.prototype.forEach.call(tmp.querySelectorAll("details.note"), function(d){
+    if(d.getAttribute("data-lecture") !== lec) return;
+    var sum = d.querySelector("summary");
+    var lab = sum ? sum.querySelector(".lec") : null;
+    var group = "";
+    if(sum){
+      var c = sum.cloneNode(true);
+      var cl = c.querySelector(".lec");
+      if(cl) cl.parentNode.removeChild(cl);
+      group = c.textContent.trim();
+    }
+    var body = d.querySelector(".note-body");
+    if(!body) return;
+    var cur = null;
+    Array.prototype.forEach.call(body.children, function(node){
+      if(node.tagName === "H3"){
+        cur = {title:node.innerHTML, group:group, src:(lab ? lab.textContent.trim() : ""), html:""};
+        out.push(cur);
+      } else if(cur){
+        cur.html += node.outerHTML;
+      }
+    });
+  });
+  SLIDE_CACHE[lec] = out;
+  return out;
+}
+function lecTabs(lec){
+  return '<div class="ttabs">' + LECTURES.map(function(x){
+    return '<button class="ttab" type="button" data-lec="'+x.id+'" data-lect="'+x.id+'" aria-pressed="'+(x.id === lec)+'">'+
+           '<i></i>'+esc(x.id+". előadás")+'</button>';
+  }).join("") + '</div>';
+}
+function gotoSlide(n){
+  var slides = slidesOf(state.notesLec || LECTURES[0].id);
+  if(!slides.length) return;
+  state.slide = Math.max(0, Math.min(slides.length - 1, n));
+  renderNotes();
+}
 function renderNotes(){
   var lec = state.notesLec || LECTURES[0].id;
   var L = LECTURES.filter(function(x){ return x.id === lec; })[0] || LECTURES[0];
-  var tabs = LECTURES.map(function(x){
-    return '<button class="ttab" type="button" data-lec="'+x.id+'" data-lect="'+x.id+'" aria-pressed="'+(x.id === lec)+'">'+
-           '<i></i>'+esc(x.id+". előadás")+'</button>';
-  }).join("");
+  var slides = slidesOf(lec);
+  var i = Math.max(0, Math.min(state.slide || 0, slides.length - 1));
+  state.slide = i;
+  var sl = slides[i];
 
-  var tmp = document.createElement("div");
-  tmp.innerHTML = el("tpl-notes").innerHTML;
-  var blocks = Array.prototype.filter.call(tmp.querySelectorAll("details.note"), function(d){
-    return d.getAttribute("data-lecture") === lec;
-  }).map(function(d){ return d.outerHTML; }).join("");
+  var htmlHead = head("03", "Előadások",
+    L.full + " — a diasor diánként, lapozva. A dia szövege szó szerint, ahogy a vetítésen szerepel.") + lecTabs(lec);
 
-  el("main").innerHTML = head("03", "Előadások", L.full + " — a diák szövege diánként, szó szerint. Ahol a saját jegyzeted kiegészíti a diát, egy i jel áll a dia címe mellett: kattints rá.") +
-    '<div class="ttabs">' + tabs + '</div>' + blocks;
+  if(!sl){
+    el("main").innerHTML = htmlHead + '<div class="card"><div class="card-body"><p class="empty">Ehhez az előadáshoz még nincs feltöltve diasor.</p></div></div>';
+    bindLecTabs();
+    return;
+  }
 
-  var first = el("main").querySelector("details.note");
-  if(first) first.open = true;
+  var pct = Math.round((i + 1) / slides.length * 100);
+  el("main").innerHTML = htmlHead +
+    '<div class="card slide">'+
+      '<div class="slide-top">'+
+        '<span class="slide-group">'+esc(sl.group)+'</span>'+
+        '<span class="slide-count">'+esc(sl.src)+' · '+(i+1)+' / '+slides.length+'</span>'+
+      '</div>'+
+      '<div class="slide-track"><i style="width:'+pct+'%"></i></div>'+
+      '<div class="slide-body"><h3>'+sl.title+'</h3>'+sl.html+'</div>'+
+      '<div class="slide-nav">'+
+        '<button class="btn" type="button" id="prevSlide"'+(i === 0 ? " disabled" : "")+'>← Előző dia</button>'+
+        '<span class="mid">← → billentyűvel is lapozhatsz</span>'+
+        '<button class="btn primary" type="button" id="nextSlide"'+(i === slides.length - 1 ? " disabled" : "")+'>Következő dia →</button>'+
+      '</div>'+
+    '</div>';
+
+  var pv = el("prevSlide"), nx = el("nextSlide");
+  if(pv) pv.onclick = function(){ gotoSlide(i - 1); };
+  if(nx) nx.onclick = function(){ gotoSlide(i + 1); };
+  bindLecTabs();
+}
+function bindLecTabs(){
   Array.prototype.forEach.call(el("main").querySelectorAll(".ttab"), function(b){
     b.onclick = function(){
       state.notesLec = b.dataset.lec;
+      state.slide = 0;
       try{ localStorage.setItem(LS + "-lec", state.notesLec); }catch(e){}
       renderNotes();
       window.scrollTo({top:0, behavior:"smooth"});
@@ -2466,6 +2573,13 @@ el("reset-btn").onclick = function(){
   save(); newRound();
 };
 document.addEventListener("keydown", function(ev){
+  if(state.view === "notes"){
+    var tg = ev.target.tagName;
+    if(tg === "INPUT" || tg === "TEXTAREA") return;
+    if(ev.key === "ArrowLeft"){ ev.preventDefault(); gotoSlide((state.slide || 0) - 1); }
+    else if(ev.key === "ArrowRight"){ ev.preventDefault(); gotoSlide((state.slide || 0) + 1); }
+    return;
+  }
   if((state.view !== "quiz" && state.view !== "drill") || state.done) return;
   var tag = ev.target.tagName;
   if(tag === "INPUT" || tag === "TEXTAREA") return;
