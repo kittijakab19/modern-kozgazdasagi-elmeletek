@@ -1610,7 +1610,773 @@ const TOPICS = [
   {id:"kereskedelem", name:"Kereskedelempolitika, globalizáció"}
 ];
 
-const Q = [];
+const Q = [
+/* ---- 04. ELŐADÁS · GDP, SNA, MUTATÓSZÁMOK ---- */
+{id:"d1",t:"gdp",type:"mc",q:"Mit mér a GDP az SNA definíciója szerint?",
+ o:["A rezidens egységek egy év alatt létrehozott hozzáadott értékét.",
+    "A hazai háztartások egy év alatt elköltött jövedelmének összegét.",
+    "Az államháztartás egy év alatt beszedett adóbevételeinek összegét.",
+    "A külföldre utalt tulajdonosi jövedelmek egy évre jutó egyenlegét."],
+ a:0,w:"A dia szó szerinti meghatározása: a rezidens szervezeti egységek által a nemzetgazdaságban egy év alatt létrehozott hozzáadott érték összege. (04/5)",s:"04. előadás · 5. dia"},
+
+{id:"d2",t:"gdp",type:"mc",q:"Mikor számít egy szervezeti egység rezidensnek?",
+ o:["Ha hosszabb időn át az ország területén van gazdasági érdekeltsége.",
+    "Ha a tulajdonosa az adott ország állampolgárságával rendelkezik.",
+    "Ha az adott évben kizárólag a belföldi piacra termel és nem exportál.",
+    "Ha az ország területén jegyezték be, de külföldi tulajdonban áll."],
+ a:0,w:"A rezidens (hazai) egységet a tartós — általában egy évet meghaladó — gazdasági érdekeltség teszi azzá, nem a tulajdonos állampolgársága. (04/5)",s:"04. előadás · 5. dia"},
+
+{id:"d3",t:"gdp",type:"mc",q:"Melyik hármas adja a GDP három megközelítését?",
+ o:["Végső kibocsátás, végső felhasználás és megtermelt jövedelem.",
+    "Bruttó kibocsátás, nettó export és az állami kiadások összege.",
+    "Munkajövedelem, tőkejövedelem és a transzferek egyenlege.",
+    "Fogyasztás, megtakarítás és a beruházások együttes értéke."],
+ a:0,w:"A dia szerint a három megközelítés megegyezik egymással: végső kibocsátás, végső felhasználás, megtermelt jövedelem. (04/3)",s:"04. előadás · 3. dia"},
+
+{id:"d4",t:"gdp",type:"mc",q:"Mit jelent a GDP = G0 − TF képlet?",
+ o:["A bruttó kibocsátásból levonjuk a folyó termelő fogyasztást.",
+    "A bruttó kibocsátásból levonjuk az amortizáció teljes összegét.",
+    "A bruttó kibocsátásból levonjuk a külföldre utalt jövedelmeket.",
+    "A bruttó kibocsátásból levonjuk a háztartások fogyasztását."],
+ a:0,w:"G0 a bruttó kibocsátás, TF a folyó termelő fogyasztás; a kettő különbsége a hozzáadott érték, vagyis a GDP. (04/11–12)",s:"04. előadás · 11–12. dia"},
+
+{id:"d5",t:"gdp",type:"mc",q:"Mivel csökkentve kapjuk a bruttó mutatóból a nettót?",
+ o:["Az amortizációval csökkentett érték adja a nettó mutatót.",
+    "A transzferek egyenlegével csökkentve kapjuk a nettó mutatót.",
+    "A folyó termelő fogyasztás levonása adja a nettó mutatót.",
+    "A tulajdonosi jövedelmek levonása adja a nettó mutatót."],
+ a:0,w:"A dián kiemelt alapszabály: NETTÓ = BRUTTÓ − AMORTIZÁCIÓ. Ez érvényes az NDP, az NNI és az NNDI kiszámítására is. (04/12)",s:"04. előadás · 12. dia"},
+
+{id:"d6",t:"gdp",type:"mc",q:"Hogyan jutunk a GDP-ből a GNI-hez?",
+ o:["Levonjuk a kiáramló, majd hozzáadjuk a beáramló munka- és tőkejövedelmet.",
+    "Levonjuk az amortizációt, majd hozzáadjuk a transzferek egyenlegét.",
+    "Levonjuk a folyó termelő fogyasztást és a befizetett adók összegét.",
+    "Levonjuk a beruházások értékét, majd hozzáadjuk az export összegét."],
+ a:0,w:"GNI = GDP − (L+K) + (L+K): a külföldre kiáramló elsődleges jövedelem ki, a beáramló be. A dia jelölése: KI és BE. (04/13)",s:"04. előadás · 13. dia"},
+
+{id:"d7",t:"gdp",type:"mc",q:"Mit fejez ki a GNDI mutató?",
+ o:["A szereplők egy évben végső felhasználásra fordítható bruttó jövedelmét.",
+    "A szereplők egy évben megtermelt hozzáadott értékének bruttó összegét.",
+    "A szereplők egy évben felhalmozott nettó vagyonának bruttó összegét.",
+    "A szereplők egy évben külföldre utalt jövedelmeinek bruttó összegét."],
+ a:0,w:"GNDI – Bruttó nemzeti rendelkezésre álló jövedelem: a nemzetgazdaság szereplőinek egy adott évben végső felhasználásra fordítható összes bruttó jövedelme. (04/5)",s:"04. előadás · 5. dia"},
+
+{id:"d8",t:"gdp",type:"mc",q:"Ki dolgozta ki az SNA-t, és mikor?",
+ o:["Az ENSZ, 1953-ban, minden ország számára ajánlott módszertanként.",
+    "Az OECD, 1968-ban, a fejlett országok számára ajánlott rendszerként.",
+    "Az Európai Unió, 1995-ben, a tagállamok számára kötelező rendszerként.",
+    "A Világbank, 1944-ben, a hitelfelvevő országok számára előírt rendszerként."],
+ a:0,w:"Az SNA az ENSZ által a világ összes országa számára ajánlott statisztikai rendszer, 1953-ban dolgozták ki; 1993 óta SNA93, 2009 óta SNA2008. (04/10)",s:"04. előadás · 10. dia"},
+
+{id:"d9",t:"gdp",type:"mc",q:"Melyik rendszert használja az Egyesült Államok?",
+ o:["A NIPA-t, amely némileg eltér a nemzetközi SNA-rendszertől.",
+    "Az ESA95-öt, amely az Európai Unióban érvényes változat.",
+    "Az MPS-t, amelyet korábban a KGST-országok alkalmaztak.",
+    "Az SNA93-at, amelyet 2009-ben az SNA2008 váltott fel."],
+ a:0,w:"NIPA – National Income and Product Accounts: az USA némileg eltérő rendszere. Az EU-ban az ESA95, 2014-től az ESA2010 érvényes. (04/10)",s:"04. előadás · 10. dia"},
+
+{id:"d10",t:"gdp",type:"mc",q:"Mi történt Magyarországon 1993-ban a nemzeti számlák terén?",
+ o:["Megszűnt az MPS, és bevezették az SNA/ESA rendszert.",
+    "Bevezették az MPS-t a szovjet módszertan átvételével.",
+    "Párhuzamosan kezdték alkalmazni az MPS-t és az SNA-t.",
+    "Áttértek az új ESA-ra, amely az aktuális módszertant hozta."],
+ a:0,w:"A dia időrendje: 1949 MPS, 1968 párhuzamosan két módszer, 1993 az MPS megszűnése és az SNA/ESA bevezetése, 2014 új ESA. (04/10)",s:"04. előadás · 10. dia"},
+
+{id:"d11",t:"gdp",type:"mc",q:"Melyik a GDP felhasználási oldalának helyes képlete?",
+ o:["GDP = C + I + G + EX − IM","GDP = C + I + G − EX + IM",
+    "GDP = C + I + G + EX + IM","GDP = C − I + G + EX − IM"],
+ a:0,w:"C a lakossági fogyasztás, I a beruházás, G az állami kiadás, EX az export, IM az import — az importot le kell vonni. (04/17)",s:"04. előadás · 17. dia"},
+
+{id:"d12",t:"gdp",type:"mc",q:"Melyik tétel marad ki a GDP-ből?",
+ o:["A háztartáson belüli szolgáltatás és a környezetkárosítás.",
+    "A rejtett és az illegális termelésből származó hozzáadott érték.",
+    "A nem piaci termelés és a közszolgáltatások teljes értéke.",
+    "Az export és az import egyenlegeként adódó nettó kivitel."],
+ a:0,w:"Kimarad a háztartáson belüli szolgáltatás, a környezetkárosítás és a háború mint negatív termelés, az externáliák és az erőszakos tranzakció. A termelés viszont lehet legális, rejtett vagy illegális, piaci vagy nem piaci. (04/19)",s:"04. előadás · 19. dia"},
+
+{id:"d13",t:"gdp",type:"mc",q:"Mi a különbség a nominális és a reál GDP között?",
+ o:["A reál egy bázisév árain, a nominális az adott évi áron számol.",
+    "A reál az adott évi áron, a nominális a bázisév árain számol.",
+    "A reál a termelési, a nominális a felhasználási oldalt méri.",
+    "A reál az egy főre jutó, a nominális a teljes kibocsátást mutatja."],
+ a:0,w:"A nominális (folyó áras) GDP az adott évi piaci árakkal, a reál (változatlan áras) egy kitüntetett bázisév árain számol — így szűrhető ki az árváltozás hatása. (04/22–23)",s:"04. előadás · 22–23. dia"},
+
+{id:"d14",t:"gdp",type:"mc",q:"Miért kell kiszűrni az árak változását a GDP-ből?",
+ o:["Mert különben nem a teljesítmény, hanem az árszint változása látszik.",
+    "Mert különben a külföldi jövedelmek kétszer kerülnének beszámításra.",
+    "Mert különben az amortizáció összege kimaradna a kibocsátásból.",
+    "Mert különben a nem piaci termelés is bekerülne a mutatóba."],
+ a:0,w:"A termelési érték = megtermelt mennyiség × ár. Ha a tényleges teljesítmény változását akarjuk látni, ki kell szűrni az árak változását. (04/22–23)",s:"04. előadás · 22–23. dia"},
+
+/* --- SZÁMOLÁS (SNA-lánc) --- */
+{id:"c1",t:"gdp",type:"mc",q:"Bruttó kibocsátás (G0) = 5 400, folyó termelő fogyasztás (TF) = 2 100. Mennyi a GDP?",
+ o:["3 300","7 500","2 100","3 150"],
+ a:0,w:"GDP = G0 − TF = 5 400 − 2 100 = 3 300. (04/12)",s:"04. előadás · 12. dia"},
+
+{id:"c2",t:"gdp",type:"mc",q:"GDP = 3 300, amortizáció (A) = 420. Mennyi az NDP?",
+ o:["2 880","3 720","2 460","3 080"],
+ a:0,w:"NDP = GDP − A = 3 300 − 420 = 2 880. NETTÓ = BRUTTÓ − AMORTIZÁCIÓ. (04/12)",s:"04. előadás · 12. dia"},
+
+{id:"c3",t:"gdp",type:"mc",q:"GDP = 4 000; külföldre kiáramló L+K = 260, beáramló L+K = 180. Mennyi a GNI?",
+ o:["3 920","4 080","3 560","4 440"],
+ a:0,w:"GNI = GDP − (L+K) KI + (L+K) BE = 4 000 − 260 + 180 = 3 920. (04/13)",s:"04. előadás · 13. dia"},
+
+{id:"c4",t:"gdp",type:"mc",q:"GNI = 3 920, amortizáció (A) = 500. Mennyi az NNI?",
+ o:["3 420","4 420","3 500","3 220"],
+ a:0,w:"NNI = GNI − A = 3 920 − 500 = 3 420. (04/13)",s:"04. előadás · 13. dia"},
+
+{id:"c5",t:"gdp",type:"mc",q:"GNI = 2 750; kiáramló transzfer (TR) = 120, beáramló transzfer = 310. Mennyi a GNDI?",
+ o:["2 940","2 560","3 180","2 320"],
+ a:0,w:"GNDI = GNI − TR KI + TR BE = 2 750 − 120 + 310 = 2 940. (04/14)",s:"04. előadás · 14. dia"},
+
+{id:"c6",t:"gdp",type:"mc",q:"G0 = 6 000, TF = 2 400, A = 450; L+K KI = 300, BE = 150; TR KI = 90, BE = 240. Mennyi az NNDI?",
+ o:["3 150","3 600","3 000","3 450"],
+ a:0,w:"GDP = 6 000 − 2 400 = 3 600; GNI = 3 600 − 300 + 150 = 3 450; NNI = 3 450 − 450 = 3 000; NNDI = 3 000 − 90 + 240 = 3 150. (04/12–14)",s:"04. előadás · 12–14. dia"},
+
+{id:"c7",t:"gdp",type:"mc",q:"Egy ország 1. évben 100 db terméket állít elő 500 Ft-os áron, a 2. évben 110 db-ot 550 Ft-on. Mennyi a 2. év reál GDP-je az 1. év árain?",
+ o:["55 000 Ft","60 500 Ft","50 000 Ft","57 750 Ft"],
+ a:0,w:"A reál GDP a bázisév árain számol: 110 db × 500 Ft = 55 000 Ft. A 60 500 Ft a nominális (110 × 550), az 50 000 Ft az 1. év értéke. (04/22–23)",s:"04. előadás · 22–23. dia"},
+
+{id:"c8",t:"gdp",type:"mc",q:"A GDP 4 800 milliárd Ft, az ország népessége 9,6 millió fő. Mennyi az egy főre jutó GDP?",
+ o:["500 000 Ft","50 000 Ft","5 000 000 Ft","480 000 Ft"],
+ a:0,w:"4 800 milliárd / 9,6 millió = 500 000 Ft/fő. Az életszínvonal elemzése mindig egy főre eső kategóriákat igényel. (04/36)",s:"04. előadás · 36. dia"},
+
+{id:"d15",t:"gdp",type:"tf",q:"Jelölje, hogy az alábbi állítások igazak vagy hamisak.",
+ items:[
+  {s:"A GDP három megközelítése egymással megegyező eredményt ad.",a:true,w:"A dia kifejezetten ezt mondja ki a végső kibocsátásról, a végső felhasználásról és a megtermelt jövedelemről. (04/3)"},
+  {s:"A nominális GDP a bázisév árain veszi számításba a termékeket.",a:false,w:"Az a reál GDP; a nominális az adott évi piaci áron számol. (04/22)"},
+  {s:"Az SNA-t az Európai Unió dolgozta ki a tagállamok számára.",a:false,w:"Az ENSZ dolgozta ki 1953-ban; az EU változata az ESA. (04/10)"},
+  {s:"A háztartáson belül végzett szolgáltatás nem kerül be a GDP-be.",a:true,w:"A dia a kimaradó tételek között sorolja fel. (04/19)"}
+ ],s:"04. előadás · 3–22. dia"},
+
+{id:"d16",t:"gdp",type:"match",q:"Melyik mutatóhoz melyik képlet tartozik?",
+ cats:["GDP","NDP","GNI","GNDI"],
+ items:[
+  {s:"G0 − TF, vagyis a bruttó kibocsátás mínusz a folyó termelő fogyasztás.",c:0,w:"Ez a bruttó hazai termék. (04/12)"},
+  {s:"GDP − A, vagyis a hazai termék amortizációval csökkentve.",c:1,w:"Nettó hazai termék. (04/12)"},
+  {s:"GDP − (L+K) + (L+K), az elsődleges jövedelmek ki- és beáramlásával.",c:2,w:"Bruttó nemzeti jövedelem. (04/13)"},
+  {s:"GNI − TR + TR, a transzferek ki- és beáramlásával korrigálva.",c:3,w:"Bruttó nemzeti rendelkezésre álló jövedelem. (04/14)"}
+ ],s:"04. előadás · 12–14. dia"},
+
+/* ---- 04. ELŐADÁS · ALTERNATÍV MUTATÓK, ÖKOLÓGIA, NÖVEKEDÉS ---- */
+{id:"o1",t:"oko",type:"mc",q:"Mit mér az ISEW mutató?",
+ o:["Mennyiben járul hozzá a gazdasági tevékenység a jóléthez, és mennyiben csökkenti azt.",
+    "Mekkora a lakosság egy főre jutó jövedelme a vásárlóerő-paritás figyelembevételével.",
+    "Mekkora területre van szükség egy ország fogyasztásának megtermeléséhez évente.",
+    "Milyen arányban oszlik meg a nemzeti jövedelem a munka és a tőke tulajdonosai között."],
+ a:0,w:"ISEW – Fenntartható Gazdasági Jólét Index: a gazdasági tevékenység jóléthez való hozzájárulását és az azt csökkentő hatásokat is méri, pénzben nem mért költségekkel és hasznokkal kiigazítva. (04/25)",s:"04. előadás · 25. dia"},
+
+{id:"o2",t:"oko",type:"mc",q:"Mit tesz hozzá a GPI a GDP-hez képest?",
+ o:["A negatív hatások költségeit, például a bűnözését és az erőforrások kimerülését.",
+    "A háztartásokban végzett házimunka és gyermeknevelés becsült piaci értékét.",
+    "Az állami közszolgáltatások teljes körű, piaci áron számított hozzáadott értékét.",
+    "A külföldről beáramló tulajdonosi jövedelmek és transzferek éves egyenlegét."],
+ a:0,w:"A GPI (Valódi Előrehaladás Mutatója) mindent figyelembe vesz, amit a GDP, de hozzáadja a negatív hatások költségeit: bűnözés, ózonréteg károsodása, erőforrások kimerülése. (04/27)",s:"04. előadás · 27. dia"},
+
+{id:"o3",t:"oko",type:"mc",q:"Melyik négy terület alkotja a HDI-t?",
+ o:["Átlagos és várható iskolai évek, várható élettartam, egy főre jutó GNI.",
+    "Átlagos jövedelem, foglalkoztatottság, iskolázottság és lakásviszonyok.",
+    "Várható élettartam, ökológiai lábnyom, elégedettség és iskolai évek.",
+    "Egészségügyi kiadás, oktatási kiadás, kutatási kiadás és beruházás."],
+ a:0,w:"A HDI az ENSZ statisztikája: átlagos iskolai évek, várható iskolai évek, születéskor várható élettartam, egy főre jutó bruttó nemzeti jövedelem. A harmadik válasz a HPI három eleme. (04/29)",s:"04. előadás · 29. dia"},
+
+{id:"o4",t:"oko",type:"mc",q:"Mely három tényező befolyásolja az ökológiai túlfogyasztást?",
+ o:["A fogyasztás mértéke, az emberiség létszáma és a biokapacitás.",
+    "A fogyasztás szerkezete, a technológia szintje és az árszínvonal.",
+    "Az energiafelhasználás, a népsűrűség és a nemzetközi kereskedelem.",
+    "A gazdasági növekedés, a beruházási ráta és a nyersanyagexport."],
+ a:0,w:"A dia hármasa: (1) a fogyasztás mértéke, (2) az emberiség létszáma, (3) az erőforrásokat szolgáltató természet állapota, azaz a biokapacitás. (04/32–33)",s:"04. előadás · 32–33. dia"},
+
+{id:"o5",t:"oko",type:"mc",q:"Miből áll össze a Boldog Bolygó Index (HPI)?",
+ o:["Várható élettartam, ökológiai lábnyom és az élettel való elégedettség.",
+    "Várható élettartam, iskolázottság és az egy főre jutó nemzeti jövedelem.",
+    "Környezetvédelem, közegészségügy és az ökoszisztéma egészsége.",
+    "Jövedelmi egyenlőtlenség, foglalkoztatottság és a szociális kiadások."],
+ a:0,w:"A HPI három eleme a várható élettartam, az ökológiai lábnyom és az élettel való elégedettség. A harmadik válasz az EPI 25 indikátorának területeit sorolja. (04/34)",s:"04. előadás · 34. dia"},
+
+{id:"o6",t:"oko",type:"mc",q:"Mit mér a Környezeti Teljesítmény Index (EPI)?",
+ o:["Huszonöt indikátorral a környezetvédelmet, a közegészségügyet és az ökoszisztémát.",
+    "Három indikátorral a várható élettartamot, a lábnyomot és az elégedettséget.",
+    "Négy indikátorral az iskolázottságot, az élettartamot és a jövedelmet.",
+    "Két indikátorral a biokapacitást és az egy főre jutó energiafelhasználást."],
+ a:0,w:"Az EPI 25 teljesítményindikátor alapján értékel, lefedve a környezetvédelmet, a közegészségügyet és az ökoszisztéma egészségét is. (04/34)",s:"04. előadás · 34. dia"},
+
+{id:"o7",t:"oko",type:"mc",q:"Mit jelent a gazdasági növekedés a dia meghatározása szerint?",
+ o:["A potenciális GDP, vagyis a termelési lehetőségek határának kitolódását.",
+    "A tényleges GDP bármilyen, akár egyszeri növekedését az előző évhez képest.",
+    "Az egy főre jutó fogyasztás és a lakossági megtakarítás együttes bővülését.",
+    "Az árszínvonal emelkedésével együtt mozgó nominális kibocsátás bővülését."],
+ a:0,w:"A növekedés az ország potenciális GDP-jének bővítése: akkor következik be, amikor a termelési potenciál határát kitolják — a PPH-görbe kifelé mozog. (04/36)",s:"04. előadás · 36. dia"},
+
+{id:"o8",t:"oko",type:"mc",q:"Mi az életszínvonal emelkedésének mérőszáma?",
+ o:["Az egy főre jutó kibocsátás növekedése, például a GDP/fő alakulása.",
+    "A teljes nemzeti kibocsátás növekedése az előző évhez viszonyítva.",
+    "A reálbérek és a nominális bérek különbségének éves változása.",
+    "A foglalkoztatottak számának és a munkaórák számának bővülése."],
+ a:0,w:"A dia kiemeli: az életszínvonal elemzése mindig egy főre eső kategóriákat igényel. (04/36)",s:"04. előadás · 36. dia"},
+
+{id:"o9",t:"oko",type:"mc",q:"Melyik NEM szerepel a növekedés négy faktora között?",
+ o:["A pénzkínálat bővítése a jegybank kamatpolitikáján keresztül.",
+    "A humán erőforrás: munkaerő-kínálat, képzés, szakértelem, motiváció.",
+    "A természeti erőforrás: föld, ásványkincsek, energia, környezetminőség.",
+    "A tőkefelhalmozás: gyárak, gépek, utak és az immateriális javak."],
+ a:0,w:"A négy faktor: humán erőforrás, természeti erőforrás, tőkefelhalmozás, technológiai változás. A pénzkínálat nem tartozik közéjük. (04/37)",s:"04. előadás · 37. dia"},
+
+{id:"o10",t:"oko",type:"tf",q:"Jelölje, hogy az alábbi állítások igazak vagy hamisak.",
+ items:[
+  {s:"A GPI a GDP alternatív mérőszáma, amely a negatív hatások költségeit is beszámítja.",a:true,w:"Bűnözés, ózonréteg károsodása, erőforrások kimerülése. (04/27)"},
+  {s:"A HDI-t az Európai Unió fejlesztette ki a tagállamok összehasonlítására.",a:false,w:"Az ENSZ által kifejlesztett statisztika. (04/29)"},
+  {s:"A növekedéselméletek egyidősek a közgazdasági gondolkodással.",a:false,w:"A dia szerint nem: a kérdés a klasszikus angol iskola megszületésével intézményesült. (04/37)"},
+  {s:"Az ökológiai lábnyomhoz kapcsolódó fogalom az Overshoot day.",a:true,w:"A dia az Ecological Footprint mellett ezt a fogalmat is megadja. (04/32–33)"}
+ ],s:"04. előadás · 27–37. dia"},
+
+{id:"o11",t:"oko",type:"match",q:"Melyik mutatóhoz melyik jellemző tartozik?",
+ cats:["ISEW","GPI","HDI","Ökológiai lábnyom"],
+ items:[
+  {s:"Pénzben nem mért költségek és hasznok beépítése a jólét mérésébe.",c:0,w:"Fenntartható Gazdasági Jólét Index. (04/25)"},
+  {s:"A bűnözés és az erőforrások kimerülésének költsége a GDP mellett.",c:1,w:"Valódi Előrehaladás Mutatója. (04/27)"},
+  {s:"Iskolai évek, várható élettartam és az egy főre jutó GNI együtt.",c:2,w:"Humán Fejlődési Index, az ENSZ-től. (04/29)"},
+  {s:"A fogyasztás, a népesség és a biokapacitás viszonya a túlfogyasztásban.",c:3,w:"Ecological Footprint, Overshoot day. (04/32–33)"}
+ ],s:"04. előadás · 25–33. dia"},
+
+/* ---- 05. ELŐADÁS · KONFUCIANIZMUS, KÍNA, JAPÁN ---- */
+{id:"k1",t:"kultura",type:"mc",q:"Mikor élt a hagyomány szerint Konfuciusz?",
+ o:["I. e. 551 és 479 között, Kelet-Kínában, a Lu Fejedelemségben.",
+    "I. e. 221 és 150 között, Észak-Kínában, a Csin Birodalomban.",
+    "I. sz. 100 és 170 között, Dél-Kínában, a Han Birodalomban.",
+    "I. e. 800 és 720 között, Közép-Kínában, a Csou Fejedelemségben."],
+ a:0,w:"A dia szerint Konfuciusz az i. e. 6–5. században terjesztette tanait, i. e. 551 és 479 között élt a Lu Fejedelemségben. (05/3)",s:"05. előadás · 3. dia"},
+
+{id:"k2",t:"kultura",type:"mc",q:"Melyik erény a legmagasabb a konfuciánus öt erény között?",
+ o:["A Ren: jóindulat, emberségesség és együttérzés.",
+    "A Yi: igazságosság, becsület, erkölcsös cselekvés.",
+    "A Li: rituálék, illem és a harmóniát segítő viselkedés.",
+    "A Zhi: bölcsesség, a jó és a rossz megkülönböztetése."],
+ a:0,w:"Az öt erény: Ren, Yi, Li, Zhi, Xin — a dia a Rent nevezi a legmagasabb erénynek. (05/4)",s:"05. előadás · 4. dia"},
+
+{id:"k3",t:"kultura",type:"mc",q:"Melyik erény jelenti az őszinteséget és a megbízhatóságot?",
+ o:["A Xin.","A Li.","A Zhi.","A Yi."],
+ a:0,w:"Xin (信): őszinteség és megbízhatóság. Li a rituálé, Zhi a bölcsesség, Yi az igazságosság. (05/4)",s:"05. előadás · 4. dia"},
+
+{id:"k4",t:"kultura",type:"mc",q:"Mi jellemzi a konfuciánus közgazdaságtant?",
+ o:["Igazságosság a profit helyett, erkölcsi keretbe ágyazott piacok.",
+    "Korlátlan profitszerzés, amelyet a piaci verseny önmagában szabályoz.",
+    "Állami tulajdon és központi tervezés a magántulajdon helyett.",
+    "A fogyasztás ösztönzése a társadalmi mobilitás érdekében."],
+ a:0,w:"A dia elemei: igazságosság a profit helyett, társadalmi harmónia, a család mint alapegység, beágyazott piacok, a kormányzat mint erkölcsi útmutató. (05/5)",s:"05. előadás · 5. dia"},
+
+{id:"k5",t:"kultura",type:"mc",q:"Mit jelent a „beágyazott piacok” gondolata a konfuciánus felfogásban?",
+ o:["Piacalapú rendszer, de erkölcsi keretbe ágyazva, nem etikától mentesen.",
+    "Állami tulajdonban lévő piacok, ahol az árakat a kormányzat szabja meg.",
+    "Zárt, belső piacok, amelyeket vámokkal védenek a külföldi versenytől.",
+    "Olyan piacok, ahol kizárólag a családi vállalkozások kereskedhetnek."],
+ a:0,w:"A dia az etikától mentes „szabad piac” helyett piacalapú rendszert mond, erkölcsi keretbe ágyazva. (05/5)",s:"05. előadás · 5. dia"},
+
+{id:"k6",t:"kultura",type:"mc",q:"Kikhez köthető a „kínai harmonikus gazdaság” politikája?",
+ o:["Hu Csin-taóhoz és Ven Csia-paóhoz, a 2000-es évek elején.",
+    "Mao Ce-tunghoz és Csou En-lajhoz, az 1950-es évek elején.",
+    "Teng Hsziao-pinghez és Csao Ce-janghoz, az 1980-as években.",
+    "Hszi Csin-pinghez és Li Ko-csianghoz, a 2020-as évek elején."],
+ a:0,w:"A harmonikus gazdaság a 2000-es évek elején jelent meg, főként Hu Csin-tao és Ven Csia-pao vezetésével, a harmonikus társadalom politikájához kapcsolódva. (05/8)",s:"05. előadás · 8. dia"},
+
+{id:"k7",t:"kultura",type:"mc",q:"Mi a kettős körforgás (dual circulation) lényege?",
+ o:["A belföldi és a nemzetközi vérkeringés együtt, de a belföldi piac hangsúlyával.",
+    "A nemzetközi és a belföldi vérkeringés együtt, az exportpiac hangsúlyával.",
+    "A kínai és az amerikai gazdaság kölcsönös függőségének fenntartása.",
+    "A városi és a vidéki gazdaság párhuzamos, egymástól független fejlesztése."],
+ a:0,w:"A növekedésnek mindkét körre támaszkodnia kell, de a hangsúly a belföldi piacon van: fogyasztás, innováció, technológiai önellátás. A nemzetközi kör kiegészít, nem meghatároz. (05/9)",s:"05. előadás · 9. dia"},
+
+{id:"k8",t:"kultura",type:"mc",q:"Mikorra tűzte ki Kína a karbonsemlegességet a zöld fejlődés jegyében?",
+ o:["2060-ra.","2030-ra.","2045-re.","2075-re."],
+ a:0,w:"A dia a karbonsemlegességet 2060-ra tűzi ki, az energiahatékonyság és a zöld technológiák mellett. (05/10)",s:"05. előadás · 10. dia"},
+
+{id:"k9",t:"kultura",type:"mc",q:"Mi jellemzi a „kínai típusú modernizációt”?",
+ o:["Kína a saját útját járja, nem a nyugati modelleket másolja.",
+    "Kína a nyugati modernizációs modellt adaptálja a saját méretére.",
+    "Kína a szovjet tervgazdasági modellt állítja vissza fokozatosan.",
+    "Kína a japán vállalati kapitalizmus mintáját veszi át lépésről lépésre."],
+ a:0,w:"Jellemzői: nagy népességű modernizáció, közös jólét, anyagi és kulturális fejlődés összehangolása, ember és természet harmóniája, békén keresztül elért fejlődés. (05/14)",s:"05. előadás · 14. dia"},
+
+{id:"k10",t:"kultura",type:"mc",q:"Mi a japán vállalati kapitalizmus fő célja?",
+ o:["A vállalat, az alkalmazottak és a nemzet közös, hosszú távú fejlődése.",
+    "A részvényesi érték és az azonnali osztalék maximalizálása évente.",
+    "Az állami tulajdon kiterjesztése a stratégiai iparágak felett.",
+    "A külföldi tőke minél gyorsabb bevonása a hazai vállalatokba."],
+ a:0,w:"A modell a hosszú távú stabilitást és a kollektív érdeket helyezi előtérbe a nyugati — főleg amerikai — rövid távú profitmaximalizáló logikával szemben. (05/17)",s:"05. előadás · 17. dia"},
+
+{id:"k11",t:"kultura",type:"mc",q:"Mit jelent a zaibatsu?",
+ o:["Családi tulajdonú konglomerátum központi holdingtársasággal, a háború előtt.",
+    "Kereszttulajdonláson alapuló vállalatcsoport főbankkal, a háború után.",
+    "Konszenzusos döntéshozatali eljárás, amely alulról felfelé halad.",
+    "Dél-koreai, családi kézben lévő üzleti konglomerátum a háború után."],
+ a:0,w:"A zaibatsu („pénzklán”) a Meiji-restauráció és a második világháború közötti forma; később keiretsuvá alakult. A második válasz a keiretsu, a negyedik a csebol. (05/19)",s:"05. előadás · 19. dia"},
+
+{id:"k12",t:"kultura",type:"mc",q:"Mi a keiretsu legfontosabb szervező eleme?",
+ o:["A kereszttulajdonlás és a főbank központi szerepe a finanszírozásban.",
+    "Az alapító család kizárólagos tulajdona és közvetlen irányítása.",
+    "Az állami többségi tulajdon és a minisztériumi irányítás rendszere.",
+    "A külföldi befektetők többségi részesedése a tagvállalatokban."],
+ a:0,w:"A keiretsuban a vállalatok kölcsönösen birtokolják egymás részvényeit, és a főbank központi szerepet játszik a finanszírozásban és a válságkezelésben. Példák: Mitsui, Mitsubishi, Sumitomo, Toyota Group. (05/20)",s:"05. előadás · 20. dia"},
+
+{id:"k13",t:"kultura",type:"mc",q:"Mi a fő különbség a csebol és a keiretsu között?",
+ o:["A csebolt a családi tulajdon, a keiretsut a bankok és a profi vezetés jellemzi.",
+    "A csebolt a bankok irányítják, a keiretsut az alapító család vezeti.",
+    "A csebol állami tulajdonban van, a keiretsu teljesen magánkézben.",
+    "A csebol exportra termel, a keiretsu kizárólag a belföldi piacra."],
+ a:0,w:"A csebolok dél-koreai, családi kézben lévő konglomerátumok; a keiretsu decentralizáltabb, horizontális szövetség, bankok és professzionális vezetés köré szervezve. (05/22)",s:"05. előadás · 22. dia"},
+
+{id:"k14",t:"kultura",type:"mc",q:"Mi a ringi lényege?",
+ o:["Konszenzusos döntés: a javaslat alulról felfelé halad és pecsétet gyűjt.",
+    "Gyors felsővezetői döntés, amelyet a beosztottak végrehajtanak.",
+    "A tulajdonosok közgyűlési szavazása a stratégiai kérdésekről.",
+    "A szakszervezet és a vezetés éves bértárgyalási eljárása."],
+ a:0,w:"A ringi-sho javaslat felfelé halad a hierarchiában, minden szinten felülvizsgálják és hanko pecséttel jóváhagyják; a cél nem a gyorsaság, hanem a harmónia és a közös felelősség. (05/23–24)",s:"05. előadás · 23–24. dia"},
+
+{id:"k15",t:"kultura",type:"mc",q:"Mi a ringi hátránya a dia szerint?",
+ o:["Lassú döntés, az alulról jövő kezdeményezés korlátai, elmosódó felelősség.",
+    "Túl gyors döntés, amely nem ad időt a kockázatok felmérésére.",
+    "A felső vezetés túlhatalma, amely elnyomja a középvezetői szintet.",
+    "A külső tanácsadók túlzott befolyása a vállalati döntésekre."],
+ a:0,w:"A dia három hátrányt sorol: lassú döntéshozatal, az alulról jövő kezdeményezések korlátai, az egyéni felelősség elmosódása. (05/23–24)",s:"05. előadás · 23–24. dia"},
+
+{id:"k16",t:"kultura",type:"tf",q:"Jelölje, hogy az alábbi állítások igazak vagy hamisak.",
+ items:[
+  {s:"A konfuciánus felfogás szerint a család a gazdaság alapvető munkaegysége.",a:true,w:"A család erős felelősségérzeten keresztül befolyásolja a döntést és a motivációt. (05/5)"},
+  {s:"A japán modell az azonnali részvényesi profit maximalizálására épül.",a:false,w:"Éppen ellenkezőleg: hosszú távú közös fejlődés, szemben a nyugati rövid távú logikával. (05/17)"},
+  {s:"Az életre szóló foglalkoztatás a háború utáni japán modell eleme.",a:true,w:"A lojalitásért cserébe munkahelyi biztonság, nyugdíj és szociális védelem járt. (05/18)"},
+  {s:"A keiretsu a zaibatsu háború előtti elnevezése volt.",a:false,w:"Fordítva: a zaibatsu a háború előtti forma, amely később keiretsuvá alakult. (05/19–20)"}
+ ],s:"05. előadás · 5–20. dia"},
+
+{id:"k17",t:"kultura",type:"match",q:"Melyik fogalomhoz melyik állítás tartozik?",
+ cats:["Zaibatsu","Keiretsu","Csebol","Ringi"],
+ items:[
+  {s:"Családi tulajdonú birodalom központi holdinggal, a Meiji-kortól a háborúig.",c:0,w:"„Pénzklán”, szoros kapcsolattal a kormánnyal és a hadsereggel. (05/19)"},
+  {s:"Kereszttulajdonlás és főbank: Mitsui, Mitsubishi, Sumitomo, Toyota Group.",c:1,w:"Horizontális, decentralizáltabb szövetség. (05/20)"},
+  {s:"Dél-koreai, családi tulajdonban és vezetés alatt álló konglomerátum.",c:2,w:"A keiretsu koreai megfelelője, de családi irányítással. (05/22)"},
+  {s:"Pecséttel jóváhagyott javaslat, amely alulról felfelé járja be a hierarchiát.",c:3,w:"Konszenzusos döntéshozatal, ringi-sho és hanko. (05/23–24)"}
+ ],s:"05. előadás · 19–24. dia"},
+
+{id:"k18",t:"kultura",type:"match",q:"Melyik erényhez melyik meghatározás tartozik?",
+ cats:["Ren","Yi","Li","Zhi"],
+ items:[
+  {s:"Jóindulat, emberségesség és együttérzés — a legmagasabb erény.",c:0,w:"Ren (仁). (05/4)"},
+  {s:"Igazságosság és becsület; a megfelelő és erkölcsös cselekvés.",c:1,w:"Yi (義). (05/4)"},
+  {s:"Rituálék, illem és etikett; a harmóniát elősegítő viselkedés.",c:2,w:"Li (禮). (05/4)"},
+  {s:"Bölcsesség: a jó és a rossz megkülönböztetésének képessége.",c:3,w:"Zhi (智). (05/4)"}
+ ],s:"05. előadás · 4. dia"},
+
+/* ---- 05. ELŐADÁS · DÉL-AMERIKA: BUEN VIVIR, FÜGGŐSÉG ---- */
+{id:"b1",t:"delamerika",type:"mc",q:"Mit jelent a Buen Vivir?",
+ o:["„Jó Élet”: közösségi jólét a természettel harmóniában, őslakos hagyományból.",
+    "„Jó Üzlet”: a piaci verseny és az egyéni gyarapodás elsőbbsége.",
+    "„Jó Kormányzás”: az állami intézmények átlátható működtetése.",
+    "„Jó Munka”: a teljes foglalkoztatás és a tisztes bérek programja."],
+ a:0,w:"Dél-amerikai társadalomfilozófia az őslakos hagyományokból: közösségi jólét a természettel harmóniában, az individualista, növekedésközpontú fejlődéssel szemben. (05/33)",s:"05. előadás · 33. dia"},
+
+{id:"b2",t:"delamerika",type:"mc",q:"Hogyan jellemzi magát a Buen Vivir a dia kiemelése szerint?",
+ o:["Nem fejlődéselmélet, hanem fejlődéskritika.",
+    "Nem fejlődéskritika, hanem új fejlődéselmélet.",
+    "Nem gazdasági, hanem kizárólag vallási tanítás.",
+    "Nem filozófia, hanem konkrét gazdaságpolitikai program."],
+ a:0,w:"A dia kiemelése szó szerint: a Buen Vivir nem fejlődéselmélet, hanem fejlődéskritika. (05/34)",s:"05. előadás · 34. dia"},
+
+{id:"b3",t:"delamerika",type:"mc",q:"Mit állít szembe a nyugati értékekkel a Buen Vivir?",
+ o:["Az egyéni jóléttel a közösségi jólétet és a közösségi felelősséget.",
+    "A közösségi jóléttel az egyéni szabadságot és a magántulajdont.",
+    "Az állami újraelosztással a piaci verseny teljes szabadságát.",
+    "A mértékletességgel a gyors gazdasági növekedés elsőbbségét."],
+ a:0,w:"A kontrasztpárok: egyéni–közösségi jólét, ember a természet felett–az ember a természet része, növekedés–egyensúly, verseny–együttműködés, államközpontú–közösségi önrendelkezés. (05/34)",s:"05. előadás · 34. dia"},
+
+{id:"b4",t:"delamerika",type:"mc",q:"Mit jelent a neo-extraktivizmus ellentmondása?",
+ o:["Környezetbarát retorika, miközben a gazdaság nyersanyagexportra épül.",
+    "Környezetkárosító retorika, miközben a gazdaság zöld iparra épül.",
+    "Közösségi retorika, miközben a földtulajdon államosítás alatt áll.",
+    "Piaci retorika, miközben az árakat a kormányzat szabályozza."],
+ a:0,w:"Ecuador és Bolívia hivatalosan vallja a Buen Vivirt, de gazdaságuk nagymértékben függ az olaj, a gáz és a lítium exportjától. (05/35)",s:"05. előadás · 35. dia"},
+
+{id:"b5",t:"delamerika",type:"mc",q:"Mit mond ki a függőségelmélet?",
+ o:["A központ fejlődése a periféria alulfejlettségén alapul.",
+    "A periféria a nyugati modellt követve utoléri a központot.",
+    "A központ és a periféria kölcsönösen egyenlő előnyökhöz jut.",
+    "A periféria alulfejlettsége a hazai intézmények hibája csupán."],
+ a:0,w:"Latin-Amerikában született az 1950–1970-es években, válaszul a modernizációs elméletekre: a szegénység nem „fejletlenség”, hanem a globális kapitalizmus működésének következménye. (05/37)",s:"05. előadás · 37. dia"},
+
+{id:"b6",t:"delamerika",type:"mc",q:"Mikor és hol született a függőségelmélet?",
+ o:["Latin-Amerikában, az 1950-es és 1970-es évek között.",
+    "Nyugat-Európában, az 1920-as és 1930-as évek között.",
+    "Észak-Amerikában, az 1980-as és 1990-es évek között.",
+    "Délkelet-Ázsiában, az 1960-as és 1980-as évek között."],
+ a:0,w:"A dia szerint Latin-Amerikában, az 1950-es és 1970-es években alakult ki. (05/37)",s:"05. előadás · 37. dia"},
+
+{id:"b7",t:"delamerika",type:"mc",q:"Mi a felszabadítási elmélet (liberation theology) központi gondolata?",
+ o:["A szegénység és a kizsákmányolás strukturális bűn, a struktúrát kell megváltoztatni.",
+    "A szegénység egyéni sorskérdés, amelyen a jótékonyság tud segíteni.",
+    "A szegénység a piaci verseny természetes és átmeneti következménye.",
+    "A szegénység a népesség növekedésének elkerülhetetlen velejárója."],
+ a:0,w:"Az 1960–70-es években katolikus papok és baloldali értelmiségiek körében: a cél nem a jótékonyság, hanem a struktúrák megváltoztatása — földreform, szolidáris gazdaság. (05/39)",s:"05. előadás · 39. dia"},
+
+{id:"b8",t:"delamerika",type:"mc",q:"Hogyan kapcsolódik össze a három dél-amerikai irányzat?",
+ o:["A Buen Vivir a függőségi és a felszabadítási elmélet örökösének tekinthető.",
+    "A függőségelmélet a Buen Vivir és a felszabadítási elmélet összegzése.",
+    "A felszabadítási elmélet a Buen Vivir vallási ágaként jött létre.",
+    "A három irányzat egymástól függetlenül, eltérő kontinenseken alakult ki."],
+ a:0,w:"A 21. században a Buen Vivir integrálja a függőség globális kritikáját és a felszabadulás etikai-spirituális dimenzióját a fejlődés holisztikus kritikájába. (05/40)",s:"05. előadás · 40. dia"},
+
+{id:"b9",t:"delamerika",type:"mc",q:"Mit jelent a dollármentesedés (de-dollarisation)?",
+ o:["A világ eltávolodása a dollártól mint fő tartalékvalutától.",
+    "A dollár árfolyamának mesterséges gyengítése az exportért.",
+    "A dollár bevezetése hivatalos fizetőeszközként más országokban.",
+    "A dollárban denominált államadósság gyors visszafizetése."],
+ a:0,w:"A tartalékok átcsoportosítása aranyba vagy más valutákba, és a dollár kihagyása a nemzetközi tranzakciókból — például Kína renminbiben fizet az orosz árukért. (05/47)",s:"05. előadás · 47. dia"},
+
+{id:"b10",t:"delamerika",type:"tf",q:"Jelölje, hogy az alábbi állítások igazak vagy hamisak.",
+ items:[
+  {s:"A Buen Vivir elutasítja a „független egyén” gondolatát.",a:true,w:"Közösségközpontú: a közösség jóléte, amely az embereket és a természetet is magában foglalja. (05/33)"},
+  {s:"A függőségelmélet szerint a periféria a nyugati modellt követve felzárkózik.",a:false,w:"Éppen ez az a modernizációs tétel, amelyre válaszul a függőségelmélet megszületett. (05/37)"},
+  {s:"A felszabadítási elmélet célja a jótékonyság kiterjesztése volt.",a:false,w:"A cél nem a jótékonyság, hanem a struktúrák megváltoztatása. (05/39)"},
+  {s:"Kína a renminbi használatáról Szaúd-Arábiával és Brazíliával is megállapodott.",a:true,w:"A dollármentesedés példájaként szerepel a dián. (05/47)"}
+ ],s:"05. előadás · 33–47. dia"},
+
+{id:"b11",t:"delamerika",type:"match",q:"Melyik irányzathoz melyik állítás tartozik?",
+ cats:["Buen Vivir","Függőségelmélet","Felszabadítási elmélet"],
+ items:[
+  {s:"Elégségesség a növekedés helyett, ember és természet egyetlen rendszerben.",c:0,w:"Holisztikus nézet az őslakos hagyományból. (05/33)"},
+  {s:"A központ ipari jólétét a periféria olcsó nyersanyagexportja tartja fenn.",c:1,w:"A latin-amerikai példa a dián. (05/37)"},
+  {s:"A szegénység és az egyenlőtlenség strukturális bűnként értelmezve.",c:2,w:"Katolikus papok és baloldali értelmiségiek mozgalma. (05/39)"},
+  {s:"Környezetbarát retorika mellett olaj-, gáz- és lítiumexport.",c:0,w:"A neo-extraktivizmus ellentmondása Ecuadorban és Bolíviában. (05/35)"}
+ ],s:"05. előadás · 33–39. dia"},
+
+/* ---- 06. ELŐADÁS · VERSENYKÉPESSÉG, ELŐNYÖK ---- */
+{id:"v1",t:"verseny",type:"mc",q:"Melyik NEM szerepel a nemzetközi kereskedelem okai között?",
+ o:["Az országok eltérő politikai berendezkedése és választási rendszere.",
+    "A természeti erőforrásokbeli különbségek a termőföldtől a kikötőkig.",
+    "A fogyasztói preferenciák különbségei az egyes országok között.",
+    "A költségbeli különbségek, például az eltérő munkaerőköltség."],
+ a:0,w:"A dia három okot sorol: természeti erőforrások, fogyasztói preferenciák és költségek különbségei. (06/2)",s:"06. előadás · 2. dia"},
+
+{id:"v2",t:"verseny",type:"mc",q:"Kihez köthető az abszolút előnyök elmélete?",
+ o:["Adam Smithhez.","David Ricardóhoz.","Michael Porterhez.","Eli Heckscherhez."],
+ a:0,w:"Smith: abszolút előnyök; Ricardo: komparatív előnyök; Heckscher–Ohlin: több termelési tényező; Porter: versenyelőny-elmélet, gyémántmodell. (06/3–4)",s:"06. előadás · 3–4. dia"},
+
+{id:"v3",t:"verseny",type:"mc",q:"Mi a Heckscher–Ohlin elmélet lényege?",
+ o:["Arra specializálódni, ami a bőségesen meglévő tényezőt használja intenzívebben.",
+    "Arra specializálódni, amiben az ország abszolút termelékenysége a legnagyobb.",
+    "Arra specializálódni, amit a hazai fogyasztók a leginkább keresnek.",
+    "Arra specializálódni, amit a legkevesebb vám terhel a célpiacokon."],
+ a:0,w:"A kulcs a termékek eltérő tényezőigénye (munka- vagy tőkeigényes) és az ország tényezőellátottsága. (06/5)",s:"06. előadás · 5. dia"},
+
+{id:"v4",t:"verseny",type:"mc",q:"Mi a komparatív előny és az abszolút előny közti fő különbség?",
+ o:["A komparatív előny az alternatív költségeket is figyelembe veszi.",
+    "A komparatív előny csak a termelékenység szintjét hasonlítja össze.",
+    "Az abszolút előny a vámok és kvóták hatását is beszámítja.",
+    "Az abszolút előny kizárólag a tőkeigényes termékekre érvényes."],
+ a:0,w:"Az abszolút előny ugyanazért a költségért nagyobb mennyiséget jelent; a komparatív előny az alternatív költségeket nézi. (06/6)",s:"06. előadás · 6. dia"},
+
+{id:"v5",t:"verseny",type:"mc",q:"Mi Porter kritikája a komparatív előnyök elméletével szemben?",
+ o:["Nem veszi figyelembe a méretgazdaságosságot, a technológiát és a know-how-t.",
+    "Nem veszi figyelembe a munkaerő és a tőke relatív bőségét az országokban.",
+    "Nem veszi figyelembe a fogyasztói preferenciák országonkénti eltérését.",
+    "Nem veszi figyelembe az árak és a bérek rugalmas alkalmazkodását."],
+ a:0,w:"Porter szerint a modell kihagyja a méretgazdaságosságot, a technológiát, a termékdifferenciálást, a monopolisztikus piacokat és a vállalati hálózatokat, a tényezőket pedig állandónak tekinti. (06/3–4)",s:"06. előadás · 3–4. dia"},
+
+{id:"v6",t:"verseny",type:"mc",q:"Mikor nem dönthető el a specializáció az abszolút előnyök alapján?",
+ o:["Ha az egyik országnak mindkét termékből abszolút előnye van.",
+    "Ha mindkét ország ugyanabból a termékből termel többet óránként.",
+    "Ha a két ország termelékenysége minden termékben megegyezik.",
+    "Ha az egyik ország egyik terméket sem tudja egyáltalán előállítani."],
+ a:0,w:"Ilyenkor a komparatív előny dönt: mindenkinek arra érdemes specializálódnia, ahol nagyobb az abszolút előnye vagy kisebb az abszolút hátránya. (06/9)",s:"06. előadás · 9. dia"},
+
+{id:"v7",t:"verseny",type:"mc",q:"Melyik példapárral dolgozik Ricardo eredeti modellje?",
+ o:["Anglia és Portugália, a bor és a szövet példáján.",
+    "Amerika és Európa, az élelmiszer és a ruházat példáján.",
+    "Anglia és Franciaország, a gabona és a vas példáján.",
+    "Portugália és Spanyolország, az olaj és a textil példáján."],
+ a:0,w:"Ricardo: Anglia és Portugália, bor és szövet. A második válasz Samuelson példája. (06/9)",s:"06. előadás · 9. dia"},
+
+{id:"v8",t:"verseny",type:"mc",q:"Mit mond ki a Stolper–Samuelson tétel?",
+ o:["A szabadkereskedelem emeli az exporttényezők, és csökkenti az importtényezők árát.",
+    "A szabadkereskedelem minden termelési tényező árát egyformán megemeli.",
+    "A szabadkereskedelem a bérek és az árak teljes kiegyenlítődéséhez vezet.",
+    "A szabadkereskedelem csökkenti az exportban használt tényezők árát."],
+ a:0,w:"A külkereskedelem általában jó az országnak, de nem mindenkinek: lesznek nyertesek és vesztesek. (06/13)",s:"06. előadás · 13. dia"},
+
+{id:"v9",t:"verseny",type:"mc",q:"„A” ország óránként 8 db X-et és 4 db Y-t termel, „B” ország 4 db X-et és 8 db Y-t. Mennyivel nő a világtermelés a specializáció után?",
+ o:["X-ből +4 és Y-ból +4 darabbal.","X-ből +8 és Y-ból +8 darabbal.",
+    "X-ből +2 és Y-ból +2 darabbal.","X-ből +4, de Y-ból nem változik."],
+ a:0,w:"„A” X-re, „B” Y-ra specializálódik: X-ből 8+8 = 16 (korábban 12), Y-ból szintén 16 (korábban 12), vagyis mindkettőből +4 darab, ugyanannyi munkával. (06/7–8)",s:"06. előadás · 7–8. dia"},
+
+{id:"v10",t:"verseny",type:"mc",q:"Az USA-ban a ruházat kétszer drágább az élelmiszernél, Európában 4/3-szor. Ki mit exportál?",
+ o:["Az USA élelmiszert, Európa ruházatot exportál.",
+    "Az USA ruházatot, Európa élelmiszert exportál.",
+    "Mindkettő élelmiszert exportál egy harmadik piacra.",
+    "Egyik sem specializálódik, mert nincs komparatív előny."],
+ a:0,w:"Az USA-ban a ruházat relatíve drágább, Európában az élelmiszer — így az USA élelmiszert, Európa ruházatot exportál, ami csökkenti az árakat. (06/9)",s:"06. előadás · 9. dia"},
+
+{id:"v11",t:"verseny",type:"tf",q:"Jelölje, hogy az alábbi állítások igazak vagy hamisak.",
+ items:[
+  {s:"A komparatív előnyök modellje versenyző piacot feltételez.",a:true,w:"Ha ez nem teljesül, hatékonyságvesztés lép fel, és a hatás megkérdőjelezhető. (06/13)"},
+  {s:"A külkereskedelem az országon belül mindenkinek egyformán előnyös.",a:false,w:"A jövedelemeloszlás miatt nyertesek és vesztesek is vannak. (06/13)"},
+  {s:"Az abszolút előny azt jelenti, hogy ugyanannyi költségért többet termelünk.",a:true,w:"Vagy ugyanazt a mennyiséget alacsonyabb költséggel. (06/6)"},
+  {s:"A Heckscher–Ohlin elmélet egyetlen termelési tényezővel számol.",a:false,w:"Éppen hogy több termelési tényezőt vezet be a modellbe. (06/3–5)"}
+ ],s:"06. előadás · 3–13. dia"},
+
+{id:"v12",t:"verseny",type:"match",q:"Melyik szerzőhöz melyik elmélet tartozik?",
+ cats:["Adam Smith","David Ricardo","Heckscher–Ohlin","Michael Porter"],
+ items:[
+  {s:"Abszolút előnyök: ugyanazért a költségért nagyobb mennyiséget termelni.",c:0,w:"A legkorábbi kereskedelmi magyarázat. (06/3–6)"},
+  {s:"Komparatív előnyök: az alternatív költségek döntenek a specializációról.",c:1,w:"Anglia és Portugália, bor és szövet. (06/6, 06/9)"},
+  {s:"Több termelési tényező és az ország tényezőellátottsága a kulcs.",c:2,w:"Munkaigényes vagy tőkeigényes termékek. (06/5)"},
+  {s:"Versenyelőny-elmélet és a gyémántmodell, a komparatív előny kritikájával.",c:3,w:"Méretgazdaságosság, technológia, vállalati hálózatok. (06/3–4)"}
+ ],s:"06. előadás · 3–9. dia"},
+
+/* ---- 06. ELŐADÁS · CIKLUSOK, VÁLSÁGELMÉLETEK, AGYELSZÍVÁS ---- */
+{id:"s1",t:"valsag",type:"mc",q:"Mit jelent az üzleti ciklus a dia meghatározása szerint?",
+ o:["A teljesítmény ingadozása egy fellendülés kezdetétől a következőig.",
+    "A gazdasági teljesítmény folyamatos, trendszerű növekedése évtizedeken át.",
+    "Az árszínvonal és a kamatláb együttmozgása egy naptári éven belül.",
+    "A költségvetési bevételek és kiadások éves ciklikus váltakozása."],
+ a:0,w:"A makrogazdasági mutatók ingadoznak: növekedési és hanyatlási fázisok váltják egymást. (06/15)",s:"06. előadás · 15. dia"},
+
+{id:"s2",t:"valsag",type:"mc",q:"Mennyi a Kitchin-ciklus hossza, és hol figyelhető meg?",
+ o:["10–40 hónap, a monetáris és hitelszférában.",
+    "8–10 év, a beruházások által meghatározva.",
+    "18–20 év, az egyedi létesítmények építésénél.",
+    "40–60 év, a nagy értékű tőkejavak megújulásánál."],
+ a:0,w:"Kitchin: 10–40 hónap, monetáris és hitelszféra. A többi: klasszikus üzleti ciklus, Kuznets, Kondratyev. (06/16)",s:"06. előadás · 16. dia"},
+
+{id:"s3",t:"valsag",type:"mc",q:"Mi a Kondratyev-ciklus oka és hossza?",
+ o:["40–60 év, a nagy értékű tőkejavak időszakos megújulása.",
+    "18–20 év, az egyedi nagy létesítmények építési hulláma.",
+    "8–10 év, a beruházások ciklikus alakulása a vállalatoknál.",
+    "150–200 év, a korszakalkotó találmányok és az alapkutatás."],
+ a:0,w:"Kondratyev hosszú ciklus: 40–60 év, oka a nagy értékű tőkejavak időszakos megújulása, társadalmi változásokkal összefüggésben. A negyedik válasz a szuperhosszú ciklus. (06/16)",s:"06. előadás · 16. dia"},
+
+{id:"s4",t:"valsag",type:"mc",q:"Mi jellemzi a Kuznets-ciklust?",
+ o:["18–20 év; a befejezés után kihasználatlan kapacitások maradnak.",
+    "10–40 hónap; a hitelezés és a pénzkínálat ingadozását követi.",
+    "8–10 év; a monopolizáció és az állami szerep írta át a lefolyását.",
+    "40–60 év; a társadalmi változásokkal összefüggő megújulás hajtja."],
+ a:0,w:"Kuznets-ciklus: egyedi létesítmények építése, ahol a termék élettartama hosszabb a termelőeszközökénél; a befejezés után recessziós jelenségek, felesleges infrastruktúra. (06/16)",s:"06. előadás · 16. dia"},
+
+{id:"s5",t:"valsag",type:"mc",q:"Mikor látható valódi gazdasági növekedés a dia szerint?",
+ o:["Amikor diszruptív, radikális innováció születik, és kitolódik a PPF.",
+    "Amikor a pénzkínálat bővül, és emelkedik az általános árszint.",
+    "Amikor a kormányzat közmunkaprogramot és transzfereket indít.",
+    "Amikor a tartós fogyasztási cikkek vásárlása felfut egy időszakra."],
+ a:0,w:"A szuperhosszú ciklusoknál írja le a dia: a korszakalkotó találmányok tolják ki a termelési lehetőségek határát. (06/16)",s:"06. előadás · 16. dia"},
+
+{id:"s6",t:"valsag",type:"mc",q:"Melyik ciklustípus kapcsolódik a választásokhoz?",
+ o:["A politikai ciklus.","A monetáris ciklus.",
+    "A beruházási ciklus.","A gazdaságpolitikai ciklus."],
+ a:0,w:"A dia hat okot sorol, köztük a politikai ciklusokat, amelyek a választások ciklikusságához kapcsolódnak. (06/18)",s:"06. előadás · 18. dia"},
+
+{id:"s7",t:"valsag",type:"mc",q:"Mi okozza a válságot a klasszikus válságelmélet szerint?",
+ o:["Külső zavar, például háború vagy természeti katasztrófa.",
+    "A rendszer belső ellentmondása és a profitráta csökkenése.",
+    "Az aggregált kereslet hiánya, mert a magánszektor megtakarít.",
+    "A mesterségesen alacsony kamat és a túlzott hitelexpanzió."],
+ a:0,w:"Smith, Ricardo, Say: a gazdaság önszabályozó, a válság átmeneti, mert az árak és bérek alkalmazkodnak; az ok külső zavar. A többi válasz a marxista, a keynesi és az osztrák magyarázat. (06/22–27)",s:"06. előadás · 22–27. dia"},
+
+{id:"s8",t:"valsag",type:"mc",q:"Mi a válság oka a marxista elmélet szerint?",
+ o:["A tőkefelhalmozás, a profitráta csökkenése és a túltermelés.",
+    "A pénzkínálat rossz szabályozása a jegybank részéről.",
+    "A hosszú stabilitás, amely túlzott magabiztosságot szül.",
+    "A külső zavarok, amelyek átmenetileg kibillentik a piacot."],
+ a:0,w:"Marx (1840–50-es évek, A tőke 1894): a válság a rendszer belső ellentmondásaiból fakad; következménye munkanélküliség, csökkenő árak, társadalmi feszültség. (06/23)",s:"06. előadás · 23. dia"},
+
+{id:"s9",t:"valsag",type:"mc",q:"Mit javasol a keynesi válságelmélet megoldásként?",
+ o:["Állami beavatkozást: kormányzati kiadásokat és beruházásokat.",
+    "Stabil, kiszámítható pénzkínálatot a jegybank részéről.",
+    "Piaci kamatlábakat és minél kevesebb állami beavatkozást.",
+    "A termelőeszközök köztulajdonba vételét és a tervezést."],
+ a:0,w:"Keynes (1920–30-as évek): a válságot az aggregált kereslet hiánya okozza, mert a magánszektor megtakarít és nem költ. (06/24)",s:"06. előadás · 24. dia"},
+
+{id:"s10",t:"valsag",type:"mc",q:"Mit mond ki a pénz mennyiségi elmélete a monetarista felfogásban?",
+ o:["Az általános árszint egyenesen arányos a pénzkínálattal.",
+    "Az általános árszint fordítottan arányos a pénzkínálattal.",
+    "A pénzkínálat nem befolyásolja az általános árszintet.",
+    "A pénzkínálat csak a kamatlábon keresztül hat az árakra."],
+ a:0,w:"Friedman (1956): a válságot a pénzkínálat rossz szabályozása okozza; a megoldás a stabil, kiszámítható pénzkínálat. (06/25)",s:"06. előadás · 25. dia"},
+
+{id:"s11",t:"valsag",type:"mc",q:"Mit állít Minsky pénzügyi instabilitási hipotézise?",
+ o:["Maga a stabilitás szül válságot a túlzott magabiztosságon keresztül.",
+    "Maga az instabilitás vezet stabilitáshoz a piaci tisztuláson át.",
+    "A válságot mindig külső sokk indítja el a pénzügyi rendszerben.",
+    "A válság a jegybanki kamatemelés közvetlen következménye."],
+ a:0,w:"Minsky (1970–80-as évek): a túlzott magabiztosság túl sok hitelt, buborékot és összeomlást okoz. (06/26)",s:"06. előadás · 26. dia"},
+
+{id:"s12",t:"valsag",type:"mc",q:"Mi az osztrák iskola válságmagyarázata és megoldása?",
+ o:["A mesterségesen alacsony kamat okozza; a megoldás a piaci kamatláb.",
+    "Az aggregált kereslet hiánya okozza; a megoldás az állami kiadás.",
+    "A túltermelés okozza; a megoldás a termelés központi tervezése.",
+    "A külső zavar okozza; a megoldás a kivárás, mert a piac helyreáll."],
+ a:0,w:"Mises és Hayek (1920–30-as évek): a mesterségesen alacsony kamatlábak és a túlzott hitelexpanzió miatt a befektetők rossz döntéseket hoznak; megoldás a piaci kamat és a kevesebb beavatkozás. (06/27)",s:"06. előadás · 27. dia"},
+
+{id:"s13",t:"valsag",type:"mc",q:"Mit mond az emberi tőke elmélete az agyelszívásról?",
+ o:["Az oktatás befektetés, amelynek hozamát egy másik ország élvezi.",
+    "Az oktatás fogyasztás, amelynek nincs mérhető gazdasági hozama.",
+    "Az oktatás állami kiadás, amely a költségvetést terheli meg.",
+    "Az oktatás magánügy, amelynek hozamát a munkáltató fizeti meg."],
+ a:0,w:"A küldő ország „elveszíti” a hozamot: az emberi tőke exportja a kevésbé fejlett országokból a fejlettebbekbe. (06/28–29)",s:"06. előadás · 28–29. dia"},
+
+{id:"s14",t:"valsag",type:"mc",q:"Mit állít a munkaerő-migráció új közgazdaságtana?",
+ o:["A migráció családi döntés, a hazaküldött pénz kockázatot oszt meg.",
+    "A migráció egyéni döntés, amelyet kizárólag a bérkülönbség hajt.",
+    "A migráció állami döntés, amelyet a kvóták szabályoznak.",
+    "A migráció vállalati döntés, amelyet a toborzás irányít."],
+ a:0,w:"A hazaküldött pénz kockázatmegosztást és jövedelemdiverzifikációt teremt, a külföldi tapasztalat pedig később hazavihető. (06/28–29)",s:"06. előadás · 28–29. dia"},
+
+{id:"s15",t:"valsag",type:"tf",q:"Jelölje, hogy az alábbi állítások igazak vagy hamisak.",
+ items:[
+  {s:"A Kondratyev-ciklusok 40–60 évig tartanak.",a:true,w:"Okuk a nagy értékű tőkejavak időszakos megújulása. (06/16)"},
+  {s:"A klasszikus válságelmélet szerint a válságot az állami túlszabályozás okozza.",a:false,w:"A klasszikusoknál külső zavar az ok; az állami beavatkozást az osztrák iskola hibáztatja. (06/22, 06/27)"},
+  {s:"Friedman szerint a válság oka a pénzkínálat rossz szabályozása.",a:true,w:"A megoldás a stabil, kiszámítható pénzkínálat. (06/25)"},
+  {s:"A szuperhosszú ciklusok létezése egyértelműen bizonyított.",a:false,w:"A dia szerint nem egyértelműen bizonyított. (06/16)"}
+ ],s:"06. előadás · 16–27. dia"},
+
+{id:"s16",t:"valsag",type:"match",q:"Melyik válságelmélethez melyik állítás tartozik?",
+ cats:["Klasszikus","Marxista","Keynesi","Monetarista"],
+ items:[
+  {s:"A gazdaság önszabályozó, a válság átmeneti, az ok külső zavar.",c:0,w:"Smith, Ricardo, Say, 18–19. század. (06/22)"},
+  {s:"A tőkefelhalmozás és a profitráta csökkenése vezet túltermeléshez.",c:1,w:"Marx, A tőke, 1894. (06/23)"},
+  {s:"Az aggregált kereslet hiánya a baj; az állam költsön és ruházzon be.",c:2,w:"Keynes, 1920–30-as évek. (06/24)"},
+  {s:"A pénzkínálat rossz szabályozása okozza; legyen stabil pénzmennyiség.",c:3,w:"Friedman, 1956. (06/25)"}
+ ],s:"06. előadás · 22–25. dia"},
+
+{id:"s17",t:"valsag",type:"match",q:"Melyik ciklushoz melyik időtáv és ok tartozik?",
+ cats:["Kitchin","Klasszikus üzleti","Kuznets","Kondratyev"],
+ items:[
+  {s:"10–40 hónap, a monetáris és hitelszférában figyelhető meg.",c:0,w:"A legrövidebb ciklus. (06/16)"},
+  {s:"8–10 év, lefolyását és okait a beruházások határozzák meg.",c:1,w:"A monopolizáció és az állam szerepe átírta. (06/16)"},
+  {s:"18–20 év, egyedi létesítmények építése, utána kihasználatlan kapacitás.",c:2,w:"A termék élettartama hosszabb a termelőeszközökénél. (06/16)"},
+  {s:"40–60 év, a nagy értékű tőkejavak időszakos megújulása.",c:3,w:"Hosszú ciklus, társadalmi változásokkal. (06/16)"}
+ ],s:"06. előadás · 16. dia"},
+
+/* ---- 07. ELŐADÁS · KERESKEDELEMPOLITIKA, GLOBALIZÁCIÓ ---- */
+{id:"r1",t:"kereskedelem",type:"mc",q:"Mi a merkantilizmus célja?",
+ o:["Az arany- és ezüstkészlet növelése exporttal, nem csökkentése importtal.",
+    "Az arany- és ezüstkészlet csökkentése importtal, nem növelése exporttal.",
+    "A fogyasztói választék bővítése az importkorlátok eltörlésével.",
+    "A nemzetközi munkamegosztás kiterjesztése a vámok leépítésével."],
+ a:0,w:"A merkantilizmus a gazdasági nacionalizmus egyik formája: korlátozó kereskedelmi gyakorlatokkal növeli a nemzet jólétét és hatalmát, és támogatja a hazai foglalkoztatást. (07/3)",s:"07. előadás · 3. dia"},
+
+{id:"r2",t:"kereskedelem",type:"mc",q:"Mi a merkantilizmus hatása a fogyasztókra a dia szerint?",
+ o:["Kevesebb import, kevesebb verseny, több monopólium, magasabb árak.",
+    "Több import, nagyobb verseny, kevesebb monopólium, alacsonyabb árak.",
+    "Változatlan import, de a hazai termelők árainak gyors csökkenése.",
+    "Kevesebb export, nagyobb belföldi kínálat, alacsonyabb árszínvonal."],
+ a:0,w:"A kapitalizmus szabad kereskedelme megfizethetőbb árukat kínálhat, míg a merkantilizmus korlátozza az importot és a fogyasztói választást. (07/3)",s:"07. előadás · 3. dia"},
+
+{id:"r3",t:"kereskedelem",type:"mc",q:"Melyik NEM a protekcionizmus eszköze a dia felsorolásában?",
+ o:["A jegybanki alapkamat emelése az infláció letörésére.",
+    "A kvóta, amely az importálható mennyiséget korlátozza.",
+    "A devizamanipuláció, amely gyengíti a nemzeti valutát.",
+    "Az importengedélyezés és a bürokratikus szabványok."],
+ a:0,w:"A dia eszközei: vámok, kvóták, támogatások, importengedélyezés és szabványok, devizamanipuláció. (07/7–8)",s:"07. előadás · 7–8. dia"},
+
+{id:"r4",t:"kereskedelem",type:"mc",q:"Mi a kvóta hatása?",
+ o:["Növeli a belföldi árakat, de a hazai termelő nyereségesen termelhet.",
+    "Csökkenti a belföldi árakat, így a hazai termelő veszteséget termel.",
+    "Nem hat a belföldi árakra, csak az import összetételét változtatja.",
+    "Növeli az import mennyiségét, és csökkenti a hazai termelést."],
+ a:0,w:"A kvóta az importálható mennyiség korlátozása: növeli a belföldi árakat, de a hazai termelő így nyereségesen tud termelni. (07/8)",s:"07. előadás · 8. dia"},
+
+{id:"r5",t:"kereskedelem",type:"mc",q:"Kikhez köthető a kezdő iparág (infant industry) elmélete?",
+ o:["Alexander Hamiltonhoz és Friedrich Listhez.",
+    "Adam Smithhez és David Ricardóhoz.",
+    "John Maynard Keyneshez és Joan Robinsonhoz.",
+    "George Ritzerhez és Michael Porterhez."],
+ a:0,w:"Hamilton az USA pénzügyminisztereként, List 1841-ben A politikai gazdaságtan nemzeti rendszere című művében érvelt az új iparágak ideiglenes védelme mellett. (07/9)",s:"07. előadás · 9. dia"},
+
+{id:"r6",t:"kereskedelem",type:"mc",q:"Mi a kezdő iparág elméletének fő kritikája?",
+ o:["A védett iparág versenyképtelen maradhat, vagy monopóliumot képez.",
+    "A védett iparág túl gyorsan válik versenyképessé a világpiacon.",
+    "A védelem csökkenti a fogyasztói árakat a hazai piacon.",
+    "A védelem kizárólag a tőkeigényes iparágakban alkalmazható."],
+ a:0,w:"A védelem magasabb fogyasztói árakhoz vezet, és az iparág sosem éri el az önállóságot — a dia Dél-Koreát hozza ellenpéldaként. (07/9)",s:"07. előadás · 9. dia"},
+
+{id:"r7",t:"kereskedelem",type:"mc",q:"Milyen piacokra összpontosít a stratégiai kereskedelmi elmélet?",
+ o:["Kevés, erős vállalattal és méretgazdaságossággal bíró oligopóliumokra.",
+    "Sok kis szereplővel működő, tökéletesen versenyző piacokra.",
+    "Állami monopóliumok által uralt, zárt belföldi piacokra.",
+    "Kizárólag a mezőgazdasági termékek világpiacára."],
+ a:0,w:"A kormányok támogatással és vámokkal a profitot a külföldi vállalatoktól a hazaiakhoz csoportosíthatják át; példák: repülőgépipar, félvezetőipar. (07/10)",s:"07. előadás · 10. dia"},
+
+{id:"r8",t:"kereskedelem",type:"mc",q:"Mi a gazdasági liberalizmus alapfeltevése?",
+ o:["A piac szabad és közel tökéletes, a gazdaság önszabályozó.",
+    "A piac tökéletlen, ezért állandó állami korrekcióra szorul.",
+    "A piac szabad, de az árakat a kormányzatnak kell megszabnia.",
+    "A piac zárt, és a nemzeti érdek felülírja a verseny szabályait."],
+ a:0,w:"Egyéni szabadság, magántulajdon, szabad piacok, minimális kormányzati beavatkozás; az árakat, béreket és kibocsátást a kereslet és kínálat határozza meg. (07/11)",s:"07. előadás · 11. dia"},
+
+{id:"r9",t:"kereskedelem",type:"mc",q:"Mit nevez Ritzer „semminek”?",
+ o:["Központilag fogant és ellenőrzött, megkülönböztető tartalom nélküli formákat.",
+    "Őshonos alapon fogant, tartalomban gazdag helyi társadalmi formákat.",
+    "A helyi és a globális elemek keveredéséből születő hibrid formákat.",
+    "A nemzeti kormányok által szabályozott, zárt piaci formákat."],
+ a:0,w:"„Semmi”: bevásárlóközpontok, gyorséttermi láncok, hasonló hitelkártyák. A „valami” ezzel szemben az őshonos, tartalomban gazdag forma — például a helyi piac. (07/15)",s:"07. előadás · 15. dia"},
+
+{id:"r10",t:"kereskedelem",type:"mc",q:"Mi a különbség a globalizáció és a grobalizáció között?",
+ o:["A globalizáció növekvő összekapcsoltság, a grobalizáció hatalomvezérelt terjeszkedés.",
+    "A globalizáció hatalomvezérelt terjeszkedés, a grobalizáció összekapcsoltság.",
+    "A globalizáció a helyi kultúrák védelmét, a grobalizáció a keveredést jelenti.",
+    "A globalizáció kizárólag gazdasági, a grobalizáció kizárólag kulturális folyamat."],
+ a:0,w:"A grobalizáció akkor következik be, amikor a multinacionális vállalatok és a hatalmas országok globálisan terjeszkednek a profit, a piacbővítés és az ideológia terjesztése érdekében. (07/16)",s:"07. előadás · 16. dia"},
+
+{id:"r11",t:"kereskedelem",type:"mc",q:"Mit jelent a glokalizáció?",
+ o:["A globális és a lokális elemek keveredését a helyi gyakorlatban.",
+    "A globális normák egységes rákényszerítését a helyi kultúrákra.",
+    "A lokális piacok teljes elzárását a globális versenytől.",
+    "A globális vállalatok kivonulását a helyi piacokról."],
+ a:0,w:"Ritzer a grobalizáció (globális rendszerek rákényszerítése) és a glokalizáció (keveredés) feszültségére összpontosít; a „valami” glokalizációja utat kínál a sokszínűség megőrzésére. (07/15)",s:"07. előadás · 15. dia"},
+
+{id:"r12",t:"kereskedelem",type:"mc",q:"Mi a kulturális homogenizáció fő hajtóereje a dia szerint?",
+ o:["A tömegmédia, a globalizáció és a multinacionális vállalatok.",
+    "Az állami oktatáspolitika és a nemzeti nyelvi szabályozás.",
+    "A migráció és a kulturális hibridizáció együttes hatása.",
+    "A helyi önkormányzatok és a civil szervezetek működése."],
+ a:0,w:"Ezek egységes nyelveket, szokásokat és fogyasztói gyakorlatokat szorgalmaznak, ami csökkenti a kulturális sokszínűséget. (07/17)",s:"07. előadás · 17. dia"},
+
+{id:"r13",t:"kereskedelem",type:"mc",q:"Mi a hibridizáció tétele az amerikanizáció vitájában?",
+ o:["A kultúrák összeolvadásából új, különálló formák születnek.",
+    "A kultúrák teljesen egységessé válnak egy domináns minta szerint.",
+    "A kultúrák elzárkóznak, és visszatérnek a hagyományaikhoz.",
+    "A kultúrák változatlanok maradnak a globalizáció ellenére."],
+ a:0,w:"Egyesek szerint az amerikanizáció homogenizációhoz vezet, mások szerint hibridizációhoz — a globalizáció, a migráció és a kereskedelem hajtásával. (07/19)",s:"07. előadás · 19. dia"},
+
+{id:"r14",t:"kereskedelem",type:"mc",q:"Mit mutat a vám hatásánál, hogy a PS kisebb ütemben nő, mint amennyivel a CS csökken?",
+ o:["A nemzeti jólét csökken, mert az áremelkedés visszafogja a fogyasztást.",
+    "A nemzeti jólét nő, mert a termelői többlet növekedése a nagyobb.",
+    "A nemzeti jólét változatlan, mert a két hatás pontosan kioltja egymást.",
+    "A nemzeti jólét csak a vámbevétel összegével nő a költségvetésben."],
+ a:0,w:"A jelölések: TR vámbevétel, CS fogyasztói többlet, PS termelői többlet, NW nemzeti jólét. A PS kisebb ütemben nő, mint amennyivel a CS csökken, mert az árak emelkedése miatt a fogyasztás visszaesik. (07/22)",s:"07. előadás · 22. dia"},
+
+{id:"r15",t:"kereskedelem",type:"tf",q:"Jelölje, hogy az alábbi állítások igazak vagy hamisak.",
+ items:[
+  {s:"A gazdasági liberalizmus szerint a piac képes önmagát egyensúlyba hozni.",a:true,w:"Az árak a kereslet és kínálat révén igazodnak; a gazdaság önszabályozó. (07/11)"},
+  {s:"A protekcionizmus rövid távon a hazai termelőknek kedvez, de drágíthat.",a:true,w:"A kvóta mellett a hazai termelő nyereséges, de a védelem magasabb fogyasztói árakhoz vezet. (07/8–9)"},
+  {s:"A stratégiai kereskedelemelmélet tökéletesen versenyző piacokra vonatkozik.",a:false,w:"Éppen a kevés, erős vállalattal működő oligopóliumokra összpontosít. (07/10)"},
+  {s:"A merkantilizmus célja az importkorlátozás és a kereskedelmi többlet.",a:true,w:"Az arany- és ezüstkészlet növelése exporttal, vámokkal és gyarmati tilalmakkal. (07/3)"}
+ ],s:"07. előadás · 3–11. dia"},
+
+{id:"r16",t:"kereskedelem",type:"match",q:"Melyik irányzathoz melyik állítás tartozik?",
+ cats:["Merkantilizmus","Protekcionizmus","Liberalizmus"],
+ items:[
+  {s:"Nemesfém-felhalmozás exporttal, gyarmati kereskedelmi tilalmakkal.",c:0,w:"Gazdasági nacionalizmus a 16–18. században. (07/3)"},
+  {s:"Vámok, kvóták, támogatások és szabványok a hazai ipar védelmére.",c:1,w:"Kulcs: távol tartani vagy drágítani a külföldi árut. (07/7–8)"},
+  {s:"Egyéni szabadság, magántulajdon és minimális állami beavatkozás.",c:2,w:"Laissez faire, önszabályozó piac. (07/11)"},
+  {s:"Devizamanipuláció: a valuta gyengítése az export érdekében.",c:1,w:"A protekcionizmus eszköztárának része. (07/8)"}
+ ],s:"07. előadás · 3–11. dia"},
+
+{id:"r17",t:"kereskedelem",type:"match",q:"Melyik fogalomhoz melyik meghatározás tartozik?",
+ cats:["Globalizáció","Grobalizáció","Glokalizáció","Amerikanizáció"],
+ items:[
+  {s:"Gazdaságok, kultúrák és népességek növekvő kölcsönös függősége.",c:0,w:"Kereskedelem, technológia és befektetés hajtja. (07/16)"},
+  {s:"Multinacionális vállalatok és nagyhatalmak felülről lefelé irányuló terjeszkedése.",c:1,w:"Ritzer fogalma: a „semmi” kultúrájához vezet. (07/16)"},
+  {s:"A globális és a lokális elemek keveredése a helyi gyakorlatban.",c:2,w:"A sokszínűség megőrzésének útja. (07/15)"},
+  {s:"Amerikai popkultúra, üzleti gyakorlatok és szókincs terjedése.",c:3,w:"Homogenizáció vagy hibridizáció kérdése. (07/19)"}
+ ],s:"07. előadás · 15–19. dia"}
+];
 
 (function(){
 "use strict";
