@@ -446,6 +446,17 @@
   .topctl .seg{background:var(--surface)}
   .topctl .seg button{flex:none;padding:8px 14px;font-size:13px}
   .topctl .btn{padding:8px 14px;font-size:13.5px}
+  .startcard{margin-top:4px}
+  .startcard .card-body{padding:30px 26px 32px}
+  .start-k{font:600 11.5px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+  .startcard h3{font:700 clamp(21px,2.4vw,27px)/1.22 var(--display);margin:10px 0 0;letter-spacing:-.015em}
+  .startcard .start-sub{margin:10px 0 0;color:var(--muted);font-size:14.5px;line-height:1.6;max-width:62ch}
+  .start-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:22px 0 24px}
+  .start-box{border:1px solid var(--line);border-radius:14px;padding:16px 16px 14px;background:var(--surface-2,var(--surface))}
+  .start-box b{display:block;font:700 28px/1 var(--display);letter-spacing:-.02em;color:var(--ink)}
+  .start-box span{display:block;margin-top:6px;font:600 11.5px/1.3 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+  .start-note{margin:0;color:var(--muted);font-size:13.5px;line-height:1.6}
+  @media (max-width:640px){.start-grid{grid-template-columns:1fr;gap:10px}.start-box{display:flex;align-items:baseline;gap:12px}.start-box b{font-size:23px}.start-box span{margin-top:0}}
   @media (max-width:700px){
     .topctl{align-items:flex-start;width:100%}
     .topctl-row{width:100%}
@@ -534,10 +545,6 @@
 </div>
 
 <div id="tpl-minta" hidden>
-<p class="sheet-lede">A megírt minta ZH mind a nyolc feladata, a válaszlehetőségekkel együtt — a helyes megoldás bejelölve. Az eredmény <b>87,5%</b> lett, vagyis nyolcból egy feladat nem sikerült; alább megjelöltem, melyik az, és miért.</p>
-
-<p class="mixups"><b>Itt veszett el a 12,5%:</b> az <b>5. feladatnál</b> („A klasszikus közgazdaságtan szerint a válságokat elsősorban az állami túlszabályozás okozza") a helyes válasz <b>HAMIS</b> — a kitöltött lapon viszont IGAZ szerepelt. A klasszikusoknál a válság oka <b>külső zavar</b> (háború, természeti katasztrófa), és a gazdaság önszabályozó; az <b>állami túlszabályozást</b> az <b>osztrák iskola</b> (Mises, Hayek) hibáztatja. A többi hét feladat megoldása egyezik a diákkal.</p>
-
 <div class="card" data-topic="kereskedelem">
   <div class="card-top"><div class="tagrow">
     <span class="tag topic">Kereskedelempolitika, globalizáció</span>
@@ -1619,7 +1626,7 @@ function save(){ try{ localStorage.setItem(LS, JSON.stringify(store)); }catch(e)
 })();
 
 var st = store.settings;
-var state = {view:"quiz", deck:[], i:0, locked:false, tf:{}, ok:0, bad:0, score:0, max:0, done:false, misses:[], kind:{}, mix:{}, order:{}, log:[], notesLec:LECTURES[0].id};
+var state = {view:"quiz", deck:[], i:0, locked:false, tf:{}, ok:0, bad:0, score:0, max:0, done:false, misses:[], kind:{}, mix:{}, order:{}, log:[], started:false, notesLec:LECTURES[0].id};
 try{
   var savedLec = localStorage.getItem(LS + "-lec");
   if(savedLec && LECTURES.some(function(l){ return l.id === savedLec; })) state.notesLec = savedLec;
@@ -1741,6 +1748,7 @@ function renderRail(){
 /* ---------------- kör ---------------- */
 function newRound(){
   var deck, kind = {}, mix = {fresh:0, repeat:0, review:0};
+  state.started = false;
 
   if(state.view === "drill"){
     // előbb a legutóbb elrontottak, aztán a még nem látottak, végül a régen látottak
@@ -1797,7 +1805,7 @@ function newRound(){
   }
 
   state.kind = kind; state.mix = mix; state.order = {};
-  if(state.view === "quiz") startTimer(); else stopTimer();
+  if(state.view === "quiz" && state.started) startTimer(); else stopTimer();
   state.log = [];
   state.deck = deck; state.i = 0; state.locked = false; state.tf = {};
   state.ok = 0; state.bad = 0; state.score = 0; state.max = 0; state.done = false; state.misses = [];
@@ -1849,6 +1857,8 @@ function startTimer(){
 }
 function stopTimer(){ if(timer.id){ clearInterval(timer.id); timer.id = null; } }
 function timeLeft(){ return Math.max(0, timer.end - Date.now()); }
+// indítás előtt a teljes idő látszik, nem 0:00
+function timeShown(){ return timer.id ? timeLeft() : (timer.over ? 0 : ROUND_MIN * 60000); }
 function tickTimer(){
   if(timeLeft() <= 0){
     stopTimer();
@@ -1865,7 +1875,7 @@ function tickTimer(){
 function paintTimer(){
   var t = el("timer");
   if(!t) return;
-  var left = timeLeft(), m = Math.floor(left / 60000), sec = Math.floor(left % 60000 / 1000);
+  var left = timeShown(), m = Math.floor(left / 60000), sec = Math.floor(left % 60000 / 1000);
   t.textContent = m + ":" + ("0" + sec).slice(-2);
   t.parentNode.dataset.state = !timer.id ? "off" : (left < 60000 ? "crit" : (left < 300000 ? "warn" : ""));
 }
@@ -1876,7 +1886,7 @@ function drillControl(){
     '<button class="btn" type="button" id="restart">Új kör</button></div></div>';
 }
 function timerControl(){
-  var left = timeLeft(), m = Math.floor(left / 60000), sec = Math.floor(left % 60000 / 1000);
+  var left = timeShown(), m = Math.floor(left / 60000), sec = Math.floor(left % 60000 / 1000);
   return '<div class="topctl"><span class="lbl">Hátralévő idő</span><div class="topctl-row">'+
     '<span class="tmr" data-state="'+(!timer.id ? "off" : "")+'"><b id="timer">'+m+':'+("0"+sec).slice(-2)+'</b><span>perc</span></span>'+
     '<button class="btn" type="button" id="restart">Új kör</button></div></div>';
@@ -2035,6 +2045,26 @@ function renderQuiz(){
   var htmlHead = head(drill ? "02" : "01", drill ? "Táblázatok" : "Gyakorlás", lede,
                       drill ? drillControl() : timerControl()) + (drill ? "" : mixLine());
 
+  if(!drill && !state.started){
+    main.innerHTML = htmlHead +
+      '<div class="card startcard"><div class="card-body">'+
+        '<span class="start-k">Vizsgaszimuláció</span>'+
+        '<h3>Készen állsz a körre?</h3>'+
+        '<p class="start-sub">Ugyanaz a felépítés és ugyanaz az időkeret, mint az éles ZH-n. Az óra az indításkor kezd visszaszámolni, és a kör a lejártával véget ér.</p>'+
+        '<div class="start-grid">'+
+          '<div class="start-box"><b>30</b><span>perc</span></div>'+
+          '<div class="start-box"><b>25</b><span>kérdés</span></div>'+
+          '<div class="start-box"><b>50</b><span>pont</span></div>'+
+        '</div>'+
+        (state.deck.length
+          ? '<button class="btn primary" type="button" id="startBtn">Teszt indítása</button>'
+          : '<p class="start-note">Ebbe a kérdésbankba még nem került kérdés — a 04–07. előadás anyagából hamarosan jönnek. Addig a Jegyzet, az Előadások és a Számolás menüpont használható.</p>')+
+      '</div></div>';
+    bindTopCtl();
+    var sb = el("startBtn");
+    if(sb) sb.onclick = function(){ state.started = true; startTimer(); render(); };
+    return;
+  }
   if(!state.deck.length){
     main.innerHTML = htmlHead + '<div class="card"><div class="card-body"><p class="empty">Ebbe a kérdésbankba még nem került kérdés — a 04–07. előadás anyagából hamarosan jönnek. Addig a Jegyzet, az Előadások és a Számolás menüpont használható.</p></div></div>';
     bindTopCtl();
