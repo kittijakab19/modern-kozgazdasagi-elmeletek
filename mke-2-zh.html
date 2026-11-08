@@ -487,6 +487,22 @@
   .topctl .seg{background:var(--surface)}
   .topctl .seg button{flex:none;padding:8px 14px;font-size:13px}
   .topctl .btn{padding:8px 14px;font-size:13.5px}
+  /* kérdés–válasz lista */
+  .qa-ctl{display:flex;gap:10px;flex-wrap:wrap;align-items:flex-end;margin:0 0 6px}
+  .qa-field{display:flex;flex-direction:column;gap:6px;min-width:0}
+  .qa-field label{font-family:var(--mono);font-size:10.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--muted)}
+  .qa-field input,.qa-field select{padding:10px 12px;border:1px solid var(--line);border-radius:10px;
+    background:var(--surface);color:var(--ink);font:500 14px var(--ui);min-width:0}
+  .qa-field.grow{flex:1 1 280px}
+  .qa-field.grow input{width:100%}
+  .qa-field input:focus,.qa-field select:focus{outline:none;border-color:var(--hue);box-shadow:0 0 0 3px var(--hue-soft,transparent)}
+  .qa-count{font-family:var(--mono);font-size:11.5px;color:var(--muted);margin:0 0 16px;font-variant-numeric:tabular-nums}
+  .qa-card .counter{font-family:var(--mono);font-size:11px;color:var(--muted)}
+  .qa-card .opt{cursor:default}
+  .qa-card .opt .mark{margin-left:auto;font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;color:var(--good)}
+  .qa-src{display:block;font-family:var(--mono);font-size:10.5px;color:var(--muted);margin-top:12px}
+  .qa-empty{padding:28px 20px;text-align:center;color:var(--muted);font-size:14.5px}
+  mark{background:var(--warn-soft);color:inherit;border-radius:3px;padding:0 2px}
   .startcard{margin-top:4px}
   .startcard .card-body{padding:30px 26px 32px}
   .start-k{font:600 11.5px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
@@ -556,6 +572,7 @@
 
     <nav class="nav" id="nav">
       <button type="button" data-view="quiz" aria-current="true">Gyakorlás <span class="n" id="nav-quiz"></span></button>
+      <button type="button" data-view="qa">Kérdés–válasz <span class="n" id="nav-qa"></span></button>
       <button type="button" data-view="sheet">Jegyzet <span class="n">8 tábla + jegyzet</span></button>
       <button type="button" data-view="notes">Előadások <span class="n">5 diasor · 151 dia</span></button>
       <button type="button" data-view="calc">Számolás <span class="n">SNA · GDP</span></button>
@@ -2432,7 +2449,7 @@ function save(){ try{ localStorage.setItem(LS, JSON.stringify(store)); }catch(e)
 })();
 
 var st = store.settings;
-var state = {view:"quiz", deck:[], i:0, locked:false, tf:{}, ok:0, bad:0, score:0, max:0, done:false, misses:[], kind:{}, mix:{}, order:{}, log:[], started:false, slide:0, notesLec:LECTURES[0].id};
+var state = {view:"quiz", deck:[], i:0, locked:false, tf:{}, ok:0, bad:0, score:0, max:0, done:false, misses:[], kind:{}, mix:{}, order:{}, log:[], started:false, slide:0, qaSearch:"", qaType:"all", qaTopic:"all", notesLec:LECTURES[0].id};
 try{
   var savedLec = localStorage.getItem(LS + "-lec");
   if(savedLec && ["4","5","6","7","sna"].indexOf(savedLec) >= 0) state.notesLec = savedLec;
@@ -2542,6 +2559,8 @@ function renderRail(){
   el("nav-quiz").textContent = state.view === "quiz" && state.deck.length
     ? (Math.min(state.i + 1, state.deck.length) + "/" + state.deck.length)
     : p + " kérdés";
+  var navQa = el("nav-qa");
+  if(navQa) navQa.textContent = Q.length + " kérdés";
   var practiced = Object.keys(store.first).length;
   var navStats = el("nav-stats");
   if(navStats) navStats.textContent = practiced ? practiced + "/" + Q.length : "még üres";
@@ -2640,6 +2659,7 @@ function mixLine(){
 function render(){
   renderRail();
   if(state.view === "quiz" || state.view === "drill") return renderQuiz();
+  if(state.view === "qa") return renderQA();
   if(state.view === "calc") return renderCalc();
   if(state.view === "mintazh") return renderMinta();
   if(state.view === "notes") return renderNotes();
@@ -2741,7 +2761,7 @@ function renderSheet(){
     if(blocks) notes += '<p class="lecsep">'+esc(L.id+". előadás — "+L.name)+'</p>' + blocks;
   });
 
-  el("main").innerHTML = head("02", "Jegyzet",
+  el("main").innerHTML = head("03", "Jegyzet",
     "A 04–07. előadás anyaga: összehasonlító táblázatok és a diákból kiszedett jegyzet, előadásonként.") +
     '<div class="grouphead"><span class="gbadge">Táblázatok</span><span class="gline"></span></div>' +
     el("tpl-sheet").innerHTML +
@@ -2750,12 +2770,143 @@ function renderSheet(){
     notes;
 }
 function renderMinta(){
-  el("main").innerHTML = head("05", "Minta ZH",
+  el("main").innerHTML = head("06", "Minta ZH",
     "A megírt minta ZH nyolc feladata a válaszlehetőségekkel, a helyes megoldás bejelölve.") +
     el("tpl-minta").innerHTML;
 }
+/* ---------------- kérdés–válasz lista ---------------- */
+function norm(x){
+  x = String(x).toLowerCase();
+  if(x.normalize) x = x.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+  return x;
+}
+function hl(escaped, term){
+  if(!term) return escaped;
+  var re;
+  try{ re = new RegExp("(" + term.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + ")", "gi"); }
+  catch(e){ return escaped; }
+  return escaped.replace(re, "<mark>$1</mark>");
+}
+function qaText(q){
+  var parts = [q.q, q.w || "", q.s || "", topicName(q.t)];
+  if(q.o) parts = parts.concat(q.o);
+  if(q.items) q.items.forEach(function(it){ parts.push(it.s); parts.push(it.w || ""); });
+  if(q.cats) parts = parts.concat(q.cats);
+  return norm(parts.join(" \u00b7 "));
+}
+function qaTypeName(q){
+  return q.type === "tf" ? "Igaz–hamis · 4 × 0,25 pont"
+       : q.type === "match" ? "Párosítás · " + q.items.length + " kártya · " + q.cats.length + " oszlop"
+       : "Feleletválasztós · 1 pont";
+}
+function qaCard(q, n, term){
+  var h = '<div class="card qa-card" data-topic="' + q.t + '">' +
+    '<div class="card-top"><div class="tagrow">' +
+      '<span class="tag topic">' + esc(topicName(q.t)) + '</span>' +
+      '<span class="tag">' + esc(qaTypeName(q)) + '</span>' +
+    '</div><span class="counter">' + n + '</span></div>' +
+    '<div class="card-body">' +
+    '<p class="qlead">' + (q.type === "tf" ? "Igaz–hamis: a helyes jelölés bejelölve"
+       : q.type === "match" ? "Párosítás: minden állítás a helyén"
+       : "Feleletválasztós: a helyes válasz megjelölve") + '</p>' +
+    '<h3 class="q">' + hl(esc(q.q), term) + '</h3>';
+
+  if(q.type === "mc"){
+    h += '<div class="opts">';
+    q.o.forEach(function(opt, i){
+      h += '<button class="opt' + (i === q.a ? " right" : "") + '" type="button" disabled>' +
+           '<span class="k">' + "ABCD".charAt(i) + '</span><span>' + hl(esc(opt), term) + '</span>' +
+           (i === q.a ? '<span class="mark">helyes</span>' : "") + '</button>';
+    });
+    h += '</div>';
+  } else if(q.type === "tf"){
+    h += '<div class="tf-list">';
+    q.items.forEach(function(it){
+      h += '<div class="tf-item right"><div class="tf-row">' +
+           '<div class="tf-text">' + hl(esc(it.s), term) + '</div>' +
+           '<div class="tf-seg">' +
+             '<button type="button" data-v="1" aria-pressed="' + (it.a ? "true" : "false") + '" disabled>Igaz</button>' +
+             '<button type="button" data-v="0" aria-pressed="' + (it.a ? "false" : "true") + '" disabled>Hamis</button>' +
+           '</div></div>' +
+           '<div class="tf-why"><b>' + (it.a ? "Igaz." : "Hamis.") + '</b> ' + hl(esc(it.w || ""), term) + '</div></div>';
+    });
+    h += '</div>';
+  } else {
+    h += '<div class="dnd-board">';
+    q.cats.forEach(function(c, ci){
+      h += '<div class="dcol"><div class="dcol-h">' + hl(esc(c), term) + '</div><div class="dcol-body">';
+      q.items.forEach(function(it){
+        if(it.c !== ci) return;
+        h += '<div class="dcard right">' + hl(esc(it.s), term) +
+             (it.w ? '<small>' + hl(esc(it.w), term) + '</small>' : "") + '</div>';
+      });
+      h += '</div></div>';
+    });
+    h += '</div>';
+  }
+
+  if(q.type === "mc" && q.w) h += '<div class="why"><p>' + hl(esc(q.w), term) + '</p></div>';
+  if(q.s) h += '<span class="qa-src">' + esc(q.s) + '</span>';
+  return h + '</div></div>';
+}
+function paintQA(){
+  var box = el("qa-list");
+  if(!box) return;
+  var term = (state.qaSearch || "").trim();
+  var nt = norm(term);
+  var type = state.qaType || "all";
+  var topic = state.qaTopic || "all";
+  var list = Q.filter(function(q){
+    if(type !== "all" && q.type !== type) return false;
+    if(topic !== "all" && q.t !== topic) return false;
+    if(nt && qaText(q).indexOf(nt) < 0) return false;
+    return true;
+  });
+  var cnt = el("qa-count");
+  if(cnt) cnt.textContent = list.length
+    ? list.length + " kérdés" + (list.length !== Q.length ? " a " + Q.length + "-ből" : "")
+    : "Nincs találat";
+  box.innerHTML = list.length
+    ? list.map(function(q, i){ return qaCard(q, (i + 1) + " / " + list.length, term); }).join("")
+    : '<div class="card"><div class="card-body"><p class="qa-empty">Erre nincs találat — próbáld más szóval, vagy állítsd vissza a szűrőket.</p></div></div>';
+}
+function renderQA(){
+  var counts = {};
+  Q.forEach(function(q){ counts[q.type] = (counts[q.type] || 0) + 1; });
+  var topicOpts = '<option value="all">Mind a ' + TOPICS.length + ' témakör</option>' +
+    TOPICS.map(function(t){
+      var n = Q.filter(function(q){ return q.t === t.id; }).length;
+      return '<option value="' + t.id + '"' + (state.qaTopic === t.id ? " selected" : "") + '>' +
+             esc(t.name) + " (" + n + ")</option>";
+    }).join("");
+  var typeOpts = [
+    ["all", "Minden típus (" + Q.length + ")"],
+    ["mc", "Feleletválasztós (" + (counts.mc || 0) + ")"],
+    ["tf", "Igaz–hamis (" + (counts.tf || 0) + ")"],
+    ["match", "Párosítós (" + (counts.match || 0) + ")"]
+  ].map(function(o){
+    return '<option value="' + o[0] + '"' + ((state.qaType || "all") === o[0] ? " selected" : "") + '>' + esc(o[1]) + '</option>';
+  }).join("");
+
+  el("main").innerHTML = head("02", "Kérdés–válasz",
+    "A teljes kérdésbank egyben, a helyes válasz megjelölve és megmagyarázva. Keress rá fogalomra, névre, évszámra vagy diaszámra.") +
+    '<div class="qa-ctl">' +
+      '<div class="qa-field grow"><label for="qa-s">Keresés</label>' +
+        '<input type="search" id="qa-s" placeholder="pl. Kondratyev, GNDI, keiretsu, 06/22" value="' + esc(state.qaSearch || "") + '"></div>' +
+      '<div class="qa-field"><label for="qa-t">Típus</label><select id="qa-t">' + typeOpts + '</select></div>' +
+      '<div class="qa-field"><label for="qa-k">Témakör</label><select id="qa-k">' + topicOpts + '</select></div>' +
+    '</div>' +
+    '<p class="qa-count" id="qa-count"></p>' +
+    '<div id="qa-list"></div>';
+
+  var inp = el("qa-s");
+  inp.oninput = function(){ state.qaSearch = inp.value; paintQA(); };
+  el("qa-t").onchange = function(){ state.qaType = el("qa-t").value; paintQA(); };
+  el("qa-k").onchange = function(){ state.qaTopic = el("qa-k").value; paintQA(); };
+  paintQA();
+}
 function renderCalc(){
-  el("main").innerHTML = head("04", "Számolás",
+  el("main").innerHTML = head("05", "Számolás",
     "SNA-mutatók: képletek, kidolgozott példák és gyakorló feladat generált számokkal.") +
     el("tpl-calc").innerHTML;
   newCalc();
@@ -2919,7 +3070,7 @@ function renderNotes(){
   var notes = notesByPage(lec);
   var note = notes[page];
 
-  var htmlHead = head("03", "Előadások",
+  var htmlHead = head("04", "Előadások",
     L.full + (lec === "sna"
       ? " — a gyakorlat diasora diánként. A kidolgozott példák és a gyakorlófeladat a Számolás menüpontban vannak."
       : " — az eredeti diasor, diánként lapozva. Ahol készült hozzá jegyzet, az a dia alatt olvasható.")) + lecTabs(lec);
